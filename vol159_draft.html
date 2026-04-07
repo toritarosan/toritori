@@ -881,10 +881,15 @@ body {
           <span class="sub">第1回定例会</span>
           <h1 style="font-size: 22px; line-height: 1.5;">予算組替動議が可決。市長がそれに則した対応を表明約束し、<br>市長提案の議案はすべて可決。</h1>
         </div>
-        <!-- クイズテキスト -->
-        <div style="position: absolute; top: 12px; right: 14px; color: white; font-size: 11px; font-weight: 700; text-align: right; line-height: 1.6; text-shadow: 0 1px 4px rgba(0,0,0,0.7); z-index: 5;">
-          ❓ クイズ：ここはどこの公園でしょう。<br>そしてこれはなんでしょう。<br>
-          <span style="font-size: 10px; font-weight: 400; opacity: 0.9;">答えは中面で</span>
+        <!-- クイズ吹き出し -->
+        <div style="position: absolute; top: 16px; right: 16px; background: white; border: 2px solid var(--color-accent-pink); border-radius: 8px; padding: 8px 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 5; transform: rotate(-1deg);">
+          <div style="color: var(--color-text-main); font-size: 13px; font-weight: 900; text-align: center; line-height: 1.4;">
+            ❓ これはなんでしょう？<br>
+            <span style="font-size: 10px; color: var(--color-accent-pink);">答えは最後のページに</span>
+          </div>
+          <!-- 吹き出しのしっぽ -->
+          <div style="position: absolute; bottom: -8px; left: 24px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid var(--color-accent-pink);"></div>
+          <div style="position: absolute; bottom: -5px; left: 24px; width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-top: 8px solid white;"></div>
         </div>
       </div>
 
