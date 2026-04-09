@@ -761,7 +761,19 @@ body {
             <h3 class="topic-heading">市民一人当たり現金5,000円を支給！</h3>
             <div style="display: flex; gap: 12px; align-items: stretch;">
               <p style="flex: 1;">令和8年2月5日に開催した第1回臨時会において可決。国の臨時交付金に市の一般財源を上乗せし、市民一人当たり5,000円の現金給付。手続きが必要な世帯へは、4月1日から案内文が郵送されます。</p>
-              <img src="cash_payment.jpg" style="width: 110px; height: 110px; object-fit:contain; border-radius: 4px; flex-shrink: 0;" alt="5,000円支給">
+              
+              <!-- 添付いただいた画像をHTML/CSSで完全再現 -->
+              <div style="width: 110px; min-height: 110px; background: #f2f6f9; border-radius: 4px; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--font-display); color: #0a1b2d; padding: 8px 4px;">
+                <div style="font-size: 11px; font-weight: 900; margin-bottom: 2px;">市民1人あたり</div>
+                <div style="display: flex; align-items: flex-end; justify-content: center; width: 100%; margin-bottom: 2px;">
+                  <div style="display: flex; flex-direction: column; font-size: 8px; font-weight: 900; line-height: 1.1; margin-right: 2px; margin-bottom: 2px;">
+                    <span>現</span><span>金</span>
+                  </div>
+                  <div style="font-size: 30px; font-weight: 900; line-height: 1; letter-spacing: -1px; text-shadow: 1px 1px 0 #ebd46d, -1px -1px 0 #ebd46d, 1px -1px 0 #ebd46d, -1px 1px 0 #ebd46d, 0 1px 0 #ebd46d, 1px 0 0 #ebd46d, -1px 0 0 #ebd46d, 0 -1px 0 #ebd46d;">5,000</div>
+                  <div style="font-size: 13px; font-weight: 900; line-height: 1; margin-bottom: 2px; text-shadow: 1px 1px 0 #ebd46d, -1px -1px 0 #ebd46d, 1px -1px 0 #ebd46d, -1px 1px 0 #ebd46d; margin-left: 1px;">円</div>
+                </div>
+                <div style="font-size: 15px; font-weight: 900;">を給付</div>
+              </div>
             </div>
           </div>
         </div>
@@ -821,10 +833,10 @@ body {
               ダミーテキスト
               <div style="position: absolute; bottom: -4px; left: 10px; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 5px solid #e4007f;"></div>
             </div>
-            <h3 class="topic-heading">防災担当部長をあらたに配置</h3>
+            <h3 class="topic-heading">防災安全担当部長をあらたに配置</h3>
             <div style="display: flex; gap: 12px; align-items: stretch; flex: 1;">
               <p style="flex: 1;">市の災害への備えと災害への対応力を高めるために、あらたに「防災安全担当部長」が配置されました。災害時の初動を確実なものとし、対策本部の機能をさらに高めるための施策です。</p>
-              <img src="bousai_v2.png" style="width: 90px; height: 110px; object-fit:contain; border-radius: 4px; flex-shrink: 0;" alt="東京防災">
+              <img src="防災安全担当部長.png" style="width: 90px; height: 110px; object-fit:contain; border-radius: 4px; flex-shrink: 0;" alt="防災安全担当部長">
             </div>
             <!-- クイズの答え枠 -->
             <div style="margin-top: 10px; background: var(--color-bg-light); border: 2px solid var(--color-primary); border-radius: 6px; padding: 6px 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
@@ -1203,10 +1215,7 @@ body {
     </div> <!-- /ippan-section -->
     </div> <!-- /main content -->
 
-    <!-- ===== RIGHT SIDEBAR ===== -->
-    <div style="width: 28px; background: transparent; display:flex; align-items:center; justify-content:center; flex-shrink:0; writing-mode: vertical-rl; text-orientation: mixed;">
-      <span style="color: #333; font-size: 10px; font-weight: 400; letter-spacing: 2px; white-space: nowrap;">クイズの答え</span>
-    </div>
+
 
   </div>
 </div>
