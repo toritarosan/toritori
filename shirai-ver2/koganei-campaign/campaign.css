@@ -151,7 +151,7 @@ ul { list-style: none; }
 .hero-title .yellow { color: var(--yellow); }
 .hero-title .underline { position: relative; display: inline-block; }
 .hero-title .underline::after { content: ""; position: absolute; left: -1%; right: -1%; bottom: .1em; height: .1em;
-  background: var(--yellow); border-radius: 999px; z-index: -1; opacity: .92; }
+  background: var(--yellow); border-radius: 999px; z-index: -1; opacity: .65; }
 .hero-sub { margin-top: 22px; font-family: var(--font-round); font-weight: 500; font-size: 1.18rem; line-height: 2.1; max-width: 26em; color: rgba(255,255,255,.96);
   text-shadow: 0 1px 10px rgba(0,60,100,.18); }
 .hero-cta { display: flex; gap: 13px; margin-top: 30px; flex-wrap: wrap; }
@@ -319,25 +319,25 @@ ul { list-style: none; }
 /* =================================================================
    SUPPORT CTA
    ================================================================= */
-.support .support-card { background: var(--pop); color: #fff; border-radius: var(--r-lg); padding: clamp(40px, 6vw, 72px);
-  position: relative; overflow: hidden; box-shadow: var(--shadow-lg); }
-.support-card::before { content: ""; position: absolute; right: -70px; top: -70px; width: 340px; height: 340px; border-radius: 50%; background: rgba(255,255,255,.14); }
-.support-card::after { content: ""; position: absolute; left: -50px; bottom: -80px; width: 240px; height: 240px; border-radius: 50%; background: var(--yellow); opacity: .22; }
+.support .support-card { background: transparent; color: var(--ink); border: 6px solid var(--pop); border-radius: var(--r-lg); padding: clamp(40px, 6vw, 72px);
+  position: relative; overflow: hidden; box-shadow: none; }
+.support-card::before { display: none; }
+.support-card::after { display: none; }
 .support-inner { position: relative; z-index: 1; max-width: 660px; }
 .support-card .sup-no { font-family: var(--font-en); font-weight: 800; letter-spacing: .14em; opacity: .9; }
-.support-card h2 { font-family: var(--font-round); font-weight: 900; font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.4; margin-top: 6px; }
-.support-card p { margin-top: 16px; line-height: 2; opacity: .96; }
+.support-card h2 { font-family: var(--font-round); font-weight: 900; font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.4; margin-top: 6px; color: var(--ink); }
+.support-card p { margin-top: 16px; line-height: 2; opacity: 1; color: var(--ink-soft); font-weight: 500; }
 .support-actions { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
 .support-actions .btn { padding: 15px 30px; font-size: 1rem; }
-.support-actions .btn-w { background: #fff; color: var(--pop-deep); box-shadow: var(--shadow-md); }
+.support-actions .btn-w { background: #fff; color: var(--pop-deep); box-shadow: var(--shadow-md); border: 2px solid var(--pop); }
 .support-actions .btn-w .arrow { background: var(--pop-pale); color: var(--pop-deep); }
-.support-actions .btn-yellow { background: var(--yellow); color: var(--ink); }
+.support-actions .btn-yellow { background: var(--yellow); color: var(--ink); border: none; }
 .support-actions .btn-yellow .arrow { background: rgba(0,0,0,.12); }
 
 /* =================================================================
    FOOTER
    ================================================================= */
-.site-footer { background: var(--ink); color: #fff; padding: 60px 0 0; overflow: hidden; }
+.site-footer { background: var(--blue); color: #fff; padding: 60px 0 0; overflow: hidden; }
 .footer-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 38px; }
 .footer-brand .brand-mark { transform: none; }
 .footer-brand .fb-name { font-family: var(--font-round); font-weight: 900; font-size: 1.4rem; letter-spacing: .05em; margin-top: 16px; }
@@ -356,6 +356,10 @@ ul { list-style: none; }
 .footer-banner-track { display: flex; white-space: nowrap; animation: marquee 32s linear infinite; }
 .footer-banner-track span { font-family: var(--font-en); font-weight: 900; font-size: clamp(3rem, 8vw, 6rem); color: rgba(255,255,255,.07);
   letter-spacing: .04em; text-transform: uppercase; padding-right: 40px; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 @media (prefers-reduced-motion: reduce) { .footer-banner-track { animation: none; } }
 
 /* =================================================================
