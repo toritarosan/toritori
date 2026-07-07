@@ -6,7 +6,7 @@ const TONE_LABELS = Object.keys(TONE_MAP);
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "tone": "青×ピンク",
   "corners": "まるい",
-  "heroLine1": "みんなでつくろう。",
+  "heroLine1": "ともにつくろう。",
   "heroLine2": "いろいろが彩るまち",
   "floatCta": true,
   "marquee": true
