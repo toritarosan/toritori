@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="hero-visual reveal d1">
-        <img src="uploads/IMG_4174_-removebg-preview-a41933ad.png" alt="白井とおる" class="hero-photo">
+        <img src="uploads/shiraiportlait.png" alt="白井とおる" class="hero-photo">
         <div class="hero-nameplate">
           <span class="np-shadow" aria-hidden="true"></span>
           <span class="np-back" aria-hidden="true"></span>
@@ -98,7 +98,7 @@
 
       <div class="achv-stats reveal">
         <div class="stat"><div class="num">54<span class="unit">件</span></div><div class="lbl">実現・着手した取り組み</div><div class="desc">12分野にわたる具体的な実績</div></div>
-        <div class="stat"><div class="num">12<span class="unit">分野</span></div><div class="lbl">暮らしのすべてに</div><div class="desc">子育て・教育・福祉・防災・環境ほか</div></div>
+        <div class="stat"><div class="num">12<span class="unit">分野</span></div><div class="lbl">あらゆる分野で前進</div><div class="desc">子育て・教育・福祉・防災・環境ほか</div></div>
         <div class="stat"><div class="num">9<span class="unit">件</span></div><div class="lbl">企業・団体との連携協定</div><div class="desc">官民共創でまちの力を広げる</div></div>
       </div>
 
@@ -123,7 +123,7 @@
       <div class="profile-inner">
         <div class="profile-photo-col reveal">
           <div class="profile-photo">
-            <img src="uploads/IMG_1555 白井亨.JPG" alt="白井とおる">
+            <img src="uploads/profile-portrait-2.png" alt="白井とおる">
           </div>
           <div class="profile-photo-cap">
             <div class="nm">白井 とおる</div>
@@ -137,7 +137,7 @@
             <div class="fact"><div class="k">経歴</div><div class="v">民間企業 約15年<br><small>企画・マーケティング</small></div></div>
             <div class="fact"><div class="k">家族</div><div class="v">妻・小学生2人<br><small>毎日朝食づくり担当</small></div></div>
             <div class="fact"><div class="k">資格</div><div class="v">国家資格<br><small>キャリアコンサルタント</small></div></div>
-            <div class="fact"><div class="k">公職</div><div class="v">マニフェスト大賞<br><small>実行委員長（2020・2021）</small></div></div>
+            <div class="fact"><div class="k"></div><div class="v">マニフェスト大賞<br><small>実行委員長（2020・2021）</small></div></div>
           </div>
           <div class="timeline">
             <div class="tl-item"><div class="tl-year">1975</div><div class="tl-text">大阪府枚方市に生まれる。関西大学社会学部を卒業。</div></div>
@@ -175,10 +175,10 @@
         <div class="support-inner">
 
           <h2>あなたの応援が、<br>まちを動かす力になります。</h2>
-          <p>ボランティア、SNSでのシェア、ポスター掲示など、できることから。一緒に「おもしろい小金井」をつくりましょう。</p>
+          <p>ボランティア、SNSでのシェア、ポスター掲示など、できることから。一緒に</p>
           <div class="support-actions">
-            <a href="#" class="btn btn-w">ボランティア登録 <span class="arrow">→</span></a>
-            <a href="#" class="btn btn-yellow">公式LINEで受け取る <span class="arrow">→</span></a>
+            <a href="https://forms.gle/bF9sboPknsSvbjzA6" class="btn btn-w">サポーターズ登録 <span class="arrow">→</span></a>
+            <a href="https://line.me/R/ti/p/%40969gipwd" class="btn btn-yellow">白井とおる公式LINE <span class="arrow">→</span></a>
           </div>
         </div>
       </div>
@@ -291,10 +291,11 @@
       { c:"物価高騰対策", t:"市民1人あたり現金5,000円給付事業", m:"" },
     ];
 
+    // events[0].md intentionally left empty (was "調整中") — removed per review comment.
+    // To restore: set md back to "調整中". Style is unchanged, still in campaign.css:
+    // .event .date .md { font-family: var(--font-round); font-weight: 900; font-size: 1.2rem; line-height: 1.2; color: var(--accent); }
     const EVENTS = [
-      { md:"調整中", title:"個人演説会（武蔵小金井駅周辺）", place:"会場・日時は調整中です", time:"日程調整中" },
-      { md:"調整中", title:"街頭演説（東小金井駅 南口）", place:"会場・日時は調整中です", time:"日程調整中" },
-      { md:"調整中", title:"こがおもカフェ（市民との対話会）", place:"会場・日時は調整中です", time:"日程調整中" },
+      { md:"2026.6.25", title:"Instagramアカウント作りました。", place:"", time:"" }, // ev-place removed per review; style: .event .info .ev-place { font-size: .88rem; color: var(--ink-soft); margin-top: 4px; }
     ];
 
     // ---- Marquee (removed) ----
@@ -322,10 +323,16 @@
     }
     function renderCards() {
       const list = activeCat === "すべて" ? ACHIEVEMENTS : ACHIEVEMENTS.filter(a => a.c === activeCat);
-      const shown = expanded ? list : list.slice(0, COLLAPSED);
-      grid.innerHTML = shown.map(a => `<article class="acard" style="${catStyle(a.c)}"><div class="a-cat-row"><span class="cat">${a.c}</span><span class="cat-line"></span></div><h3 class="a-title">${a.t}</h3><div class="a-divider"></div>${a.m?`<div class="a-meta">${a.m}</div>`:''}<span class="a-arrow" aria-hidden="true">→</span></article>`).join('');
+      // 初期表示（すべて・折りたたみ時）は各分野から1件ずつ抜き出して分野の広さを見せる
+      const collapsed = activeCat === "すべて"
+        ? CAT_ORDER.map(c => ACHIEVEMENTS.find(a => a.c === c)).filter(Boolean)
+        : list.slice(0, COLLAPSED);
+      const shown = expanded ? list : collapsed;
+      // 実績カードの矢印（→）は現在リンク先ページが無いため非表示。復活させるには下の a.map 内、
+      // ${a.m?...} の直後に `<span class="a-arrow" aria-hidden="true">→</span>` を戻す（.a-arrow のCSSはcampaign.cssに保持済み）。
+      grid.innerHTML = shown.map(a => `<article class="acard" style="${catStyle(a.c)}"><div class="a-cat-row"><span class="cat">${a.c}</span><span class="cat-line"></span></div><h3 class="a-title">${a.t}</h3><div class="a-divider"></div>${a.m?`<div class="a-meta">${a.m}</div>`:''}</article>`).join('');
       const toggle = document.getElementById('achv-toggle');
-      if (list.length <= COLLAPSED) toggle.style.display = 'none';
+      if (list.length <= collapsed.length) toggle.style.display = 'none';
       else { toggle.style.display = ''; toggle.innerHTML = expanded ? '閉じる <span class="arrow">↑</span>' : `すべての実績を見る（${list.length}件）<span class="arrow">↓</span>`; }
       observeReveals();
     }
@@ -335,7 +342,7 @@
     });
 
     // partner-grid removed
-    document.getElementById('event-list').innerHTML = EVENTS.map(e => `<div class="event"><div class="date"><div class="md">${e.md}</div></div><div class="info"><div class="ev-title">${e.title}</div><div class="ev-place">${e.place}</div></div><div class="ev-time">${e.time}</div></div>`).join('');
+    document.getElementById('event-list').innerHTML = EVENTS.map(e => `<div class="event"><div class="date">${e.md?`<div class="md">${e.md}</div>`:''}</div><div class="info"><div class="ev-title">${e.title}</div>${e.place?`<div class="ev-place">${e.place}</div>`:''}</div>${e.time?`<div class="ev-time">${e.time}</div>`:''}</div>`).join('');
 
     renderChips(); renderCards();
 

@@ -95,7 +95,7 @@ ul { list-style: none; }
 .btn {
   display: inline-flex; align-items: center; gap: 9px;
   font-family: var(--font-round); font-weight: 700; font-size: .95rem;
-  padding: 12px 24px; border-radius: 999px;
+  padding: 12px 24px; border-radius: 999px; white-space: nowrap;
   transition: transform .2s var(--ease), box-shadow .2s var(--ease), background-color .2s;
 }
 .btn .arrow { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: .8rem; background: rgba(255,255,255,.24); }
@@ -226,17 +226,23 @@ ul { list-style: none; }
    ACHIEVEMENTS
    ================================================================= */
 .achv-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 48px; }
+/* Original design (pre "remove AI look" request) — restore by swapping back in if needed:
 .stat { background: var(--card); border-radius: var(--r-md); padding: 28px 26px; box-shadow: var(--shadow-sm); border: 1px solid var(--line-soft); position: relative; overflow: hidden; }
 .stat::after { content: ""; position: absolute; right: -30px; top: -30px; width: 90px; height: 90px; border-radius: 50%; background: var(--accent-pale); }
+.stat:nth-child(2)::after { background: var(--pop-pale); }
+*/
+.stat { background: color-mix(in srgb, var(--accent) 5%, #fff); border-radius: var(--r-md); padding: 28px 26px; box-shadow: var(--shadow-sm); border: 1px solid color-mix(in srgb, var(--accent) 14%, transparent); position: relative; }
+.stat:nth-child(2) { background: color-mix(in srgb, var(--pop) 5%, #fff); border-color: color-mix(in srgb, var(--pop) 14%, transparent); }
+.stat::before { content: ""; display: block; width: 30px; height: 4px; border-radius: 2px; background: var(--accent); margin-bottom: 16px; }
+.stat:nth-child(2)::before { background: var(--pop); }
 .stat .num { font-family: var(--font-en); font-weight: 900; color: var(--accent); font-size: clamp(2.6rem, 5vw, 3.5rem); line-height: 1; display: flex; align-items: baseline; gap: 5px; position: relative; }
 .stat:nth-child(2) .num { color: var(--pop); }
-.stat:nth-child(2)::after { background: var(--pop-pale); }
 .stat .num .unit { font-size: 1.1rem; color: var(--ink); font-family: var(--font-round); }
 .stat .lbl { margin-top: 10px; font-weight: 700; font-size: .98rem; position: relative; }
 .stat .desc { margin-top: 3px; font-size: .82rem; color: var(--ink-faint); line-height: 1.7; position: relative; }
 
 .achv-filter { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
-.chip { font-family: var(--font-round); font-weight: 700; font-size: .9rem; padding: 10px 18px; border-radius: 999px;
+.chip { font-family: var(--font-round); font-weight: 700; font-size: .9rem; padding: 10px 18px; border-radius: 10px;
   background: var(--card); box-shadow: inset 0 0 0 2px var(--line); color: var(--ink-soft); transition: all .2s var(--ease); white-space: nowrap; }
 .chip:hover { box-shadow: inset 0 0 0 2px var(--accent); color: var(--accent-deep); transform: translateY(-1px); }
 .chip.active { background: var(--accent); color: #fff; box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 34%, transparent); }
@@ -256,10 +262,10 @@ ul { list-style: none; }
   color: #1c2333; letter-spacing: .01em; text-wrap: pretty; }
 .acard .a-divider { height: 1px; background: var(--line); margin: 18px 0 14px; }
 .acard .a-meta { font-size: .84rem; color: var(--ink-soft); font-weight: 500; padding-right: 60px; }
-.acard .a-arrow { position: absolute; right: 0; bottom: 0; width: 56px; height: 56px; background: var(--navy);
-  display: flex; align-items: center; justify-content: center; color: var(--arrow-fg, #fff); font-size: 1.35rem; line-height: 1;
-  transition: background .2s var(--ease); }
-.acard:hover .a-arrow { background: var(--navy-deep); }
+.acard .a-arrow { position: absolute; right: 28px; bottom: 24px; width: 34px; height: 34px; background: transparent; border: 1.5px solid var(--navy); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; color: #1c2333; font-size: 1rem; line-height: 1;
+  transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease); }
+.acard:hover .a-arrow { background: var(--navy); color: var(--arrow-fg, #fff); }
 .achv-more { display: flex; justify-content: center; margin-top: 34px; }
 
 /* =================================================================
@@ -284,7 +290,7 @@ ul { list-style: none; }
 .profile-photo-cap .roma { font-family: var(--font-en); font-size: .74rem; letter-spacing: .18em; color: var(--ink-faint); margin-top: 2px; }
 .profile-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 38px; }
 .fact { background: var(--card); border-radius: var(--r-sm); padding: 16px 18px; box-shadow: var(--shadow-sm); border: 1px solid var(--line-soft); }
-.fact .k { font-size: .74rem; color: var(--accent-deep); font-weight: 700; font-family: var(--font-round); letter-spacing: .04em; }
+.fact .k { font-size: .74rem; color: var(--accent-deep); font-weight: 700; font-family: var(--font-round); letter-spacing: .04em; min-height: 1.1em; }
 .fact .v { margin-top: 4px; font-weight: 700; font-size: .98rem; line-height: 1.5; }
 .fact .v small { font-weight: 500; color: var(--ink-soft); font-size: .82rem; }
 .timeline { position: relative; padding-left: 30px; }
