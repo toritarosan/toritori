@@ -28,8 +28,15 @@
         <a href="#events" class="nav-link">お知らせ</a>
       </nav>
       <a href="#support" class="btn btn-pop header-cta">応援する <span class="arrow">♡</span></a>
-      <button class="nav-burger" id="burger" aria-label="メニュー"><span></span></button>
+      <button class="nav-burger" id="burger" aria-label="メニュー" aria-expanded="false"><span></span></button>
     </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="#message" class="nav-link">メッセージ</a>
+      <a href="#achievements" class="nav-link">4年間の実績</a>
+      <a href="#profile" class="nav-link">プロフィール</a>
+      <a href="#events" class="nav-link">お知らせ</a>
+      <a href="#support" class="btn btn-pop header-cta">応援する <span class="arrow">♡</span></a>
+    </nav>
   </header>
 
   <!-- ============ HERO ============ -->
@@ -373,7 +380,18 @@
       const id = a.getAttribute('href'); if (id === '#' || id.length < 2) return;
       const target = document.querySelector(id); if (target) { e.preventDefault(); target.scrollIntoView({ behavior:'smooth', block:'start' }); }
     }));
-    document.getElementById('burger')?.addEventListener('click', () => { location.hash = '#achievements'; });
+    document.getElementById('burger')?.addEventListener('click', () => {
+      const burger = document.getElementById('burger');
+      const menu = document.getElementById('mobile-nav');
+      const isOpen = menu.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+    });
+    document.querySelectorAll('#mobile-nav a').forEach(a => a.addEventListener('click', () => {
+      document.getElementById('mobile-nav').classList.remove('open');
+      document.getElementById('burger').classList.remove('open');
+      document.getElementById('burger').setAttribute('aria-expanded', 'false');
+    }));
   </script>
 
   <script src="koganei-campaign/image-slot.js"></script>
