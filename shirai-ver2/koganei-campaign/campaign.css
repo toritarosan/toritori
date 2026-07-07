@@ -120,7 +120,7 @@ ul { list-style: none; }
   display: grid; place-items: center; font-family: var(--font-round); font-weight: 900; font-size: 1.2rem;
   box-shadow: var(--shadow-sm); transform: rotate(-5deg); transition: transform .3s var(--ease); }
 .brand:hover .brand-mark { transform: rotate(0) scale(1.05); }
-.brand-name { font-family: var(--font-round); font-weight: 900; font-size: 1.65rem; letter-spacing: .04em; line-height: 1.15; white-space: nowrap; }
+.brand-name { font-family: var(--font-round); font-weight: 900; font-size: 2.05rem; letter-spacing: .04em; line-height: 1.15; white-space: nowrap; }
 .brand-sub { font-family: var(--font-en); font-size: 1.55rem; letter-spacing: .15em; color: var(--accent-deep); font-weight: 800; }
 .nav { display: flex; align-items: center; gap: 2px; }
 .nav-link { font-family: var(--font-round); font-weight: 700; font-size: 1.08rem; padding: 9px 14px; border-radius: 999px;
@@ -216,7 +216,7 @@ ul { list-style: none; }
 .message-q .pop { color: var(--pop); }
 .message-body { margin-top: 26px; color: var(--ink-soft); font-size: 1.3rem; line-height: 2.2; font-family: var(--font-round); font-weight: 500; }
 .message-sign { margin-top: 26px; font-family: var(--font-jp); font-weight: 700; font-size: 2rem; }
-.message-sign .nm { font-size: 2.8rem; letter-spacing: .08em; }
+.message-sign .nm { font-size: 2.8rem; letter-spacing: .08em; margin-left: 16px; }
 .sp-br { display: none; }
 .message-vertical { writing-mode: vertical-rl; text-orientation: mixed; font-family: var(--font-round); font-weight: 900;
   font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1.45; letter-spacing: .12em; color: var(--accent);
