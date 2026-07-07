@@ -112,6 +112,7 @@ ul { list-style: none; }
    ================================================================= */
 .site-header { position: fixed; inset: 0 0 auto 0; z-index: 100; height: 74px; display: flex; align-items: center;
   transition: background-color .35s var(--ease), box-shadow .35s var(--ease), height .35s var(--ease); }
+.site-header .wrap { position: relative; }
 .site-header.solid { background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(14px) saturate(1.1);
   box-shadow: 0 1px 0 var(--line), var(--shadow-sm); height: 64px; }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; width: 100%; }
@@ -129,6 +130,7 @@ ul { list-style: none; }
 .header-cta { padding: 10px 20px; font-size: .86rem; white-space: nowrap; background: var(--yellow); color: var(--ink); box-shadow: 0 8px 20px color-mix(in srgb, var(--yellow) 36%, transparent); }
 .header-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 30px color-mix(in srgb, var(--yellow) 46%, transparent); }
 .nav-burger { display: none; }
+.mobile-nav { display: none; }
 
 /* =================================================================
    HERO — gradient + window grid + white bottom bar (イチゼン式)
@@ -404,6 +406,14 @@ ul { list-style: none; }
   .nav-burger { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; background: var(--card); box-shadow: inset 0 0 0 2px var(--line); }
   .nav-burger span, .nav-burger span::before, .nav-burger span::after { content: ""; display: block; width: 20px; height: 2px; background: var(--ink); border-radius: 2px; position: relative; }
   .nav-burger span::before { position: absolute; top: -6px; } .nav-burger span::after { position: absolute; top: 6px; }
+  .nav-burger.open span { background: transparent; }
+  .nav-burger.open span::before { top: 0; transform: rotate(45deg); }
+  .nav-burger.open span::after { top: 0; transform: rotate(-45deg); }
+  .mobile-nav { display: none; flex-direction: column; gap: 4px; background: var(--paper); border-top: 1px solid var(--line-soft);
+    box-shadow: var(--shadow-md); padding: 14px 20px 20px; position: absolute; top: 100%; left: 0; right: 0; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav .nav-link { padding: 12px 6px; font-size: 1.1rem; text-align: left; border-radius: 10px; }
+  .mobile-nav .header-cta { justify-content: center; margin-top: 8px; }
   .sec-head { padding-left: 0; } .sec-head::before { display: none; }
   .achv-stats { grid-template-columns: 1fr; }
   .achv-grid { grid-template-columns: 1fr; }
