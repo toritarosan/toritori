@@ -313,7 +313,7 @@
     // ---- Achievements ----
     const grid = document.getElementById('achv-grid');
     const filter = document.getElementById('achv-filter');
-    const cats = ["すべて", ...Array.from(new Set(ACHIEVEMENTS.map(a => a.c)))];
+    const cats = [...Array.from(new Set(ACHIEVEMENTS.map(a => a.c))), "すべて"];
     let activeCat = "すべて", expanded = false;
     const COLLAPSED = 9;
     const catCount = (cat) => cat === "すべて" ? ACHIEVEMENTS.length : ACHIEVEMENTS.filter(a => a.c === cat).length;
