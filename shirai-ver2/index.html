@@ -4,20 +4,20 @@
   <link rel="icon" type="image/png" href="uploads/supporterslogo.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>白井とおる 公式サイト ｜ 小金井を、もっとおもしろく。</title>
+  <title>白井とおる2026 ともにつくろう。いろいろが彩るまち</title>
   <meta name="description" content="小金井市長 白井とおる 公式サイト。4年間の確かな実績とともに、市民に近い、あたたかい市政を。子育て・教育・福祉・防災・環境の取り組みをご紹介します。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="koganei-campaign/campaign.css">
 </head>
-<body style="font-size: 30px">
+<body>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="header" data-screen-label="ヘッダー">
     <div class="wrap">
       <a href="#top" class="brand">
         <span class="brand-text">
-          <span class="brand-name" style="font-size: 28px">白井とおる</span>
+          <span class="brand-name">白井とおる</span>
           <span class="brand-sub">2026</span>
         </span>
       </a>
@@ -48,14 +48,17 @@
     <div class="wrap hero-inner">
       <div class="hero-copy reveal">
         <h1 class="hero-title" id="hero-headline"><span class="underline">ともにつくろう。</span><br><span class="underline">いろいろが彩るまち</span></h1>
-        <p class="hero-sub" id="hero-sub" style="font-size: 22px; line-height: 1.6">市民参加・協働と地域資源を活用し、多様性を尊重し合うあらゆる世代のすべての市民が暮らしやすい街づくりをめざします。</p>
-        <div class="hero-cta" style="margin-top: 110px">
+        <p class="hero-sub" id="hero-sub">市民参加・協働と地域資源を活用し、多様性を尊重し合うあらゆる世代のすべての市民が暮らしやすい街づくりをめざします。</p>
+        <div class="hero-cta">
           <a href="#achievements" class="btn btn-on-blue">4年間の実績を見る <span class="arrow">→</span></a>
 
         </div>
       </div>
       <div class="hero-visual reveal d1">
-        <img src="uploads/shiraiportlait.png" alt="白井とおる" class="hero-photo">
+        <picture>
+          <source srcset="uploads/shiraiportlait.webp" type="image/webp">
+          <img src="uploads/shiraiportlait.png" alt="白井とおる" class="hero-photo" width="945" height="1200" fetchpriority="high" decoding="async">
+        </picture>
         <div class="hero-nameplate">
           <span class="np-shadow" aria-hidden="true"></span>
           <span class="np-back" aria-hidden="true"></span>
@@ -73,7 +76,7 @@
   <!-- ============ INTRO BAND ============ -->
   <div class="intro-band">
     <div class="wrap intro-inner reveal">
-      <p class="intro-lead" style="font-size: 60px">次の<br>小金井市へ。</p>
+      <p class="intro-lead">次の<br>小金井市へ。</p>
     </div>
   </div>
 
@@ -81,15 +84,15 @@
   <section class="sec message" id="message" data-screen-label="メッセージ">
     <div class="wrap message-inner reveal">
       <div>
-        <p class="message-q" style="font-size: 45px">課題解決と魅力の再構築へ</p>
-        <div class="message-body" style="font-size: 23px">
+        <p class="message-q">課題解決と魅力の再構築へ</p>
+        <div class="message-body">
           2022年10月、前市長の突然の辞職から市長選挙となり、11月27日に就任。保育園問題をはじめ山積する市政課題と向き合い続けた3年半でした。<br><br>
           行政改革の実行・組織の活性化・市民との協働を軸に、行財政改革2030やDX推進アクションプランを策定・実践してきました。副市長2人を外部から招聘し、市報刷新・公式LINE導入など市政の「見える化」「自分ごと化」にも取り組んできました。<br><br>
           課題はまだ多く、小さな成果を積み重ねながら日々格闘しています。
         </div>
         <div class="message-sign"><span>小金井市長</span><br class="sp-br"> <span class="nm">白井とおる</span></div>
       </div>
-      <div class="message-vertical" style="border-width: 0px 12px 0px 0px">次の小金井市に向けて、前進</div>
+      <div class="message-vertical">次の小金井市に向けて、前進</div>
     </div>
   </section>
 
@@ -131,7 +134,10 @@
       <div class="profile-inner">
         <div class="profile-photo-col reveal">
           <div class="profile-photo">
-            <img src="uploads/profile-portrait-2.png" alt="白井とおる">
+            <picture>
+              <source srcset="uploads/profile-portrait-2.webp" type="image/webp">
+              <img src="uploads/profile-portrait-2.png" alt="白井とおる" width="950" height="1200" loading="lazy" decoding="async">
+            </picture>
           </div>
           <div class="profile-photo-cap">
             <div class="nm">白井 とおる</div>
@@ -234,8 +240,6 @@
       </div>
     </div>
   </footer>
-
-  <div id="tweaks-root"></div>
 
   <!-- ============ DATA + VANILLA JS ============ -->
   <script>
@@ -393,13 +397,6 @@
       document.getElementById('burger').setAttribute('aria-expanded', 'false');
     }));
   </script>
-
-  <script src="koganei-campaign/image-slot.js"></script>
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-  <script type="text/babel" src="koganei-campaign/tweaks-panel.jsx"></script>
-  <script type="text/babel" src="koganei-campaign/tweaks-app.jsx"></script>
 
 </body>
 <template id="__bundler_thumbnail">
