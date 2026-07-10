@@ -47,7 +47,8 @@
     <div class="hero-windows"><span></span><span></span><span></span><span></span><span></span></div>
     <div class="wrap hero-inner">
       <div class="hero-copy reveal">
-        <h1 class="hero-title" id="hero-headline"><span class="underline">ともにつくろう。</span><br><span class="underline">いろいろが彩るまち</span></h1>
+        <!-- 元に戻す場合: 両方の span class="yellow" を class="underline" に戻す -->
+        <h1 class="hero-title" id="hero-headline"><span class="yellow">ともにつくろう。</span><br><span class="yellow">いろいろが彩るまち</span></h1>
         <p class="hero-sub" id="hero-sub">市民参加・協働と地域資源を活用し、多様性を尊重し合うあらゆる世代のすべての市民が暮らしやすい街づくりをめざします。</p>
         <div class="hero-cta">
           <a href="#achievements" class="btn btn-on-blue">4年間の実績を見る <span class="arrow">→</span></a>
@@ -193,10 +194,39 @@
           <div class="support-actions">
             <a href="https://forms.gle/bF9sboPknsSvbjzA6" class="btn btn-w" target="_blank" rel="noopener">サポーターズ登録 <span class="arrow">→</span></a>
             <a href="https://line.me/R/ti/p/%40969gipwd" class="btn btn-yellow" target="_blank" rel="noopener">白井とおる公式LINE <span class="arrow">→</span></a>
+            <button type="button" class="terms-link" id="terms-open">サポーターズ規約を読む</button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- 規約モーダル -->
+    <dialog class="terms-dialog" id="terms-dialog" aria-labelledby="terms-title">
+      <div class="terms-head">
+        <div>
+          <div class="terms-en">TERMS</div>
+          <h3 id="terms-title">白井とおるサポーターズ 規約</h3>
+        </div>
+        <button type="button" class="terms-close" id="terms-close" aria-label="閉じる">×</button>
+      </div>
+      <div class="terms-body">
+        <article class="kiyaku">
+          <div class="k-item"><div class="k-no">第1条<span>名称</span></div><p>本会は、白井とおるサポーターズと称する。</p></div>
+          <div class="k-item"><div class="k-no">第2条<span>所在地</span></div><p>本会の事務所は、小金井市に置く。</p></div>
+          <div class="k-item"><div class="k-no">第3条<span>目的</span></div><p>本会は、小金井市政の発展と市民福祉の向上のために尽力している白井とおる氏の政治活動を後援することを本来の目的とし、あわせて会員相互の親睦を深めることを目的とする。</p></div>
+          <div class="k-item"><div class="k-no">第4条<span>事業</span></div><div><p>本会は、前条の目的を達成するため次の事業を行う。</p><ol><li>研究会、講演会等の開催</li><li>会報、機関紙、その他印刷物の発行及び配布</li><li>関係諸団体との連携・協力</li><li>関係方面への宣伝活動</li><li>その他本会の目的達成のため必要な事業</li></ol></div></div>
+          <div class="k-item"><div class="k-no">第5条<span>会員</span></div><p>本会は、第3条の目的に賛同し、入会申込書を提出した者をもって会員とする。</p></div>
+          <div class="k-item"><div class="k-no">第6条<span>役員</span></div><p>本会に次の役員をおく。<br>代表者、会計責任者、会計職務代行者</p></div>
+          <div class="k-item"><div class="k-no">第7条<span>役員の選出及び任期</span></div><p>役員は総会において選出する。</p></div>
+          <div class="k-item"><div class="k-no">第8条<span>会議</span></div><div><ol><li>代表者は毎年1回の通常総会その他必要に応じ臨時総会を召集する。</li><li>代表者は、必要に応じ役員会を召集する。</li></ol></div></div>
+          <div class="k-item"><div class="k-no">第9条<span>経費</span></div><p>本会の経費は、会費、寄附金その他の収入をもって充当する。</p></div>
+          <div class="k-item"><div class="k-no">第10条<span>会費</span></div><p>本会の会費は年額1,000円とする。</p></div>
+          <div class="k-item"><div class="k-no">第11条<span>会計年度</span></div><p>本会の会計年度は、毎年1月1日より12月31日までとする。</p></div>
+          <div class="k-item"><div class="k-no">その他</div><p>本規約に定めなき事項については、役員会で決定する。</p></div>
+          <div class="k-fusoku"><span>附則</span>本規約は、令和8年4月1日から実施する。</div>
+        </article>
+      </div>
+    </dialog>
   </section>
 
   <!-- ============ FOOTER ============ -->
@@ -396,6 +426,14 @@
       document.getElementById('burger').classList.remove('open');
       document.getElementById('burger').setAttribute('aria-expanded', 'false');
     }));
+
+    // サポーターズ規約モーダル
+    (() => {
+      const dlg = document.getElementById('terms-dialog');
+      document.getElementById('terms-open')?.addEventListener('click', () => dlg.showModal());
+      document.getElementById('terms-close')?.addEventListener('click', () => dlg.close());
+      dlg?.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); }); // 背景クリックで閉じる
+    })();
   </script>
 
 </body>
