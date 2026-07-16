@@ -88,7 +88,7 @@ ul { list-style: none; }
   font-family: var(--font-en); font-weight: 900; line-height: 1.05;
   font-size: clamp(2.2rem, 5.4vw, 3.6rem); color: var(--ink); letter-spacing: -.01em; margin-top: 2px;
 }
-.sec-ja { font-family: var(--font-round); font-weight: 700; color: var(--accent-deep); font-size: 1.05rem; margin-top: 8px; }
+.sec-ja { font-family: var(--font-round); font-weight: 900; color: var(--accent-deep); font-size: 1.5rem; margin-top: 8px; } /* 校正指示で拡大。元は font-weight: 700; font-size: 1.05rem; */
 .sec-lead { margin-top: 18px; max-width: 660px; color: var(--ink-soft); font-size: 1.02rem; line-height: 2; }
 .mark { background: linear-gradient(transparent 58%, var(--yellow) 58%); padding: 0 .05em; }
 
@@ -158,7 +158,7 @@ ul { list-style: none; }
 .hero-sub { margin-top: 22px; font-family: var(--font-round); font-weight: 500; font-size: clamp(1.05rem, 1.8vw, 1.38rem); line-height: 1.6; max-width: 26em; color: rgba(255,255,255,.96);
   text-shadow: 0 1px 10px rgba(0,60,100,.18); }
 .hero-cta { display: flex; gap: 13px; margin-top: clamp(42px, 8vw, 110px); flex-wrap: wrap; }
-.hero-cta .btn { padding: 15px 28px; font-size: 1rem; }
+.hero-cta .btn { padding: 17px 32px; font-size: 1.15rem; } /* 拡大。元は padding: 15px 28px; font-size: 1rem; */
 .hero-cta .btn-on-blue { background: #fff; color: var(--accent-deep); box-shadow: var(--shadow-md); }
 .hero-cta .btn-on-blue .arrow { background: var(--accent-pale); color: var(--accent-deep); }
 .hero-cta .btn-line-w { background: transparent; color: #fff; box-shadow: inset 0 0 0 2px rgba(255,255,255,.7); }
@@ -229,7 +229,7 @@ ul { list-style: none; }
 /* =================================================================
    ACHIEVEMENTS
    ================================================================= */
-.achv-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 48px; }
+.achv-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-bottom: 48px; } /* 12分野カード削除に伴い2列化。元は repeat(3, 1fr) */
 /* Original design (pre "remove AI look" request) — restore by swapping back in if needed:
 .stat { background: var(--card); border-radius: var(--r-md); padding: 28px 26px; box-shadow: var(--shadow-sm); border: 1px solid var(--line-soft); position: relative; overflow: hidden; }
 .stat::after { content: ""; position: absolute; right: -30px; top: -30px; width: 90px; height: 90px; border-radius: 50%; background: var(--accent-pale); }
@@ -335,9 +335,11 @@ ul { list-style: none; }
 .support-card::before { display: none; }
 .support-card::after { display: none; }
 .support-inner { position: relative; z-index: 1; max-width: 660px; }
+.support-label { display: inline-block; background: var(--pop); color: #fff; font-family: var(--font-round); font-weight: 900;
+  font-size: 1.35rem; letter-spacing: .06em; padding: 12px 28px; border-radius: 999px; margin-bottom: 16px; } /* 拡大。元は font-size: .95rem; padding: 8px 18px; */
 .support-card .sup-no { font-family: var(--font-en); font-weight: 800; letter-spacing: .14em; opacity: .9; }
 .support-card h2 { font-family: var(--font-round); font-weight: 900; font-size: clamp(1.7rem, 4vw, 2.6rem); line-height: 1.4; margin-top: 6px; color: var(--ink); }
-.support-card p { margin-top: 16px; line-height: 1.4; opacity: 1; color: var(--ink-soft); font-weight: 500; font-size: clamp(1rem, 2.4vw, 1.15rem); }
+.support-card p { margin-top: 16px; line-height: 1.7; opacity: 1; color: var(--ink-soft); font-weight: 500; font-size: clamp(1.15rem, 2.6vw, 1.4rem); } /* 拡大。元は line-height: 1.4; font-size: clamp(1rem, 2.4vw, 1.15rem); */
 .support-actions { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
 .support-actions .btn { padding: 15px 30px; font-size: 1rem; }
 .support-actions .btn-w { background: #fff; color: var(--pop-deep); box-shadow: var(--shadow-md); border: 2px solid var(--pop); }
@@ -351,15 +353,16 @@ ul { list-style: none; }
 .site-footer { background: var(--blue); color: #fff; padding: 60px 0 0; overflow: hidden; }
 .footer-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 38px; }
 .footer-brand .brand-mark { transform: none; }
-.footer-brand .fb-name { font-family: var(--font-round); font-weight: 900; font-size: 1.8rem; letter-spacing: .05em; margin-top: 16px; }
+.footer-brand .fb-name { font-family: var(--font-round); font-weight: 900; font-size: 2.4rem; letter-spacing: .05em; margin-top: 16px; } /* 拡大。元は font-size: 1.8rem; */
 .footer-brand .fb-slogan { color: rgba(255,255,255,.6); margin-top: 8px; line-height: 1.9; max-width: 30em; font-size: .9rem; }
-.footer-social { display: flex; gap: 12px; margin-top: 18px; }
+.footer-brand .fb-sns-note { color: rgba(255,255,255,.75); margin-top: 18px; font-size: 1.05rem; } /* 拡大。元は font-size: .9rem; */
+.footer-social { display: flex; gap: 12px; margin-top: 12px; }
 .footer-social a { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.1); transition: background-color .2s, transform .2s; }
 .footer-social a:hover { background: var(--pop); transform: translateY(-2px); }
 .footer-social svg { width: 18px; height: 18px; fill: #fff; }
 .footer-cols { display: flex; gap: 56px; flex-wrap: wrap; }
-.footer-col h4 { font-family: var(--font-en); font-weight: 800; font-size: .86rem; letter-spacing: .12em; color: rgba(255,255,255,.88); margin-bottom: 14px; }
-.footer-col a { display: block; color: rgba(255,255,255,.78); font-size: 1rem; padding: 5px 0; transition: color .2s; }
+.footer-col h4 { font-family: var(--font-en); font-weight: 800; font-size: 1.1rem; letter-spacing: .12em; color: rgba(255,255,255,.88); margin-bottom: 14px; } /* 拡大。元は font-size: .86rem; */
+.footer-col a { display: block; color: rgba(255,255,255,.78); font-size: 1.25rem; padding: 7px 0; transition: color .2s; } /* 拡大。元は font-size: 1rem; padding: 5px 0; */
 .footer-col a:hover { color: #fff; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 22px 0; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: .8rem; color: rgba(255,255,255,.55); }
 .footer-disclaimer { font-size: .76rem; color: rgba(255,255,255,.38); padding-bottom: 22px; line-height: 1.7; }
@@ -432,7 +435,7 @@ ul { list-style: none; }
   .hero-badge { left: -8px; } .hero-tag { right: -4px; }
   .message-sign { margin-top: 18px; font-size: 1.3rem; line-height: 1.35; }
   .message-sign .nm { font-size: 1.85rem; margin-left: 0; }
-  .message-vertical { font-size: 1.5rem; line-height: 1.5; letter-spacing: .06em; margin-top: 20px; padding: 2px 0 2px 16px; }
+  .message-vertical { font-size: 1.32rem; line-height: 1.5; letter-spacing: .06em; margin-top: 20px; padding: 2px 0 2px 16px; } /* 改行防止でスマホのみ縮小。元は 1.5rem */
   .hero-nameplate { left: 40px; transform-origin: bottom left;
     transform: scale(.62); } /* 水平化。元は rotate(-3deg) scale(.62) */
 }
