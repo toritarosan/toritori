@@ -237,12 +237,12 @@ ul { list-style: none; }
 */
 .stat { background: color-mix(in srgb, var(--accent) 5%, #fff); border-radius: var(--r-md); padding: 28px 26px; box-shadow: var(--shadow-sm); border: 1px solid color-mix(in srgb, var(--accent) 14%, transparent); position: relative; }
 .stat:nth-child(2) { background: color-mix(in srgb, var(--pop) 5%, #fff); border-color: color-mix(in srgb, var(--pop) 14%, transparent); }
-.stat::before { content: ""; display: block; width: 30px; height: 4px; border-radius: 2px; background: var(--accent); margin-bottom: 16px; }
+.stat::before { content: ""; display: block; width: 30px; height: 4px; border-radius: 2px; background: var(--accent); margin-bottom: 4px; } /* 元は margin-bottom: 16px; */
 .stat:nth-child(2)::before { background: var(--pop); }
 .stat .num { font-family: var(--font-en); font-weight: 900; color: var(--accent); font-size: clamp(2.6rem, 5vw, 3.5rem); line-height: 1; display: flex; align-items: baseline; gap: 5px; position: relative; }
 .stat:nth-child(2) .num { color: var(--pop); }
 .stat .num .unit { font-size: 1.1rem; color: var(--ink); font-family: var(--font-round); }
-.stat .lbl { margin-top: 10px; font-weight: 700; font-size: .98rem; position: relative; }
+.stat .lbl { margin-top: 0; margin-bottom: 10px; font-weight: 700; font-size: 1.3rem; position: relative; } /* バーに近づけ拡大。元は margin-top: 10px; font-size: .98rem;（件数の下にあった頃の値） */
 .stat .desc { margin-top: 3px; font-size: .82rem; color: var(--ink-faint); line-height: 1.7; position: relative; }
 
 .achv-filter { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
@@ -323,6 +323,8 @@ ul { list-style: none; }
 .event .date .md { font-family: var(--font-round); font-weight: 900; font-size: 1.2rem; line-height: 1.2; color: var(--accent); }
 .event .date .dow { font-family: var(--font-en); font-size: .74rem; color: var(--ink-faint); margin-top: 4px; font-weight: 700; }
 .event .info .ev-title { font-family: var(--font-round); font-weight: 700; font-size: 1.1rem; }
+.event .info .ev-title a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; font-weight: 500; font-size: .95rem; word-break: break-all; }
+.event .info .ev-title a:hover { color: var(--accent); }
 .event .info .ev-place { font-size: .88rem; color: var(--ink-soft); margin-top: 4px; }
 .event .ev-time { font-family: var(--font-round); font-weight: 700; font-size: .9rem; color: var(--accent-deep);
   background: var(--accent-pale); padding: 8px 16px; border-radius: 999px; white-space: nowrap; }
