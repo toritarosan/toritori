@@ -88,7 +88,7 @@ ul { list-style: none; }
   font-family: var(--font-en); font-weight: 900; line-height: 1.05;
   font-size: clamp(2.2rem, 5.4vw, 3.6rem); color: var(--ink); letter-spacing: -.01em; margin-top: 2px;
 }
-.sec-ja { font-family: var(--font-round); font-weight: 900; color: var(--accent-deep); font-size: 1.5rem; margin-top: 8px; } /* 校正指示で拡大。元は font-weight: 700; font-size: 1.05rem; */
+.sec-ja { font-family: var(--font-round); font-weight: 900; color: var(--accent-deep); font-size: 1.9rem; margin-top: 8px; } /* 校正指示で拡大。元は font-weight: 700; font-size: 1.05rem; */
 .sec-lead { margin-top: 18px; max-width: 660px; color: var(--ink-soft); font-size: 1.02rem; line-height: 2; }
 .mark { background: linear-gradient(transparent 58%, var(--yellow) 58%); padding: 0 .05em; }
 
@@ -271,6 +271,29 @@ ul { list-style: none; }
   transition: background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease); }
 .acard:hover .a-arrow { background: var(--navy); color: var(--arrow-fg, #fff); }
 .achv-more { display: flex; justify-content: center; margin-top: 34px; }
+
+/* ---- 成果詳細モーダル ---- */
+.acard { cursor: pointer; }
+.achv-detail { --navy: #00a0e9; --navy-deep: #0079bf; border: none; padding: 0; margin: auto; width: min(640px, calc(100vw - 36px)); max-height: min(80vh, 720px);
+  border-radius: var(--r-lg); background: var(--paper); box-shadow: 0 30px 80px rgba(0,30,60,.35); display: none; flex-direction: column; overflow: hidden; }
+.achv-detail[open] { display: flex; }
+.achv-detail::backdrop { background: rgba(10,25,45,.55); }
+.adm-accent { flex: none; height: 8px; background: var(--navy); }
+.adm-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 26px 30px 20px; border-bottom: 1px solid var(--line); }
+.adm-cat { display: flex; align-items: center; gap: 14px; }
+.adm-cat .cat { font-weight: 700; font-size: .85rem; letter-spacing: .07em; color: var(--label-col, var(--navy)); }
+.adm-cat .cat-line { height: 2px; width: 44px; background: var(--navy); }
+.adm-head h3 { font-family: var(--font-round); font-weight: 900; font-size: 1.35rem; line-height: 1.5; color: var(--ink); margin-top: 12px; text-wrap: pretty; }
+.adm-meta { margin-top: 8px; font-size: .88rem; color: var(--ink-faint); font-weight: 500; }
+.adm-body { overflow-y: auto; padding: 22px 30px 30px; }
+.adm-body p { font-size: 1rem; line-height: 2; color: var(--ink-soft); }
+.adm-body a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+.adm-body a:hover { color: var(--accent); }
+@media (max-width: 560px) {
+  .adm-head { padding: 20px 20px 16px; }
+  .adm-body { padding: 18px 20px 24px; }
+  .adm-head h3 { font-size: 1.15rem; }
+}
 
 /* =================================================================
    PARTNERS
