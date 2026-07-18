@@ -373,6 +373,29 @@ ul { list-style: none; }
 .support-actions .btn-yellow .arrow { background: rgba(0,0,0,.12); }
 
 /* =================================================================
+   MAGAZINE — サポーターズマガジン（チラシPDF掲載・案2、2026.7.18追加）
+   元に戻す: このブロックと index の MAGAZINE セクションを削除し、
+   campaign.css?v を v=14 → v=13 に戻す（掲載前バックアップ: backup/ フォルダ）
+   ================================================================= */
+.magazine { background: var(--paper-alt); }
+.mag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 48px); align-items: end; }
+.mag-issue { text-align: center; }
+.mag-pages { display: flex; justify-content: center; align-items: flex-start; }
+.mag-pages a { display: block; transition: transform .3s var(--ease); }
+.mag-pages img { height: auto; border-radius: 6px; box-shadow: 0 14px 30px rgba(20,40,70,.22); border: 1px solid var(--line); }
+.mag-front { position: relative; transform: rotate(-2.5deg) translateX(8px); z-index: 2; }
+.mag-back { transform: rotate(2deg) translateX(-8px) translateY(12px); }
+.mag-pages a:hover { transform: rotate(0) translateY(-8px); z-index: 3; }
+.mag-pages.portrait a { width: min(46%, 235px); }
+.mag-pages.landscape a { width: min(48%, 300px); }
+.mag-caption { margin-top: 28px; }
+.mag-lbl { display: inline-block; background: var(--yellow); font-family: var(--font-round); font-weight: 900; font-size: .85rem; padding: 4px 16px; border-radius: 999px; }
+.mag-caption h3 { font-family: var(--font-round); font-weight: 900; font-size: 1.25rem; margin-top: 10px; }
+.mag-date { font-size: .85rem; color: var(--ink-faint); margin-top: 2px; }
+.mag-actions { display: flex; justify-content: center; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+@media (max-width: 760px) { .mag-grid { grid-template-columns: 1fr; gap: 56px; } }
+
+/* =================================================================
    FOOTER
    ================================================================= */
 .site-footer { background: var(--blue); color: #fff; padding: 60px 0 0; overflow: hidden; }
