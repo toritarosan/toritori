@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2022年公約の進捗状況｜白井とおる後援会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@700;900&family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#00AEEF; --blue-deep:#0079bf; --blue-ink:#005a91;
+  --magenta:#e4007f; --yellow:#fff100; --ink:#221815;
+  --paper:#ffffff; --paper-alt:#f3f8fc; --line:#e7e2d6;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans JP',sans-serif;
+  color:var(--ink); background:var(--paper);
+  font-size:15px; line-height:1.9;
+  overflow-wrap:break-word; word-break:normal;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px}
+a{color:var(--blue-ink)}
+a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+
+/* ---- CMYK stripe ---- */
+.stripe{display:flex;height:6px}
+.stripe span{flex:1}
+.stripe .c{background:var(--blue)}
+.stripe .m{background:var(--magenta)}
+.stripe .y{background:var(--yellow)}
+.stripe .k{background:var(--ink)}
+
+/* ---- header ---- */
+.hd{background:var(--paper);border-bottom:1px solid var(--line)}
+.hd-in{padding-top:36px;padding-bottom:28px}
+.eyebrow{
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:12px;
+  letter-spacing:.24em;color:var(--blue-deep);text-transform:uppercase;
+  margin-bottom:10px;
+}
+h1{
+  font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;
+  font-size:clamp(25px,6.4vw,40px);line-height:1.4;letter-spacing:.01em;
+}
+.mark{background:linear-gradient(transparent 62%,var(--yellow) 62%)}
+.asof{
+  display:inline-block;margin-top:16px;
+  font-weight:700;font-size:13.5px;color:var(--blue-ink);
+  border:2px solid var(--blue-ink);border-radius:999px;
+  padding:6px 16px;background:#fff;
+}
+
+/* ---- heading kit ---- */
+.h2{
+  display:flex;align-items:center;gap:14px;
+  font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;
+  font-size:clamp(19px,5vw,24px);line-height:1.45;color:var(--ink);
+}
+.h2::before{content:"";width:54px;height:10px;background:var(--magenta);border-radius:2px;flex:none}
+.h2--toc{font-size:16px}
+.h2--toc::before{height:8px}
+
+/* ---- toc ---- */
+.toc{padding-top:26px;padding-bottom:30px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{
+  font-size:12.5px;font-weight:500;line-height:1.5;
+  color:var(--blue-ink);background:#fff;
+  border:1px solid var(--line);border-radius:999px;
+  padding:7px 13px;text-decoration:none;
+  box-shadow:0 1px 0 rgba(0,90,145,.06);
+}
+.chip:hover{background:var(--blue-deep);border-color:var(--blue-deep);color:#fff}
+.chip--major{color:var(--magenta);border-color:var(--magenta);font-weight:700}
+.chip--major:hover{background:var(--magenta);border-color:var(--magenta);color:#fff}
+
+/* ---- sections ---- */
+.sec{padding:38px 0 46px}
+.sec--alt{background:var(--paper-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+section,[id]{scroll-margin-top:16px}
+
+/* ---- section1 cards ---- */
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  box-shadow:0 10px 26px rgba(0,90,145,.07);
+  padding:22px 20px 24px;margin-top:22px;
+}
+.card-head{display:flex;align-items:flex-start;gap:12px}
+.card-no{
+  font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;
+  font-size:30px;line-height:1.2;color:var(--blue-deep);flex:none;
+}
+.card-head h3{
+  font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;
+  font-size:19px;line-height:1.55;padding-top:3px;
+}
+.blk{margin-top:18px}
+.tag{
+  display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.14em;
+  color:#fff;border-radius:4px;padding:3px 11px;margin-bottom:8px;
+}
+.tag--pledge{background:var(--blue-deep)}
+.tag--status{background:var(--magenta)}
+.tag--note{background:var(--ink)}
+.pledge{
+  background:var(--paper-alt);border-left:4px solid var(--blue);
+  border-radius:0 10px 10px 0;padding:12px 15px;
+  font-size:14.5px;line-height:1.95;
+}
+.lines{font-size:14.5px;line-height:1.9}
+.ln{padding-left:1em;text-indent:-1em;margin:5px 0}
+.ln-plain{padding-left:0;text-indent:0}
+.note{font-size:14px;line-height:2}
+
+/* ---- section2 accordion ---- */
+.cat{
+  border:1px solid var(--line);border-radius:14px;background:#fff;
+  box-shadow:0 6px 18px rgba(0,90,145,.06);margin-top:14px;overflow:hidden;
+}
+summary{list-style:none;cursor:pointer;padding:15px 16px;display:flex;align-items:center;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary h3{
+  font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;
+  font-size:15.5px;line-height:1.55;flex:1;
+}
+.count{
+  flex:none;font-family:'Outfit',sans-serif;font-weight:700;font-size:12px;
+  color:var(--blue-ink);background:var(--paper-alt);
+  border:1px solid var(--line);border-radius:999px;padding:2px 10px;
+}
+.tgl{
+  flex:none;width:26px;height:26px;border-radius:50%;
+  border:2px solid var(--blue-deep);color:var(--blue-deep);
+  display:grid;place-items:center;
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:16px;line-height:1;
+}
+.tgl::before{content:"+"}
+details[open] .tgl::before{content:"\2212"}
+details[open] summary{background:var(--paper-alt);border-bottom:1px dashed var(--line)}
+summary:hover h3{color:var(--blue-ink)}
+.cat-body{padding:4px 18px 18px}
+.item{padding:14px 0;border-bottom:1px dashed var(--line)}
+.item:last-child{border-bottom:none;padding-bottom:6px}
+.item h4{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;font-weight:700;line-height:1.65}
+.item-no{
+  flex:none;width:22px;height:22px;margin-top:3px;border-radius:6px;
+  background:var(--blue-ink);color:#fff;
+  font-family:'Outfit',sans-serif;font-weight:700;font-size:12.5px;
+  display:grid;place-items:center;
+}
+.status{margin:8px 0 0 11px;border-left:3px solid var(--line);padding-left:14px}
+.slabel{
+  display:block;font-size:12px;font-weight:700;letter-spacing:.16em;
+  color:var(--magenta);margin-bottom:2px;
+}
+.status .ln{font-size:13.5px;line-height:1.85;margin:3px 0;color:rgba(34,24,21,.88)}
+
+/* ---- footer ---- */
+.foot{background:var(--ink);color:#fff}
+.foot-in{padding:26px 18px 30px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px}
+.foot-name{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:16px}
+.home{
+  color:#fff;text-decoration:none;font-size:13px;font-weight:700;
+  border:1.5px solid rgba(255,255,255,.6);border-radius:999px;padding:8px 18px;
+}
+.home:hover{background:#fff;color:var(--ink)}
+
+/* ---- print ---- */
+@media print{
+  body{background:#fff;font-size:12px}
+  .stripe{display:none}
+  .card,.cat{box-shadow:none;border-color:#bbb}
+  .item,.blk{break-inside:avoid}
+  .tgl{display:none}
+  .chip{box-shadow:none}
+  summary{cursor:default}
+  .foot{background:#fff;color:var(--ink);border-top:2px solid var(--ink)}
+  .home{color:var(--ink);border-color:var(--ink)}
+}
+</style>
+</head>
+<body>
+<header class="hd">
+<div class="stripe" aria-hidden="true"><span class="c"></span><span class="m"></span><span class="y"></span><span class="k"></span></div>
+<div class="wrap hd-in">
+<p class="eyebrow">Progress Report</p>
+<h1>2022年白井市長公約の<span class="mark">進捗状況</span></h1>
+<p class="asof">2026年8月11日時点</p>
+</div>
+</header>
+<nav class="toc wrap" aria-label="目次">
+<h2 class="h2 h2--toc">目次</h2>
+<div class="chips">
+<a class="chip chip--major" href="#sec1">１　４つの重要課題への対応</a>
+<a class="chip" href="#cat-1">①地域みんなで子育て・子育ちを応援するまち</a>
+<a class="chip" href="#cat-2">②誰でも、ひとりでも安心して暮らせる福祉と共生のまち</a>
+<a class="chip" href="#cat-3">③個性や特性を尊重し、みんなをはぐぐむ教育のまち</a>
+<a class="chip" href="#cat-4">④多様性・ジェンダー平等を大切に、違いを力に変えるまち</a>
+<a class="chip" href="#cat-5">⑤人が出合い繋がり、地域・商店がにぎわうまち</a>
+<a class="chip" href="#cat-6">⑥緑を活かす、自然を大切にするまち</a>
+<a class="chip" href="#cat-7">⑦資源循環を推進、ゼロカーボン・環境先進のまち</a>
+<a class="chip" href="#cat-8">⑧社会教育が充実し、未来に向けて文化・芸術を大切にするまち</a>
+<a class="chip" href="#cat-9">⑨地域ぐるみで防災・減災・災害時対応に取り組むまち</a>
+<a class="chip" href="#cat-10">⑩みんなでまちをつくる！協働・市民参加と地域資源活用のまち</a>
+<a class="chip" href="#cat-11">⑪人材育成とＤＸ・組織改革で市役所が変わるまち</a>
+<a class="chip" href="#cat-12">地域人材育成に力を入れる</a>
+<a class="chip" href="#cat-13">財源の確保</a>
+<a class="chip" href="#cat-14">その他の重点テーマ</a>
+</div>
+</nav>
+<section id="sec1" class="sec sec--alt">
+<div class="wrap">
+<h2 class="h2">１　４つの重要課題への対応</h2>
+<article class="card">
+<div class="card-head"><span class="card-no">①</span><h3>廃園撤回。市全体の「保育の質」を！</h3></div>
+<div class="blk"><span class="tag tag--pledge">公約</span><p class="pledge">専決処分の廃園条例は速やかに条例改正（廃園前に戻す）および廃園ありきの方針を撤回。あわせて、有識者や市民を交え公立保育園の役割とあり方を検討し、市全体の保育の質を高める公立・私立の役割分担を含めた仕組みづくりに着手。</p></div>
+<div class="blk"><span class="tag tag--status">取組状況</span><div class="lines">
+<div class="ln">・就任直後の令和４年第４回市議会定例会に「小金井市立保育園条例」の再改正に係る議案を提出→否決</div>
+<div class="ln">・令和6年度、小金井市立保育園の在り方検討委員会を設置→令和7年5月に答申を提出いただく</div>
+<div class="ln">・令和7年6月、在り方検討委員会の答申を受け検討し「小金井市立保育園の在り方に関する方針」を策定</div>
+<div class="ln">・令和7年9月、市議会にて新たな「小金井市立保育園条例」を制定</div>
+</div></div>
+<div class="blk"><span class="tag tag--note">解説</span><p class="note">就任時点で既に専決処分された条例に基づき2園廃園に向けて段階的縮小が始まっており、公約通りに一度廃園前に戻すのであれば令和４年第４回市議会定例会での条例改正が必要であったが、残念ながら市議会の判断は「専決処分のままでよい」が多数で否決。議会意思は重く受け止めなければならない。なお、いずれにせよ「市全体の保育の質を高める公立・私立の役割分担を含めた仕組み」が定義されていないため、小金井市立保育園の在り方検討委員会を設置して議論いただき、答申をいただいた。私が市議会議員の時から主張してきたことは、まさにこのような議論を踏まえての公立保育園の在り方であり、仕組みづくりであった。結果的に2園は廃園とするが、公立保育園の新たな役割を含めて「市全体の保育の質を高める公立・私立の役割分担を含めた仕組みづくり」として、今後の小金井市の保育政策の形を創った。</p></div>
+</article>
+<article class="card">
+<div class="card-head"><span class="card-no">②</span><h3>庁舎＆福祉会館の早期建設！</h3></div>
+<div class="blk"><span class="tag tag--pledge">公約</span><p class="pledge">実施設計がほぼ完了済みであり、あとは着工を残すのみ。さらなる資材＆物価高騰や今後の市政課題が山積。財政的課題をクリアした上で、早期建設に向けて動く。</p></div>
+<div class="blk"><span class="tag tag--status">取組状況</span><div class="lines">
+<div class="ln">・令和５年７月～８月に現設計の検証を実施、１０月に実施設計を再開。また１０月～１１月に市民説明会を開催、１２月に「庁舎等複合施設建設事業の再開方針について」を作成</div>
+<div class="ln">・令和６年、１１月に建築確認済証取得、第４回市議会定例会で「小金井市役所庁舎変更に関する条例の一部を改正する条例」を可決。あわせて建設工事の補正予算可決（約131億円）、１２月に実施設計完了</div>
+<div class="ln">・令和７年１月～７月に工事入札の公告を２度かけるも、いずれも応募者がおらず入札中止に</div>
+<div class="ln">・令和８年度施政方針にて「現設計にて3度目の入札に向けて調整する」と表明、サウンディング調査を実施</div>
+</div></div>
+<div class="blk"><span class="tag tag--note">解説</span><p class="note">財政的な課題をクリアして念願の特別多数議決である庁舎の位置（変更）条例可決、建設工事予算可決も、建設業界のコスト上昇と施工体制不足による入札中止を余儀なくされた。改めて業界動向を探るためのサウンディング調査を実施するも、市として学校長寿命化やその他事業計画から財政運営面で厳しい状況に置かれている</p></div>
+</article>
+<article class="card">
+<div class="card-head"><span class="card-no">③</span><h3>都市計画道路は中止・見直しを！</h3></div>
+<div class="blk"><span class="tag tag--pledge">公約</span><p class="pledge">小金井市の宝である、はけと野川の自然と文化を壊す都市計画道路「小金井３・４・１号線」「小金井３・４・１１号線」については、『東京における都市計画道路の整備方針』に基づく事業化を凍結するとともに、当該路線の廃止も含め、都市計画の検証・見直しを行うよう、都へ要望し協議していく。</p></div>
+<div class="blk"><span class="tag tag--status">取組状況</span><div class="lines">
+<div class="ln">・令和6年度、東京都に「中止・見直し」を要望するためには相応の根拠に基づいた要請をすべきであるため、市独自の都市計画道路に係る検証（道路整備の必要性の検証）を実施</div>
+<div class="ln">・令和７年、８月に都市計画道路に関する市民説明会等を開催（計６回）</div>
+<div class="ln">・令和７年第３回市議会定例会における市長報告にて、２路線の考え方を示した（３・４・１号線は「一旦見直し」、３・４・１１号線は「整備の必要性は否めない」）。あわせてその内容に沿った東京都への要望書を提出</div>
+<div class="ln">・令和８年３月に東京における都市計画道路の整備方針を改定（都、特別区、２６市２町）</div>
+<div class="ln ln-plain">　→３・４・１号線：計画内容再検討路線、３・４・１１号線：優先整備路線</div>
+</div></div>
+<div class="blk"><span class="tag tag--note">解説</span><p class="note">３・４・１号線は公約通りだが、３・４・１１号線については、公約と異なる結論を出した。３・４・１１号線で課題となっている国分寺崖線及び野川周辺の自然環境への影響をできるだけ低減することを、東京都へ求めていく</p></div>
+</article>
+<article class="card">
+<div class="card-head"><span class="card-no">④</span><h3>いのちと暮らしをまもる！</h3></div>
+<div class="blk"><span class="tag tag--pledge">公約</span><p class="pledge">市民の暮らしと経済をまもる緊急対策を検討。ワクチン接種は引き続き医師会と連携、市内医療機関の情報をわかりやすく。市民・事業者の暮らしをまもる対策を検討。</p></div>
+<div class="blk"><span class="tag tag--status">取組状況</span><div class="lines">
+<div class="ln">・令和5年、子ども一人当たり５，０００円分の電子版商品券を配布（就任直後の定例会で補正予算を提出し着手）</div>
+<div class="ln">・令和7年度、キャッシュレス決済の３０％ポイント還元事業を実施</div>
+<div class="ln">・令和8年度、市民一人当たり５，０００円の給付金事業を実施</div>
+<div class="ln">・その他、あらゆる分野の事業者支援の支援金交付事業や、中小企業燃料費補助、市民の健康対策として帯状疱疹任意接種、男性ＨＰＶ任意接種への助成開始、新型コロナウイルス感染症定期接種、帯状疱疹定期接種、ＲＳウイルス感染症定期接種の開始等</div>
+</div></div>
+</article>
+</div>
+</section>
+<section id="sec2" class="sec">
+<div class="wrap">
+<h2 class="h2">２　これからの小金井をつくる基本政策１１及び重点テーマ等</h2>
+<details class="cat" id="cat-1" open>
+<summary><h3>①地域みんなで子育て・子育ちを応援するまち</h3><span class="count">6件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>市全体の保育の「質」維持・向上の仕組みづくり</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・保育の質のガイドラインに基づき、市内の保育従事職員を対象とした研修を実施</div>
+<div class="ln">・令和７年８月に策定した「小金井市立保育園の在り方に関する方針」に定める市立保育園の４つの役割を明確にして、今後順次実施していく</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>「みんなの保育園」、無園児の受け入れや複合化の検討</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・東京都版のこども誰でも通園制度である多様な他者との関わりの機会の創出事業を実施</div>
+<div class="ln">・国版のこども誰でも通園制度に加え、都の上乗せ事業である多様な他者との関わりの機会の創出事業を実施</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>妊娠から出産後のサポート、幼保小の連携を強化</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・公立保育園を拠点園とする地域連携を開始</div>
+<div class="ln">・こども家庭センターを設置</div>
+<div class="ln">・トワイライトステイ事業及び地域子育て相談機関を開始</div>
+<div class="ln">・産後ケア事業の拡充</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">4</span><span>放課後の居場所の充実、学童保育所の全入所を維持</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・学童保育所について、公設を１所、民設民営を３所開所（４所目の設置は令和８年１２月を予定）</div>
+<div class="ln">・放課後の子どもの居場所として平日週５日、市内小学校９校で放課後子ども教室を実施</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">5</span><span>多胎児家庭、ひとり親支援を拡充</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・一般社団法人日本シングルマザー支援協会とひとり親家庭の自立支援に関する連携協定締結</div>
+<div class="ln">・多胎児家庭及びひとり親家庭について、調整指数による加点対応を継続</div>
+<div class="ln">・多胎妊婦の妊婦健診４回分の補助を実施</div>
+<div class="ln">・産後ケア事業多胎児の利用回数を７回から１４回に拡充</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">6</span><span>「子どもの権利の日」の制定、子どもオンブズパーソンの制度周知</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・子どもの権利学習をすべての市立小中学校で実施</div>
+<div class="ln">・令和８年第２回市議会定例会で関連条例を可決し、11月20日を「小金井市子どもの権利の日」として制定</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-2">
+<summary><h3>②誰でも、ひとりでも安心して暮らせる福祉と共生のまち</h3><span class="count">6件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>在宅でも安心して介護と医療をうけることができる仕組みの構築</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・在宅医療介護連携推進会議及び各部会の開催</div>
+<div class="ln">・入退院支援に係る多職種の役割に関するフロー図の作成</div>
+<div class="ln">・お元気サミット・介護みらいフェスの実施</div>
+<div class="ln">・看取りに関するパンフレットの作成及び啓発　</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>認知症予防と認知症になっても見守りあう地域体制をつくる</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・各地域包括支援センターに認知症地域支援推進員を配置し、認知症の啓発、相談等の実施</div>
+<div class="ln">・もの忘れ予防（認知症）検診の実施及び受診の勧奨</div>
+<div class="ln">・認知症のある人の社会参加事業</div>
+<div class="ln">・認知症サポーター養成講座の実施</div>
+<div class="ln">・チームオレンジによる認知症カフェの開催</div>
+<div class="ln">・お元気サミット・介護みらいフェスの実施</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>障がい者差別の撤廃と、地域ぐるみで支えあう環境づくり</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・インクルーシブデザインに配慮した公園整備を実施（小金井市みんなの公園プロジェクトplay here）</div>
+<div class="ln">・障がいのある人もない人も共に学び共に生きる社会を目指す小金井市条例について、自立支援協議会での協議及び見直し案を作成</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">4</span><span>孤立化させない、ケアラー支援を拡充する</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・包括的な相談支援と支援関係機関・地域資源との連携及び協働</div>
+<div class="ln">・必要な支援が届いていない人に支援を届けるためのアウトリーチによる支援</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">5</span><span>住宅の確保について、市と民間の連携したサポートを検討する</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・小金井市居住支援協議会の開催</div>
+<div class="ln">・居住相談窓口の設置</div>
+<div class="ln">・居住支援セミナーの実施</div>
+<div class="ln">・令和７年度３市（三鷹市・調布市・小金井市）合同セミナーの実施</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">6</span><span>若者の貧困の実態を把握し、就労支援や居場所づくりに取り組む</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・就職相談会、面接会及びセミナーを実施</div>
+<div class="ln">・パンフレット等各種労働情報の提供</div>
+<div class="ln">・子どもの居場所推進連絡会の開催</div>
+<div class="ln">・ボランティアセンターで若者支援講座を開催</div>
+<div class="ln">・社会福祉協議会において、居場所づくりプロジェクトを実施</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-3">
+<summary><h3>③個性や特性を尊重し、みんなをはぐぐむ教育のまち</h3><span class="count">6件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>教育支援センター設置の推進。機能先行も検討</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・もくせい教室及び教育相談所の教職員を増員</div>
+<div class="ln">・もくせい教室と東京学芸大学との連携を強化</div>
+<div class="ln">・教育支援センターへの移行を踏まえた基盤づくりを推進</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>就学相談の専門性強化とインクルーシブ教育のあり方を検討する</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・特別支援教育支援員の増員等により、通常学級における支援を拡充</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>一人ひとりの子どもに合った学びのための環境づくり</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・小学校教科担任制の推進等を通して、個々の児童生徒のニーズに応じた学校教育を推進</div>
+<div class="ln">・エデュケーション・アシスタント及び読み書き困難等支援員の新規配置</div>
+<div class="ln">・一人ひとりの子どもに合った学校運営のための人的基盤整備を推進</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">4</span><span>包括的な不登校の子ども・家庭の支援に力を入れる！</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・校内教育支援センター設置（令和８年度に全校設置へ）、令和８年度、東中学校にチャレンジクラス開設</div>
+<div class="ln">・バーチャル・ラーニング・プラットフォームの運営</div>
+<div class="ln">・不登校児童生徒の実態に合わせた各種施策を展開</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">5</span><span>部活動や放課後には地域や民間の力を活用</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・地域人材を会計年度任用職員として雇用し、部活動指導員として各校に配置</div>
+<div class="ln">・部活動外部指導員による技術指導を推進</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">6</span><span>学校トイレの３Ｋを解消</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・令和８年度より清掃委託事業に特別清掃（床面のポリッシャー清掃）を追加</div>
+<div class="ln">・小中学校トイレの便器の洋便器化を推進（目標の80％を1年前倒しで達成）</div>
+<div class="ln ln-plain">Ｒ５．４．１時点　６１．２％　</div>
+<div class="ln ln-plain">Ｒ６．４．１時点　７３．８％</div>
+<div class="ln ln-plain">Ｒ７．４．１時点　８０．５％</div>
+<div class="ln ln-plain">Ｒ８．４．１時点　８２．０％</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-4">
+<summary><h3>④多様性・ジェンダー平等を大切に、違いを力に変えるまち</h3><span class="count">6件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>多様性を認め合うまち宣言</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・検討中</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>（仮称）男女平等推進センターの整備</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・検討中（庁舎跡地活用にて検討予定）</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>審議会の女性委員比率の向上</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・女性委員比率は微増が継続しており、令和８年４月１日現在で３７．９％</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">4</span><span>あらゆる市の組織においてジェンダーバランス等を考慮する</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・女性部長職を２名配置（市長就任時は０名）</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">5</span><span>障がい者の就労支援の強化</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・自立支援協議会での超短時間就労及び就労選択支援の各制度について、現状、課題などを協議</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">6</span><span>パートナーシップ制度の周知とファミリーシップ制度の検討</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・ファミリーシップ制度は令和８年度から検討に着手</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-5">
+<summary><h3>⑤人が出合い繋がり、地域・商店がにぎわうまち</h3><span class="count">5件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>公園、公共施設、道路をにぎわいの場としてフル活用</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・公園、農地、広場、空き地などのオープンスペースの活用事例作りとして、体験型・参加型イベントを実施</div>
+<div class="ln ln-plain">特に、公園については令和5年度より220の市立公園を環境楽習館と滄浪泉園とともに指定管理委託することで、魅力的な場となり活用が進んでいる</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>安心・安全に買い物や飲食ができるにぎわう店舗・商店会づくりの支援</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・武蔵小金井駅北口駅前東地区市街地再開発事業について、武蔵小金井駅北口のまちづくりの方針策定、都市計画決定、再開発組合設立（組合の取組）、既存建物の解体工事着工（組合の取組）及び再開発組合に対する補助金の交付</div>
+<div class="ln">・商店会等が実施するイベント及び活性化に資する事業への支援</div>
+<div class="ln">・キャッシュレス決済ポイント還元事業を通じた店舗等事業者への支援（物価高騰対策）</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>東小金井エリア「創業のまち」特区構想</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・創業支援施設である東小金井事業創造センター（ＫＯ－ＴＯ）の事業推進</div>
+<div class="ln">・大学が有する知見・技術を活用したベンチャーにオフィスを貸出、企業・創業の支援を行う農工大・多摩小金井ベンチャーポート入居者を支援</div>
+<div class="ln">・包括連携協定を締結している大学、企業などへ構想に基づいた取組について相談及び協力を依頼</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">4</span><span>新規転入者向けのウェルカムイベントの開催</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・未着手ではあるが、ニーズの模索を含め「転入してきた方」向けテーマで「みんなのタウンミーティング」を実施（令和８年度も継続予定）</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">5</span><span>若者からリタイア世代まで地域デビュー＆交流の推進</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・シニア世代の地域参加講座を毎年度６回～７回開催</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-6">
+<summary><h3>⑥緑を活かす、自然を大切にするまち</h3><span class="count">3件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>はけや野川、武蔵野公園の緑と自然、生物多様性を守る</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln ln-plain">―</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>農地を長期的・計画的に保全するための基金の設立</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln ln-plain">―</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>玉川上水の生物多様性を尊重する</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・玉川上水における未整備区間へのサクラ植樹の実施を検討</div>
+<div class="ln">・定期的な植生環境のモニタリングを実施</div>
+<div class="ln">・名勝小金井（サクラ）名勝指定１００周年記念事業の実施</div>
+<div class="ln">・玉川上水・小金井桜整備活用事業効果の周知啓発</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-7">
+<summary><h3>⑦資源循環を推進、ゼロカーボン・環境先進のまち</h3><span class="count">3件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>リユースを推進するリサイクル事業所の再開を模索</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・小金井市野川クリーンセンターに搬入した粗大ごみから再生可能な家具類の補修後、地域情報サイト「ジモティ－」にリユース品を掲載し、市民へ無償還元</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>省エネや再生可能エネルギーの活用を推進</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・市内高圧電力施設２６施設で再生可能エネルギー１００％の電力を導入</div>
+<div class="ln">・小金井第一小学校の校舎建設において省エネ及び再生可能エネルギーの活用を推進</div>
+<div class="ln">・公共施設（小中学校、小金井市民交流センター、保健センター等３７施設）における照明機器のＬＥＤ化</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>新たな公共施設においては断熱性を高める</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・小金井第一小学校の校舎建設において推進</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-8">
+<summary><h3>⑧社会教育が充実し、未来に向けて文化・芸術を大切にするまち</h3><span class="count">3件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>未来をつくる図書館のあり方の検討</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・本館２階児童室に森林環境贈与税を活用した書架を設置</div>
+<div class="ln">・本館内に「りんごの棚」コーナーを設置</div>
+<div class="ln">・本館で公衆無線ＬＡＮを利用したインターネット接続サービス開始に向けた準備を開始</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>地域課題に向き合うための講座の充実</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・地域課題解決を捉えたコミュニティ育成支援、若年層の社会参加、異文化交流、多世代・親子・高齢者向け講座等、主催事業の実施</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>市民交流センターを中心に、３６５日芸術文化に触れる仕掛け</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・市民交流センター及びはけの森美術館で様々な芸術文化施策を実施</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-9">
+<summary><h3>⑨地域ぐるみで防災・減災・災害時対応に取り組むまち</h3><span class="count">3件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>地域防災の充実、自主防災組織の市内カバー率の向上</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln ln-plain">自主防災組織が新たに３団体結成（合計３３団体）</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>災害発生時等に市民に伝わる情報発信の仕組みを検討</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・災害時情報発信手段の追加</div>
+<div class="ln ln-plain">（Ｘ、ＨＰ、ＬＩＮＥ、防災行政無線、緊急速報メール、Ｌアラート、安安メール、Ｙａｈｏｏ！防災速報及び電話・ＦＡＸサービス）</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>若者層が地域防災に興味を持つアイディアの募集</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・市民参加型の防災フェスタ及び水防訓練の実施</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-10">
+<summary><h3>⑩みんなでまちをつくる！協働・市民参加と地域資源活用のまち</h3><span class="count">5件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>地域人材発掘と育成のプログラムを策定</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln ln-plain">―</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>市民参画のための新たなツールの導入を検討（例：ｄｅｃｉｄｉｍ）</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・第５次基本構想・後期基本計画の策定に向けたＤｅｃｉｄｉｍの試行導入</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>常設の「若者会議」（参考：新城市）で若い世代の声を市政に反映する</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・市民参加推進会議にて「若者等サイレント層の継続的な市民参加について」提言を受領</div>
+<div class="ln">・令和５年度若者討議会（若者ＭＩＲＡＩトーク）の実施</div>
+<div class="ln">・中学生による「小金井を変えちゃう人の会」を継続実施</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">4</span><span>協働提案制度をどんどん進化させる</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・行政提案型協働事業の開始</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">5</span><span>新しいニーズに対応するための官民共創・協働を推進</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・市民協働支援センター再検討委員会の設置</div>
+<div class="ln">・新たに企業及び学校法人と包括連携協定を４件締結、包括以外の連携協定も多数締結</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-11">
+<summary><h3>⑪人材育成とＤＸ・組織改革で市役所が変わるまち</h3><span class="count">4件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>市民サービスの進化と市役所変革のためのDX推進</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・行政手続におけるキャッシュレス化の推進</div>
+<div class="ln">・行政手続におけるオンライン申請等の推進</div>
+<div class="ln">・β´モデルを採用した庁内ネットワークの構築</div>
+<div class="ln">・東京自治体クラウド（立川市・三鷹市・日野市）の新システムに合流参加し、２０業務の自治体情報システムを標準化</div>
+<div class="ln">・デジタル技術を活用した業務効率化の推進</div>
+<div class="ln">・ＤＸ推進の意識醸成</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>市役所の組織改革＆人材育成方針の見直し</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・第３次人材育成基本方針の主な事業を改定</div>
+<div class="ln">・新しい人材育成方針の策定に向け、検討に着手予定</div>
+<div class="ln">・組織改革に向け、組織の方向性と課題を共有し、マネジメント体制強化に着手</div>
+<div class="ln">・「地域に飛び出す公務員を応援する首長連合」に加盟</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>専門性の向上のためのキャリア＆スキルアップへの取り組み</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・第３次人材育成基本方針に沿って人事異動、研修等により対応</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">4</span><span>女性副市長を任用。女性管理職割合を高める。</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・令和７年度より女性副市長を選任（小金井市政で理事者としての女性は初）</div>
+<div class="ln">・女性部長職を２名配置（市長就任時は０名）</div>
+<div class="ln">・第２次女性職員活躍推進プランを策定</div>
+<div class="ln">・女性キャリア支援研修の実施</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-12">
+<summary><h3>地域人材育成に力を入れる</h3><span class="count">4件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>対話集会を毎月実施（オンラインでの開催も）。あらゆる世代の声を市政に生かす</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・みんなのタウンミーティングを毎月実施（令和８年８月までに４４回開催）</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>専門分野に副業人材を活用することを検討</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・検討中</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>市の広報改革。読みたくなる市報、ＷＥＢサイトへリニューアル</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・市報のリニューアルを実施</div>
+<div class="ln">・市ホームページをリニューアル実施</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">4</span><span>ＬＩＮＥを活用して、スマホで市政情報をリアルタイムでお知らせする</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・市公式ＬＩＮＥアカウントの運用を開始</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-13">
+<summary><h3>財源の確保</h3><span class="count">3件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>事業評価をフル活用して、事業のビルド＆スクラップを加速させる</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・事務事業評価事前研修会の実施</div>
+<div class="ln">・奨励事業に対する行財政再建推進本部の支援</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>市民と専門家を交えた「事業点検会議」を毎年開催する</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln ln-plain">―</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>小金井市の魅力を高め、人を呼び込むブランド構築に取り組む　例）子育て＆文教都市、デザイン＆イノベーション創出のまち、多様性尊重のまち</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・市報、ホームページ、ＳＮＳ等の情報発信手段を活用した魅力発信</div>
+<div class="ln">・ふるさと納税ポータルサイトの拡充及び新規返礼品の発掘</div>
+</div>
+</div>
+</div>
+</details>
+<details class="cat" id="cat-14">
+<summary><h3>その他の重点テーマ</h3><span class="count">4件</span><span class="tgl" aria-hidden="true"></span></summary>
+<div class="cat-body">
+<div class="item">
+<h4><span class="item-no">1</span><span>人権と平和を尊重した市政</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・人権・身の上相談、人権啓発イベント、人権擁護委員協議会連携取組</div>
+<div class="ln">・非核平和イベント、平和行事参加の旅、小金井平和の日記念行事</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">2</span><span>学校建替えは、地域交流の拠点化と未来の学校づくりビジョンを</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・公共施設在り方・再編方針の策定及び学校施設長寿命化計画の改定と合わせ、今後検討</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">3</span><span>公共施設マネジメントの推進。跡地活用、図書館の整備検討</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・庁舎等複合施設建設に伴う跡地等活用庁内方針を策定</div>
+<div class="ln">・ＰＰＰ／ＰＦＩ手法導入優先的検討指針を策定</div>
+<div class="ln">・公共施設在り方・再編方針を策定</div>
+</div>
+</div>
+<div class="item">
+<h4><span class="item-no">4</span><span>東小金井駅北口まちづくり事業用地の活用方針の再検討に着手</span></h4>
+<div class="status"><span class="slabel">取組状況</span>
+<div class="ln">・検討中</div>
+</div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<footer class="foot">
+<div class="stripe" aria-hidden="true"><span class="c"></span><span class="m"></span><span class="y"></span><span class="k"></span></div>
+<div class="wrap foot-in">
+<p class="foot-name">白井とおる後援会</p>
+<a class="home" href="./">トップページへ戻る</a>
+</div>
+</footer>
+<script>
+(function(){
+  var saved=[];
+  window.addEventListener('beforeprint',function(){
+    saved=[];
+    document.querySelectorAll('details').forEach(function(d){saved.push(d.open);d.open=true;});
+  });
+  window.addEventListener('afterprint',function(){
+    document.querySelectorAll('details').forEach(function(d,i){if(i<saved.length){d.open=saved[i];}});
+  });
+  function openTarget(){
+    var id=location.hash.slice(1);
+    if(!id){return;}
+    var el=document.getElementById(id);
+    if(el&&el.tagName==='DETAILS'){el.open=true;}
+  }
+  window.addEventListener('hashchange',openTarget);
+  openTarget();
+})();
+</script>
+</body>
+</html>

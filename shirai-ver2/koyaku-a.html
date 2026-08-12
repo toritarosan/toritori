@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2022年公約の進捗状況｜白井とおる後援会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: #fff;
+  color: #221815;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  font-size: 15px;
+  line-height: 1.9;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 30px 18px 56px; }
+a { color: #005a91; }
+
+/* ---- 見出し ---- */
+h1, h2, h3 { font-family: 'Shippori Mincho B1', 'Hiragino Mincho ProN', 'Yu Mincho', serif; font-weight: 700; letter-spacing: .04em; }
+h1 { font-size: 23px; line-height: 1.55; margin: 10px 0 0; padding-bottom: 14px; border-bottom: 2px solid #221815; }
+h2 { font-size: 19px; line-height: 1.6; margin: 56px 0 20px; padding-bottom: 8px; border-bottom: 1px solid #221815; }
+h3 { font-size: 17px; line-height: 1.6; margin: 40px 0 12px; }
+
+.kicker { color: #005a91; font-size: 12px; font-weight: 700; letter-spacing: .2em; margin: 0; }
+.asof {
+  display: inline-block;
+  margin: 16px 0 0;
+  padding: 3px 14px;
+  border: 1px solid #005a91;
+  color: #005a91;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+/* ---- 目次 ---- */
+nav.toc ol { list-style: none; margin: 0; padding: 0; }
+nav.toc > ol > li { margin: 0 0 14px; }
+nav.toc > ol > li > a { font-family: 'Shippori Mincho B1', serif; font-weight: 700; font-size: 15px; text-decoration: none; color: #221815; }
+nav.toc > ol > li > a:hover { color: #005a91; text-decoration: underline; }
+nav.toc ul { list-style: none; margin: 6px 0 0; padding: 0 0 0 1em; border-left: 1px solid rgba(34,24,21,.25); }
+nav.toc ul li { margin: 2px 0; font-size: 13.5px; line-height: 1.7; }
+nav.toc ul a { color: #005a91; text-decoration: none; }
+nav.toc ul a:hover { text-decoration: underline; }
+
+/* ---- ラベル(公約・取組状況・解説) ---- */
+.lbl {
+  margin: 22px 0 8px;
+  color: #005a91;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  line-height: 1;
+}
+.item > .lbl:first-of-type { margin-top: 16px; }
+
+/* ---- 公約(枠囲み) ---- */
+.pledge { border: 1px solid #221815; padding: 14px 16px; }
+.pledge p { margin: 0; }
+
+/* ---- 取組状況・本文行 ---- */
+.ln-b { margin: 0 0 4px; padding-left: 1em; text-indent: -1em; }
+.ln-c { margin: 0 0 4px; padding-left: 1em; }
+.ln-p { margin: 0 0 4px; }
+.st .ln-b:last-child, .st .ln-c:last-child, .st .ln-p:last-child { margin-bottom: 0; }
+
+/* ---- 解説(地の文) ---- */
+.kaisetsu p { margin: 0; text-align: justify; }
+
+.item { margin: 0 0 44px; }
+.item:last-child { margin-bottom: 0; }
+
+/* ---- 基本政策の表: モバイル(縦積み)が既定 ---- */
+.cat { margin: 0 0 40px; }
+table { width: 100%; border-collapse: collapse; display: block; }
+thead { display: none; }
+tbody { display: block; }
+tr {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 8px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(34,24,21,.3);
+}
+tbody tr:first-child { border-top: 2px solid #221815; }
+td { display: block; padding: 0; border: 0; vertical-align: top; }
+td.no { grid-column: 1; font-weight: 700; }
+td.ttl { grid-column: 2; font-weight: 700; }
+td.st { grid-column: 1 / -1; margin-top: 6px; font-size: 14px; }
+td.st::before {
+  content: "取組状況";
+  display: block;
+  color: #005a91;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+/* ---- 640px以上・印刷: 表組み ---- */
+@media (min-width: 640px), print {
+  table { display: table; }
+  thead { display: table-header-group; }
+  tbody { display: table-row-group; }
+  tr { display: table-row; border-bottom: 0; padding: 0; }
+  td, th { display: table-cell; }
+  thead th {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-align: left;
+    border-bottom: 2px solid #221815;
+    padding: 6px 10px 8px;
+    white-space: nowrap;
+    word-break: normal;
+  }
+  tbody tr:first-child { border-top: 0; }
+  td { border-bottom: 1px solid rgba(34,24,21,.3); padding: 12px 10px; font-size: 14px; vertical-align: top; }
+  td.no { white-space: nowrap; font-weight: 400; margin: 0; }
+  td.ttl { width: 34%; font-weight: 500; }
+  td.st { margin: 0; }
+  td.st::before { content: none; }
+  th.no { width: 2.5em; }
+}
+
+/* ---- フッター ---- */
+footer { margin-top: 64px; padding-top: 20px; border-top: 2px solid #221815; }
+footer .back { margin: 0 0 10px; font-size: 14px; }
+footer .kouenkai { margin: 0; font-family: 'Shippori Mincho B1', serif; font-weight: 700; font-size: 15px; letter-spacing: .08em; }
+
+/* ---- 印刷 ---- */
+@media print {
+  body { font-size: 10.5pt; }
+  .wrap { max-width: none; padding: 0; }
+  a { color: inherit; text-decoration: none; }
+  h2 { break-after: avoid; }
+  h3 { break-after: avoid; }
+  .pledge, tr { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<p class="kicker">白井とおる後援会</p>
+<h1>2022年白井市長公約の進捗状況</h1>
+<p class="asof">2026年8月11日時点</p>
+</header>
+<nav class="toc" aria-label="目次">
+<h2 id="toc">目次</h2>
+<ol>
+<li><a href="#sec1">１　４つの重要課題への対応</a>
+<ul>
+<li><a href="#r1">①　廃園撤回。市全体の「保育の質」を！</a></li>
+<li><a href="#r2">②　庁舎＆福祉会館の早期建設！</a></li>
+<li><a href="#r3">③　都市計画道路は中止・見直しを！</a></li>
+<li><a href="#r4">④　いのちと暮らしをまもる！</a></li>
+</ul>
+</li>
+<li><a href="#sec2">２　これからの小金井をつくる基本政策１１及び重点テーマ等</a>
+<ul>
+<li><a href="#c1">①地域みんなで子育て・子育ちを応援するまち</a></li>
+<li><a href="#c2">②誰でも、ひとりでも安心して暮らせる福祉と共生のまち</a></li>
+<li><a href="#c3">③個性や特性を尊重し、みんなをはぐぐむ教育のまち</a></li>
+<li><a href="#c4">④多様性・ジェンダー平等を大切に、違いを力に変えるまち</a></li>
+<li><a href="#c5">⑤人が出合い繋がり、地域・商店がにぎわうまち</a></li>
+<li><a href="#c6">⑥緑を活かす、自然を大切にするまち</a></li>
+<li><a href="#c7">⑦資源循環を推進、ゼロカーボン・環境先進のまち</a></li>
+<li><a href="#c8">⑧社会教育が充実し、未来に向けて文化・芸術を大切にするまち</a></li>
+<li><a href="#c9">⑨地域ぐるみで防災・減災・災害時対応に取り組むまち</a></li>
+<li><a href="#c10">⑩みんなでまちをつくる！協働・市民参加と地域資源活用のまち</a></li>
+<li><a href="#c11">⑪人材育成とＤＸ・組織改革で市役所が変わるまち</a></li>
+<li><a href="#c12">地域人材育成に力を入れる</a></li>
+<li><a href="#c13">財源の確保</a></li>
+<li><a href="#c14">その他の重点テーマ</a></li>
+</ul>
+</li>
+</ol>
+</nav>
+<section>
+<h2 id="sec1">１　４つの重要課題への対応</h2>
+<article class="item">
+<h3 id="r1">①　廃園撤回。市全体の「保育の質」を！</h3>
+<p class="lbl">公約</p>
+<div class="pledge"><p>専決処分の廃園条例は速やかに条例改正（廃園前に戻す）および廃園ありきの方針を撤回。あわせて、有識者や市民を交え公立保育園の役割とあり方を検討し、市全体の保育の質を高める公立・私立の役割分担を含めた仕組みづくりに着手。</p></div>
+<p class="lbl">取組状況</p>
+<div class="st">
+<p class="ln-b">・就任直後の令和４年第４回市議会定例会に「小金井市立保育園条例」の再改正に係る議案を提出→否決</p>
+<p class="ln-b">・令和6年度、小金井市立保育園の在り方検討委員会を設置→令和7年5月に答申を提出いただく</p>
+<p class="ln-b">・令和7年6月、在り方検討委員会の答申を受け検討し「小金井市立保育園の在り方に関する方針」を策定</p>
+<p class="ln-b">・令和7年9月、市議会にて新たな「小金井市立保育園条例」を制定</p>
+</div>
+<p class="lbl">解説</p>
+<div class="kaisetsu"><p>就任時点で既に専決処分された条例に基づき2園廃園に向けて段階的縮小が始まっており、公約通りに一度廃園前に戻すのであれば令和４年第４回市議会定例会での条例改正が必要であったが、残念ながら市議会の判断は「専決処分のままでよい」が多数で否決。議会意思は重く受け止めなければならない。なお、いずれにせよ「市全体の保育の質を高める公立・私立の役割分担を含めた仕組み」が定義されていないため、小金井市立保育園の在り方検討委員会を設置して議論いただき、答申をいただいた。私が市議会議員の時から主張してきたことは、まさにこのような議論を踏まえての公立保育園の在り方であり、仕組みづくりであった。結果的に2園は廃園とするが、公立保育園の新たな役割を含めて「市全体の保育の質を高める公立・私立の役割分担を含めた仕組みづくり」として、今後の小金井市の保育政策の形を創った。</p></div>
+</article>
+<article class="item">
+<h3 id="r2">②　庁舎＆福祉会館の早期建設！</h3>
+<p class="lbl">公約</p>
+<div class="pledge"><p>実施設計がほぼ完了済みであり、あとは着工を残すのみ。さらなる資材＆物価高騰や今後の市政課題が山積。財政的課題をクリアした上で、早期建設に向けて動く。</p></div>
+<p class="lbl">取組状況</p>
+<div class="st">
+<p class="ln-b">・令和５年７月～８月に現設計の検証を実施、１０月に実施設計を再開。また１０月～１１月に市民説明会を開催、１２月に「庁舎等複合施設建設事業の再開方針について」を作成</p>
+<p class="ln-b">・令和６年、１１月に建築確認済証取得、第４回市議会定例会で「小金井市役所庁舎変更に関する条例の一部を改正する条例」を可決。あわせて建設工事の補正予算可決（約131億円）、１２月に実施設計完了</p>
+<p class="ln-b">・令和７年１月～７月に工事入札の公告を２度かけるも、いずれも応募者がおらず入札中止に</p>
+<p class="ln-b">・令和８年度施政方針にて「現設計にて3度目の入札に向けて調整する」と表明、サウンディング調査を実施</p>
+</div>
+<p class="lbl">解説</p>
+<div class="kaisetsu"><p>財政的な課題をクリアして念願の特別多数議決である庁舎の位置（変更）条例可決、建設工事予算可決も、建設業界のコスト上昇と施工体制不足による入札中止を余儀なくされた。改めて業界動向を探るためのサウンディング調査を実施するも、市として学校長寿命化やその他事業計画から財政運営面で厳しい状況に置かれている</p></div>
+</article>
+<article class="item">
+<h3 id="r3">③　都市計画道路は中止・見直しを！</h3>
+<p class="lbl">公約</p>
+<div class="pledge"><p>小金井市の宝である、はけと野川の自然と文化を壊す都市計画道路「小金井３・４・１号線」「小金井３・４・１１号線」については、『東京における都市計画道路の整備方針』に基づく事業化を凍結するとともに、当該路線の廃止も含め、都市計画の検証・見直しを行うよう、都へ要望し協議していく。</p></div>
+<p class="lbl">取組状況</p>
+<div class="st">
+<p class="ln-b">・令和6年度、東京都に「中止・見直し」を要望するためには相応の根拠に基づいた要請をすべきであるため、市独自の都市計画道路に係る検証（道路整備の必要性の検証）を実施</p>
+<p class="ln-b">・令和７年、８月に都市計画道路に関する市民説明会等を開催（計６回）</p>
+<p class="ln-b">・令和７年第３回市議会定例会における市長報告にて、２路線の考え方を示した（３・４・１号線は「一旦見直し」、３・４・１１号線は「整備の必要性は否めない」）。あわせてその内容に沿った東京都への要望書を提出</p>
+<p class="ln-b">・令和８年３月に東京における都市計画道路の整備方針を改定（都、特別区、２６市２町）</p>
+<p class="ln-c">　→３・４・１号線：計画内容再検討路線、３・４・１１号線：優先整備路線</p>
+</div>
+<p class="lbl">解説</p>
+<div class="kaisetsu"><p>３・４・１号線は公約通りだが、３・４・１１号線については、公約と異なる結論を出した。３・４・１１号線で課題となっている国分寺崖線及び野川周辺の自然環境への影響をできるだけ低減することを、東京都へ求めていく</p></div>
+</article>
+<article class="item">
+<h3 id="r4">④　いのちと暮らしをまもる！</h3>
+<p class="lbl">公約</p>
+<div class="pledge"><p>市民の暮らしと経済をまもる緊急対策を検討。ワクチン接種は引き続き医師会と連携、市内医療機関の情報をわかりやすく。市民・事業者の暮らしをまもる対策を検討。</p></div>
+<p class="lbl">取組状況</p>
+<div class="st">
+<p class="ln-b">・令和5年、子ども一人当たり５，０００円分の電子版商品券を配布（就任直後の定例会で補正予算を提出し着手）</p>
+<p class="ln-b">・令和7年度、キャッシュレス決済の３０％ポイント還元事業を実施</p>
+<p class="ln-b">・令和8年度、市民一人当たり５，０００円の給付金事業を実施</p>
+<p class="ln-b">・その他、あらゆる分野の事業者支援の支援金交付事業や、中小企業燃料費補助、市民の健康対策として帯状疱疹任意接種、男性ＨＰＶ任意接種への助成開始、新型コロナウイルス感染症定期接種、帯状疱疹定期接種、ＲＳウイルス感染症定期接種の開始等</p>
+</div>
+</article>
+</section>
+<section>
+<h2 id="sec2">２　これからの小金井をつくる基本政策１１及び重点テーマ等</h2>
+<div class="cat">
+<h3 id="c1">①地域みんなで子育て・子育ちを応援するまち</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">市全体の保育の「質」維持・向上の仕組みづくり</td>
+<td class="st"><p class="ln-b">・保育の質のガイドラインに基づき、市内の保育従事職員を対象とした研修を実施</p>
+<p class="ln-b">・令和７年８月に策定した「小金井市立保育園の在り方に関する方針」に定める市立保育園の４つの役割を明確にして、今後順次実施していく</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">「みんなの保育園」、無園児の受け入れや複合化の検討</td>
+<td class="st"><p class="ln-b">・東京都版のこども誰でも通園制度である多様な他者との関わりの機会の創出事業を実施</p>
+<p class="ln-b">・国版のこども誰でも通園制度に加え、都の上乗せ事業である多様な他者との関わりの機会の創出事業を実施</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">妊娠から出産後のサポート、幼保小の連携を強化</td>
+<td class="st"><p class="ln-b">・公立保育園を拠点園とする地域連携を開始</p>
+<p class="ln-b">・こども家庭センターを設置</p>
+<p class="ln-b">・トワイライトステイ事業及び地域子育て相談機関を開始</p>
+<p class="ln-b">・産後ケア事業の拡充</p></td>
+</tr>
+<tr>
+<td class="no">4</td>
+<td class="ttl">放課後の居場所の充実、学童保育所の全入所を維持</td>
+<td class="st"><p class="ln-b">・学童保育所について、公設を１所、民設民営を３所開所（４所目の設置は令和８年１２月を予定）</p>
+<p class="ln-b">・放課後の子どもの居場所として平日週５日、市内小学校９校で放課後子ども教室を実施</p></td>
+</tr>
+<tr>
+<td class="no">5</td>
+<td class="ttl">多胎児家庭、ひとり親支援を拡充</td>
+<td class="st"><p class="ln-b">・一般社団法人日本シングルマザー支援協会とひとり親家庭の自立支援に関する連携協定締結</p>
+<p class="ln-b">・多胎児家庭及びひとり親家庭について、調整指数による加点対応を継続</p>
+<p class="ln-b">・多胎妊婦の妊婦健診４回分の補助を実施</p>
+<p class="ln-b">・産後ケア事業多胎児の利用回数を７回から１４回に拡充</p></td>
+</tr>
+<tr>
+<td class="no">6</td>
+<td class="ttl">「子どもの権利の日」の制定、子どもオンブズパーソンの制度周知</td>
+<td class="st"><p class="ln-b">・子どもの権利学習をすべての市立小中学校で実施</p>
+<p class="ln-b">・令和８年第２回市議会定例会で関連条例を可決し、11月20日を「小金井市子どもの権利の日」として制定</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c2">②誰でも、ひとりでも安心して暮らせる福祉と共生のまち</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">在宅でも安心して介護と医療をうけることができる仕組みの構築</td>
+<td class="st"><p class="ln-b">・在宅医療介護連携推進会議及び各部会の開催</p>
+<p class="ln-b">・入退院支援に係る多職種の役割に関するフロー図の作成</p>
+<p class="ln-b">・お元気サミット・介護みらいフェスの実施</p>
+<p class="ln-b">・看取りに関するパンフレットの作成及び啓発　</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">認知症予防と認知症になっても見守りあう地域体制をつくる</td>
+<td class="st"><p class="ln-b">・各地域包括支援センターに認知症地域支援推進員を配置し、認知症の啓発、相談等の実施</p>
+<p class="ln-b">・もの忘れ予防（認知症）検診の実施及び受診の勧奨</p>
+<p class="ln-b">・認知症のある人の社会参加事業</p>
+<p class="ln-b">・認知症サポーター養成講座の実施</p>
+<p class="ln-b">・チームオレンジによる認知症カフェの開催</p>
+<p class="ln-b">・お元気サミット・介護みらいフェスの実施</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">障がい者差別の撤廃と、地域ぐるみで支えあう環境づくり</td>
+<td class="st"><p class="ln-b">・インクルーシブデザインに配慮した公園整備を実施（小金井市みんなの公園プロジェクトplay here）</p>
+<p class="ln-b">・障がいのある人もない人も共に学び共に生きる社会を目指す小金井市条例について、自立支援協議会での協議及び見直し案を作成</p></td>
+</tr>
+<tr>
+<td class="no">4</td>
+<td class="ttl">孤立化させない、ケアラー支援を拡充する</td>
+<td class="st"><p class="ln-b">・包括的な相談支援と支援関係機関・地域資源との連携及び協働</p>
+<p class="ln-b">・必要な支援が届いていない人に支援を届けるためのアウトリーチによる支援</p></td>
+</tr>
+<tr>
+<td class="no">5</td>
+<td class="ttl">住宅の確保について、市と民間の連携したサポートを検討する</td>
+<td class="st"><p class="ln-b">・小金井市居住支援協議会の開催</p>
+<p class="ln-b">・居住相談窓口の設置</p>
+<p class="ln-b">・居住支援セミナーの実施</p>
+<p class="ln-b">・令和７年度３市（三鷹市・調布市・小金井市）合同セミナーの実施</p></td>
+</tr>
+<tr>
+<td class="no">6</td>
+<td class="ttl">若者の貧困の実態を把握し、就労支援や居場所づくりに取り組む</td>
+<td class="st"><p class="ln-b">・就職相談会、面接会及びセミナーを実施</p>
+<p class="ln-b">・パンフレット等各種労働情報の提供</p>
+<p class="ln-b">・子どもの居場所推進連絡会の開催</p>
+<p class="ln-b">・ボランティアセンターで若者支援講座を開催</p>
+<p class="ln-b">・社会福祉協議会において、居場所づくりプロジェクトを実施</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c3">③個性や特性を尊重し、みんなをはぐぐむ教育のまち</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">教育支援センター設置の推進。機能先行も検討</td>
+<td class="st"><p class="ln-b">・もくせい教室及び教育相談所の教職員を増員</p>
+<p class="ln-b">・もくせい教室と東京学芸大学との連携を強化</p>
+<p class="ln-b">・教育支援センターへの移行を踏まえた基盤づくりを推進</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">就学相談の専門性強化とインクルーシブ教育のあり方を検討する</td>
+<td class="st"><p class="ln-b">・特別支援教育支援員の増員等により、通常学級における支援を拡充</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">一人ひとりの子どもに合った学びのための環境づくり</td>
+<td class="st"><p class="ln-b">・小学校教科担任制の推進等を通して、個々の児童生徒のニーズに応じた学校教育を推進</p>
+<p class="ln-b">・エデュケーション・アシスタント及び読み書き困難等支援員の新規配置</p>
+<p class="ln-b">・一人ひとりの子どもに合った学校運営のための人的基盤整備を推進</p></td>
+</tr>
+<tr>
+<td class="no">4</td>
+<td class="ttl">包括的な不登校の子ども・家庭の支援に力を入れる！</td>
+<td class="st"><p class="ln-b">・校内教育支援センター設置（令和８年度に全校設置へ）、令和８年度、東中学校にチャレンジクラス開設</p>
+<p class="ln-b">・バーチャル・ラーニング・プラットフォームの運営</p>
+<p class="ln-b">・不登校児童生徒の実態に合わせた各種施策を展開</p></td>
+</tr>
+<tr>
+<td class="no">5</td>
+<td class="ttl">部活動や放課後には地域や民間の力を活用</td>
+<td class="st"><p class="ln-b">・地域人材を会計年度任用職員として雇用し、部活動指導員として各校に配置</p>
+<p class="ln-b">・部活動外部指導員による技術指導を推進</p></td>
+</tr>
+<tr>
+<td class="no">6</td>
+<td class="ttl">学校トイレの３Ｋを解消</td>
+<td class="st"><p class="ln-b">・令和８年度より清掃委託事業に特別清掃（床面のポリッシャー清掃）を追加</p>
+<p class="ln-b">・小中学校トイレの便器の洋便器化を推進（目標の80％を1年前倒しで達成）</p>
+<p class="ln-c">Ｒ５．４．１時点　６１．２％　</p>
+<p class="ln-c">Ｒ６．４．１時点　７３．８％</p>
+<p class="ln-c">Ｒ７．４．１時点　８０．５％</p>
+<p class="ln-c">Ｒ８．４．１時点　８２．０％</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c4">④多様性・ジェンダー平等を大切に、違いを力に変えるまち</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">多様性を認め合うまち宣言</td>
+<td class="st"><p class="ln-b">・検討中</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">（仮称）男女平等推進センターの整備</td>
+<td class="st"><p class="ln-b">・検討中（庁舎跡地活用にて検討予定）</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">審議会の女性委員比率の向上</td>
+<td class="st"><p class="ln-b">・女性委員比率は微増が継続しており、令和８年４月１日現在で３７．９％</p></td>
+</tr>
+<tr>
+<td class="no">4</td>
+<td class="ttl">あらゆる市の組織においてジェンダーバランス等を考慮する</td>
+<td class="st"><p class="ln-b">・女性部長職を２名配置（市長就任時は０名）</p></td>
+</tr>
+<tr>
+<td class="no">5</td>
+<td class="ttl">障がい者の就労支援の強化</td>
+<td class="st"><p class="ln-b">・自立支援協議会での超短時間就労及び就労選択支援の各制度について、現状、課題などを協議</p></td>
+</tr>
+<tr>
+<td class="no">6</td>
+<td class="ttl">パートナーシップ制度の周知とファミリーシップ制度の検討</td>
+<td class="st"><p class="ln-b">・ファミリーシップ制度は令和８年度から検討に着手</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c5">⑤人が出合い繋がり、地域・商店がにぎわうまち</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">公園、公共施設、道路をにぎわいの場としてフル活用</td>
+<td class="st"><p class="ln-b">・公園、農地、広場、空き地などのオープンスペースの活用事例作りとして、体験型・参加型イベントを実施</p>
+<p class="ln-c">特に、公園については令和5年度より220の市立公園を環境楽習館と滄浪泉園とともに指定管理委託することで、魅力的な場となり活用が進んでいる</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">安心・安全に買い物や飲食ができるにぎわう店舗・商店会づくりの支援</td>
+<td class="st"><p class="ln-b">・武蔵小金井駅北口駅前東地区市街地再開発事業について、武蔵小金井駅北口のまちづくりの方針策定、都市計画決定、再開発組合設立（組合の取組）、既存建物の解体工事着工（組合の取組）及び再開発組合に対する補助金の交付</p>
+<p class="ln-b">・商店会等が実施するイベント及び活性化に資する事業への支援</p>
+<p class="ln-b">・キャッシュレス決済ポイント還元事業を通じた店舗等事業者への支援（物価高騰対策）</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">東小金井エリア「創業のまち」特区構想</td>
+<td class="st"><p class="ln-b">・創業支援施設である東小金井事業創造センター（ＫＯ－ＴＯ）の事業推進</p>
+<p class="ln-b">・大学が有する知見・技術を活用したベンチャーにオフィスを貸出、企業・創業の支援を行う農工大・多摩小金井ベンチャーポート入居者を支援</p>
+<p class="ln-b">・包括連携協定を締結している大学、企業などへ構想に基づいた取組について相談及び協力を依頼</p></td>
+</tr>
+<tr>
+<td class="no">4</td>
+<td class="ttl">新規転入者向けのウェルカムイベントの開催</td>
+<td class="st"><p class="ln-b">・未着手ではあるが、ニーズの模索を含め「転入してきた方」向けテーマで「みんなのタウンミーティング」を実施（令和８年度も継続予定）</p></td>
+</tr>
+<tr>
+<td class="no">5</td>
+<td class="ttl">若者からリタイア世代まで地域デビュー＆交流の推進</td>
+<td class="st"><p class="ln-b">・シニア世代の地域参加講座を毎年度６回～７回開催</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c6">⑥緑を活かす、自然を大切にするまち</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">はけや野川、武蔵野公園の緑と自然、生物多様性を守る</td>
+<td class="st"><p class="ln-p">―</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">農地を長期的・計画的に保全するための基金の設立</td>
+<td class="st"><p class="ln-p">―</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">玉川上水の生物多様性を尊重する</td>
+<td class="st"><p class="ln-b">・玉川上水における未整備区間へのサクラ植樹の実施を検討</p>
+<p class="ln-b">・定期的な植生環境のモニタリングを実施</p>
+<p class="ln-b">・名勝小金井（サクラ）名勝指定１００周年記念事業の実施</p>
+<p class="ln-b">・玉川上水・小金井桜整備活用事業効果の周知啓発</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c7">⑦資源循環を推進、ゼロカーボン・環境先進のまち</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">リユースを推進するリサイクル事業所の再開を模索</td>
+<td class="st"><p class="ln-b">・小金井市野川クリーンセンターに搬入した粗大ごみから再生可能な家具類の補修後、地域情報サイト「ジモティ－」にリユース品を掲載し、市民へ無償還元</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">省エネや再生可能エネルギーの活用を推進</td>
+<td class="st"><p class="ln-b">・市内高圧電力施設２６施設で再生可能エネルギー１００％の電力を導入</p>
+<p class="ln-b">・小金井第一小学校の校舎建設において省エネ及び再生可能エネルギーの活用を推進</p>
+<p class="ln-b">・公共施設（小中学校、小金井市民交流センター、保健センター等３７施設）における照明機器のＬＥＤ化</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">新たな公共施設においては断熱性を高める</td>
+<td class="st"><p class="ln-b">・小金井第一小学校の校舎建設において推進</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c8">⑧社会教育が充実し、未来に向けて文化・芸術を大切にするまち</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">未来をつくる図書館のあり方の検討</td>
+<td class="st"><p class="ln-b">・本館２階児童室に森林環境贈与税を活用した書架を設置</p>
+<p class="ln-b">・本館内に「りんごの棚」コーナーを設置</p>
+<p class="ln-b">・本館で公衆無線ＬＡＮを利用したインターネット接続サービス開始に向けた準備を開始</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">地域課題に向き合うための講座の充実</td>
+<td class="st"><p class="ln-b">・地域課題解決を捉えたコミュニティ育成支援、若年層の社会参加、異文化交流、多世代・親子・高齢者向け講座等、主催事業の実施</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">市民交流センターを中心に、３６５日芸術文化に触れる仕掛け</td>
+<td class="st"><p class="ln-b">・市民交流センター及びはけの森美術館で様々な芸術文化施策を実施</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c9">⑨地域ぐるみで防災・減災・災害時対応に取り組むまち</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">地域防災の充実、自主防災組織の市内カバー率の向上</td>
+<td class="st"><p class="ln-p">自主防災組織が新たに３団体結成（合計３３団体）</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">災害発生時等に市民に伝わる情報発信の仕組みを検討</td>
+<td class="st"><p class="ln-b">・災害時情報発信手段の追加</p>
+<p class="ln-c">（Ｘ、ＨＰ、ＬＩＮＥ、防災行政無線、緊急速報メール、Ｌアラート、安安メール、Ｙａｈｏｏ！防災速報及び電話・ＦＡＸサービス）</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">若者層が地域防災に興味を持つアイディアの募集</td>
+<td class="st"><p class="ln-b">・市民参加型の防災フェスタ及び水防訓練の実施</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c10">⑩みんなでまちをつくる！協働・市民参加と地域資源活用のまち</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">地域人材発掘と育成のプログラムを策定</td>
+<td class="st"><p class="ln-p">―</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">市民参画のための新たなツールの導入を検討（例：ｄｅｃｉｄｉｍ）</td>
+<td class="st"><p class="ln-b">・第５次基本構想・後期基本計画の策定に向けたＤｅｃｉｄｉｍの試行導入</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">常設の「若者会議」（参考：新城市）で若い世代の声を市政に反映する</td>
+<td class="st"><p class="ln-b">・市民参加推進会議にて「若者等サイレント層の継続的な市民参加について」提言を受領</p>
+<p class="ln-b">・令和５年度若者討議会（若者ＭＩＲＡＩトーク）の実施</p>
+<p class="ln-b">・中学生による「小金井を変えちゃう人の会」を継続実施</p></td>
+</tr>
+<tr>
+<td class="no">4</td>
+<td class="ttl">協働提案制度をどんどん進化させる</td>
+<td class="st"><p class="ln-b">・行政提案型協働事業の開始</p></td>
+</tr>
+<tr>
+<td class="no">5</td>
+<td class="ttl">新しいニーズに対応するための官民共創・協働を推進</td>
+<td class="st"><p class="ln-b">・市民協働支援センター再検討委員会の設置</p>
+<p class="ln-b">・新たに企業及び学校法人と包括連携協定を４件締結、包括以外の連携協定も多数締結</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c11">⑪人材育成とＤＸ・組織改革で市役所が変わるまち</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">市民サービスの進化と市役所変革のためのDX推進</td>
+<td class="st"><p class="ln-b">・行政手続におけるキャッシュレス化の推進</p>
+<p class="ln-b">・行政手続におけるオンライン申請等の推進</p>
+<p class="ln-b">・β´モデルを採用した庁内ネットワークの構築</p>
+<p class="ln-b">・東京自治体クラウド（立川市・三鷹市・日野市）の新システムに合流参加し、２０業務の自治体情報システムを標準化</p>
+<p class="ln-b">・デジタル技術を活用した業務効率化の推進</p>
+<p class="ln-b">・ＤＸ推進の意識醸成</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">市役所の組織改革＆人材育成方針の見直し</td>
+<td class="st"><p class="ln-b">・第３次人材育成基本方針の主な事業を改定</p>
+<p class="ln-b">・新しい人材育成方針の策定に向け、検討に着手予定</p>
+<p class="ln-b">・組織改革に向け、組織の方向性と課題を共有し、マネジメント体制強化に着手</p>
+<p class="ln-b">・「地域に飛び出す公務員を応援する首長連合」に加盟</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">専門性の向上のためのキャリア＆スキルアップへの取り組み</td>
+<td class="st"><p class="ln-b">・第３次人材育成基本方針に沿って人事異動、研修等により対応</p></td>
+</tr>
+<tr>
+<td class="no">4</td>
+<td class="ttl">女性副市長を任用。女性管理職割合を高める。</td>
+<td class="st"><p class="ln-b">・令和７年度より女性副市長を選任（小金井市政で理事者としての女性は初）</p>
+<p class="ln-b">・女性部長職を２名配置（市長就任時は０名）</p>
+<p class="ln-b">・第２次女性職員活躍推進プランを策定</p>
+<p class="ln-b">・女性キャリア支援研修の実施</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c12">地域人材育成に力を入れる</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">対話集会を毎月実施（オンラインでの開催も）。あらゆる世代の声を市政に生かす</td>
+<td class="st"><p class="ln-b">・みんなのタウンミーティングを毎月実施（令和８年８月までに４４回開催）</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">専門分野に副業人材を活用することを検討</td>
+<td class="st"><p class="ln-b">・検討中</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">市の広報改革。読みたくなる市報、ＷＥＢサイトへリニューアル</td>
+<td class="st"><p class="ln-b">・市報のリニューアルを実施</p>
+<p class="ln-b">・市ホームページをリニューアル実施</p></td>
+</tr>
+<tr>
+<td class="no">4</td>
+<td class="ttl">ＬＩＮＥを活用して、スマホで市政情報をリアルタイムでお知らせする</td>
+<td class="st"><p class="ln-b">・市公式ＬＩＮＥアカウントの運用を開始</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c13">財源の確保</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">事業評価をフル活用して、事業のビルド＆スクラップを加速させる</td>
+<td class="st"><p class="ln-b">・事務事業評価事前研修会の実施</p>
+<p class="ln-b">・奨励事業に対する行財政再建推進本部の支援</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">市民と専門家を交えた「事業点検会議」を毎年開催する</td>
+<td class="st"><p class="ln-p">―</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">小金井市の魅力を高め、人を呼び込むブランド構築に取り組む　例）子育て＆文教都市、デザイン＆イノベーション創出のまち、多様性尊重のまち</td>
+<td class="st"><p class="ln-b">・市報、ホームページ、ＳＮＳ等の情報発信手段を活用した魅力発信</p>
+<p class="ln-b">・ふるさと納税ポータルサイトの拡充及び新規返礼品の発掘</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cat">
+<h3 id="c14">その他の重点テーマ</h3>
+<table>
+<thead><tr><th class="no">No.</th><th class="ttl">政策</th><th class="st">取組状況</th></tr></thead>
+<tbody>
+<tr>
+<td class="no">1</td>
+<td class="ttl">人権と平和を尊重した市政</td>
+<td class="st"><p class="ln-b">・人権・身の上相談、人権啓発イベント、人権擁護委員協議会連携取組</p>
+<p class="ln-b">・非核平和イベント、平和行事参加の旅、小金井平和の日記念行事</p></td>
+</tr>
+<tr>
+<td class="no">2</td>
+<td class="ttl">学校建替えは、地域交流の拠点化と未来の学校づくりビジョンを</td>
+<td class="st"><p class="ln-b">・公共施設在り方・再編方針の策定及び学校施設長寿命化計画の改定と合わせ、今後検討</p></td>
+</tr>
+<tr>
+<td class="no">3</td>
+<td class="ttl">公共施設マネジメントの推進。跡地活用、図書館の整備検討</td>
+<td class="st"><p class="ln-b">・庁舎等複合施設建設に伴う跡地等活用庁内方針を策定</p>
+<p class="ln-b">・ＰＰＰ／ＰＦＩ手法導入優先的検討指針を策定</p>
+<p class="ln-b">・公共施設在り方・再編方針を策定</p></td>
+</tr>
+<tr>
+<td class="no">4</td>
+<td class="ttl">東小金井駅北口まちづくり事業用地の活用方針の再検討に着手</td>
+<td class="st"><p class="ln-b">・検討中</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<footer>
+<p class="back"><a href="./">トップページへ戻る</a></p>
+<p class="kouenkai">白井とおる後援会</p>
+</footer>
+</div>
+</body>
+</html>
