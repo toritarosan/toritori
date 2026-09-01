@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年9月1日 議会運営委員会</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年9月1日 議会運営委員会</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年9月1日</p>
+    <h1>議会運営委員会</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-09-02</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h1>R8.9.1 議会運営委員会 要約</h1>
+<p>令和8年第3回定例会の会期中である2026年9月1日の本会議開議直後、休憩を挟んで議会運営委員会協議会および議会運営委員会が開かれた。付託されたのは議長の諮問事項1件で、協議事項1「市長送付案件の取扱いについて」である。市長から本日付で送付された<strong>市長報告（新庁舎・（仮称）新福祉会館の今後の対応について）</strong>を、本日の本会議で所定の手続きにより扱うことが議長の諮問案として示され、そのとおり決定した。ただし協議の大半は、<strong>この市長報告に至る日程の決め方と、各会派への事前説明の有無</strong>をめぐる議論に費やされた。</p>
+<h2>協議事項1 市長送付案件の取扱いについて</h2>
+<p>総務部長から「本日付で市長報告を送付させていただきましたので、取扱い方よろしくお願いいたします」との発言があり、議長の諮問案として事務局から「市長報告については、本日の本会議で所定の手続きを取りたい」との説明が行われた。</p>
+<h3>日程の決め方をめぐる議論</h3>
+<p><strong>岸田正義委員</strong>は、8月24日（開会3日前）の議会運営委員会で報告や予算提案の有無を尋ねたが明確な答弁が得られず、3日後の27日の議会運営委員会で再度同じ質問をして「ようやくそういったことがあるかもしれないというお話をいただいた」と述べ、「<strong>この2日間で何が変わったのか一切説明をいただいていない</strong>」と指摘した。そのうえで、8月27日の会派代表者会議を経て本日の運びとなったこと自体に反対するものではないとしつつ、白井市長および第一副市長から何の説明もないことを問題とした。</p>
+<p>岸田委員はさらに、翌日から一般質問が始まり、新庁舎建設に絡む通告をしている議員も多いことから「<strong>今日の報告内容によっては（質問の内容が）全然変わってきてしまう</strong>」として、事前に日程を整理するよう求めていた経緯を説明し、総務部長が「市長に伝える」と述べたまま何の連絡もなかったと述べた。</p>
+<p><strong>総務部長</strong>は「8月27日の会派代表者会議でこの件について議論をされ、その中で9月1日に市長報告をということになったと聞いている」「市長報告については一般質問前の9月1日ということで今日行うこととなったと確認している」と答弁した。</p>
+<p><strong>片山かおる委員</strong>は「そのことは市長に直接おっしゃった方がいいのではないか。この後本会議があるのだから、ここで総務部長に答弁を聞くのは違うのではないか」と述べた。これに対し岸田委員は、議会運営委員会の場で経緯を話してきたのだから同委員会で述べていると応じた。</p>
+<p><strong>委員長</strong>（水上洋志）は、定例会3日前の議会運営委員会で議会日程・追加日程について一切説明がなく、会派代表者会議で当日の市長報告が決まったこと自体について「市長の進め方としては大変問題がある」との認識を示した。</p>
+<h3>各会派への事前説明の有無</h3>
+<p><strong>水谷たかこ委員</strong>は、8月27日の会派代表者会議で議会からの意見を受けて本日の日程になったとの認識を示したうえで、「市長報告をしたいという申出が市長からあった。当初想定していた日程はもう少し先であったと聞いている」「市長報告を配る前には各会派にそれぞれ説明に回りたいと市長は考えていたと聞いていたが、<strong>日程がそれより1週間早まった</strong>ことで事前に各会派に話をする時間が持てなかったということだと思う。私自身もそれは遺憾に思う」と述べた。</p>
+<p><strong>片山委員</strong>は「市長報告は非常に重要な案件であり、これまでもきちんと各会派に説明があるのが当然だと思う」「<strong>今日みたいに11時に配って、それを1時からの会議でというのはありえない</strong>」と述べ、自会派（子どもの権利／情報公開）には説明がなかったことを明らかにしたうえで、事前説明の有無すら明らかにできない状況を問題視した。</p>
+<p>委員長は、説明の有無については市長に聞かなければ分からず、議事の進行上ここで止まっているわけにいかないとして、市長報告の場で市長から発言を求める形しか現時点では解明のしようがないとの整理を示した。</p>
+<h3>決定</h3>
+<p>委員長がお諮りしたところ異議なしと認められ、本件は<strong>議長の諮問のとおり決定</strong>した。</p>
+<h2>協議事項2 その他</h2>
+<p>特段の発言はなかった。なお委員会の終わりに、市長報告が午後3時以降になる場合、3時休憩の前または休憩明けに会を開く可能性がある旨の了解を求める発言があった（対象となる会の名称は音声が不明瞭で確定できない）。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/gMA83lnTs88" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=0s" data-timestamp="0"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:00</a>　お疲れ様です。議会運営委員会協議会を始めます。</div><div class="say">お手元の協議事項を見ていただいて、委員会の進行予定については、審査案件、議長の諮問事項1件です。議会運営に関する議長の諮問事項について、市長送付案件の取扱いについて。追加送付案件が市長報告となっております。</div><div class="say">取扱いについては、本日の本会議で所定の手続きを取ることについてです。皆さんから何かありますか。よろしいでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=35s" data-timestamp="35"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:35</a>　では、委員会に入ります。ただいまから議会運営委員会の会議を開きます。直ちに議事に入ります。当委員会に付託されております案件は、議長の諮問事項1件であります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=69s" data-timestamp="69"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:09</a>　議長からお手元に議会運営委員会協議事項が提示されておりますので、その順序に従って順次協議をしてまいりたいと思います。議会運営に関する議長の諮問事項についてを議題といたします。</div><div class="say">はじめに、協議事項1、市長送付案件の取扱いについて行います。部局から発言があればお願いします。総務部長。</div>
+</div>
+
+<div class="turn reveal" id="t1">
+  <div class="meta"><span class="name">総務部長</span></div>
+  <div class="say">本日付で市長報告を送付させていただきましたので、取扱い方よろしくお願いいたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t2">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=100s" data-timestamp="100"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>01:40</a>　取扱いについて議長の諮問案が提示されておりますので、説明をお願いします。議長。</div>
+</div>
+
+<div class="turn chair reveal" id="t3">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">事務局から説明いたします。</div>
+</div>
+
+<div class="turn reveal" id="t4">
+  <div class="meta"><span class="name">事務局</span></div>
+  <div class="say">市長報告につきましては、本日の本会議で所定の手続きを取りたいというのが、議長の諮問案でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t5">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">議長及び事務局の説明は終わりました。ご意見、ご質疑等ございますか。岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t6">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">本日の市長報告については、24日の議会運営委員会、27日の議会運営委員会についても、その案件の有無を含めて確認をしてきたところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=134s" data-timestamp="134"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:14</a>　24日、開会3日前の議会運営委員会において、そもそもこの報告があるやなしや、予算の提案があるやなしやということを伺ったところ、現段階ではということで、明確なご答弁をいただきませんでした。</div><div class="say">それから3日後の27日の議会運営委員会において、私の方から再度同じ質問をさせていただいて、ようやくそういったことがあるかもしれないというお話はいただいたというところで、一体何が、この2日間で何が変わったんですかということについては、一切ご説明をいただいておりません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=171s" data-timestamp="171"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:51</a>　先日の会派代表者会議において、私は会派代表者会議のメンバーではございませんので、今日の運びとなったというふうに伺っておりますので、それ自体を反対するものではございませんが、しかしながら、そのことについて現段階に至るまで、白井市長及び第一副市長からも何のご説明もいただいておりませんで、何がどうして24日までにこういった整理ができなかったのか。そもそも議会においてはこうなりますよねと、混沌としちゃいますよということを警告したはずですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=209s" data-timestamp="209"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:29</a>　この影響についてどのようにお考えなんですか。それと、私がお尋ねしていた理由についてご答弁ください。</div>
+</div>
+
+<div class="turn chair reveal" id="t7">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。総務部長。</div>
+</div>
+
+<div class="turn reveal" id="t8">
+  <div class="meta"><span class="name">総務部長</span></div>
+  <div class="say">はい。今、岸田さんからのお問い合わせということなんですけども、ちょっと答えになっているかどうかっていうのはあるんですが、私の方では、今ありましたとおり、8月の27日の会派代表者会議でこの件について議論をされて、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=240s" data-timestamp="240"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:00</a>　その中で9月1日に市長報告をということになったということで、今日に至ったということで聞いております。市長報告については、一般質問前の9月1日ということで、今日行うこととなったということで確認をしております。</div>
+</div>
+
+<div class="turn chair reveal" id="t9">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t10">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">今、いみじくもおっしゃっているように、ご答弁にはなっておらなくて、その24日のときにお話をして、市長に伝えますっておっしゃったんですよ、部長はね。それから一切何もないんですよ、話は。この日程について。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=273s" data-timestamp="273"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:33</a>　明日から一般質問が始まるんですよ。私も明日の予定者でございますけれども、そういったところにも影響は出るし、今回の一般質問においても、新庁舎建設に絡んでの通告をされている議員もたくさんおられるわけですよ。その内容も、今日の報告内容によっては全然変わってきちゃうじゃないですか。</div><div class="say">そういったことの影響をどういうふうに考えてるんですかってことを言ってたんですよ。だから、日程をちゃんとしましょうよってことを事前に言ってたんですよ。それについて、部長は市長に伝えますとおっしゃったんですよ。</div><div class="say">でも、それが、白井市長からも第一副市長からも何もないまま、今日ここに立ってるんですね。本来ここに来て、何か説明なり、お詫びなりされるべきじゃないですか。</div>
+</div>
+
+<div class="turn chair reveal" id="t11">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。片山さん。</div>
+</div>
+
+<div class="turn reveal" id="t12">
+  <div class="meta"><span class="name">片山かおる</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=309s" data-timestamp="309"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:09</a>　今のですね、そのことは市長に直接おっしゃった方がいいんじゃないですかね。この後、本会議があるわけですから。ここで総務部長に答弁を聞くというのは、ちょっと違うんじゃないかなと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t13">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t14">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">議会運営委員会の上でお話をしている経緯がございますので、議会運営委員会でお話をさせていただいたところでありますし、市長の報告をいただいた後にこの話をする方が、私はむしろ違うのではないかと思って、ここで発言をしているということです。</div>
+</div>
+
+<div class="turn chair reveal" id="t15">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=343s" data-timestamp="343"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:43</a>　確かに、市長のこの間の進め方については、私も意見は持っています。</div><div class="say">本来であれば、定例会の24日の日は、要するに3日前の議運で、定例会の、要するに整理をするっていう議運だったときに、議会日程、追加日程については一切説明がされないと。それが会派代表者会議で今日の市長報告になるっていうこと自身が、ちょっと市長の進め方としては大変問題があるっていうふうに考えておりますし、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=376s" data-timestamp="376"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:16</a>　24日の日も、一応、岸田さんから市長に伝えるようにっていうふうに要求があり、総務部長も一応伝えていただいたとは思うんですが、そのときに市長は何か言っていたのかどうか、ちょっと確認したい。そのとき伝えたっていうことだけなんだろうと思いますけれども、そういうことだということであれば、そこまでではないかなと。あとはちょっと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=406s" data-timestamp="406"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:46</a>　市長に、進め方については聞いていただくしかないかなと思うんですね。</div><div class="say">あと、私も24日の日には、この、要するに議運で出された意見は市長に伝えてほしいということで、それは伝えていただいていると思うんですが、その際に、丁寧に進めてもらいたいということは私からも言ったと思うんですが、事前にうちの会派にも一切説明がなく今日を迎えているんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=440s" data-timestamp="440"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:20</a>　この議運に参加している会派で説明を受けたところってあるんでしょうか。事前にないですかね、説明。今回の市長報告について、市長報告の内容について、何か説明があったのかどうか。何もない。片山さん。</div>
+</div>
+
+<div class="turn reveal" id="t16">
+  <div class="meta"><span class="name">片山かおる</span></div>
+  <div class="say">はい。うちの会派にはありません。一切ありませんでした。</div>
+</div>
+
+<div class="turn chair reveal" id="t17">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">他はあったのかなかったのか、一応聞いておきたいと思うんですけど。ない。何かあったのかなっていうような。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=487s" data-timestamp="487"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:07</a>　いや、あったのかなかったのか、一応ちょっと聞いておきたいなと思うけど。何もなく、今日の、ほら、突然その市長報告が配られて、市長報告の本会議って形になっているので、本来であれば、事前に何らか説明がね、回られるっていうのが普通かなと思って、そういうことを意識して、丁寧に進めてもらいたいって私は言ったつもりだったんですけど。だから、ないならないって言ってもらえたらいいと思うんです。</div><div class="say">あったなら、何かあったで。うん。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=524s" data-timestamp="524"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:44</a>　じゃあ、それはちょっと分からないっていうことなので。だから結局あれですかね、説明があった会派もあったかもしれないということになってくると、その辺ちょっと定かではないですけれども、事前に説明されたところが……。水谷さん、どうぞ。</div>
+</div>
+
+<div class="turn reveal" id="t18">
+  <div class="meta"><span class="name">水谷たかこ</span></div>
+  <div class="say">はい。先日、会派でいろんな話があり、今日の……。失礼しました。先日の会派代表者会議で、議会からのご意見ということでいろいろあり、今日のこの日程になったと思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=556s" data-timestamp="556"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:16</a>　で、市長報告をしたいという申出が市長の方からあったと。当初想定していた日程は、もう少し先であったというふうに私は聞いています。</div><div class="say">で、市長報告をお配りする前には、各会派にそれぞれ説明に回らせていただきたいというふうに市長は考えていると、私は聞いておりましたけれども、日程がそれより1週間早まったということがあり、事前に各会派にそれぞれお話をする時間が持てなかったということだと思います。私自身も、それは遺憾に思うところではあります。はい、以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t19">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=592s" data-timestamp="592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:52</a>　じゃあ、とりあえずこの委員会ではここまでという、要するに、どういう説明があったのかなかったのかっていうことについては、何か市長に聞かなきゃよく分からないっていうのも、もうおかしな話かなと思いますが、ただ、議事の進行上、ここでちょっと止まっているわけにいきませんので。はい、片山さん。</div>
+</div>
+
+<div class="turn reveal" id="t20">
+  <div class="meta"><span class="name">片山かおる</span></div>
+  <div class="say">やはり市長報告っていうのは、非常に重要な案件なものですから、これまでもですね、きちんと各会派に説明があるということが当然かなと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=623s" data-timestamp="623"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:23</a>　今日みたいに11時に配って、それを1時からの会議でというのはありえないなというふうには思ってますけれども、それをですね、事前に説明があったかないかということを言えないような状態っていうのも、ちょっとどういうことなのかと思いますので。</div><div class="say">私たち子どもの権利／情報公開の会派にはありませんでしたということは申し上げますけれども、それさえも明らかにできないという状況は、一体何なのかなというふうに思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t21">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい。他に皆さんからありますか。よろしいですか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=654s" data-timestamp="654"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:54</a>　あとは市長報告で、ちょっと市長から発言いただくっていう形しか、現時点では解明のしようがないっていう状況かなと。それ自身もどうかなとは思いますが、とりあえず議事の進行を進めたいと思います。それでよろしいでしょうか。他。はい。</div><div class="say">じゃあ、お諮りいたします。本件については、議長の諮問のとおり決定することにご異議ありませんか。</div>
+</div>
+
+<div class="turn voice reveal" id="t22">
+  <div class="meta"><span class="name">（呼ぶ声）</span></div>
+  <div class="say">ご異議なし。やむなし。</div>
+</div>
+
+<div class="turn chair reveal" id="t23">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=684s" data-timestamp="684"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:24</a>　ご異議なしと認めます。はい。したがって、本件は議長の諮問のとおり決定いたしました。</div><div class="say">協議事項2、その他でございますが、何かご発言はございますか。以上で、当委員会に付託されております案件の審査は全て終了いたしました。これで議会運営委員会の会議を閉じ、散会いたします。</div><div class="say">協議事項、その他は特によろしいんですかね。じゃあ……。はい。議長。</div>
+</div>
+
+<div class="turn chair reveal" id="t24">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=gMA83lnTs88&t=715s" data-timestamp="715"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:55</a>　4者の報告であったかもしれませんが、〇〇について、もしこの市長報告が3時以降になるときに、3時休憩の前か、3時休憩が明けるときに、会を開く可能性もありますので、ご了解いただければと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t25">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">じゃあ、以上で議会運営委員会を終わります。お疲れ様です。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
