@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年9月2日 本会議</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年9月2日 本会議</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年9月2日</p>
+    <h1>本会議</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-09-02</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h1>令和8年第3回定例会 本会議 一般質問・午前（2026年9月2日）要約</h1>
+<p>令和8年第3回定例会の一般質問初日の午前。午前9時59分から11時56分まで行われ、<strong>発言順1 吹春やすたか議員、2 鈴木成夫議員、3 小林正樹議員</strong>が登壇した。吹春・鈴木両議員の質問はいずれも<strong>防災</strong>をテーマとし、避難所環境・災害用トイレトラック・緊急医療体制・災害対策本部の立上げ訓練・被災地支援のルール化・福祉避難所・個別避難計画などが取り上げられた。小林議員は通告4件のうち1件目（前立腺がん検診の導入による男性のがん対策の充実。表題は公式の一般質問通告一覧による）を質疑し、その途中で昼食休憩に入った（残る3件は午後に持ち越し）。</p>
+<hr />
+<h2>1 吹春やすたか議員（自由民主党小金井）— 自然大災害発災時に市民を守るための施策の充実</h2>
+<p>吹春議員は、この一月ほどの間に国の内外で大きな自然大災害が発災し多くの方が犠牲になったことに哀悼の意を示し、4問はいずれも「全て命にかかわることの質問だと思っております」として質問に入った。</p>
+<h3>（1）避難所の環境について</h3>
+<p>吹春議員は、熊本地震や能登半島地震では避難所の水・食料・トイレの不足に加え、避難生活の長期化による生活環境の悪化が健康被害や災害関連死につながったとして、市民目線での物資の拡充具合を質した。</p>
+<p>防災安全担当部長は、備蓄計画は令和4年5月に東京都が公表した「首都直下地震等による東京の被害想定」に基づき、多摩東部直下地震を想定して避難所避難者及び帰宅困難者を対象に必要数量を算出していると説明。避難者数は発災4日後から1週間後にかけて最大となる見込みで、多くの備蓄品で計画数量の充足が進んでいるとした。一方、飲料水・携帯トイレを重点的に整備しつつも「現時点では保管スペース等の制約により一部において計画数量を充足できていない状況がございます」と述べ、自治体間の災害時相互応援協定や民間事業者との物資供給協定で補完していること、市の備蓄は家庭内備蓄を補完するのが基本で、市民にも最低3日分、できれば1週間分の備蓄をお願いしていることを挙げた。</p>
+<p>吹春議員は、充足は進んでいると受け止めつつ「災害は備蓄が整うまで待ってくれるものではありません」とし、初期段階に必要な物資は可能な限り確実に備えるべきだと述べた。</p>
+<p>被災地から新たに認識した課題を問われた同部長は、最も重要な教訓は「いかに命を助けるかという発災直後の対応に加えまして、助かった命をいかに守り続けるかという災害関連死対策」だと答弁。平成28年熊本地震では災害関連死が直接死の4倍を上回る水準となり、本市は建物の耐震化等の進展で直接的な人的被害は限定的である一方、高齢者や要配慮者の災害関連死リスクに留意が必要だとした。さらに令和8年熊本地震から新たに学んだ点として酷暑環境下における避難の在り方を挙げ、自宅やエアコンの利いた自家用車等で避難生活を送る方が多数いるとされ、在宅避難者・車中泊避難者の実態把握が困難で、支援情報や物資、保健師等による健康支援が届きにくいと指摘。都市部の本市でも自宅に留まる市民が想定されるとして、その把握と支援を今後の重要な課題の一つとした。</p>
+<p>吹春議員は、在宅避難者等の把握は別の機会に伺うとしたうえで、熊本地震の被災地を10回ほど訪ね、8月半ばのお盆休みごろも避難所に多くの方がおり暑さを懸念する声が多かったとして、気温上昇への配慮を求めた。</p>
+<h3>（2）災害発災時のトイレ対策について</h3>
+<p>吹春議員は、トイレ環境の悪化は衛生面だけでなく水分摂取の抑制や健康状態の悪化、災害関連死につながるとし、トイレトラック導入を「新たな一歩」と評価する一方、これでゴールなのか、今後の展開はどうかを問うた。</p>
+<p>防災安全担当部長は、本市の被害想定では直接死者数は他地域と比較して相対的に多くない一方、避難生活の質の確保や健康被害の防止が極めて重要だとし、トイレトラックを避難者の尊厳や衛生環境の確保に資する施策の一つと位置づけた。そのうえで「災害時のトイレ対策は、トイレトラック1台のみで完結するものではありません」と述べ、マンホールトイレ・仮設トイレ・携帯トイレの組み合わせ、発災直後の72時間は行政の支援にも限界があるとして各家庭の携帯トイレ備蓄の普及啓発、災害派遣ネットワークへの参画も視野に入れた広域的な相互応援体制の整備を挙げ、「トイレトラックの導入をゴールではなくスタートとして捉えております」と答えた。</p>
+<p>吹春議員はさらに、市民には必要だという声がある一方で「トイレトラックを導入する必要性や費用に見合う効果がわからないといった疑問の声もあります」として、必要性や既存手段との役割分担、平時の活用の周知を求めた。同部長は、内閣府の「避難所におけるトイレの確保・管理ガイドライン」を挙げたうえで、「トイレトラックは既存の備蓄型トイレを代替するものではなく、災害時のトイレ対策を重層的に強化するための選択肢の一つである」と説明。洋式便器やバリアフリー機能により要配慮者が利用しやすいこと、能登半島地震でも派遣されたトイレカーやトイレトレーラーが有効に活用されたと国の検証で示されていることを挙げ、防災フェスタや防災訓練等での啓発に加え、経費の一部に予定するクラウドファンディングや寄付の募集過程も啓発の機会にすると答えた。</p>
+<p>吹春議員は、初めて議会で提案したのは8年前で、当時はみんなのトイレネットワークが活動を始めたばかりで理解者が少なく、高価であることを理由に検討は難しいとの答弁も受け、軽トラックを改装したタイプを2台ほどという提案も通らなかったと振り返った。そのうえで、能登半島で助けあいジャパンのトイレトレーラー等と軽タイプのトイレカーの双方を見て現地の行政に聞くと、助けあいジャパンに加入していればスタッフが現地に赴いて派遣先を指示し、汲み取り・給水・給電などの手配を行い1週間から10日ほど泊まり込むのに対し、一般的なトイレカーでは受け入れた行政側が手続きをしなければならないと説明。被災下で仕事を増やさずに済み、市役所のマンパワーを他に割ける点をメリットとして、市民への周知を求めた。</p>
+<h3>（3）自然大災害発生時の緊急医療体制について</h3>
+<p>吹春議員は、大規模災害では多数の負傷者が出る一方で医療機関そのものも被災するとして、震度6弱以上の地震が発生した場合の市内の医療体制と発災直後の救護活動を問うた。</p>
+<p>福祉保健部長は、本市では「震度6弱以上の地震が発生した場合、市内の診療所は原則として閉院し」、医療従事者が市内4カ所に設置する緊急医療救護所に参集する体制だと答弁。救護所は小金井太陽病院、桜町病院、小金井リハビリテーション病院、日本歯科大学口腔リハビリテーション多摩クリニックで、傷病者のトリアージのほか、軽症者への治療、必要に応じて中等症者・重症者に対する応急処置等を行うとした。</p>
+<p>吹春議員は「今、皆さん聞きましたか」と呼びかけ、震度6弱以上では市内診療所は原則閉鎖で、開いているのはこの4カ所だとしてメモを取るよう促した。続けて市外への搬送の連携体制と訓練を問うと、同部長は、重症と判定された傷病者は二次保健医療圏内の災害拠点病院等へ搬送するとし、北多摩南部保健医療圏では武蔵野赤十字病院、東京都立多摩総合医療センター、東京都立小児総合医療センター、杏林大学医学部付属病院、東京慈恵会医科大学附属第三病院が指定されていると説明。訓練は本年11月に実際の緊急医療救護所となる病院で実施予定で、トリアージ訓練と合わせ、関係機関との情報伝達や搬送調整が円滑に行えるよう搬送に係る連絡訓練を行うとした。</p>
+<p>吹春議員は、被災地の生々しい光景の前ではこの問題になかなか触れられずにいたとして今回初めて尋ねたと述べ、訓練は別の機会にも尋ねたいとした。</p>
+<h3>（4）災害対策本部について</h3>
+<p>吹春議員は、数多くの被災地を視察してきた立場から、災害対策本部のスムーズな立ち上げも重要な要素だとして市の現状を問うた。防災安全担当部長は、その迅速かつ円滑な立ち上げは市全体の災害対応力を左右する重要な要素の一つだとし、「災害時に機能する組織は、発災時に初めて作られるものではなく、平常時からの準備と訓練の積み重ねによって形成されるものです」と述べた。計画やマニュアルの整備だけでは十分でなく運用できるかの検証が重要だとして、本部員に役割や各班の任務を確認する機会を設けたうえで市災害対策本部訓練を実施したいとし、その先は医療救護本部・緊急医療救護所との連携に着目した訓練へ発展させたい、第1回の結果を検証し課題を改善して第2回・第3回へ継続的にブラッシュアップすることが重要だと答えた。</p>
+<p>吹春議員は、答弁調整の中で訓練がこれから始まると分かったとして具体的な質問は用意していないとしたうえで、市役所が崩壊した宇土市や大阪北部地震が起こった高槻市では、あれだけの規模の被害の中でも災害対策本部が20分後には立ち上がったと聞いたと紹介。その理由として、訪問した日にたまたま行われていた「年に1回、抜き打ち参集訓練をしている」ことを挙げた。また宇土市では、参集した職員が現場判断で校庭を開放して車中泊での避難が行われたとして、日頃から職員が自ら考えて行動していることが背景にあるのではないかとした。そのうえで、立ち上げ訓練を重ねてブラッシュアップし、自然大災害が発生したときすぐに対応できる形を取るよう求め、質問を終えた。</p>
+<hr />
+<h2>2 鈴木成夫議員（みらいのこがねい）— 小金井市の防災力を強化し、向上しよう</h2>
+<p>鈴木議員は冒頭、本人提出資料「小金井市の被害想定の概要」で多摩東部直下地震と都心南部直下地震の左右が逆だったと自ら訂正した（下の数字に誤りはないとした）。7月28日の熊本地震（マグニチュード7.1）、千葉県・福井県・石川県の豪雨、8月23日に小金井市で観測した震度4の地震などを挙げ、災害が多発した8月を踏まえて市の防災力を問うと述べた。9月1日は関東大震災から103年にあたることも紹介した。</p>
+<h3>① 被災地に対する災害支援のルール化</h3>
+<p>防災安全担当部長は、令和8年7月の熊本地震を受け、令和5年3月に災害協定を締結した佐川急便株式会社の協力により手配したトラックで、令和8年8月7日金曜日に市職員が積み込み、令和8年8月10日月曜日に熊本県八代市へ支援物資を届けたと説明した。物資は市の災害備蓄物資から2リットルのペットボトル飲料水2,580本。市長が参加する「活力ある地方をつくる首長の会」で福岡県古賀市が調整窓口を担い、八代市の要望に本市の備蓄物資で直ちに対応できたため実現したとした。</p>
+<p>鈴木議員は、これは市長のネットワークの中で始まったものでプッシュ型支援ではなかったのではないかと確認した。プッシュ型支援を、被災自治体からの具体的な要請がなくても国が自ら調達して被災地へ緊急輸送する仕組みだと紹介し、「打診すること自体が、問い合わせをすること自体が、被災した自治体に対して非常に大きな負担になる」と述べた。防災安全担当部長は、被災自治体に本市と災害時相互応援協定を締結した自治体が存在せず、九州で同協定を締結している福岡県宗像市を介した可能性も探ったが調整がつかなかったとし、「災害時相互応援協定に基づく早期のプッシュ型支援ではないものの」要望に基づく支援を迅速に行い、混乱する被災地に個別に連絡する影響を低減できた点で「今回は適切な手法であったと考えております」と答弁した。</p>
+<p>支援のルールについては、地域防災計画で、第一に相互応援協定等を締結している自治体を最優先とすること、第二に都からの支援要請が行われない場合や遅れる場合は市独自の判断で支援先を決定すること、第三に被災市町村から応援を求められた場合は緊急性の高い応急措置を正当な理由がない限り行うことを定めており、今回は第二・第三を踏まえたものとの認識を示した。鈴木議員は、市独自の判断で支援することは自らの町が被災した場合のシミュレーションにもつながると指摘した。</p>
+<h3>② 「災害に強いまちづくり」実現のための取組強化</h3>
+<p>防災安全担当部長は、平成28年熊本地震における災害関連死が直接死の4倍以上であったこと、能登半島地震における避難生活の長期化に伴う健康被害を挙げ、住宅の耐震化率が令和3年3月時点で94%となっている状況も踏まえ「いかに災害関連死を減らすかが今後の防災対策の重要なテーマである」として3点を示した。1点目は避難所環境の改善で、学校管理者との調整の結果、従来の体育館中心の運用に加え必要に応じて教室等の活用も可能となる体制を整備し、体調不良者と他の避難者の動線や生活空間を分けられるようにした。2点目は避難所運営体制の強化（避難者主体の避難所運営マニュアル、避難所運営協議会や防災フェスタ等）。3点目は医療救護体制の強化で、災害時医療初動マニュアルを整備し医師会、歯科医師会、薬剤師会等と連携するほか、令和8年11月には初めて医療救護訓練を単独で実施する予定とし、一部消防団にも参加を求めるとした。熊本地震での支援経験は、応援力の向上だけでなく本市が被災した際の受援体制の強化にもつながるとも述べた。</p>
+<p>鈴木議員は、8月2日に南中学校で運営協議会が避難所体験を実施し80人を超える参加があったことを紹介し、11月8日に防災フェスタとは切り離して医療救護訓練を単独で実施することを歓迎した。消防団が傷病者を搬送する医療拠点が4箇所に限られることを認識したうえで対応にあたる意味でも重要だとした。</p>
+<p>災害用トイレトラックについて防災安全担当部長は、導入後は地域安全課が所管し平時から保守点検・機能確認を行うこと、一般社団法人助け合いジャパンの災害派遣トイレネットワークプロジェクト「みんな元気になるトイレ」に協定を締結のうえ参加する予定であること、被災自治体への派遣は派遣元自治体が現地まで運び運用は被災自治体が行い、地域安全課職員が運転する予定であることを説明した。鈴木議員は、本市が被災した場合の運用と派遣調整のシミュレーションが必要だと要望した。</p>
+<h3>③ 地域防災計画に基づいた全庁的な予防対策の点検</h3>
+<p>鈴木議員は、地域防災計画54ページの「初動期における各部各課の重点災害応急対策」で、災害対策本部の設置と運用は企画財政部と総務部、施設の被害調査・安全点検・応急復旧は総務部管財課と都市整備部建築営繕課とされている点を挙げ、実際の避難所開設判断では建築営繕課を待てず目視で判断することになると指摘した。防災安全担当部長は、総合防災訓練や避難所運営訓練を実施し過去には災害対策本部訓練の経過もあるとしつつ、発災直後の安全点検から避難所開設の可否判断までの一連の流れに関する訓練は「必ずしも十分ではなく、さらに充実を図る余地があると認識しております」と答弁し、本部の立ち上げ及び運営訓練、施設安全確認の手順確認、情報伝達及び意思決定の流れを含めたより実践的な訓練を検討するとした。</p>
+<p>参集基準について防災安全担当部長は、地域安全課職員は第1次配備体制である情報連絡体制として、市内で震度4の地震が発生した場合、南海トラフ地震臨時情報が発表された場合、地域において災害発生の恐れがある場合に参集するとし、8月23日日曜日未明の午前2時ごろの地震では震度4を観測したため参集したと説明した。鈴木議員は「震度4だと、まず市内に被害は予想されない」との自身の印象を述べ、他市の状況を研究して見直すべきではないかと申し添えた（この提案自体への答弁はなかった）。さらに、能登半島地震について助け合いジャパンがアンケートしたデータとして、発災3日間の職員の参集率は38%から58%にとどまり、1日あたりの勤務時間は1日20から24時間、職員1人あたりがやり取りした相手の数は85人から92人であることを示し、参集のシミュレーションを訓練するべきだと述べた。</p>
+<h3>④ 「防災フェス」に合わせた災害対策本部の立上げと運用訓練</h3>
+<p>鈴木議員は、地域防災計画395ページで炊き出しの担当が管財課と学校教育部庶務課とされ、震災後おおよそ4日目以降は原則として米飯の炊き出しにより給食を行うと書かれている点を紹介し、防災フェスタでは自衛隊による炊き出しが好評だが、本来の計画に基づいた担当課の関わりを増やすべきではないかと求めた。防災安全担当部長は「防災フェスタの各訓練内容は、必ずしも災害対策本部の事務分掌や組織運営を意識した構成となっているわけではない」という点も認識しているとし、地域防災計画との整合を改めて確認し、炊き出し訓練に限らず、災害対策本部の立ち上げや運営、物資管理、避難所運営など各部局の役割が市民にも分かりやすく職員にとっても実践的となるよう充実を図りたいと答弁した。</p>
+<p>鈴木議員が以前から提案してきた、各学校ごとに5人ずつ担当する指定要員への備蓄倉庫の公開については、防災フェスタ当日に避難所開設初動指定要員が市内全ての指定避難所に参集して参集状況や設備を確認し、自主防災組織から希望のあった避難所では備蓄倉庫の確認を兼ねた訓練を実施しており、今年度も同様の訓練を予定しているとの答弁があった。また、予防対策は平時から地域安全課以外の部署にも定められた役割があり職員全体の意識と啓発が必要だとの指摘に対しては、計画は広範な内容を含むため各職員が自らの所属部署の予防対策及び災害時の役割をより具体的に理解していく必要があると認識しているとし、役割を整理したうえで庁内周知を図るとした。鈴木議員は、こうした取り組みこそ新しく設置された担当部長の重要な仕事だと要望した。</p>
+<h3>⑤ 被災地への職員派遣</h3>
+<p>防災安全担当部長は、記録を確認できる東日本大震災が発生した平成22年度以降で、8つの災害に対し職員を派遣し、延べ派遣人数は28人、派遣先自治体は13自治体と把握していると答弁した。主な支援内容は支援物資の搬送、被災建築物の応急危険度判定業務、住家被害認定調査、避難所運営支援、被災証明書発行業務など。考え方は地域防災計画に定めており、派遣職員は被災自治体の指揮の下で活動するとした一方、「職員派遣に特化した条例、規則または要綱は定めておりません」とし、東京都市長会等からの要請や災害時相互応援に関する協定の枠組みを活用して対応するとした。</p>
+<p>防災安全担当部長を新たに配置した問題意識を問われた市長は、答弁に先立ち、昨日9月1日朝の庁内放送で職員一人一人が災害発生時に何をすべきかを改めて確認するよう述べたと紹介した。そのうえで、かつて東日本大震災後に危機管理担当部長を配置していたがその後廃止しており、「災害の備えに終わりはない」ということを市長になってから改めて実感したこと、特殊詐欺など防犯上の課題も複雑化していることから、防犯、防災、そして危機管理分野を戦略的かつ横断的にマネジメントする責任者が必要と考えたと説明。大規模災害発生時には避難所運営や物資、要配慮者の支援、受援体制の構築などを同時並行で行う必要があり、全庁を横断する司令塔機能の強化が重要だとし、「私の役割は意思決定です」と述べた。</p>
+<p>鈴木議員は、職員参集訓練にはブラインド型など複数のパターンがあり、交通機関が動いている想定かどうかが問題になると述べ、検討を要望した。なお、東京消防庁からの職員受入れについて、市長は「令和8年度、この4月からは東京消防庁からも職員1人派遣いただいて」と答弁している。</p>
+<h3>⑥ 福祉避難所となる施設の要配慮者受入れ</h3>
+<p>鈴木議員は、福祉避難所として市内の公立保育園5園の子ども施設、障害者関連の施設が9施設、高齢者施設と大学1校が指定されていると述べ（基準時点の年は聞き取り不能）、避難者が殺到すれば開設できるかどうかに限界があること、市の直営施設は公立保育園5園だけで他は民間の社会福祉法人等が運営していることを挙げ、施設ごとのマニュアル・計画の整備状況を質した。福祉保健部長は、施設ごとの個別マニュアルの整備を想定しており「令和7年度に2つの施設が作成していることを確認しております」と答弁し、まずは市と各施設が共通認識を持てるよう整備を進めてもらう必要があるとした。</p>
+<p>受入れ可能人数を明らかにすべきだとの求めに対しては、被災状況や職員の参集状況、使用できるスペース、必要となる備品等によって変動し、平常時から固定値を示すことは実際と乖離する可能性があるとして「福祉避難所ごとの受入れ可能人数を固定的な数値として明らかにすることは考えておりません」と答弁した。鈴木議員は用意していた次の質問を取り下げたうえで、当事者や家族の期待は高く、期待に応えられない場合も含めた事前の準備が必要だと要望した。</p>
+<h3>⑦ 避難行動要支援者、個別避難計画作成者数</h3>
+<p>鈴木議員は提出資料をもとに、登録者数は常に1000人以上で毎年動いており、1154人の登録者数のうち個別避難計画を作成できた方が55人であること、令和5年から6年、7年と増えていることを示し、「福祉避難所で直接避難できるのは、個別避難計画を持っている方だけ」だとして増加の理由を質した。福祉保健部長は、職員が頑張ったことに加え福祉専門職の方々に作成に関わっていただいていることによるものと認識し感謝しているとし、引き続き関係機関や福祉専門職と連携しながら作成の促進に努めると答弁した。障害者の個別避難計画は前年度末の17人から15人増加し32人となっており、令和7年度から相談支援事業者の方々へ作成を依頼する取組を開始したことが増加につながったと説明した。</p>
+<p>鈴木議員は、相談支援事業所の負担が大きい中で協力を得ていることに感謝を述べ、自身の息子が知的障害者で31歳になったことにも触れ、ご家族にとって災害時の不安は非常に大きいと指摘。課題も明らかになったが成果が出ているところも多いとして、市全体の状況を考えて今後の取り組みを強化するよう求め、質問を終えた。</p>
+<hr />
+<h2>3 小林正樹議員（小金井市議会公明党）— 前立腺がん検診の導入による男性のがん対策の充実について</h2>
+<p>小林議員は、市民や団体の意見を踏まえ特に重要なものを4点に絞って通告したと述べ、午前中はその1つ目の大きな項目である前立腺がん検診を取り上げた。答弁はいずれも福祉保健部長が行い、質疑終了後に議長が昼食休憩（おおむね1時間、13時再開）を宣言したため、通告した4点のうち残る3件は午後に持ち越された（残る3件の項目名は本文中に示されていない）。</p>
+<h3>（ア）質問の背景 — 罹患状況と学会・医師会の要望</h3>
+<p>小林議員は、これまでもがんの早期発見・早期治療と検診の受診率向上を取り上げてきたとした上で、今回は男性特有のがんである前立腺がんの検診を取り上げた。前立腺がんは早期には多くの場合自覚症状がないが、早期発見・適切な治療で治癒が望めるとして、気になる症状のある人に早めの泌尿器科受診を勧めた。</p>
+<p>罹患の状況としては、厚生労働省健康局による令和3年の全国がん登録罹患者数率報告で罹患者数が95,584名と男性がんの第1番目であること、50歳以上の男性で診断される人が増加傾向にあることを紹介した。また、日本泌尿器科学会のガイドラインが検診情報の提供を重要としてきたことに触れ、去年3月に同学会及び日本医師会が厚生労働大臣に「我が国における前立腺がん検診普及の推進に関する要望書」を提出し、我が国の前立腺がん検診は「欧米医療先進国と比較した場合、かなり遅れており」、治療を急ぐ必要のある前立腺がんが進行するまで見逃されていると指摘していることを挙げた（要望の対象は住民検診）。さらに、東北大学病院にあるMRリニアックによる治療で治癒するという新聞記事も紹介し、「本市においても検診導入を含む男性のがん対策の充実について検討すべきではないでしょうか」と問題提起した。</p>
+<h3>（イ）本市における前立腺がんの現状と検診の考え方</h3>
+<p>福祉保健部長は、本市の前立腺がんの罹患者数及び死亡者数について「市単独の数値は把握しておりません」と答弁し、東京都が公表している令和6年の人口動態統計では東京都における前立腺がんによる死亡者数は1293人であったと述べた。検診については、国のがん検診の指針に基づき科学的根拠が認められた方法により胃がん・肺がん・大腸がん・子宮頸がん・乳がんの5つを実施しており、前立腺がん検診は「現在国の指針に入っていないことから、本市では実施しておりません」とした。検査方法としては、血液中の前立腺特異抗原（PSA）の値を測定するPSA検査があり、基準を超えた場合は医療機関で精密検査を受けることになると説明し、他の自治体で実施しているところがあると認識しているとした。</p>
+<p>これを受けて小林議員は、都全体で1293名が亡くなっていることから「小金井市では10名前後の方がお亡くなりになられている可能性もある」と想定できるとの見方を示した（本人の推計）。</p>
+<h3>（ウ）都内・多摩地域の実施状況と市の見解（実施市数に食い違い）</h3>
+<p>小林議員は本人提出資料「東京都内62自治体における前立腺がん検診実施状況」を示し、23区では14区、多摩26市ではほぼ半分の13市が実施していると説明した。対象年齢は50歳、55歳が大半だが60歳開始や40歳の自治体もあり、通年実施のほか5歳刻みの取り組みもあるとした。資料に金額の記載がないとして口頭で補足し、小平市は50歳から74歳の男性を対象にPSA検査を自己負担1,000円で実施し健康検査との同時受診も可能、西東京市は50歳から74歳の偶数年齢の男性を対象に自己負担500円、立川市は令和8年度から導入し50歳以上を対象に市の健康検査時に500円で追加できる仕組み、国分寺市は市の人間ドックでPSA検査を加えて実施できる、と紹介した。</p>
+<p>福祉保健部長は、実施してこなかった理由は国の指針に基づく科学的根拠が認められた5つの検診を実施しているためだとした上で、東京都が公表しているデータから多摩26市では12市、東京都全体では31自治体が前立腺がん検診を実施していると把握していると答弁した。多摩26市の実施市数は、小林議員が13市、福祉保健部長が12市としており、本文中で数字は突き合わされないまま食い違いが残っている。</p>
+<h3>（エ）導入の課題と検討状況</h3>
+<p>小林議員は、小金井市はこの中に入っておらず全国で8割以上の自治体が実施しているとの認識を述べ、導入の課題や検討状況を質した。福祉保健部長は、国の指針による5つの検診を実施していることから現時点では実施していないと答弁。課題を重ねて問われると、現在の5つのがん検診には女性特有のがんである子宮頸がん検診及び乳がん検診が含まれる一方、「男性特有のがんを対象とした検診は実施しておりません」と述べ、前立腺がんは男性の罹患者数の多いがんの1つで、死亡者数も全国で年間1万3千人を超えている状況を認識しているとした。その上で導入については、罹患状況等も踏まえ、検診実施上の課題や国の動向等を確認し、実施自治体の取り組み状況も参考に「今後の検討課題としております」と答えた。</p>
+<h3>（オ）導入に向けた提案と市の答弁</h3>
+<p>小林議員は、市民の健康寿命の延伸だけでなく医療費の削減にもつながるとして、「国の指針を理由にするだけではなくて」近隣自治体の取り組みを参考にし、「希望者が定額で受診できる選択肢の確保」という意味からも導入すべきだと主張した。特定検診とセットで実施する方法もあり、自治体・個人双方の負担が低くなり検診率も高くなると述べた。また、国の指針の5つ以外の独自の検診には国のペナルティがあると聞いたことがあるが、独自に調査したところ補助が減るなど具体的に科されるものは現状ではないと伺っているとして、導入の検討を改めて求めた。</p>
+<p>福祉保健部長は、繰り返しの答弁となるとした上で、実施自治体の取組状況も参考にという指摘を受けて「それらの情報も勘案し、今後の検討課題とさせていただきたいと思います」と答えた。</p>
+<p>小林議員は最後に、これまでもがん検診について健康受診者へのポイント付与、健康診査・特定検診の同時実施による受診機会の拡大、受診申請のハガキをつけたガイドブックの全戸配布などを提案してきたとして、併せて検討を進めるよう求め、1件目の質問を終えた。</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/31Prvcb4b00" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn reveal" id="t0">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=0s" data-timestamp="0"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:00</a>　ここからは、〇〇</div>
+</div>
+
+<div class="turn reveal" id="t1">
+  <div class="meta"><span class="name">吹春やすたか</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=300s" data-timestamp="300"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:00</a>　この一月ほど見たところでも、大きな自然大災害が発災いたしました。国の内外問わず、たくさんの方が犠牲になられておりますが、その方たちに哀悼の意を示しつつ、私としては今回4つの質問をさせていただきますけれども、全て命にかかわることの質問だと思っておりますので、よろしくお願いをいたします。シンプルに4つを選びました。</div><div class="say">まず、通告順、質問の1、大きな一番として、小金井市は、大自然災害発災時に市民を守るための施策の充実を図っているかどうかについてお尋ねいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=338s" data-timestamp="338"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:38</a>　1、避難所の環境について熊本地震や能登地震の教訓が生かされているか、避難した際、市民目線での物資の拡充の具合などはいかがか、などについてお尋ねいたします。</div><div class="say">まず、熊本地震や能登半島地震では、避難所における水や食料、トイレなどの物資の不足に加え、避難生活が長期化する中で生活環境が悪化し、健康被害や災害関連死につながることが大きな課題となりました。大規模災害がいつ発生するかわからない中、市民が避難所に避難した際に必要な物資が確実に提供され、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=376s" data-timestamp="376"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:16</a>　安心して避難生活を送ることができる環境を平時から整えておくことが重要だと考えます。小金井市では、熊本地震や能登半島地震など、近年の大規模災害の教訓を踏まえ、避難所で必要となる物資の備蓄についてどのような考え方で整備を進めているのか疑問に思ったところです。</div><div class="say">そこでお尋ねいたします。避難した際、市民目線での物資の拡充具合はいかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t2">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=407s" data-timestamp="407"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:47</a>　防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t3">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">市では、災害時に避難された市民の皆様の生活を支えるため、地域防災計画及び備蓄計画に基づき、計画的な備蓄物資の整備を進めております。</div><div class="say">現在の備蓄計画は、令和4年5月に東京都が公表した首都直下地震等による東京の被害想定に基づき見直したものであり、冬の夕方、風速8メートル〇〇において多摩東部直下地震の発生を想定し、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=441s" data-timestamp="441"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:21</a>　避難所避難者及び帰宅困難者を対象として必要数量を算出しております。被害想定では、避難者数は発災4日後から1週間後にかけて最大となることが見込まれており、市ではこうした状況を踏まえ備蓄を進めております。</div><div class="say">その結果、多くの備蓄品について計画数量の充足が進んでおり、市民の皆様が避難所で必要とする物資の確保については着実に前進しているものと認識しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=473s" data-timestamp="473"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:53</a>　一方で、平成28年熊本地震や令和6年の能登半島地震では、発災直後に物資供給体制が十分に機能せず、水・トイレなど避難生活の基礎となる物資の重要性が改めて認識されたところであります。また、避難生活の長期化に伴う生活環境の悪化が健康被害や災害関連死につながるという課題も明らかになりました。</div><div class="say">こうした教訓も踏まえ、市では避難生活の基本となる飲料水・携帯トイレなどについて重点的な整備を進めておりますが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=511s" data-timestamp="511"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:31</a>　現時点では保管スペース等の制約により一部において計画数量を充足できていない状況がございます。しかしながら、市では備蓄のみで対応するのではなく、自治体間の災害時相互応援協定や民間事業者との物資供給協定を締結しており、市の備蓄を補完する体制を整えております。</div><div class="say">また、市の備蓄は、自助による家庭内備蓄を補完することを基本としており、市民の皆様にも日頃から最低3日分、できれば1週間分の食料や飲料水等の備蓄をお願いしているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=551s" data-timestamp="551"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:11</a>　担当としては、近年の国内での大規模災害の教訓も踏まえ、単に物資の数量を確保するだけでなく、避難者の健康や生活環境の維持という視点を重視しながら、備蓄の充実と協定による供給体制の強化、自助・共助・公助の連携による災害対応力の向上に引き続き努めてまいります。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t4">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">吹春さん。</div>
+</div>
+
+<div class="turn reveal" id="t5">
+  <div class="meta"><span class="name">吹春やすたか</span></div>
+  <div class="say">はい、ご答弁いただきました。ありがとうございます。今いただいたご答弁を聞いていた中でも、皆様お感じになったかと思うんですけれども、かなり充足されてきているのかなというところを私は感じているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=595s" data-timestamp="595"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:55</a>　ただ、その中でも一部については計画数を充足できていないとの答弁もありました。災害は備蓄が整うまで待ってくれるものではありません。特に能登半島地震などの教訓を踏まえれば、避難生活の初期段階に必要となる物資については、可能な限り行政として確実に備えておくことが重要だと考えています。</div><div class="say">次に、熊本地震や能登半島地震など、実際の被災地から学ぶことは、本市の防災施策を考える上でも大変重要であると考えます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=626s" data-timestamp="626"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:26</a>　これらの災害では、発災直後に命を救うことだけでなく、その後の避難生活においていかに健康を守り、災害関連死を防ぐかということが大きな課題となりました。</div><div class="say">また、近年の災害では、避難所に避難する方だけではなく、自宅で生活を続ける在宅避難者や車中泊をする方など、避難所以外で避難生活を送る方への支援についても課題が明らかになっています。さらに、今後は夏季の大規模災害も想定し、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=657s" data-timestamp="657"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:57</a>　酷暑の中での避難生活や熱中症対策など、従来とは異なる視点からの備えも必要となると考えます。</div><div class="say">そこでお尋ねいたします。熊本地震や能登半島地震などの被災地での状況や教訓を踏まえ、本市のこれまでの防災対策について、新たに認識した課題や、これまで十分に想定できていなかった視点にはどのようなものがあるでしょうか。また、今後特に取り組む必要がある課題について、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=687s" data-timestamp="687"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:27</a>　被災地から学んだこと、本市にない視点などが課題となったことはあったのでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t6">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t7">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">令和8年熊本地震や令和6年能登半島地震においては、災害そのものによる直接死だけではなく、その後の避難生活等に起因する災害関連死が大きな課題となっております。特に平成28年熊本地震では、災害関連死が直接死の4倍を上回る水準となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=722s" data-timestamp="722"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:02</a>　さらに能登半島地震においても、避難生活の長期化や生活環境の悪化等により、多数の災害関連死が認定されております。</div><div class="say">このことから、本市が被災地に学ぶべき最も重要な教訓は、いかに命を助けるかという発災直後の対応に加えまして、助かった命をいかに守り続けるかという災害関連死対策であると認識しております。</div><div class="say">本市の地震被害想定におきましても、建物の耐震化等の進展により直接的な人的被害は限定的である一方、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=760s" data-timestamp="760"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:40</a>　高齢者や要配慮者を中心として、避難生活に伴う健康の悪化や持病の重症化などによる災害関連死のリスクには十分留意する必要があると考えております。</div><div class="say">さらに、今回の令和8年熊本地震から新たに学んだ点として、酷暑環境下における避難の在り方がございます。避難所の環境や余震への不安などから、自宅やエアコンの利いた自家用車等で避難生活を送る方が多数いらっしゃるとされております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=796s" data-timestamp="796"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:16</a>　その結果、避難所に来ていない被災者、いわゆる在宅避難者や車中泊の避難者の実態把握が困難となり、支援情報や物資、保健師等による健康支援が十分に届きにくいという課題が指摘されております。</div><div class="say">行政といたしましては、避難所にいる方だけではなく、在宅避難者や車中泊避難者を含めた全ての被災者を支援対象として捉える視点が重要であり、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=827s" data-timestamp="827"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:47</a>　この点は本市にとって大きな学びであったと考えております。</div><div class="say">一方で、都市部である本市においては、発災後に多くの市民が住み慣れた自宅に留まりながら生活を継続することも想定されますことから、在宅避難者等の把握や支援のあり方につきましては、今後の重要な課題の一つであると認識しております。</div>
+</div>
+
+<div class="turn chair reveal" id="t8">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">吹春さん。</div>
+</div>
+
+<div class="turn reveal" id="t9">
+  <div class="meta"><span class="name">吹春やすたか</span></div>
+  <div class="say">ご答弁いただきましてありがとうございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=861s" data-timestamp="861"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:21</a>　今いただいた答弁の中で、熊本地震や能登半島地震の教訓として、災害関連死を防ぐための助かった命を守り続けるという視点、そして、避難所に来ていない在宅避難者や車中泊避難者への支援が重要であるとの認識が示されました。</div><div class="say">特に在宅避難者や車中泊避難者については、避難所に来ていないため、行政側から見ると、特にどれだけの被災者がいるのか把握すること自体が難しいかと思われます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=892s" data-timestamp="892"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:52</a>　大規模災害が発生した場合、小金井市では、避難所に避難していない在宅避難者や車中泊避難者をどのように把握し、必要な情報を得るか、物資、保健、医療などの支援につなげていくのか、今後の課題について別の機会で伺いたいと思います。</div><div class="say">次に、次の質問に行く前に、熊本地震なんですけども、発災した時に〇〇に伺いました。併せて</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=922s" data-timestamp="922"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:22</a>　現地を訪ねたのは10回ほどだったんですけども、どこの被災地でも、発災したのが5月ぐらい、改めて伺ったのは夏だったんですけども、お盆休み、ちょうど8月の半ばぐらいに行ったんですけども、まだまだ避難所にたくさんの方がいらっしゃっていて、その時でもまだ、今ほど暑くはなかったんですけども、暑さのことをとっても懸念されている方が多かったのを覚えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=953s" data-timestamp="953"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:53</a>　特にこれだけ気温が上がってきておりますので、その点につきまして、十分にご配慮いただけますよう、お願いいたします。</div><div class="say">そして次に、トイレ対策についてお尋ねしたいと思います。次に、災害時のトイレ対策について伺います。熊本地震や能登半島地震では、避難所におけるトイレ環境の悪化が、衛生面の問題だけでなく、水分摂取の抑制や健康状態の悪化、さらには災害関連死にもつながる重要な課題となりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=986s" data-timestamp="986"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:26</a>　こうした中、小金井市がトイレトラックを導入することは、避難所のトイレ環境を改善し、市民の健康と尊厳を守る上で新たな一歩であると考えています。</div><div class="say">一方で、大規模災害が発生した場合、避難所に避難する方だけでなく、在宅避難者や車中泊避難者など、様々な場所で避難生活を続ける市民が想定されます。そのため、トイレトラックを導入するだけで災害時のトイレ対策が完結するものではなく、発災直後から避難生活が長期化した場合までを見据えた</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1018s" data-timestamp="1018"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:58</a>　総合的なトイレ対策が必要だと考えます。</div><div class="say">そこで伺います。この〇〇からトイレトラックの導入が報じられました。今回のトイレトラックの導入、またトイレトラックの導入契機として、今後どのようなトイレ対策を展開していくのか、とても気になるところです。</div><div class="say">まず、トイレトラックの導入は新たな一歩と捉えるが、小金井市の自然大災害発生時において、トイレ対策はこれでゴールなのか、またこれからの自然大災害発災時の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1051s" data-timestamp="1051"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:31</a>　トイレ対策はどのような展開を予定しているのかお尋ねします。</div>
+</div>
+
+<div class="turn chair reveal" id="t10">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t11">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">近年の災害から私どもが学ぶべき最も大きな教訓の一つに、先ほども申し上げました通り、災害による直接死を防ぐと同時に、災害関連死をいかに減らすかという視点が重要です。</div><div class="say">重ねてになりますが、平成28年熊本地震では、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1083s" data-timestamp="1083"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:03</a>　災害関連死は直接死の4倍以上となりました。また、令和6年の能登半島地震においても、多くの災害関連死が発生しております。</div><div class="say">これらの災害では、避難生活の長期化による身体的・精神的負担、生活環境の悪化、水分摂取の抑制、車中泊や在宅避難に伴う健康被害などが大きな課題となりました。</div><div class="say">本市の地域防災計画は、国及び東京都の計画との整合を図りながら、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1117s" data-timestamp="1117"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:37</a>　防災アセスメントを踏まえた減災対策を推進するものでありますが、本市の被害想定では、首都直下地震発生時においても、他地域と比較いたしますと直接死者数は相対的に多くない一方、避難生活の質の確保や健康被害の防止が極めて重要な課題であると認識しております。</div><div class="say">そのため、本市が導入を予定しているトイレトラックは、避難所等における生活環境の悪化を防ぎ、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1149s" data-timestamp="1149"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:09</a>　被災者の健康被害を軽減するための重要な施策の一つで、避難者の尊厳や衛生環境の確保に資するものと考えております。</div><div class="say">しかしながら、災害時のトイレ対策は、トイレトラック1台のみで完結するものではありません。大規模災害時には、避難所避難者だけではなく、自宅で生活を継続する在宅避難者やご親族宅への避難など、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1183s" data-timestamp="1183"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:43</a>　分散避難をされていらっしゃる方、さらには車中泊避難者など、多様な避難形態が発生いたします。</div><div class="say">特に令和8年熊本地震では、夏季の酷暑環境の中、空調の効いた自家用車等や自宅に留まる避難者も多く見られ、そうした方々の把握や支援が課題として指摘されております。避難所に来ていない被災者に対して、どのように情報や支援を届けるかは、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1213s" data-timestamp="1213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:13</a>　全国共通の新たな課題であると認識しております。</div><div class="say">このような認識の下、市では今後のトイレ施策について、トイレトラックも含め、重層的な対策を進めていく必要があると考えております。具体的には、避難所におけるマンホールトイレ、仮設トイレ及び携帯トイレなど、多様なトイレ手段の組み合わせを念頭に、災害時に活用できるトイレの確保を継続するとともに、発災直後の72時間は、行政による支援にも限界があることから、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1248s" data-timestamp="1248"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:48</a>　市民の皆様一人一人による日頃の備えが重要であるとの前提も含めた、各家庭における携帯トイレの備蓄など、さらなる普及啓発を図ってまいります。</div><div class="say">さらには、広域的な相互応援体制の整備も進めてまいります。トイレトラックについては、自治体間で相互支援を行う災害派遣ネットワークへの参画も視野に、被災自治体を支援する側、支援を受ける側の双方の観点から運用を検討してまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1282s" data-timestamp="1282"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:22</a>　市といたしましては、トイレトラックの導入をゴールではなくスタートとして捉えております。災害時のトイレ対策とは、単に排泄場所を確保する施策ではなく、市民の健康と尊厳を守り、災害関連死を防ぐための重要な施策となります。</div><div class="say">今後も、国・東京都の動向や近年の災害から得られた知見を踏まえながら、小金井市地域防災計画との整合を図り、市民の皆様の命と健康を守る</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1314s" data-timestamp="1314"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:54</a>　トイレ環境の整備に取り組んでまいります。</div>
+</div>
+
+<div class="turn chair reveal" id="t12">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">吹春さん。</div>
+</div>
+
+<div class="turn reveal" id="t13">
+  <div class="meta"><span class="name">吹春やすたか</span></div>
+  <div class="say">ご答弁ありがとうございました。今いただいたご答弁の中で、トイレ施策、トイレトラックの導入はゴールではなくスタートと捉えているとおっしゃっていただきました。ありがとうございます。</div><div class="say">確かにそのとおりと私も思っておりまして、これを一つの契機として、これから答弁の中でいただきました重層的な、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1352s" data-timestamp="1352"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:32</a>　〇〇支援体制の〇〇を含めて進めていくということでございます。本当におっしゃっているとおり必要なことかと思いますので、よろしくお願いいたします。</div><div class="say">トイレトラックの導入契機として、マンホールトイレや携帯トイレ、仮設トイレなどを組み合わせた重層的なトイレ対策を進めていくとの答弁をいただきました。</div><div class="say">一方で、市民の皆様からは、これ実際にいただいた声なんですけども、災害時のトイレ対策が重要であり、トイレトラックが必要であるという声もある一方なんですけども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1386s" data-timestamp="1386"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:06</a>　トイレトラックを導入する必要性や費用に見合う効果がわからないといった疑問の声もあります。</div><div class="say">私はこうした市民の疑問や意見があることを踏まえれば、トイレトラックの導入を進めるだけでなく、なぜ必要なのか、既存の携帯トイレやマンホールトイレなどとどのような役割を分担するのか、また災害時だけではなく、平時にどのように活用するのかについて、市民の皆様に丁寧に周知していくことが重要だと考えます。</div><div class="say">そこでお尋ねいたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1418s" data-timestamp="1418"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:38</a>　市民の声として、トイレトラックが必要な声と、必要性を疑問視する声もある。そこで、さらなる周知徹底こそ必要であると考えますが、市としての見解はいかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t14">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t15">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">市では、災害発生時におけるトイレ環境の確保は、被災者の生命と健康を守る上で極めて重要な課題</div><div class="say">であると認識しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1452s" data-timestamp="1452"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:12</a>　このことから、過去の大規模災害時においても、トイレ不足や衛生環境の悪化が感染症リスクの増大や脱水症状、エコノミークラス症候群の発症など、被災者の健康被害につながったことが指摘されております。</div><div class="say">内閣府の避難所におけるトイレの確保・管理ガイドラインにおいても、災害時のトイレ対策は避難生活の質を左右する重要な施策として位置づけられております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1482s" data-timestamp="1482"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:42</a>　そのため、市では地域防災計画に基づき、マンホールトイレや携帯トイレ、簡易トイレ等の備蓄整備を進めるとともに、発災後の状況に応じて複数のトイレ手段を組み合わせながら、切れ目のないトイレ環境の確保に努めております。</div><div class="say">トイレトラックは、必要の声と必要性を疑問視する声もあるということでございますが、市といたしましては、トイレトラックは既存の備蓄型トイレを代替するものではなく、災害時のトイレ対策を重層的に強化するための選択肢の一つであると考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1516s" data-timestamp="1516"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:16</a>　特に、洋式便器やバリアフリー機能を備えたトイレトラックは、高齢者、障害のある方、妊産婦、乳幼児のいらっしゃる方など、要配慮者にとって利用しやすい環境を確保できるほか、被災自治体への広域支援・広域応援にも活用できるという特徴があります。</div><div class="say">実際に、能登半島地震においても、全国の自治体等から派遣されたトイレカーやトイレトレーラーが有効に活用されたことが国の検証でも示されております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1548s" data-timestamp="1548"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:48</a>　一方で、どれほど優れた設備であっても、市民の皆様にその必要性や役割をご理解いただかなければ、防災力の向上にはつながらないものとも考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1578s" data-timestamp="1578"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:18</a>　担当といたしましては、導入の有無に関わらず、平常時から防災フェスタや防災訓練等の機会を捉え、災害時におけるトイレ対策の重要性について周知啓発を行い、市民の皆様お一人お一人に防災意識の向上をしていただきますよう、取り組んでまいります。</div><div class="say">また、トイレトラック導入にあたりましては、経費の一部についてクラウドファンディングや寄付などの活用も予定しておりますが、その募集過程そのものを、市民の皆様をはじめ多くの方々に災害時トイレ対策の重要性を知っていただく機会として活用してまいりたいと考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1609s" data-timestamp="1609"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:49</a>　さらに車両デザインにつきましても、被災地支援で使用されることを前提に、過度に華美なものではなく、小金井市の魅力や特色を発信できるものとし、一方の面は被災自治体支援時などにおいて小金井市を広く知っていただけるデザイン、またもう一方の面は市内イベント等での活用を通じて市民の皆様に親しんでいただけるデザインを選定できるよう検討してまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1639s" data-timestamp="1639"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:19</a>　このようにトイレトラックは、災害時の衛生環境確保という本来機能に加え、平常時における防災啓発や、地域への愛着醸成などの観点からも、活用の可能性を有するものと考えております。</div>
+</div>
+
+<div class="turn chair reveal" id="t16">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">吹春さん。</div>
+</div>
+
+<div class="turn reveal" id="t17">
+  <div class="meta"><span class="name">吹春やすたか</span></div>
+  <div class="say">ご答弁いただきましてありがとうございます。</div><div class="say">このトイレトラックについてですけど、少し話をさせてください。初めて私がこのことを議会で提案したのが8年前でございました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1671s" data-timestamp="1671"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:51</a>　その頃はまだ、みんなのトイレネットワークが立ち上がって、具体的なトイレ活動を始めたばかりの時だったんです。</div><div class="say">なかなかですね、私の周りの防災に詳しい方たちにも、このトイレトラック、トイレトレーラーなどについてご理解をしていただける方がいなかったな、少なかったなというのを本当に覚えております。</div><div class="say">ですが私は、このシステムこそ絶対に被災地にとって必要なものだと思いまして、ずっと提案をし続けてまいりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1701s" data-timestamp="1701"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:21</a>　そして時には予算のことを、あまりにも高価であることを理由に、これは検討はちょっと難しいですね、というふうに答弁をいただいたこともあったので、逆に手をかけまして、またその頃徐々に出てきました軽トラックを改装したトイレトラックなどが複数台紹介されたこともありました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1731s" data-timestamp="1731"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:51</a>　じゃあ助けあいジャパンさんのトイレトラックが無理なのであれば、こういった安いものもあるけれども、せめてこういう軽トラックタイプを2台ほど用意しないかということを、提案させていただいたこともありました。</div><div class="say">でもやっぱりそれは、それはまたその時の理由はともかくとして、提案を受け入れていただくことはできなかったわけですけれども、実際に能登半島に行った時に、この助けあいジャパンのトイレトレーラーを複数台拝見したんですよ。</div><div class="say">トイレトラックも見ました。実際、使ってもみましたし、それで軽タイプのトイレカーも複数台見ました。助けあいジャパンではないやつですね。<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1763s" data-timestamp="1763"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:23</a></div><div class="say">それで直接、それらの行政の方々に聞いてみたんです。なんと、助けあいジャパンさんに加入しているトイレトラックの場合は、自然大災害が起こりました、そうすると助けあいジャパンの方が、スタッフの方が現地に赴き、それで来れる、やりとりがあるんだと思いますが、それで来れるところの派遣ができるというふうな返事をされたところのトイレトラックについて、あなたはどこどこに行ってくださいと指示が出るわけです。<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1793s" data-timestamp="1793"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:53</a></div><div class="say">そして、ここから先が違うんですけれども、トイレですから汲み取りが必要です。そして水洗トイレですから電気も必要ですし水も必要です。給水について、そして給電についてなど全ての手配を、全てという言い方は適切かどうかはともかくとして、手配を助けあいジャパンの方がするんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1825s" data-timestamp="1825"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:25</a>　つまり、自然大災害が発生した時に助けあいジャパンのスタッフは、1週間から10日ほど現地に泊まり込む状態で、トイレトレーラーやトイレトラックなどが平時用に運用できるように、スタッフも現地で備えていると。</div><div class="say">ところが、一般的にあるトイレカーを買った場合、確かに値段としてはトイレトラックやトイレトレーラーに比べると安価なものではあるんですけれども、受け入れた市の方が、受け入れた行政側がそれらの手続きをしなければならないんです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1869s" data-timestamp="1869"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:09</a>　私としては、受け入れた側の自然大災害が発生しているところなどでは、本当に天と地がひっくり返って大騒ぎしているわけですから、そんな状態の中で仕事を一つでも増やすということはとても大変なことだと思うんですよ。</div><div class="say">その状態の中で、それらの運用までやってくれるというのが、かなり大きなメリットとして捉えることができるかと思います。</div><div class="say">やはりトイレトラックについて、この助けあいジャパンをずっと推薦してきたのは本当に良かったなと思っているところでございます。</div><div class="say">つまり、いろいろな選択肢がある中ですが、やはりこの助けあいジャパンのところを選択しておくことによって、行政の負担がそれだけ減る。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1900s" data-timestamp="1900"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:40</a>　つまり、市役所との人的なマンパワーを他に割くことができる。そしていろいろな対象について集中できるということが、かなり大きなことになるかと思いますので、せっかく採用された助けあいジャパンの車、これからの周知活動も含めて、市民の一人でも多くの方に理解していただけるように努力していただければと思います。</div><div class="say">次の質問に移ります。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1931s" data-timestamp="1931"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:11</a>　自然大災害発生時の緊急医療体制についてお尋ねをいたします。</div><div class="say">大規模な自然災害が発生した際の緊急医療体制についてお伺いします。大規模災害では多数の負傷者が同時に発生することが想定される。一方、医療機関そのものも被災し、平時と同じ医療提供を行うことが難しくなることが考えられます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=1966s" data-timestamp="1966"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:46</a>　そのような状況において一人でも多くの命を救うためには、限られた医療資源をどのように活用し、傷病者を適切に医療につなげていくのか、平時から具体的な体制を整えておくことが重要です。</div><div class="say">市の緊急医療体制についてお尋ねいたします。大規模災害、特に震度6弱以上の地震が発生した場合、小金井市では市内の医療機関や医療従事者はどのような体制となり、発災直後からどのような緊急医療、救護活動を行うことになっているのか、お尋ねいたします。大災害が発生した場合、医療としての機能はどのようになっているのでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2005s" data-timestamp="2005"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:25</a></div>
+</div>
+
+<div class="turn chair reveal" id="t18">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t19">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">自然災害時における緊急医療体制についてでございます。</div><div class="say">本市では、震度6弱以上の地震が発生した場合、市内の診療所は原則として閉院し、医師をはじめとする医療従事者が市内4カ所に設置する緊急医療救護所に参集し、医療救護活動に従事する体制としております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2039s" data-timestamp="2039"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:59</a>　本市では、小金井太陽病院、桜町病院、小金井リハビリテーション病院、日本歯科大学口腔リハビリテーション多摩クリニックが緊急医療救護所となっております。</div><div class="say">緊急医療救護所では、限られた医療資源を有効に活用し、1人でも多くの傷病者に対応するため、傷病者のトリアージを行うとともに、軽症者への治療や、必要に応じて中等症者、重症者に対する応急処置等を行うこととしております。</div>
+</div>
+
+<div class="turn chair reveal" id="t20">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">吹春さん。</div>
+</div>
+
+<div class="turn reveal" id="t21">
+  <div class="meta"><span class="name">吹春やすたか</span></div>
+  <div class="say">ご答弁いただきましてありがとうございます。<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2070s" data-timestamp="2070"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:30</a></div><div class="say">今、皆さん聞きましたか。震度6弱以上の地震が発生した場合、市内診療所は原則閉鎖です。病院は閉まってしまうんです。つまり、怪我、病人の方がいても、病院にその方を搬送したとしても、閉まっているんです。</div><div class="say">では、どこが開いているのか、メモを取るといいと思います。太陽病院、桜町病院、リハビリテーション病院と、歯科大の口腔クリニック、この4カ所、大変です。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2100s" data-timestamp="2100"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:00</a>　震度6弱以上の地震が発生したときは、ということでございます。</div><div class="say">すいません、これ、私もついかれると忘れてたんです。思い出して伺って質問させていただいて、すごくよかったなと思っているところですが、それこそここでトリアージについてもお話がございました。</div><div class="say">トリアージなどを経た傷病者は、市外の災害医療体制へと引き継がれることとなることが予想されますが、その訓練などはどのような予定になっているのか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2134s" data-timestamp="2134"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:34</a>　重症と判定された傷病者については、必要に応じて医療機関につなげていくとの答弁をいただいたわけですが、大災害発災時には市内の医療支援だけでは対応できない重症者が発生することも想定されるわけでございます。</div><div class="say">市内でトリアージを経て、そのトリアージの結果、重症と、市外の災害拠点病院などへ円滑に搬送するため、現在どのような連携体制を整えているのでしょうか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2165s" data-timestamp="2165"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:05</a>　また、その実効性を高めるため、今後どのような訓練を用いていくのか教えてください。</div>
+</div>
+
+<div class="turn chair reveal" id="t22">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t23">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">緊急医療救護所においてトリアージの結果、重症と判定された傷病者につきましては、二次保健医療圏内の災害拠点病院等へ搬送することとしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2195s" data-timestamp="2195"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:35</a>　本市が属する北多摩南部保健医療圏におきましては、武蔵野赤十字病院、東京都立多摩総合医療センター、東京都立小児総合医療センター、杏林大学医学部付属病院、および東京慈恵会医科大学附属第三病院が災害拠点病院に指定されております。</div><div class="say">次に、訓練についてでございます。訓練につきましては、毎年様々な場所で行ってまいりましたが、本年は11月に実際の緊急医療救護所となる病院において実施する予定としております。<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2225s" data-timestamp="2225"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:05</a></div><div class="say">今年度の訓練ではトリアージ訓練と合わせて、まずは緊急医療救護所において重症と判定された傷病者について、関係機関との情報伝達や搬送調整が円滑に行えるよう、搬送に係る連絡訓練を実施する予定でございます。</div><div class="say">訓練を通じて課題を検証するとともに、関係機関との連携を一層深め、災害時における実効性のある医療救護体制の構築に努めてまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2258s" data-timestamp="2258"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:38</a></div>
+</div>
+
+<div class="turn chair reveal" id="t24">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">吹春さん。</div>
+</div>
+
+<div class="turn reveal" id="t25">
+  <div class="meta"><span class="name">吹春やすたか</span></div>
+  <div class="say">はい、ご答弁いただきました。ありがとうございます。</div><div class="say">トリアージは医療機関の方たちがされるんですよね。それで、それを搬送するための訓練を今度行われるということで、はい、ありがとうございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2290s" data-timestamp="2290"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:10</a>　私、この災害に直接、何て言えばいいんですかね、地震が発生したとする場合、怪我をされる方たちがたくさんいらっしゃるかと思いますし、倒壊した建物の下敷きになってしまわれる方などたくさんいらっしゃるかと思いますけど、そのことについて触れることはほとんどなかったんですけども、熊本の地震のまだ生々しい状態のところ、〇〇も行きましたし、能登半島も行きましたけども、何か触れるわけないかな、ちょっと建物が倒れている、その一面ついて建物が倒れている、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2320s" data-timestamp="2320"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:40</a>平衡感覚がおかしくなるような光景の中で、なかなか触れてはいけないものなのかと、とっても知っていたんです。</div><div class="say">それで今回初めてこういう形でお伺いしたんですけども、このことについてもまた訓練について、別の機会でもお尋ねしていければと思う人がいらっしゃるのでよろしくお願いいたします。</div><div class="say">最後に、災害対策本部についてお尋ねいたします。今日も何回も申し上げますが、これまで数多くの被災地を視察してまいりました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2350s" data-timestamp="2350"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:10</a>　災害対策本部のスムーズな立ち上げも重要な要素と捉えております。市の現状はいかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t26">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2382s" data-timestamp="2382"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:42</a></div>
+</div>
+
+<div class="turn reveal" id="t27">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">大規模災害発生時においては、発災後の初動対応が市民の生命や財産を守る上で極めて重要であり、その中核を担う災害対策本部の迅速かつ円滑な立ち上げは、市全体の災害対応力を左右する重要な要素の一つであると認識しております。</div><div class="say">災害時に機能する組織は、発災時に初めて作られるものではなく、平常時からの準備と訓練の積み重ねによって形成されるものです。</div><div class="say">本市におきましても、小金井市地域防災計画に基づき、災害対策本部を設置する体制を整えておりますが、計画やマニュアルを整備するだけでは十分でなく、それらを実際に運用できるかを検証することが重要であると考えております。<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2420s" data-timestamp="2420"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:20</a></div><div class="say">そのために、担当においては、市災害対策本部訓練の実施に向けた検討を進めており、具体的には災害対策本部員に対し、本部の役割や各班の任務を改めて確認する機会を設け、その後、市災害対策本部訓練を実施したいと考えております。</div><div class="say">さらに、その先の段階といたしましては、災害対策本部と医療救護本部、緊急医療救護所との連携に着目した訓練へ発展させていきたいと考えております。<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2456s" data-timestamp="2456"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:56</a></div><div class="say">災害時には、本部に情報が集約されるだけではなく、医療機関や医師会等救護所との情報共有や意思決定が極めて重要となります。そのため、実際の災害現場を想定した連携訓練を実施することで、より実効性の高い体制づくりにつなげてまいります。</div><div class="say">また、訓練は一度実施して終わりではなく、第1回訓練の結果を検証し、課題を洗い出した上で改善を図り、第2回・第3回へと継続的にブラッシュアップしていくことが重要であると考えております。<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2498s" data-timestamp="2498"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:38</a></div><div class="say">議員ご指摘のとおり、災害対策本部のスムーズな立ち上げは災害対応の出発点となります。担当としましては、まずは訓練を着実に実施し、その結果を検証しながら継続的な改善を図ることで、大規模災害発生時における組織対応力の向上に努め、市民の皆様の生命と暮らしを守る体制の強化に取り組んでまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2528s" data-timestamp="2528"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:08</a></div>
+</div>
+
+<div class="turn chair reveal" id="t28">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">吹春さん。</div>
+</div>
+
+<div class="turn reveal" id="t29">
+  <div class="meta"><span class="name">吹春やすたか</span></div>
+  <div class="say">ご答弁いただきましてありがとうございます。</div><div class="say">災害対策本部立ち上げ訓練について、大きな時間を割いて質問しようと思っていたところだったのですが、答弁調整をしていく中で、これから始められてくれるということですので、今のところはとりあえず質問は具体的なものはなく、どういう形でやられるのかだけ聞いておけばいいかなと思っていたところでございます。<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2564s" data-timestamp="2564"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:44</a></div><div class="say">今まで被災地に行った中で、市役所が崩壊してしまった宇土市だったり、大阪北部地震が起こった高槻市だったりとかがあったときに、意外と直接お話を伺っていると、あれだけの規模の地震の被害が発生しながらも、災害対策本部がスムーズに立ち上がっているんですよ。</div><div class="say">時間的に20分後にはもう立ち上がったと、いろいろなことも伺ってまいりました。なぜだろうと、どうしてその速さでできるんだろうと思ったら、たまたまこの日、私が伺ったのはたまたまこの日なんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2596s" data-timestamp="2596"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:16</a>　年に1回、抜き打ち参集訓練をしていると。年に1度、地震が発生しました、それで集合してくださいと、抜き打ちだそうです。やっぱりある程度緊張感を持っている皆さんが、何をすればいいかというのを十分分かるような状態でやっていらっしゃるのかと思うんですけれども、そういったことで訓練をしているところこそ、災害に対して本当に強い対策本部がすぐ立ち上げられるのだなということを考えましたし、特に宇土市に伺ったときに、初めて車中泊の車で避難ということが行われたわけですが、そのときも現場で判断したらしいんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2634s" data-timestamp="2634"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:54</a>　参集要員の方たちが、学校の門を開けようとしたところ、遠くから車の列が、ヘッドライトの列がずらっと並んでいるのが見えた。どうしようかと聞いている人がいない。そこで現場判断で校庭を開放したらしいんです。</div><div class="say">そういうことができるというところは、ただ単にそういったことができたのは素晴らしいという話だけではなくて、なぜそういったことができたのかということになると、やはり災害対策本部を立ち上げることに加えて、常日頃からその宇土市というのは、何かが起こったときにどうするかというと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2669s" data-timestamp="2669"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:29</a>　職員の方たちがご自身で考えながら行動している部分が大きいのかなと思ったところでございます。ただ、そういったことを育てるのも大事なことではありますが、災害対策本部が核となるところでございますので、こちらの方も立ち上げ訓練をしていただいて、今お答弁いただいたとおり、回数を重ねてブラッシュアップしていって、もし自然大災害が発生したとき、すぐに対応できるような形を取っていただければと思います。以上で私の今年の一般質問を終わります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2700s" data-timestamp="2700"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:00</a>　終わらせていただきます。ありがとうございました。</div>
+</div>
+
+<div class="turn chair reveal" id="t30">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2761s" data-timestamp="2761"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:01</a>　次に、20番、鈴木成夫議員の発言を許可します。</div>
+</div>
+
+<div class="turn reveal" id="t31">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">はい。おはようございます。私、鈴木成夫から第3回定例会の一般質問を始めさせていただきたいと思っております。私の一般質問に際しては資料のご提出などもいただきました。ありがとうございます。また、私からも今日、本人提出資料ということで2点提出させていただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2791s" data-timestamp="2791"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:31</a>　まずですね、冒頭、私の方からちょっと訂正をさせていただかないといけないなと思っておりまして、「小金井市の被害想定の概要」という資料、本人提出資料なんです。これがですね、地震のタイプというところ、一番上にあるんですが、左側に多摩東部直下地震と、右側に都心南部直下地震と書いてあるんですが、実は逆だった。すいません。</div><div class="say">下の数字は間違っていないはずであります。今後このようなことがないよう十分注意してまいりたいと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2824s" data-timestamp="2824"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:04</a>　申し訳ありませんでした。まずですね、この8月はですね、各地で様々な災害が発生いたしました。まず熊本地震ですね。多くの方が、犠牲になられた方もいらっしゃいます。</div><div class="say">未だに被災地で困難な状況に置かれている方、数多くいらっしゃると思っております。こうした被害に遭われた方、犠牲になられた方には、謹んでお見舞いを申し上げておきたいと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2860s" data-timestamp="2860"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:40</a>　またですね、8月30日から9月5日は防災週間なんですね。これは9月1日、今年は関東大震災が9月1日に発生してから103年ということなんですね。こういった記念日が9月1日でしたよということを、まず冒頭ご紹介させていただきたいと思います。</div><div class="say">それでですね、今お話ししたように、7月28日には熊本地震、マグニチュード7.1で、熊本は2016年以来10年ぶりに震度7の揺れだったということであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2896s" data-timestamp="2896"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:16</a>　その後、皆さんご存じのように千葉県の豪雨、そして、つい最近ですが福井県と石川県でも豪雨がありました。これは大雨特別警報、レベル5が発令されたという非常に大きな災害でした。小金井市も例外ではなくて、8月9日にはレベル3まで行ったように記憶しています。</div><div class="say">違うな。野川、仙川には警戒レベル、これは8月9日ですが、その後かな、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2928s" data-timestamp="2928"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:48</a>　13日のときにレベル4、洪水情報が出たのかな。おそらく担当課、こういった災害には参集されて災害対応されたのかなと思っております。本当にお疲れ様でございます。また、8月23日には小金井市でも久々にこの震度4を記録する地震があったんですね。</div><div class="say">これは調べたら2021年の10月7日以来なんですって。久々にこの緊急地震速報、皆さんあったかなと思っていますし、防災無線も起動しましたよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2965s" data-timestamp="2965"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:25</a>　それで国外に目を移すと、ネパールで土石流の災害があると。本当に災害があちらこちらで多発した8月だったのかなということで、今回質問してまいりたいと思います。まず一つ目はですね、熊本もそうであります、被災地に対する。全体としては、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=2995s" data-timestamp="2995"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:55</a>　小金井市の防災力を強化して向上しましょうということで通告しています。①です。被災地に対する災害支援のルール化を検討しないかということで伺ってまいります。熊本への被災地の支援ということでは、市のホームページでも発送しましたよということが示されています。</div><div class="say">今ここで確認しておくのは、支援物資の内訳、そして支援物資を発送するまでの経緯をご説明いただきたいのですが、いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t32">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3030s" data-timestamp="3030"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:30</a>　防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t33">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">令和8年7月に発生した熊本地震では、熊本県内において甚大な被害が発生し、多くの方が避難生活を余儀なくされる状況を受け、本市では被災自治体を支援するため、支援物資の搬送を、令和5年3月に災害協定を締結した佐川急便株式会社の協力により手配したトラックを使用し、令和8年8月7日金曜日に市職員が支援物資を積み込み、令和8年8月10日月曜日に熊本県八代市にお届けしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3071s" data-timestamp="3071"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:11</a>　支援物資は、本市の災害備蓄物資の中から2リットルのペットボトル飲料水2,580本を搬送したもので、現地避難所等での被災者支援に使っていただくことを想定したものでございます。支援物資を発送した経緯でございます。今回の支援は、市長が参加しております活力ある地方をつくる首長の会において、福岡県古賀市が被災自治体との調整窓口を担われることになり、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3104s" data-timestamp="3104"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:44</a>　その調整の結果、熊本県八代市のご要望である可及的速やかに必要な物資の一つとして、ペットボトルの飲料水について、本市の備蓄物資で直ちに対応することが可能であったことから実現したものでございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t34">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t35">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">ご説明いただきました。今いただいた答弁を基にちょっと確認したいのは、今このご説明があった熊本に対する支援というのは、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3135s" data-timestamp="3135"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:15</a>　ご説明にありましたね、活力ある地方をつくる首長の会、つまり市長のネットワークの中で始まったことなのかなということで言うと、プッシュ型支援ではなかったのかなと思うんです。今、熊本の被災地に対する支援でもプッシュ型支援という考え方があって、そもそもプッシュ型支援とは何かなということで少し調べてみました。本来は新しい市役所をつくって、新しい議場でスライドで上映したいんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3182s" data-timestamp="3182"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:02</a>　本当はそのぐらい頑張って作った資料なんです。これを白黒で印刷してもなかなか分からなくて断念しました。昨日深夜、コンビニでコピーして作った資料です。要は、傍聴者にも見ていただきたいなと思います。</div><div class="say">このポイントはですね、大規模災害が発生したときに国がコーディネートするんですね。被災地の自治体からの具体的な要請がなくても、食料や水など、トイレもそうですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3214s" data-timestamp="3214"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:34</a>　国が自ら調達して被災地へ緊急輸送する仕組み、一言で言うとそういう仕組みなんですね。どうしても支援する側としては、被災地に対してどんなものが必要ですかっていう話を打診するんですよ。ただ、これもよく言われることです。</div><div class="say">打診すること自体が、問い合わせをすること自体が、被災した自治体に対して非常に大きな負担になると。今回この質問をするにあたって、課長ともいろいろ意見交換しまして、思いを意見交換する中で分かるのは、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3248s" data-timestamp="3248"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:08</a>　やっぱり打診するにしても遠慮してしまう。そういう課題があるんだなということが、今回調査していく中で分かった話です。どういった形の支援だったのかということについてお答えいただけないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t36">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t37">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">今回の支援は先ほど申し上げましたとおり、被災地域に近い九州内で窓口機能を担われた古賀市による、被災自治体のニーズに対するマッチングの結果によるものとなりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3287s" data-timestamp="3287"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:47</a>　前回の熊本地震の際と同様に、被災自治体の中に本市との災害時相互応援協定の締結自治体が存在せず、九州地方で本市と同協定を締結している福岡県宗像市を介した支援の可能性も探りましたが、先方自治体との調整がつかなかったことから、今回の支援方法を取ったものでございます。災害時相互応援協定に基づく早期のプッシュ型支援ではないものの、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3319s" data-timestamp="3319"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:19</a>　被災地からの要望に基づいた本市が可能な支援を迅速に行ったものとなってございます。混乱する被災地に個別に連絡することによる影響を低減しつつ、必要な支援を行うことができたという点で、今回は適切な手法であったと考えております。</div>
+</div>
+
+<div class="turn chair reveal" id="t38">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t39">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">ありがとうございます。あらゆるネットワークを使って、どうやったら被災地に支援につなげられるかというところでは、今回うまく噛み合ったのかなと思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3353s" data-timestamp="3353"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:53</a>　今、答弁いただいた上で更に確認したいのは、今回はたまたまそういうネットワークがあって活用できたと、良かったなと思っています。こういう大きな災害が発生すると、市民感情的に何かお役に立ちたいと皆さんおっしゃるんですよね。その一つが義援金の募集だし、被災地ボランティアニーズがどうなんだということなわけです。</div><div class="say">そういう中で、今回そういった形でうまく噛み合ったのは非常に良かったなと思っています。その上で伺うのは、今では本市として被災地支援のルールって決まってるんでしょうかね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3391s" data-timestamp="3391"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:31</a>　あるとしたらどんなルールがあるのか、ご紹介いただけないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t40">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t41">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">本市における被災地支援につきましては、災害対策基本法に基づく国及び東京都市長会との連携体制に加え、小金井市地域防災計画及び災害時相互応援協定等を基本として実施しているところでございます。地域防災計画、災害時相互応援協定等に基づく基本的な枠組みの中といたしましては、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3427s" data-timestamp="3427"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:07</a>　地域防災計画において、被災地支援の対象とする自治体について、第一として、災害時における相互応援協定等を締結している自治体を最優先とし、協定等を締結している自治体が被災していない場合は、都または東京都市長会からの支援要請に従い行う。第二といたしまして、都からの支援要請が行われない場合、あるいは支援要請が遅れる場合には、市独自の判断で支援する自治体を決定する。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3459s" data-timestamp="3459"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:39</a>　第三といたしまして、被災市町村から応援を求められた場合は、緊急性の高い応急措置については正当な理由がない限り応援を行うと定めており、今回の熊本県八代市への支援は、第二及び第三を踏まえたものとの認識でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t42">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t43">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">ご説明いただきました。東日本大震災の時も、どちらかというと私の認識で、②とか③の考え方だったのかなと。まず、災害応援協定を締結している北上市の存在があり、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3493s" data-timestamp="3493"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:13</a>　北上市の要請に基づいて大船渡とかに行きましたよね。ああいった考え方なのかなということで理解しています。実際に被災地に対してどういう支援を行っていくのか。市独自の判断で支援する、これとっても大切なことかなと思っていて、これはなぜかというと、私たちの町が被災した場合のシミュレーションにもつながっていくのかなっていうふうに思うからであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3524s" data-timestamp="3524"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:44</a>　やはり自分ごととして捉えて、自治体としてどう対応していくのかということを体験してほしいと思いますし、そういった意味では、後で質問にしますけど、職員をどう派遣していくのかというところにもつながるのかなと思って、今の答弁を伺ったところです。次に行くんですが、市長は災害に強いまちづくりを実現するという情報発信などもしておることは知っております。どのような取り組みを強化したのかというところは確認していきたいわけです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3558s" data-timestamp="3558"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:18</a>　この2番目の資料が本当にちっちゃくて、これでも、もっとでかくすればよかった、大きくすればよかったなと思ったんですけど、ポイントで言うと課題認識、どういった課題があるのかということでは、課題を示した上でそこを強化していこうという仕組みになってるんですね。具体的にこれから伺うのは、どのような取り組みを強化したんでしょうか。お願いします。</div>
+</div>
+
+<div class="turn chair reveal" id="t44">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3593s" data-timestamp="3593"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:53</a>　防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t45">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">市では地域防災計画をはじめ各種マニュアル等を整備し、防災対策を進めておりますが、担当では、平成28年熊本地震における災害関連死が直接死の4倍以上であったこと、また、能登半島地震における避難生活の長期化に伴う健康被害や、生活環境に起因する健康被害の発生状況が大きな課題となったことなど、近年の大規模災害の教訓、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3624s" data-timestamp="3624"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:24</a>　そして、小金井市の被害想定におきましても、建物等倒壊による直接死への対策はもちろん重要であると認識を持っておりますが、住宅の耐震化率が令和3年3月時点で94%となっている状況も踏まえ、いかに災害関連死を減らすかが今後の防災対策の重要なテーマであるものと考えております。今申し上げましたことを踏まえ、市が強化している主な取組についてでございますが、1点目は避難所環境の改善です。災害関連死の要因として、避難所生活における肉体的、精神的負担が指摘されております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3664s" data-timestamp="3664"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:04</a>　熊本地震では、避難所環境や車中泊等による健康悪化、エコノミークラス症候群なども課題となりました。そのため、市では、学校等の学校管理者との連携・調整を進めた結果、従来の体育館中心の運用に加え、必要に応じて教室等の活用も可能となる体制を整備して、被災された方ができる限り健康を維持できる環境づくりを推進しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3694s" data-timestamp="3694"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:34</a>　教室等を活用させていただくことにより、感染症の症状がある方や体調不良者と、その他の避難者との動線や生活空間を分けることができるほか、高齢者、障害のある方、妊産婦、乳幼児を伴う方など、配慮を必要とする方々に対して、きめ細やかな生活支援やプライバシーに配慮した避難スペースの確保が可能となります。さらに、相談対応や休養スペースの確保など、避難者の心身の負担軽減にもつながるものと考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3727s" data-timestamp="3727"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:07</a>　2点目は避難所運営体制の強化です。大規模災害発生時には、行政のみで避難所運営を行うことは困難であり、避難者自身、地域住民、自主防災組織等との連携が重要となります。市では、避難者主体の避難所運営を基本とした避難所運営マニュアルを整備するとともに、避難所運営協議会や防災フェスタ等を通じて、地域と連携した運営体制の充実を図っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3759s" data-timestamp="3759"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:39</a>　3点目は医療救護体制の強化です。災害関連死の発生要因としては、持病の悪化や医療機関機能の低下、適切な医療につながらないことなども指摘されております。そのため、市では、災害時医療初動マニュアルを整備し、医師会、歯科医師会、薬剤師会等の関係機関と連携しながら、発災直後から医療救護活動が円滑に行われる体制の整備を進めております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3790s" data-timestamp="3790"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:10</a>　さらに、本市では、これまで総合防災訓練の一部として、医療救護トリアージ訓練を実施してまいりましたが、医療救護体制のさらなる実効性向上を図るため、令和8年11月には初めて、医療救護訓練を単独で実施する予定としております。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3822s" data-timestamp="3822"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:42</a>　この訓練では、医師会、歯科医師会、薬剤師会をはじめとする関係機関との連携をより実践的なものとするとともに、医療救護所の設置、運営や傷病者対応などについて検証を行い、大規模災害時における医療救護活動の対応力向上を図ってまいります。</div><div class="say">また、本訓練には一部消防団にも参加、ご協力いただく予定としております。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3854s" data-timestamp="3854"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:14</a>　消防団は、地域防災計画において、人命救助や救護活動、避難誘導など重要な役割を担っておりますが、訓練への参加を通じて、震度6弱以上の地震発生時における市内医療機関の医療体制や医療救護所開設の仕組みについて理解を深めることで、有事の際における市民への適切な救護活動や避難誘導を、より円滑かつ効果的に実施できるものと考えております。</div><div class="say">加えて、近年の大規模災害の教訓を踏まえ、自治体間の相互応援体制の整備にも力を入れております。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3884s" data-timestamp="3884"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:44</a>　令和8年熊本地震においては、市長が参加する活力ある地方を創る首長の会を通じて、熊本県や八代市へ飲料水を支援するとともに、民間物流事業者との協定に基づき、円滑な輸送を実施したところでございます。</div><div class="say">このような経験は、本市が他自治体を支援する応援力の向上のみではなく、本市が被災した際に、必要な支援を円滑に受け入れる体制の強化にも繋がるものと認識しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3915s" data-timestamp="3915"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:15</a>　今後につきましても、避難所環境の改善、備蓄体制の充実、情報伝達手段の強化、地域防災力の向上及び自治体間の協力体制の充実を図り、災害に強いまちづくりを推進してまいります。</div>
+</div>
+
+<div class="turn chair reveal" id="t46">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t47">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">はい、ご答弁いただきました。今ご答弁いただいたところを自分でまとめてみたのが、この2番目のパネルなんですね。ポイントをお話しすると、課題認識としては、災害関連死を減らすための取り組みを強化したいということですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3947s" data-timestamp="3947"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:47</a>　この強化することが課題だと認識していらっしゃると。1番目が避難所環境の改善、2番目が避難所運営体制の強化、3番目が医療救護体制の強化ということをまとめたのですが、皆さんにはちょっと小さくて見えにくかったかもしれません、反省をしております。</div><div class="say">非常に重要なことかなと思っていまして、実は8月の2日には市長にも部長にもお越しいただいて、南中学校で運営協議会が避難所体験、毎年夏にやっているものを実施しました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=3983s" data-timestamp="3983"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:23</a>　この時も暑い最中なんですが、80人超える方が参加をされました。非常に関心が、やはりね、防災訓練というとなかなか参加される方少ないんですが、避難所という名前がつくと、やはり普段なかなか参加されない方が来ていただけるのかなという印象を持っております。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4016s" data-timestamp="4016"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:56</a>　やっぱり自らその地域で何とかしようという方、そういったその地域を増やしていくということが重要かなと思っていまして、これまたこれで地域の課題かなと思っておりますが、今お話にもあったように、自治体間の相互応援体制の整備という、発災時のこの医療体制をどう動かしていくのかシミュレーションするのが重要かなと思っているんです。</div><div class="say">そういった思いを持っていましたところ、11月8日には防災フェスタとは切り離して、医療救護訓練を単独で実施する。これは非常にありがたいなあって思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4053s" data-timestamp="4053"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:33</a>　これは医師会をはじめとする、薬剤師会の皆さんのご協力と危機感があってこその動きだと思っています。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4087s" data-timestamp="4087"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:07</a>　ここに消防団も参加していただく、ご協力いただくということも重要で、発災時には消防団が傷者を医療拠点に搬送するという、その動きを実際に考えられるわけでして、これが4箇所しかない、先ほどもありました4箇所に限られるんだよということを認識した上で、対応に当たっていただくという意味からも、非常に大事な取り組みだなと思っています。</div><div class="say">このシミュレーションすることによる効果ということでは期待をしておりますし、先生方の協力に改めて感謝を申し上げておきたいと思います。</div><div class="say">次に行きます。災害用トイレトラックの導入は決まったわけです。問題は導入後の管理と被災地支援の時の運用について、どういった形になるのか、ご紹介いただけないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t48">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4122s" data-timestamp="4122"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:42</a>　防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t49">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">導入後の管理につきましては、地域安全課が所管し、平時から車両の保守点検や機能確認を実施し、災害発生時に直ちに稼働できる状態を維持してまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4152s" data-timestamp="4152"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:12</a>　運用についてでございますが、被災自治体へ本市車両を派遣し、本市が被災した際には全国の自治体からトイレトラックが本市を含めた被災加入団体に集結する、相互の助け合いの仕組みである一般社団法人助け合いジャパンの災害派遣トイレネットワークプロジェクト、みんな元気になるトイレへ、協定を締結の上、参加する予定でございます。</div><div class="say">被災自治体への派遣が必要になった際の運用につきましては、派遣元自治体が派遣先まで運び、現地運用は派遣先である被災自治体が行うこととなっております。地域安全課職員が運転して運んでいく予定となっております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t50">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4182s" data-timestamp="4182"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:42</a>　鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t51">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">ありがとうございます。トイレトラックの運用については、前の質問でも明らかになっているところなので割愛をするのですが、私はここで提案しておきたいのは、本市が被災した場合のトイレトラックの運用ですよね。あとは派遣調整のシミュレーションも必要かな。</div><div class="say">これは助け合いジャパンのホームページを拝見していて思いました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4213s" data-timestamp="4213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:13</a>　いろいろな困難が予想されると。受援される側も支援する側も、初めてのケースが非常に多くて、本市の場合は内閣府ではなくて、助け合いジャパンのネットワークでコーディネートしていくということがよく分かりました。そういったところも含めて、シミュレーションは必要かなと思っています。</div><div class="say">これはぜひ考えてもらいたい、シミュレーションを検討してもらいたいなというところは要望しておきます。</div><div class="say">次に移るんですが、地域防災計画に基づいた全庁的な予防対策を点検しないかということで質問です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4247s" data-timestamp="4247"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:47</a>　地域防災計画を改めて拝見してみますと、54ページのところに初動期における各部各課の重点災害応急対策というところがありまして、この部分では、市の災害対策本部の設置と運用は企画財政部と総務部の担当なんですね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4281s" data-timestamp="4281"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:21</a>　これまでお話ししてきましたが、混乱が予想される避難所やその他施設の被害調査・安全点検・応急復旧は、総務部の管財課と都市整備部建築営繕課が担当することになっているんですね。</div><div class="say">避難所体験を複数回やってみて分かるんですが、避難所開設を判断するときには、避難所としてその建物が安全かどうか点検しなければいけないと。しかし、建築営繕課が来るのを待ってということにならなくてですね、実際は目視で見てですね、判断をしていくということになるんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4314s" data-timestamp="4314"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:54</a>　というと、速やかな安全点検が必要なんですが、そういった視点で考えたときに、この地域防災計画に基づいたシミュレーション、または訓練や演習を行っているんでしょうか。いかがですか。</div>
+</div>
+
+<div class="turn chair reveal" id="t52">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t53">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">本市ではこれまで、総合防災訓練や避難所運営訓練を実施し、防災関係機関や地域住民との連携強化に取り組んできたところでございます。また、過去には災害対策本部訓練を実施した経過もございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4347s" data-timestamp="4347"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:27</a>　一方で、議員ご指摘のような、発災直後に施設被害の調査、安全点検を実施し、その結果を踏まえて避難所開設の可否を判断するまでの一連の流れに関する訓練につきましては、必ずしも十分ではなく、さらに充実を図る余地があると認識しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4380s" data-timestamp="4380"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:00</a>　平成28年熊本地震では、度重なる余震により、避難所として想定していた施設の安全確認や避難所運営に大きな影響が生じたことが報告されており、避難所開設前の迅速な安全点検体制の重要性が改めて認識されたところであります。</div><div class="say">また、近年は熊本、能登半島地震をはじめ、全国各地で大規模災害が頻発しており、災害対応は計画を策定するだけではなく、その実効性を訓練により継続的に確認していくことが重要であると考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4412s" data-timestamp="4412"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:32</a>　そのため、担当といたしましては、災害対策本部の立ち上げ及び運営訓練、避難所開設判断に必要となる施設安全確認の手順確認、関係部署間の情報伝達及び意思決定の流れなどを含めたより実践的な訓練の実施について検討を進め、地域防災計画に定める役割が実災害時に機能するよう、防災対応力の向上に努めてまいります。</div>
+</div>
+
+<div class="turn chair reveal" id="t54">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t55">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">ご答弁いただきました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4443s" data-timestamp="4443"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:03</a>　そうですね、やっぱりこういった計画に基づいた実動を検証するということについて、充実を図る余地があると認識している、そして、発災時の各部の動き、地域防災計画に定める役割、実際の災害時に機能するように防災対策の向上に努めてまいりますということでした。受け止めておきたいと思います。</div><div class="say">この課題が大きいと思いますよ、本当に。ぜひお願いします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4478s" data-timestamp="4478"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:38</a>　この流れで聞きたいのは、災害発生時における、まず地域安全課職員の参集基準を教えて、確認したいわけですが、いかがですか。</div>
+</div>
+
+<div class="turn chair reveal" id="t56">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t57">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">市では地域防災計画において、災害の規模や発生の恐れに応じ、段階的な職員配備体制を定めております。地域安全課職員につきましては、災害対応の初動となる防災所管部署として、災害対策本部設置前の段階から参集し、情報収集や連絡調整等を行うこととしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4511s" data-timestamp="4511"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:11</a>　まず、地震を主なものとした災害への対応では、第1次配備体制である情報連絡体制として、市内で震度4の地震が発生した場合、南海トラフ地震臨時情報が発表された場合、地域において災害発生の恐れがある場合において、地域安全課職員が参集し、本部設置前の状態として、通信及び情報収集活動等を中心に対応することとしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4544s" data-timestamp="4544"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:44</a>　先日の8月23日日曜日未明の午前2時ごろに発生した地震では、小金井市は震度4を観測したため、先ほど申し上げた第1次配備体制の情報連絡体制をとるべく、地域安全課職員は参集いたしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4578s" data-timestamp="4578"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:18</a>　また、風水害対応におきましても、地域で災害の発生の恐れがある場合、大雨警報が発表され短時間に相当量の降雨が予想される場合や、台風接近に伴い警戒が必要な場合、その他の状況により担当部長が必要と判断した場合には、第1次配備体制として地域安全課職員及び関係職員が参集し、気象情報や市内状況の収集、被害予測、対応策の検討、関係機関との連絡調整、危険箇所の巡視などを実施することとしております。</div>
+</div>
+
+<div class="turn chair reveal" id="t58">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t59">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">ご答弁、ご説明をいただきました。一言で言うと、震度4の基準で参集するということで、8月23日の時は地域安全課職員が参集したと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4608s" data-timestamp="4608"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:48</a>　これ私の印象なんですけどね、震度4だと、まず市内に被害は予想されないと思っています。震度4で参集する必要があるかどうか、ここは他市の状況などを研究して見直すべきじゃないかなって、ちょっと思っています。もちろん、その時と場合によるということはあります。</div><div class="say">ただ、ここの参集基準については、少し検討しておいた方がいいのかなということは、ここで申し上げておきますね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4646s" data-timestamp="4646"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:26</a>　実際に小金井市が被災した場合のことを少しお話しすると、自治体職員も被災者になるんですよね。私たちはもちろんそうです。大災害発生時の職員の参集率、何%と考えていくのかということなんですよ。</div><div class="say">私は発災後、時間ごとの参集率を予測しておく必要があると思っています。だって職員も被災してるからなんですね。それで3番目の資料なんですが、こちらなんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4682s" data-timestamp="4682"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:02</a>　一言で言うと、職員の登庁率と、その登庁した職員の1日あたりの勤務時間、そして職員が相手にした相手の数を1表にまとめたんですが、すいません、ちっちゃくてちょっと見づらいですね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4714s" data-timestamp="4714"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:34</a>　何が言いたいかというとですね、発災直後は職員の参集率はですね、これ、能登半島地震の時のデータです。これ、助け合いジャパンがインタビューしたものなんです、アンケートしたものなんですね。</div><div class="say">発災直後は職員の参集率というのは、発災直後、発災3日間ですよ、38%から58%にとどまっているというところがポイント。本当プロジェクター欲しいんだけど。1日あたりの勤務時間も、1日20から24時間、寝てないんですよ。</div><div class="say">こういう状況に皆さんがなるんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4749s" data-timestamp="4749"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:09</a>　先ほどもお話ししたように、職員1人あたりがやり取りした相手の数、85人から92人、対応を求められる。そりゃそうですよね。こういうことなんですよ。ここをしっかりと認識しておく必要があるんではないでしょうか、というのが今回私から申し上げておきたいところです。</div><div class="say">だから参集のシミュレーションを訓練するべきだと思っています。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4783s" data-timestamp="4783"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:43</a>　ということで、より実際の災害に対応できる体制というか、準備、練習をしてもらいたいなということで、次の質問、防災フェスタに合わせて災害対策本部の立ち上げと運用訓練をしないかということを問うわけです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4817s" data-timestamp="4817"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:17</a>　先ほど部長からもね、災害対策本部の訓練を実施したいというご発言あったかなと思っていまして、そこも受け止めた上で質問していくんですが、細かい話でちょっと気になったのが、地域防災計画では395ページのところに復旧対策という部分があって、この中で炊き出しなんですね。炊き出しの担当はね、管財課と学校教育部庶務課となっているんですよ。認識を新たにしたわけですが、なぜかというと、計画でどう書いてあるかということなんですけど、震災後おおよそ4日目以降、原則として米飯の炊き出しにより給食を行う。</div><div class="say">つまりこれは、備蓄しているアルファ米ではなく、もうここからは米飯の給食を行うんだよと書かれているんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4848s" data-timestamp="4848"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:48</a>　さらに、総務部管財課物資管理班ですね、学校教育部、学校教育庶務班と連携して、食料及び生活必需品等の物資の情報を集約するってなってるんですよ。防災フェスタでは皆さんご存知のように、自衛隊による炊き出しが大好評、僕大好きであります。非常にプロフェッショナルな仕事を見せていただいてます。</div><div class="say">しかし、実際発災時には、今お話ししたような対応なんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4878s" data-timestamp="4878"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:18</a>　管財課と学校教育庶務課が担当するんですよ。だから防災フェスタでも、こういった本来の計画に基づいた担当課の関わりを増やすべきではないかと思うんですが、いかがですか。</div>
+</div>
+
+<div class="turn chair reveal" id="t60">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t61">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">はい。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4910s" data-timestamp="4910"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:50</a>　議員ご指摘の通り、地域防災計画では災害対策本部体制の下、各部局がそれぞれの役割を担いながら災害対応を行うこととされておりますが、防災フェスタの各訓練内容は、必ずしも災害対策本部の事務分掌や組織運営を意識した構成となっているわけではないという点も認識いたしております。</div><div class="say">近年では能登半島地震をはじめ、全国各地で大規模災害が発生しており、災害対応においては、計画を策定するだけではなく、計画に定められた役割分担が実際に機能するかどうかを訓練によって検証することが重要であると考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4947s" data-timestamp="4947"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:27</a>　担当といたしましては、防災フェスタをはじめとする各種訓練について、地域防災計画との整合を改めて確認し、炊き出し訓練に限らず、災害対策本部の立ち上げや運営、物資管理、避難所運営など、各部局の役割が市民にも分かりやすく、かつ職員にとっても実践的となるよう、今後充実を図っていきたいと考えております。</div><div class="say">またその前提として、地域防災計画に定める災害対策本部、各部局の事務分掌や役割について、庁内で改めて共有し、全職員の</div><div class="say">理解を深める取り組みを進め、より実効性の高い訓練となるよう努めてまいります。</div>
+</div>
+
+<div class="turn chair reveal" id="t62">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=4978s" data-timestamp="4978"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:58</a>　鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t63">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">実効性の高い訓練となるよう、取り組みをお願いしておきたいと思います。</div><div class="say">以前、こういった防災フェスタの機会を捉えて、指定要員、つまり各学校ごとに5人ずつ担当している指定要員の皆さんに、学校の備蓄倉庫の点検を兼ねて、倉庫を開放して公開したらどうかということを提案しています。今どんな関わりをしていらっしゃるのか、お願いします。</div>
+</div>
+
+<div class="turn chair reveal" id="t64">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5009s" data-timestamp="5009"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:29</a>　防災安全担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t65">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">大規模災害時に指定避難所を迅速に開設できるよう、市職員による避難所開設指定要員制度の運用においては、小金井市地域防災計画及び指定要員のための防災活動マニュアルに基づき、避難所開設に必要な初動対応体制の確保に努めております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5041s" data-timestamp="5041"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:01</a>　議員ご提案のありました備蓄倉庫の活用につきましては、防災フェスタの開催日に合わせて、避難所開設初動指定要員が市内全ての指定避難所に参集し、参集状況の確認や避難所設備の状況確認を行うとともに、自主防災組織からの希望のあった避難所においては、備蓄倉庫の確認を兼ねた訓練を実施しております。</div><div class="say">今年度につきましても、防災フェスタ当日に同様の訓練を予定しており、自主防災組織の意向を踏まえながら対応してまいります。</div>
+</div>
+
+<div class="turn chair reveal" id="t66">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5071s" data-timestamp="5071"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:31</a>　鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t67">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">はい、分かりました。今年も私がお願いしてきたことが動き出しているということで受け止めたいと思っています。</div><div class="say">またこういった取り組みについても、指定要員を担当されている皆さんの協力というところが欠かせないわけでして、ぜひとも引き続き取り組みをお願いしておきたいと思っております。ありがとうございます。</div><div class="say">地域防災計画に書かれている予防対策というのは、平時から地域安全課以外の部署にも定められた役割がある。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5105s" data-timestamp="5105"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:05</a>　先ほどの炊き出しの話のようにね。こうした点について、私はやっぱり市の職員の皆さん全体の意識と理解、啓発が必要だと思っていまして、こういった点についてどういった取組を行っているんでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t68">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5136s" data-timestamp="5136"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:36</a></div>
+</div>
+
+<div class="turn reveal" id="t69">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">本市の地域防災計画では、主な構成として各施策ごとに予防対策と応急対策を整理しており、予防対策については地域安全課をはじめとして、平時の各担当部署が実施主体となり対応することとしております。</div><div class="say">議員ご指摘のとおり、地域防災計画そのものは庁内で共有しておりますが、計画は非常に広範な内容を含んでおりますことから、各職員が自らの所属部署に関する予防対策及び災害時の役割を、より具体的に理解していく必要があると認識しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5169s" data-timestamp="5169"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:09</a>　近年は全国各地での大規模災害が頻発しておりますことから、災害発生時に迅速かつ的確な対応を行うために、発災後の応急対応だけでなく、平時から各部署が自らの役割を理解し、必要な備えを進めておくことが重要であるものと認識しております。</div><div class="say">担当といたしましては、地域防災計画における各部署の役割を整理した上で、庁内への周知を図るとともに、防災フェスタの活用や災害対策本部訓練の実施等を通じ、各部署が担う予防策と災害時の役割について、周知を図ってまいりたいと考えております。</div>
+</div>
+
+<div class="turn chair reveal" id="t70">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t71">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">はい、部長からご答弁いただきました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5201s" data-timestamp="5201"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:41</a>　先ほど私の方からお願いした、災害に強いまちづくりに向けた強化の取り組みもそうであります。今お話しいただいたところ、様々な課題があって、周知を図っていきたいというお答えでした。</div><div class="say">こういった取り組みこそ、新しく設置された担当部長の重要な仕事かなと思っています。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5231s" data-timestamp="5231"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:11</a>　ここはそういった意識を持っていらっしゃると思いますが、強化に向けた取り組みを進めてもらいたいなということを要望しておきます。</div><div class="say">次が被災地の職員の派遣です。先ほどもお話ししました被災地の職員派遣について、これまでの派遣の実績を紹介してもらいたいのですが、いかがですか。</div>
+</div>
+
+<div class="turn chair reveal" id="t72">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5263s" data-timestamp="5263"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:43</a></div>
+</div>
+
+<div class="turn reveal" id="t73">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">大規模災害が発生した際には、被災自治体において職員自身も被災し、議員御案内のとおり、避難所運営や住家被害認定調査、罹災証明書の発行など、膨大な災害対応業務が短期間に集中することから、自治体間の人的応援は、被災地の早期復旧・復興を支える重要な取り組みであると認識しております。</div><div class="say">小金井市においても、被災自治体との災害時相互応援協定や、東京都市長会を通じた派遣要請に基づき、職員派遣による災害支援を実施してまいりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5293s" data-timestamp="5293"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:13</a>　記録を確認できる、東日本大震災が発生した平成22年度以降では、これまで8つの災害に対し職員を派遣しており、延べ派遣人数は28人、派遣先自治体は13自治体と担当では把握しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5325s" data-timestamp="5325"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:45</a>　主な支援内容といたしましては、支援物資の搬送、被災建築物の応急危険度判定業務、建物家屋調査業務、住家被害認定調査、避難所運営支援、被災証明書発行業務、農林道や水路等の災害調査及び測量設計業務などでございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t74">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t75">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">答弁いただいたわけですが、今ご説明いただいた職員派遣です。これ、考え方や取決め、これはどうなっているのか教えてください。</div>
+</div>
+
+<div class="turn chair reveal" id="t76">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">防災安全担当部長。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5356s" data-timestamp="5356"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:16</a></div>
+</div>
+
+<div class="turn reveal" id="t77">
+  <div class="meta"><span class="name">防災安全担当部長</span></div>
+  <div class="say">本市における被災地への職員派遣につきましては、地域防災計画において、その考え方を定めております。</div><div class="say">本市の地域防災計画では、被災地等支援対策として、被災自治体からの要請に基づき、災害応急対策や復旧・復興業務に従事するための職員を派遣できること、また市長会等の調整の上、長期的かつ持続可能な支援についても検討しながら、継続的な支援を行うこととしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5386s" data-timestamp="5386"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:46</a>　さらに、派遣された職員は被災自治体の指揮の下で活動し、被災地の復旧・復興段階に応じたニーズを踏まえて、人的支援を実施することとしております。</div><div class="say">一方で、職員派遣に特化した条例、規則または要綱は定めておりませんが、実際の派遣にあたりましては、東京都市長会等からの要請、自治体間の災害時相互応援に関する協定の枠組みなどを活用しながら対応することとしております。</div>
+</div>
+
+<div class="turn chair reveal" id="t78">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t79">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">お答えいただきました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5417s" data-timestamp="5417"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:17</a>　都度都度判断していくということですよね。いかに有効な支援につながるかということだと思っていますので、今回の熊本のお話、ご説明もありました。</div><div class="say">都度都度判断して、有効な支援につながるような取組を行い続けていただきたいなということを申し上げておきます。</div><div class="say">ここは市長に聞いておきたいところなんですね。今、私からもお話ししたように、防災安全担当部長を新しく配置しました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5450s" data-timestamp="5450"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:50</a>　私もこれは体制の強化だなと思っていますが、この配置に至った問題意識、市長のお考えを確認したいと思いますが、いかがですか。</div>
+</div>
+
+<div class="turn chair reveal" id="t80">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t81">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">その答弁の前に、先ほど鈴木さんがおっしゃった、職員一人一人がその所掌の役割であったり、災害時の役割であったりだとか、そういうことを改めて認識して動けるようにというご指摘をいただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5483s" data-timestamp="5483"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:23</a>　まさに同じようなことを私も感じておりまして、毎月月曜に行っている庁内放送、昨日9月1日の朝、庁内放送したんですけども、そこでもまさに9月1日は防災の日ということもありまして、防災についてということを少し私の方から触れさせていただいた中で、職員一人一人がそれぞれ災害が発生した時に何をすべきかということを、改めて確認してくださいということは述べたところです。</div><div class="say">ご質問にお答えいたしますと、新たに防災安全担当部長を配置した背景につきましては、防災減災対策、あとは防犯もそうです、危機管理全体の体制の強化を市政運営の重要課題として位置づけ、その取組を一層推進するという狙いでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5513s" data-timestamp="5513"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:53</a>　近年、様々な災害等が発生しておりまして、首都直下地震への備えも喫緊の課題となっているところ、令和8年熊本地震をはじめとする被災地支援を通じて、自治体からの平時の備えだけではなく、発災時に迅速かつ的確に対応できる組織力、さらには被災地対応、支援できる応援体制の確保が求められていることを、改めて認識したところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5543s" data-timestamp="5543"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:23</a>　本市ではかつて東日本大震災後に危機管理担当部長を配置しておりましたが、その後廃止しておりました。しかしながら、災害の備えに終わりはないということ、私自身が市長になってから改めて実感させられた次第でございます。</div><div class="say">特殊詐欺など防犯上の課題も複雑化していることから、防犯、防災、そして危機管理分野を戦略的かつ横断的にマネジメントする責任者が必要であると、このように問題意識を持ったところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5576s" data-timestamp="5576"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:56</a>　特に大規模災害発生時には、避難所運営、物資、そして要配慮者の支援、受援体制の構築、関係機関の連携調整など、多岐にわたる対応を同時並行で行う必要がございます。こうした課題に対して、全庁を横断して迅速な調整を行う司令塔機能を強化することが重要であり、その役割を担うために防災安全担当部長を配置いたしました。</div><div class="say">また、東京都、そして消防庁、自衛隊、警察、消防、医療機関、地域防災組織など、関係機関との連携強化を図るとともに、本市職員の災害対応能力の向上、そして被災自治体への職員派遣に必要なノウハウの蓄積、人材育成を進めることも重要な目的の一つであります。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5609s" data-timestamp="5609"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:29</a>　非常に多岐にわたります。</div><div class="say">令和8年度、この4月からは東京消防庁からも職員1人派遣いただいて、専門的知見の活用による災害対応力の強化を進めているところでございます。</div><div class="say">繰り返しとなりますが、災害に対しましては、発災前の事前対策の対応から発災後の様々な運営なども含めてですね、非常に膨大、長期化、複雑化する内容があることが明らかであります。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5643s" data-timestamp="5643"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:03</a>　この激しさを増す犯罪情勢への対応としてもですね、犯罪対策も防犯対策もおろそかにできないという危機感を抱いておりまして、安全・安心のまちづくりのさらなる推進と、全庁的な防災力向上を図る必要があると判断したものでございます。</div><div class="say">私の役割は意思決定です。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5676s" data-timestamp="5676"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:36</a>　危機管理体制を強化し、全庁的な危機管理対応力の向上を図ることが、大規模災害発生時に何をすべきか、次に何が起こるか、これを的確に見通し、迅速かつ適切で質の高い判断と行動につなげるものと考えております。</div><div class="say">今後も市民の生命、身体、財産を守るため、防災力及び危機管理体制の一層の強化に取り組んでまいりたいと考えております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t82">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t83">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">市長からご答弁いただきました。やっぱり、今ご答弁にあったように、危機管理部門の統括機能を強化しというところ、それとやっぱり市長の役割は意思決定であると、まさにそのとおりかなと。災害派遣にしても災害支援にしても、市長の判断というのは非常に重要になってくると思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5710s" data-timestamp="5710"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:10</a>　一層の強化に取り組んでもらいたいということは、私からも改めてお願いをしておきたいと思います。</div><div class="say">職員の参集訓練、いろいろ調べました。いくつかのパターンがあるということが分かりまして、例えばブラインド型、予告せずに早朝に発災をしたという連絡をして職員に参集してもらう。こういったことを実際に行っておかないと、つまり職員の皆さんはそう簡単に登庁できないわけですよ。</div><div class="say">その交通機関をどう考えるのか、動いているという想定で参集するのか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5744s" data-timestamp="5744"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:44</a>　恐らく東京消防庁は動いていないという想定で参集してますよね。</div><div class="say">こういったことは、何人かこれまで議員が、こういったことは必要ではないかと申し上げているかと思います。私も同じでして、やっぱり実動的に動くためには、こうした取り組みは必要だと思っていますので、検討をお願いしておきたいと思っております。</div><div class="say">また、4月から地域安全課に東京消防庁の職員の出向を得ていると。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5778s" data-timestamp="5778"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:18</a>　私も一目で見て東京消防庁から出向した方だなと分かる立ち振る舞い、素晴らしい、本当によく分かりやすい東京消防庁の。防災訓練、避難所体験をやるたびに、当然消防署のいろいろなアドバイスをいただきながら、訓練を組み立てていくわけです。</div><div class="say">そういった知見が地域安全課の職員の中にあるということは非常に心強いですので、これまでの取り組みにも感謝申し上げておりますし、引き続き密接に関わっていただきたいなということをお願い申し上げておきます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5809s" data-timestamp="5809"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:49</a>　次の質問です。残る時間、少なくなってきたんですが、時間の範囲内で質問をしていきたいと思っております。</div><div class="say">やはりこういった発災時に気になるのが、支援や配慮が必要な皆さんの状況、置かれる環境なんですね。まず、福祉避難所となる施設の要配慮者の受入れについて、どうなっているのかということで伺っておきたいんです。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5839s" data-timestamp="5839"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:19</a>　〇〇年の4月現在、福祉避難所は市内の公立保育園5園の子ども施設、障害者関連の施設が9施設、次が高齢者施設と大学1校が福祉避難所に指定されてるんですよね。</div><div class="say">問題は、震災の発生時には福祉避難所へ避難者が殺到すると思うんです。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5869s" data-timestamp="5869"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:49</a>　想像すると分かるんですが、開設できるかどうかについても限界がありますよね。最悪、開設できないケースもあると思っています。</div><div class="say">もう一つ課題は、それぞれの施設ごとに運営主体が異なっているんですよ。市の直営施設は公立保育園5園だけだと。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5904s" data-timestamp="5904"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:24</a>　他は民間の社会福祉法人等が運営しているというところで、私は前も申し上げたんですが、それぞれの施設ごとに福祉避難所の開設マニュアル、あるいは計画が必要だと思っていまして、用意していただきたいなと思ってるんですが、この整備状況をどう把握していらっしゃいますか。</div>
+</div>
+
+<div class="turn chair reveal" id="t84">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t85">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">福祉避難所設置運営マニュアルにおいて、福祉避難所につきましては、施設ごとの個別マニュアルを整備していただくことを想定しております。個別マニュアルにつきましては、令和7年度に2つの施設が作成していることを確認しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5935s" data-timestamp="5935"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:55</a>　今後は、福祉避難所となる各施設の整備状況を把握するとともに、まずは市と各施設が福祉避難所の開設運営について共通認識を持てるよう、個別マニュアル等の整備を進めていただくことが必要であると考えております。</div>
+</div>
+
+<div class="turn chair reveal" id="t86">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t87">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">整備の必要については、認識していらっしゃるということでした。ということであると、さらに福祉避難所に対する期待は、私、関係者の皆さんにとっては高いと思っています。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=5968s" data-timestamp="5968"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:28</a>　そういうことであると、こういった計画の整備・点検をして、福祉避難所ごとの受入れ可能人数を明らかにしていくべきだと思っていますが、いかがですか。</div>
+</div>
+
+<div class="turn chair reveal" id="t88">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t89">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">福祉避難所の受入れ可能人数につきましては、災害発生時の施設の被災状況や職員の参集状況、福祉避難所として使用できるスペース、必要となる備品等の状況によって変動するものと考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6000s" data-timestamp="6000"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:00</a>　このため、平常時から一定の人数を固定値として示すことは、災害時の実際の受入れ可能人数と乖離する可能性があることから、福祉避難所ごとの受入れ可能人数を固定的な数値として明らかにすることは考えておりません。</div><div class="say">災害発生時には、各施設において、施設や設備の安全性、職員の参集状況、使用可能なスペース等を確認し、その時点での受入れ可能な規模を把握することとしております。</div>
+</div>
+
+<div class="turn chair reveal" id="t90">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6035s" data-timestamp="6035"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:35</a></div>
+</div>
+
+<div class="turn reveal" id="t91">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">明らかにすることは考えていませんということなので、受入れ可能人数を明らかにすることもお願いしても、それはちょっと無理なのかなということが分かりました。ここで答弁を質問しようと思っていましたが、この答弁は結構です。分かりました。</div><div class="say">ただ、先ほども申し上げたように、福祉避難所に対する当事者、障害者、あるいは高齢者、ご家族や本人にとって期待値が高いんですね。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6066s" data-timestamp="6066"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:06</a>　この期待にどう応えていくのか、あるいは期待に応えられない場合のケースもあるわけなので、そういった対応、事前の準備というか、これは必要だと思っていますので、ここは整備は必要だなと思っているということです。</div><div class="say">ここは要望として申し上げておいて、次の最後の質問にいきたいと思っています。避難行動要支援者、個別避難計画の作成者数であります。これ、資料を作っていただきました。ありがとうございます。これは登録者数と作成者数を共に示したものでありまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6100s" data-timestamp="6100"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:40</a>　これを分かりやすくグラフ化したのが本人提出資料、こちらの資料ですね。見てもらうと分かりますのは、登録者数というのは常に1000人以上、数値が毎年動いています。現在55人とあるものは、1154人の登録者数の中で、個別避難計画を作成できた方が55人。</div><div class="say">見ていただきたいのは、令和5年から6年、7年とぐっと増えている。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6133s" data-timestamp="6133"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:13</a>　これ、私が再三お願いしてきた、計画者数を増やすべきだよと言ったことが、こうした実績になって現れてきた数字なのかなと思っておりまして、担当者の取組には改めて感謝を申し上げたいと思います。これ、なかなかできないことなんです。まず、必要ならば、なぜかというと、福祉避難所で直接避難できるのは、個別避難計画を持っている方だけなんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6164s" data-timestamp="6164"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:44</a>　現実、なかなかそれが難しいということを受けて、この増加傾向にある理由を説明してもらいたいんですが、いかがですか。</div>
+</div>
+
+<div class="turn reveal" id="t92">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">個別避難計画の作成者数が増加している主な要因ということでございます。議員からお褒めいただきました職員も頑張りました。また、福祉専門職の方々に計画の作成に関わっていただいていることによるものと認識し、感謝をしております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6194s" data-timestamp="6194"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:14</a>　個別避難計画につきましては、避難行動要支援者1人1人の状況に応じた避難支援を具体化するための重要な取組であることから、引き続き、関係機関や福祉専門職と連携しながら作成の促進に努めてまいります。</div>
+</div>
+
+<div class="turn chair reveal" id="t93">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t94">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">そういうことで言うと、大半は高齢者、対象者の方だと思っていますが、障害者の避難計画作成者数、この現状を最後に伺うんですが、いかがですか。</div>
+</div>
+
+<div class="turn reveal" id="t95">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6224s" data-timestamp="6224"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:44</a>　障害者の個別避難計画の作成状況についてでございます。こちらにつきましても、前年度末の17人から15人増加し、32人、作成人数となっております。障害者の個別避難計画におきましては、令和7年度から相談支援事業者の方々へ作成を依頼する取組を開始し、作成を得られたことから作成件数の増加につながっているものと認識し、こちらについても感謝申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6254s" data-timestamp="6254"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:14</a>　障害者につきましては、それぞれの障害特性や生活状況、必要となる支援の内容が異なることから、本人や家族の状況を把握している福祉専門職と連携しながら、個々の状況に応じた避難支援を検討していくことが重要であると考えております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t96">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">鈴木さん。</div>
+</div>
+
+<div class="turn reveal" id="t97">
+  <div class="meta"><span class="name">鈴木成夫</span></div>
+  <div class="say">これもですね、私の立場からいたしますと感謝を申し上げるところなんです。こうした作成者数を増やしていく取組について、相談支援事業者のご協力をいただいている。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6287s" data-timestamp="6287"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:47</a>　相談支援事業そのものの事業の大変さって、私はよく分かっているつもりで、なかなか運営的にこの事業を取り組んでも、事業所の負担が非常に大きいのかと思っている中で、自らそういう状況の中で仕事を増やしてもらっている。そして、障害者の個別避難計画の作成に携わってもらっているということなんですよね。私は、私の息子は知的障害者、31歳になりましたけど、そういった周りのご家族の皆さんについても、この災害時の不安って非常に大きいんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6323s" data-timestamp="6323"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:23</a>　ですから、具体的にここを取り上げて、支援につなげていく。ここが原点だと思っています。そういった意味では、非常にありがたい取り組みを進めてもらっていると思っています。</div><div class="say">小金井市全体の防災力の向上ということで質問してまいりました。さまざま課題も明らかになっておりましたが、成果が出ているところも多くあるなと思っていまして、いつ発生するか分からない大災害。私たちも協力しなければ、当然協力するんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6354s" data-timestamp="6354"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:54</a>　市全体の状況を考えて、今後の取り組みを強化していただきたいということをお願いして、私からの一般質問を終了させていただきます。ありがとうございました。</div>
+</div>
+
+<div class="turn chair reveal" id="t98">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6385s" data-timestamp="6385"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:25</a>　次に、9番、小林正樹議員の発言を許可します。</div>
+</div>
+
+<div class="turn reveal" id="t99">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">改めまして、こんにちは。9番、公明党、小林正樹でございます。毎回一般質問、午前中と午後と2回登場するわけでありますけれども、いつも3人目のエントリーで、2回登場させていただき、YouTubeにも2つ出させていただいておりますことに、ご協力いただいている皆様に感謝を申し上げるところであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6415s" data-timestamp="6415"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:55</a>　今回も、この間、いろいろな市民の皆様、団体の皆様からも、ご意見などお伺いをしてまいりました。市政の報告をしながら、いろいろなご要望などもいただいてまいりましたので、その中で、特に重要なものを4点に絞りまして、質問をさせていただきます。午前中は、1つ目の大きな項目について質問をさせていただきますので、よろしくお願いいたします。</div><div class="say">これまでも、がんの早期発見、早期治療のために、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6446s" data-timestamp="6446"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:26</a>　さまざまな質問を重ねてまいりました。がんの受診率向上ですね。がん検診の受診率向上という点で、いろいろ取り組みをしてまいりましたけれども、今回は、男性の特有のがん、前立腺がんを予防する検診についてということで、取り上げをさせていただきます。</div><div class="say">言うまでもなく、前立腺がんは、前立腺の細胞が何らかの原因で、異常に増殖することにより起こる病気であります。悪性腫瘍の1つであり、多くの場合は比較的ゆっくり進行し、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6481s" data-timestamp="6481"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:01</a>　早期に発見して適切な治療を行えば、治癒が望めます。早期の前立腺がんは、多くの場合、自覚症状がありません。ただし、尿が出にくいですとか、排尿の回数が多いなど、症状が出ることがあります。</div><div class="say">進行すると、排尿の症状に加えて、血尿や排尿痛、骨への転移による腰痛などが見られることがありますので、気になる症状のある方は、早めに泌尿器科を受診することをお勧めします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6516s" data-timestamp="6516"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:48:36</a>　さて、我が国の前立腺がん罹患者数は、高齢化と食生活の欧米化などの影響で、増加傾向にあります。令和3年、全国がん登録罹患者数率報告、これは厚生労働省の健康局によるものでありますが、前立腺がん罹患者数は95,584名と、男性がんの第1番目の罹患者数であり、大腸がん、肺がん、胃がんと並んで、男性が最も罹患する可能性の高いがんでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6553s" data-timestamp="6553"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:13</a>　その中でも50歳以上の男性で診断される方が増加する傾向にあるということであります。前立腺がんも他のがんと同様に早期発見、早期治療が重要であります。治療によるこの合併症により、生活の質が低下する危険性があるため、日本泌尿器科学会の前立腺がん検診ガイドラインでも、これまで一貫して検診受診の自己判断材料となる前立腺がん検診に関する情報提供が</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6589s" data-timestamp="6589"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:49:49</a>　極めて重要であるとの立場を明確にされてまいりました。具体的にはPSA検査を活用した検診を指します。去年3月にも、日本泌尿器科学会及び日本医師会が厚生労働大臣に対しまして、我が国における前立腺がん検診普及の推進に関する要望書を提出しております。</div><div class="say">中には、我が国は先進国の一員でありながら、前立腺がん検診については、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6624s" data-timestamp="6624"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:24</a>　欧米医療先進国と比較した場合、かなり遅れており、現状において多くの治療を急ぐ必要のある前立腺がんが進行するまで見逃されております。是非とも多くの国民の生命を確実に救うことができる、治療を得る向上が期待できる対策として、住民検診における前立腺がん検診実施の推進を要望する、という内容であります。先日新聞でも拝見をいたしましたけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6656s" data-timestamp="6656"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:50:56</a>　早期発見により、東北大学病院にある最新鋭のMRリニアック、これはMRIと放射線治療装置を合体した超最先端の、超高いものですが、これを使えば、週末に、まだ現役の方、50歳以上で分かる方も多いと言われておりますが、週末に2度、このMRリニアックの治療放射線を数分間受けるだけで完治をする、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6694s" data-timestamp="6694"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:51:34</a>　治癒をするというようなことも掲載をされておりました。本市においても検診導入を含む男性のがん対策の充実について検討すべきではないでしょうか。それでは大きな質問に入ってまいりますが、前立腺がんの小金井市における現状と診断の考え方、検診の考え方について伺います。</div>
+</div>
+
+<div class="turn reveal" id="t100">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6726s" data-timestamp="6726"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:06</a>　前立腺がんの本市の現状についてでございます。本市における前立腺がんの罹患者数及び死亡者数につきましては、市単独の数値は把握しておりません。東京都が公表している令和6年の人口動態統計によりますと、東京都における前立腺がんによる死亡者数は1293人となっておりました。</div><div class="say">前立腺がん検診の実施状況についてでございますが、本市では国のがん検診の指針に基づき、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6759s" data-timestamp="6759"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:52:39</a>　科学的根拠が認められた方法により、胃がん検診、肺がん検診、大腸がん検診、子宮頸がん検診及び乳がん検診を実施しております。前立腺がん検診につきましては、現在国の指針に入っていないことから、本市では実施しておりません。また、前立腺がんの検査方法についてでございます。</div><div class="say">前立腺がん検診における検査方法の一つとして、ただいまご紹介にもありましたとおり、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6789s" data-timestamp="6789"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:09</a>　PSA検査がございます。PSA検査は血液中の前立腺特異抗原、いわゆるPSAの値を測定し、前立腺がんの可能性を調べるための検査でございます。検査の結果、PSA値が一定の基準を超えた場合には、医療機関において精密検査を受けることとなります。</div><div class="say">他の自治体におきましても、前立腺がん検診としてPSA検査を実施している自治体があるものと認識しております。</div>
+</div>
+
+<div class="turn chair reveal" id="t101">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6820s" data-timestamp="6820"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:53:40</a>　小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t102">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">ご答弁ありがとうございます。東京都内で1293名では、6年度にはお亡くなりになられているということでありますので、小金井市では10名前後の方がお亡くなりになられている可能性もあるということが想定できるかと思います。近隣自治体におけるがん検診についてということで伺ってまいりますが、私の方で本人提出資料を出させていただいております。</div><div class="say">裏表のですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6851s" data-timestamp="6851"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:11</a>　東京都内62自治体における前立腺がん検診実施状況というものでございます。23区ではすでにご覧のとおり14区が実施をしておりまして、多摩26市ではほぼ半分の13市が実施をしていることが分かります。対象年齢は50歳、55歳というものが大半でありますが、60歳スタート、40歳というところも何市か、何自治体かございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6882s" data-timestamp="6882"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:54:42</a>　通年でやられている自治体もあれば、5歳刻みなどで取り組みもございます。金額的なものが載っておりませんので、口頭で補足いたしますが、小平市さん、50歳から74歳の男性を対象にPSA検査を行っております。自己負担1,000円で行っており、健康検査と同時に受診することも可能となっております。</div><div class="say">また、西東京市さんにおいては、こちらも50歳から74歳の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6915s" data-timestamp="6915"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:15</a>　偶数年齢男性を対象にPSA検査を行っており、こちらは自己負担500円であります。立川さんにおいては、令和8年度からPSA検査を導入し、50歳以上を対象に、市の健康検査時に500円で追加で検診ができるという仕組みとなっております。隣、国分寺さんにおきましては、市の人間ドックでこのPSA検査を加えて実施することができるというようになっている状況であります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6945s" data-timestamp="6945"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:55:45</a>　ほぼ多くの実態が自己負担も伴ってという形にはなっておりますが、これらの多摩の実態の状況などを見まして、市はどのような見解を持たれているかお伺いします。</div>
+</div>
+
+<div class="turn reveal" id="t103">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">前立腺がん検診の見解ということですが、今までのところ実施してこなかったという理由は、先ほどもご答弁申し上げましたが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=6979s" data-timestamp="6979"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:19</a>　国の指針に基づいて科学的根拠が認められた5つの状況でございますが、東京都が公表しているデータから、多摩26市では12市、東京都全体では31自治体が前立腺がん検診を実施しているものと把握しております。</div>
+</div>
+
+<div class="turn reveal" id="t104">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">小金井市はこの中に入っていない。全国で8割以上の自治体ということであり、東京都内多摩26市がこのような状況でありますが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=7019s" data-timestamp="7019"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:56:59</a>　小金井市が今まで検討されてこれなかった状況があろうかと思います。本市においてこの導入の課題や今までの検討状況などについてお伺いします。</div>
+</div>
+
+<div class="turn reveal" id="t105">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">失礼いたしました。前立腺がん検診は検討状況ですが、先ほどもご答弁申し上げましたとおり、国の指針に基づき科学的根拠が認められた5つの検診が挙げられております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=7049s" data-timestamp="7049"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:57:29</a>　それを実施していることから、現時点では前立腺がん検診は実施していないという状況でございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t106">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t107">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">課題などについては何かありますか。</div>
+</div>
+
+<div class="turn reveal" id="t108">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">導入の課題として、男性に対するがん対策についてでございます。現在、本市が実施している5つのがん検診には、女性特有のがんである子宮頸がん検診及び乳がん検診が含まれておりますが、男性特有のがんを対象とした検診は実施しておりません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=7088s" data-timestamp="7088"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:08</a>　一方、前立腺がんは我が国の男性において、罹患者数の多いがんの1つであるとご紹介いただきました。死亡者数も全国で年間1万3千人を超えている状況について認識しているところです。前立腺がん検診の導入については、こうした罹患状況等も踏まえながら、検診を実施する上での課題、国の動向等を確認するとともに、実施自治体の取り組み状況も参考に、今後の検討課題としております。</div>
+</div>
+
+<div class="turn chair reveal" id="t109">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=7121s" data-timestamp="7121"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:58:41</a>　小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t110">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">市民の健康寿命の延伸はもちろんでありますが、医療費の削減にもつながることは言うまでもございません。国の指針を理由にするだけではなくて、近隣自治体の取り組みをもっと参考にしていただいて、希望者が定額で受診できる選択肢の確保という意味からも導入すべきであると考えております。また、特定検診とセットでやっていくという方法もあろうかと思います。</div><div class="say">検診をするが、自治体、また個人においても負担が低くなると思っておりますし、検診率も高くなっていくということでもあります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=7158s" data-timestamp="7158"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:18</a>　また、独自の検診、この5つの国の指針による検診以外の検診を行うということで、国のペナルティがあるというような話も聞いたことがありますが、改めて今回独自に調査したところ、このペナルティというのは具体的な何か科されると、例えば補助が減るとか、そういったものも現状ではないというようなことも伺っているところであります。このようなことからしても、検診をぜひ検討していただきたいと改めてお伺いいたしますが、いかがでしょうか。</div>
+</div>
+
+<div class="turn reveal" id="t111">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=7197s" data-timestamp="7197"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:59:57</a>　繰り返しの御答弁となるところですけれども、実施自治体の取組状況も参考にというお話をいただきました。それらの情報も勘案し、今後の検討課題とさせていただきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t112">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t113">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">ぜひ検討いただきたいと思います。これまでもがん検診については、インセンティブを与える、健康受診者にポイントを付与する方策ですとか、健康診査の特定検診の同時実施によって受診機会を増やすことですとか、受診申請のハガキをつけたガイドブックの全戸配布なども提案をしてまいりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=31Prvcb4b00&t=7239s" data-timestamp="7239"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>2:00:39</a>　ぜひ併せてご検討を進めていただければと思いますので、よろしくお願いいたします。以上で1番目。</div>
+</div>
+
+<div class="turn chair reveal" id="t114">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ここで昼食休憩のため、おおむね1時間休憩いたします。13時再開でお願いします。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
