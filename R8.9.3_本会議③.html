@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年9月3日 本会議③</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年9月3日 本会議③</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年9月3日</p>
+    <h1>本会議③</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-09-03</span>
+  </header>
+
+  
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/coefC-zy3rI" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn reveal" id="t0">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=0s" data-timestamp="0"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>00:00</a>　次に、〇〇</div>
+</div>
+
+<div class="turn chair reveal" id="t1">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=360s" data-timestamp="360"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:00</a>　再開します。休憩前に引き続き一般質問を行います。ながとり太郎議員。</div>
+</div>
+
+<div class="turn reveal" id="t2">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">休憩前の巻き戻しで、少しだけご説明しますと、こうした方々に家族の言わば代わりとして相談できる体制を作ったり、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=394s" data-timestamp="394"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:34</a>　地域や社会の接点を作るための支援ができる仕組みづくりが、今まさに求められているというところまでお話ししました。</div><div class="say">ここでまた一つお伺いいたします。単身世帯の増加に伴い、就労が生計の唯一の柱であったり、頼れる人が不在であったり、日常の様々な問題の相談相手がいないという課題があると考えております、私は。市としても同じ考えでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t3">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=425s" data-timestamp="425"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:05</a>　福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t4">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">単身世帯の増加に伴い、ながとりさんご指摘のような課題が生じ得るものと認識しております。市といたしましては、個々の状況に応じて必要な支援につなげていくことが必要であると考えております。</div>
+</div>
+
+<div class="turn chair reveal" id="t5">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t6">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">重要であるという認識は一致いたしました。これからの課題は、こうした方々がいかに市や地域との接点を持てるか、必要な時に相談できるきっかけを持てるかどうか、そしてそれを市がどのようにして後押しできるかということであると私は考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=467s" data-timestamp="467"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:47</a>　しかし、だからといって、今すぐに40歳から64歳の単身世帯向けの事業を立ち上げるというのは現実的ではないということは、私も分かっています。そこで、今利用できるものの確認をいたします。</div><div class="say">先ほど申し上げましたけれど、社会の仕組みの多くは、いざという時は家族が動くということを前提に設計されております。家族が担ってきたものの代わりが、今の小金井市に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=498s" data-timestamp="498"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:18</a>　どういうものがあるか、それを確認していきます。頼れる家族がいない単身者、主に40歳から64歳の方が現在利用できる市や社会福祉協議会などの相談支援などには、どのようなものがあるでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t7">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t8">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">まず高齢者向けの、失礼いたしました。現在利用できる主な支援としては、福祉総合相談窓口による相談支援のほか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=531s" data-timestamp="531"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:51</a>　生活困窮に関する相談、住まいに関する支援としては住居確保給付金、成年後見制度の利用、社会福祉協議会の地域権利擁護事業などがございます。</div><div class="say">入院時の支援や身元保障、死後事務については、社会福祉協議会の独自事業ですが、お助け安心パックなど、個々の状況に応じて関係機関のサービスも含めて案内しております。いずれも、年齢や生活状況、抱えている課題に応じて</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=563s" data-timestamp="563"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:23</a>　適切な相談窓口や支援につなげております。</div>
+</div>
+
+<div class="turn chair reveal" id="t9">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t10">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">ありがとうございます。様々な事業がありますが、総じて言うと、既に具体的な困り事を抱えた方への相談や支援として設計されており、困り事がまだ形になっていない段階の漠然とした不安の入り口としては意識されてこなかったのではないかな、という私の印象です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=594s" data-timestamp="594"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:54</a>　具体的に質問してまいります。高齢者の見守り支援事業など、または終活関連の取組、ごめんなさい、失礼しました。高齢者の見守り支援事業など、例えば講座とかエンディングノートとか、そんな感じですかね。対象年齢や要件の概要はどのようなものでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t11">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t12">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">まず、高齢者向けの見守り支援事業についてでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=626s" data-timestamp="626"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:26</a>　高齢者向けの見守り支援事業としては、食事支援サービスや一声訪問等の事業を行っております。対象年齢ですが、原則として65歳以上の高齢者が利用できるものとなっております。また、要件としては、見守りが必要な一人暮らしまたは高齢者のみ世帯、要支援・要介護の方、住民税非課税等があり、事業によって要件は異なります。</div><div class="say">次に、終活関連の取り組みとしては、毎年社会福祉協議会において</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=658s" data-timestamp="658"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:58</a>　成年後見制度市民啓発講演会を2回実施しております。また、令和7年度にエンディングノートの作成・配付を社会福祉協議会にて行っております。いずれも年齢制限はございません。</div>
+</div>
+
+<div class="turn chair reveal" id="t13">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t14">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">ありがとうございます。条件があるものとか年齢制限がないとか、いろいろあります。そういったものはそれぞれ使っていけるのかなと思っています。</div><div class="say">次に質問いたします。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=689s" data-timestamp="689"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:29</a>　社協にあるんですけれども、お助け安心パック事業というのがあります。社協のホームページを見ても正確には分からないんですけど、過去の答弁なんかを見ているとあります。事業内容、対象要件及び金銭的な負担はどのようなものでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t15">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t16">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">お助け安心パックについては、小金井市社会福祉協議会の独自事業でございます。事業といたしましては、市内在住の方で</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=721s" data-timestamp="721"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:01</a>　賃貸物件を探している中で保証人等が見つからず、入居に苦慮されている89歳以下の方で、認知症でない方や、自分が亡くなった後のことが心配な方を対象としております。</div><div class="say">社会福祉協議会が契約者となって保険に加入し、利用者のご請求を受け、その保険金を使い、委託した法人が葬儀・埋葬・家財処分等を利用者に代わって行う事業です。毎月の利用料は、性別や年齢・健康状態で</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=753s" data-timestamp="753"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:33</a>　料金が変わる仕組みでございます。</div>
+</div>
+
+<div class="turn chair reveal" id="t17">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t18">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">ありがとうございます。こういう、今のお助け安心パックについては、実際に有料でやっているということです。</div><div class="say">小金井市には、市からの委託事業も含めて様々な事業があることが分かりました。対象も様々で、例えば見守りのように原則65歳以上というものがある一方で、終活関連やお助け安心パックなどは年齢の下限がない</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=786s" data-timestamp="786"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:06</a>　ということですね。〇〇も使えるということでしょう。あとは、40歳から64歳の単身の方に、自分も使えると伝わる案内、周知になっているかどうかです。その工夫をぜひとも今後お願いしたいと思います。</div><div class="say">広報の時に少し変えるとか、その程度でできるんだと思うので、とりあえず年齢制限がないのであれば、年齢制限ないですと強調していただくとか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=816s" data-timestamp="816"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:36</a>　その程度で大丈夫だと思います。</div><div class="say">現状の〇〇で直ちに可能な事業として、高齢部門で行っている事業で65歳未満を対象とした事業は、どんなものがありますか。</div>
+</div>
+
+<div class="turn chair reveal" id="t19">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t20">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">高齢福祉担当で実施している65歳未満を対象とした事業としては、50歳以上を対象とした地域参加講座や、40歳以上を対象としたスマホサポーター養成講座、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=847s" data-timestamp="847"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:07</a>　介護支援ボランティアポイント事業を実施しており、高齢者になる前から地域とのつながりが持てるような事業を実施しております。</div>
+</div>
+
+<div class="turn chair reveal" id="t21">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t22">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">ありがとうございます。40歳以上、50歳以上から参加できる事業がすでにあるということ、これは重要だと思います。ただ、いずれも高齢期への準備としての文脈で事業を行っていらっしゃるということなので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=878s" data-timestamp="878"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:38</a>　40歳から60歳の単身の方々の今の暮らしの困りごとを正面から対象にした事業ではないというのは現状かなと思います。</div><div class="say">もう一つお伺いします。ちょっと重要なんですけど、福祉総合窓口というのはどういう窓口か、日頃からの相談体制も含めて教えていただけますでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t23">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t24">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">福祉総合相談窓口は、年齢や世帯構成に関わらない、属性を問わない相談窓口として、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=909s" data-timestamp="909"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:09</a>　自立相談支援事業、家計改善支援事業及び就労準備支援事業とともに、小金井市社会福祉協議会へ委託し、一体的に運営を行っております。</div><div class="say">頼れる家族がいない方やお一人の方についても、当然相談の対象となります。現在の案内においても、幅広い生活上の困りごとを相談できる窓口であることを周知しておりますので、引き続き、福祉総合相談窓口が様々な相談を受け付けていることについて、適切に周知してまいります。</div>
+</div>
+
+<div class="turn chair reveal" id="t25">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=945s" data-timestamp="945"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:45</a>　ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t26">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">はい、ありがとうございます。状況がよく分かりました。</div><div class="say">これはすごく大事なんですけど、去年の決算特別委員会で資料が出ておりまして、度々提出されている資料だと思うんですけれども、福祉総合窓口というのは、非常に多岐にわたる相談を受ける窓口に事実上なっているということですね。特段、例えば45歳から64歳までの方々を対象とはしていないんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=981s" data-timestamp="981"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:21</a>　事実上、例えば就労相談ということまで来ていると。それを別に門前払いしていなくて、必要な場合に必要な対応をしているということが、資料からも分かりますし、事前にお伺いした中でも分かるところです。</div><div class="say">あとでもまた提案があるんですけれども、こういった委託事業などで、もっと気軽に使えるとか、それから、中で働いていらっしゃる方が、もっと情報をしっかりと把握して、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1016s" data-timestamp="1016"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:56</a>　こうしたときにこうしたらいいというようなことも含めて、考えていけるような体制を整えていただきたいなと思っております。</div><div class="say">今後もこのような窓口を積極的に活用して、40歳から64歳までの単身者の社会的な繋がりが切れないように、私たち自身も声かけしていかなければいけませんが、市、それから例えば地域ですね、町会とか、そういうところからも繋がりを持って、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1055s" data-timestamp="1055"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:35</a>　そして日頃から、そういった方々がお困り事を抱えたときに相談相手となれるような体制が作れればと思っております。</div><div class="say">最後に提案があるんですけれども、本当は質問したかったんですが、提案をということでおっしゃっていたので、市長になった時の白井さんがおっしゃっていた提案をして、最後終わりたいと思います。</div><div class="say">まず、どの窓口か分かりにくい暮らしの困りごとに関するFAQ、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1088s" data-timestamp="1088"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:08</a>　よくある質問ってやつですけれども、を作って、庁内で公開をしていただけないかということです。</div><div class="say">これからは、私も散々DXと言ってますけれども、こういった福祉相談窓口に関わらず、ナレッジベースを作っていくことが大事ですし、当然そのうち、それを何らかのAIで解析するとか、そういうことになると思いますので、とりあえず、そういうところの人たちが、例えば管轄外の人が来たときにどういうふうになったかということぐらいは書いて、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1121s" data-timestamp="1121"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:41</a>　それで、今までこういう相談がありましたということを、よくある質問として保存して、皆さんで共有していただければなと思っております。</div><div class="say">それから、仮称お一人様相談窓口というのを作っていただけないでしょうか、ということであります。</div><div class="say">それからもう一つ、狛江市では、こういう福祉相談窓口みたいなやつなんですけれども、福祉相談窓口は誰でも来てもいいですということ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1151s" data-timestamp="1151"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:11</a>　それから先、支援を受けるとなると、それは要件があります。65歳以上です。でも、相談は誰でも来てもいいんですという仕組みにしているところ。これも社会福祉協議会に委託しているように、私にはホームページ上から取れますけれども、こういったことであれば、そんなにお金もかけずにできるのかなと思いますので、適切に市民が相談できるような体制を作っていただければなと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1181s" data-timestamp="1181"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:41</a>　いうふうに思っております。</div><div class="say">ですから、よくある質問を作っていただきたいということと、お一人様相談窓口を作っていただけないかということと、作っていただけなければ、例えば福祉の窓口なんかで、もともと誰でも来てもいいよと、という発信をしていただければなと思っております。</div><div class="say">冒頭の市長時代の白井さんの答弁にあった、どこに何が届いていて届いていない</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1213s" data-timestamp="1213"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:13</a>　のかということは、今日の確認で少し輪郭が見えてきたと思いますので、前向きな検討をお願いして、この項目を終わります。</div><div class="say">次に、もう一つ質問してまいります。CoCoバス再編を契機とした運行データの公開と効果測定についてお伺いしていきます。</div><div class="say">まず、こちら資料をお配りしておりまして、もし可能であればQRコードありますし、パソコンだったらちょっと長いですけど、これ打っていただければ出ますので、もしよろしければですけど、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1244s" data-timestamp="1244"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:44</a>　あらかじめアクセスしておいていただければと思います。</div><div class="say">まず、前提となる状況を確認いたします。CoCoバスでは、来年4月に運賃の改定、ルートの変更、そして運行時刻の変更という再編を迎えます。運賃は180円から200円となります。回数券が廃止され、高齢者割引は専用パス、専用パスはもうちょっと前なんですかね、ごめんなさい、提示による100円に据え置かれます。</div><div class="say">このため、市民が利用する形態に変更が生じることになります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1274s" data-timestamp="1274"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:14</a>　では、6年7月、運行事業者さんの方からですね、主に運転士不足などを背景に、一部路線の変更の申し入れがありました。私もやきもきしていましたけれども、路線廃止も十分にあり得たということにかかわらず、その後の運行事業者さんと、それから地域公共交通活性化協議会などでのご検討の結果ですね、中町循環、東町循環も存続する形ということで、再編で</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1308s" data-timestamp="1308"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:48</a>　一つ安心したところであります。</div><div class="say">改めて申し上げますけれども、運行事業者の皆様ほか、地域公共交通活性化協議会をはじめとする、本当に関係者の皆様と部局の皆様に、ご尽力とご配慮をいただいたことを深く感謝いたします。敬意を表しております。</div><div class="say">しかしながら、そもそもの課題である事業の安定が確保されたかということであると、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1340s" data-timestamp="1340"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:20</a>　多分それは違うんだろうなと思っています。CoCoバスへの市の補助金は、令和元年度の約4400万円から令和6年度には約8300万円と増えております。利用者のおよそ半数は高齢者の割引の利用者ということであって、運賃改定の影響も注視が必要となってきます。</div><div class="say">持続可能な事業運営にする努力は、これからも続けていかなければいけないなと思います。</div><div class="say">その観点から質問してまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1372s" data-timestamp="1372"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:52</a>　そのために必要なことは2つだと考えております。1つは、利用者が使いやすくすること、そして利用者をもともと確保すること。それからもう1つは、利用の状況を継続的なデータとして把握して、今後の事業運営をしっかりと分析していく。</div><div class="say">それはCoCoバスの場合には市役所のやる事業ですので、市民とともに納得できる形で、今後もこういう運行〇〇がないとは限らないので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1404s" data-timestamp="1404"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:24</a>　市民とともに納得できる形の事業運営を考えていくことが大事なんじゃないかなと思います。</div><div class="say">今回の質問は、この2つを支える土台としてのデータの話になります。CoCoバスの運行データについて申し上げますと、今どのように市民に対しての公開が行われているかということですが、私が確認した範囲を申し上げます。市のホームページでは、時刻表と路線図はPDF形式で公開されています。</div><div class="say">一方で、Googleマップ、ナビタイム、ヤフー乗換案内といった</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1435s" data-timestamp="1435"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:55</a>　経路検索サービスには、CoCoバスの停留所や時刻の情報が表示されています。これ自体は大変良いことだと私は思っているんですけれど、利用者の利便性を考えればこれでもいいかなとは思います。ただ、例えばGoogleマップの受け元の表を見ますと、〇〇のウェブサイトのドメインが表示されている。</div><div class="say">要するに、事業者のデータ提供に依存しているということです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1467s" data-timestamp="1467"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:27</a>　また、誰でも使える、例えばいわゆるオープンデータとして公開されているのは、公共交通オープンデータセンターにあるCoCoバスミニの一路線だけ。これはつくば観光さんがやっていらっしゃるんですかね。他の4路線分には、私が探した範囲ですけど、公開データとしては確認できませんでした。</div><div class="say">それから、東京都のオープンデータカタログにある〇〇</div><div class="say">のデータセットには、交通分野に関するものはありませんでした。</div><div class="say">この状態には3つの課題があると考えております。</div><div class="say">第一に、継続性。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1500s" data-timestamp="1500"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:00</a>　データの提供が事業者の方に依存している場合は、例えば、再編や車両や運行の形が変わるとき、あるいは将来、運行体制に変化があったときは、その公開形態について、もっぱら提供する事業者の事情とタイミングに合わせていくということになります。</div><div class="say">それから、正確性の検証です。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1530s" data-timestamp="1530"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:30</a>　来年4月、時刻表が変更され、運賃が200円に変わったときに、例えば経路検索サービス上にちゃんと更新されるのかどうか。</div><div class="say">それから、例えば180円のままになっちゃうんじゃないかとか、そういう誤った情報が仮に流れたとして、事業者経由でそれらを訂正しなければいけませんから、時間がかかったり、作業が煩雑になったりする可能性があります。可能性です。</div><div class="say">ただし、この件に関しては大手事業者がしっかりとやっていただいているということが、小金井市の場合にはそういう事情もあります。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1561s" data-timestamp="1561"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:01</a>　これも事業者によって全然データの扱いとかハンドリングが違うみたいなので、これに関しては小金井市においてはほとんど、あんまり心配する事項ではないとは思うんですけれども、そういう懸念もあるということは申し伝えておきます。</div><div class="say">三番目に、市民の側の材料です。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1598s" data-timestamp="1598"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:38</a>　福井県鯖江市がありまして、行政がオープンデータを出して市民がアプリを頻繁に、ここの市はやっているんですけれども、例えば小金井市でそういうCoCoバス関連のアプリや分析をしようと思って、市民や、あるいは開発者や研究者や事業者がしても、停留所の位置や時刻表のデータは事業者が公開しているものを引用してくるしかないわけですね。</div><div class="say">市が公式に保証する形の元データが分かりやすい場所に整理されているということまではないという状況であります。運賃改定や路線の改定の効果を、市民や第三者が根拠のあるデータを使って確認しにくいということでもあります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1632s" data-timestamp="1632"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:12</a>　国でもGTFS-JP第4版というのがありまして、GTFSって時刻表の標準データ、運行情報の標準データなんですけども、そういうこともありますし、再編でデータを作るタイミングで、こういったデータに対する考え方や公開方法について変える契機ではないかと思っております。</div><div class="say">ちょっと話が長くなってますが、質問に移ってまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1663s" data-timestamp="1663"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:43</a>　運行情報の全路線オープンデータ化について伺っていきますが、先ほど申し上げたとおり、現在、Googleマップ等の経路検索サービスにCoCoバスの時刻表、経路の情報が掲載されております。</div><div class="say">この時刻表データ、ルート、停留所の情報の公開はどのように行われているでしょうか。京王バス、つくば観光交通という運行事業者と市の間で、データの公開についてはどのような協議、連携が行われているか、簡単で結構なことですのでお答えください。</div>
+</div>
+
+<div class="turn chair reveal" id="t27">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">都市整備部長。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1696s" data-timestamp="1696"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:16</a></div>
+</div>
+
+<div class="turn reveal" id="t28">
+  <div class="meta"><span class="name">都市整備部長</span></div>
+  <div class="say">データに関する公開につきましては、ながとりさんからご紹介いただいたとおり、公共交通に関する情報をオープンデータ化することにより、経路検索サービスや大手地図サイト等で運行情報を検索できるようになります。</div><div class="say">CoCoバスにつきましては、令和7年3月に策定した小金井市地域公共交通計画に基づき、運行事業者である京王バス及びつくば観光交通により、標準的なバス情報フォーマットのGTFSにて整備しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1732s" data-timestamp="1732"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:52</a>　データにつきましては、公共交通データセンターという先進的な公共交通情報サービスの構築等を実施する組織のプラットフォームにて公開をしております。</div>
+</div>
+
+<div class="turn chair reveal" id="t29">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t30">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">ありがとうございます。事業者との十分な連携の下でデータが提供されているということは確認できました。特に京王バスさんは、すごくそういうところには長けているなという感じがしますので、この点についてはしっかりと協議をされているということで私は受け止めました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1764s" data-timestamp="1764"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:24</a>　その上で、市としてのデータの持ち方について続けて伺ってまいります。令和8年度第2回地域公共交通活性化協議会の資料では、再編の準備として、GTFSデータの更新等々の記載があります。この更新は具体的にどのような手順で行われるのでしょうか、教えてください。</div>
+</div>
+
+<div class="turn chair reveal" id="t31">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">都市整備部長。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1799s" data-timestamp="1799"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:59</a></div>
+</div>
+
+<div class="turn reveal" id="t32">
+  <div class="meta"><span class="name">都市整備部長</span></div>
+  <div class="say">データの更新につきましては、令和9年4月からの交通ネットワークの再構築においては、令和8年7月29日に開催した地域公共交通活性化協議会において交通ネットワーク再編事業の協議が整い、時刻表やルート等に変更が生じることから、現在公開しているオープンデータを更新する必要がございます。</div><div class="say">令和9年4月からの再編運行に向け、運行事業者において順次更新作業を行っていただく予定となっております。</div>
+</div>
+
+<div class="turn chair reveal" id="t33">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t34">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">ありがとうございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1830s" data-timestamp="1830"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:30</a>　事前にお伺いしたところによると、この協議は厳密にやられているということなので、しっかりとこの更新作業をよろしくお願いいたします。</div><div class="say">質問の3です。現在いわゆるオープンデータとして公開されているのは、CoCoバスミニの1路線分なんですけども、再編を機に京王バスさんが運行する路線の分も含めて、全路線のGTFS-JPを市が直接公開する考えはないでしょうか。もし市として直接公開する考えがない場合には、京王バスがどのようにデータを公開しているか、ちょっと重ねてになっちゃうんですけど、お答えください。</div>
+</div>
+
+<div class="turn chair reveal" id="t35">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1860s" data-timestamp="1860"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:00</a>　都市整備部長。</div>
+</div>
+
+<div class="turn reveal" id="t36">
+  <div class="meta"><span class="name">都市整備部長</span></div>
+  <div class="say">公共交通オープンデータにおいてオープンデータとして公開されているCoCoバスの情報は、ながとりさんのご指摘のとおり、つくば観光交通が運行している野川・七軒家循環のデータでございます。</div><div class="say">一方、京王バスが運行する路線につきましては、事業者が公共交通オープンデータセンターにおいて、路線バスとコミュニティバスを含めた形で公開しており、その中に京王バスが運行するCoCoバスの路線も含まれております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1896s" data-timestamp="1896"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:36</a>他市においてコミュニティバスを公開している事例があることは承知しておりますが、本市では運行事業者と協議の上、現行の方法で公開しているところでございますので、今後につきましても現行の方法を継続してまいりたいと考えております。</div>
+</div>
+
+<div class="turn chair reveal" id="t37">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t38">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">はい、ありがとうございます。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1928s" data-timestamp="1928"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:08</a>　繰り返しになっちゃいますけれども、運行事業者との連携はしっかりされているということで、お相手というか、データの先が京王バスさんであるということですので、しっかりと協議をしていただいて、正確なデータが適切な段階で反映されるように取り組みをお願いいたします。</div><div class="say">もう一つ質問です。時刻表を機械可読形式で公開してほしいという私の質問を、昨年12月に一般質問で提案してまいりました。その際に、他市の事例や状況も参考にした上で対応方法を検討してまいりたいとご答弁がありました。</div><div class="say">そこで伺います。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1959s" data-timestamp="1959"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:39</a>　再編後の新しい時刻表について、例えば現在の印刷用の時刻表で20分間隔とか30分間隔と省略して書かれている箇所を、全て現在の時刻で記載した時刻表、画像ではなくテキストが埋め込まれた形で、印刷用のフォーマットとは別のもので市のホームページに掲載していただくことはできないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t39">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">都市整備部長。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=1991s" data-timestamp="1991"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:11</a></div>
+</div>
+
+<div class="turn reveal" id="t40">
+  <div class="meta"><span class="name">都市整備部長</span></div>
+  <div class="say">20分間隔、30分間隔といった表記のご指摘につきましては、公共交通マップは多くの方にご覧いただくことを目的とした印刷物として作成しているものでございまして、全路線のルート及び時刻表を1枚に集約するという性質上、紙面の制約から簡略化した表記としております。</div><div class="say">各路線別に情報を1枚に集約している案内チラシにつきましても引き続き作成する予定でございますが、ルートや時刻表等を記載したものを市ホームページにも記載しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2022s" data-timestamp="2022"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:42</a>この掲載につきましては、ながとりさんご提案のとおり、全ての便の時刻をテキスト情報として埋め込んだ形で掲載する方向で、具体的に検討してまいりたいと存じます。</div>
+</div>
+
+<div class="turn chair reveal" id="t41">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t42">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">ありがとうございます。具体的にご検討いただけるということで大変嬉しいです。AIの時代なので、実際のところ画像データではないということと、全データが入っていれば、これでテキストで取ってくれるんじゃないかなと私は思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2054s" data-timestamp="2054"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:14</a>あんまりこれを出せ、あれを出せというと、リアルタイムで提供できないというようなこともありますので、手間をかけない形でできる範囲でやっていただけるということは、非常に嬉しいかなと思っております。</div><div class="say">次に、簡単に利用実績、収支等の定期的な公表について伺ってまいります。運賃改定の理由の1つとして、市の補助金が年々増加しているということは、協議会の資料でも挙げられておりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2086s" data-timestamp="2086"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:46</a>　この数字は市民の皆さまに運賃改定をお願いするという根拠になった数字でございますけれども、こうした数字を一時的で終わりにするのではなくて、毎年、例えば経年的に分かりやすいような形でご報告していただきたいと思っております。いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t43">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">都市整備部長。</div>
+</div>
+
+<div class="turn reveal" id="t44">
+  <div class="meta"><span class="name">都市整備部長</span></div>
+  <div class="say">利用実績及び収支につきましては、小金井市地域公共交通活性化協議会において毎年度報告しており、その資料も市ホームページにおいて公開しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2117s" data-timestamp="2117"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:17</a>CoCoバスを取り巻く状況につきましては、広く市民の皆様にお伝えしていく必要があると考えておりますので、引き続き、当協議会の検討状況についても周知を図ってまいります。</div>
+</div>
+
+<div class="turn chair reveal" id="t45">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t46">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">それと合わせて、CoCoバスの路線別の利用者数、収支、補助金額を定期的に市のホームページのCoCoバスのページに、例えばリンクを貼るとか、そういうような形で公表することは可能でしょうか。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2149s" data-timestamp="2149"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:49</a>　その際に、画像でなくテキストが埋め込まれた形のデータで公開することは可能でしょうか。よろしくお願いします。</div>
+</div>
+
+<div class="turn chair reveal" id="t47">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">都市整備部長。</div>
+</div>
+
+<div class="turn reveal" id="t48">
+  <div class="meta"><span class="name">都市整備部長</span></div>
+  <div class="say">利用実績及び収支に関する資料につきましては、ながとりさんご提案のような形のデータとして、閲覧しやすい場所に掲載することを検討してまいりたいと存じます。</div>
+</div>
+
+<div class="turn chair reveal" id="t49">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">ながとりさん。</div>
+</div>
+
+<div class="turn reveal" id="t50">
+  <div class="meta"><span class="name">ながとり太郎</span></div>
+  <div class="say">ありがとうございます。前向きなご答弁、本当にありがとうございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2179s" data-timestamp="2179"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:19</a>先ほど申し上げましたけれども、AIエージェントの時代になっておりますので、必ずしもオープンデータという明確にデータを掲載しなくても、データを拾ってくれる時代になっております。それでも、見つけにくいところにデータがあったりすると、なかなか埋もれちゃったりとかいうことがありますので、関連するページなどに明確に配置していただくということ、今ご答弁いただきましたので、本当にありがとうございます。配慮していただけるということで、これはもう有効に活用できるのかなと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2212s" data-timestamp="2212"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:52</a>この次ですね、再編後の利用状況を市民が確認できるようにすることについて、3番目ですけれども、再編後の利用状況を市民、今回の再編では高齢者専用パスの導入や、CoCoバスミニのICカード対応回数券の配置など、様々な変更が予定されております。これによって、これまで取れなかったデータが取れるようになるんじゃないかと私は考えています。あえて質問しませんけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2244s" data-timestamp="2244"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:24</a>ぜひですね、こういったデータなんかも有効に活用していただきたいところ、また現金がなくなるわけでもないので、全てのデータ取れないと思いますけれども、もし万が一今後また再編があるような時に備えてですね、色々な利用データを市でも活用していただいて、今後の分析に使っていただければと思います。最後、もう質問しませんけれども、意見で終わります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2275s" data-timestamp="2275"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:55</a>令和9年4月からのルート再編と運賃改定というのは、CoCoバスを持続可能な形で存続させるために必要な選択であったと私は理解しております。だからこそ、その状況と効果をしっかりと測って、客観的なデータとして市の側も、そして市民の側も検証できるような土台を作ることが大事だと思っています。運行情報のデータを市として公式に、公式な情報として公開することで、利用者は様々な媒体で確実に調べることができる</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2310s" data-timestamp="2310"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:30</a>という利便性を、そして市の方は、情報の継続性と正確性を自分の手で担保できるという安心感を、そして関心のある市民が再編の効果を自分の目で確かめられるという納得感をもたらすことになります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2341s" data-timestamp="2341"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:01</a>　ここで、関心のある市民がというふうに書いたんですが、実際のところですけれども、明確にオープンデータとして公開されているものも含め、市民やその他の事業者が市のデータを使って、何か分かりやすい仕組みを作ったりとか、分析をしたりということをしているということは、私は確認できていません。なので今のところはゼロですね。もちろん私が知らないだけであるかもしれないんですけれども、ただ、そういうのがAIやAIエージェントの進化によって、より簡単になっているということは事実なんですね。</div><div class="say">1つだけ、ちょっと実証をさせていただきました。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2373s" data-timestamp="2373"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:33</a>　それは今、私が冒頭に、ここにアクセスしてくださいというふうに申し上げて、アクセスできない方は図だけ見ていただければ結構ですけれども、これは何かというと、CoCoバスの時刻表と、それから停留所をマッピングして、そして実際に動いてます。</div><div class="say">最初にアクセスした時は30倍速で動いてるので、ダーッと動いてるんですけど、ちょっと上の方にボタンがあるので、左側を押すとですね、等速で今の時間で動きます。今の時間でCoCoバスがどの辺にいるかの、時刻表のデータなんで、実際にGPSとか使ってないから、運行が遅れていると、これは使い物にならないんですけども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2403s" data-timestamp="2403"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:03</a>今のところ、おもちゃみたいなものですけども、こういったものをですね、作りました。どれだけかかったかというと、30分ぐらいで大体出来上がってきました。その間、私、待ってるだけなんで、別に何もしていないんですけども、その後、30分ぐらいで、こことここを直せと言ったら少し直ってきた。</div><div class="say">で、その後また30分ぐらいちょっと格闘していたらですね、これが出来上がってきた。で、実際にデータをオープン、あれはちょっとGoogleじゃないと思うんですけど、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2437s" data-timestamp="2437"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:37</a>〇〇データを取ってくるところと、それから時刻表のデータ自身は、実は紙のPDFの20分30分って実は書いてあるやつだから取ってきちゃったんですよね。それで時刻表が出来上がってしまっているので、私が先ほど申し上げた20分30分を実際に実データにしてくれっていうのも、ちょっと何か、そこまでしなくていいんじゃないかという話になりそうですけど、実際にはそういう曖昧なことで書いてあると良くないので、部局の皆さんには実データをちゃんと用意していただきたいと思いますが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2472s" data-timestamp="2472"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:12</a>これだけのことがですね、1時間半ぐらい、付きっきりじゃないですよ、私、待ってるだけなんで、ということで、出来るという実例です。ただし、ちょっとよくよく見てると分かるんですけど、下のほうのルートがちょっと変なとこ通ってたりとか、やっぱり正確な、例えばルートデータとかないので、その辺推測になってたりするから、これをじゃあ即座に、こういうのを市が作れというのは、ちょっと難しいかと思いますけど、市民が面白い実証で作るとすれば、もう既に出来るということになります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2506s" data-timestamp="2506"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:46</a>で、これ作って、それでもうホームページの状態にアップロードす</div><div class="say">るまで勝手にやってくれますので、私はもう本当に待っているだけという状態で、今ご覧になっていらっしゃる方がいらっしゃったら分かるんですけど、バスが動いている。最初は30倍速ですけど、右側のボタンを押すと等速で今の時間でバスが動くということですね。</div><div class="say">いろいろGoogleマップが使えないとか、ただ無料でやってますから、そういうのは制限あるんですけど、そういうのはちゃんと時間をかければできるかと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2538s" data-timestamp="2538"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:18</a></div><div class="say">で、今ある情報でもここまでのことができるということです。私は今後は市民レベルでは、このような取組が増えてくるんじゃないかなというふうに思っています。</div><div class="say">ただですね、これデモンストレーション、デモとしては面白いんですけど、ある意味デモしただけなので、ある程度の信頼性を持たせようとすると、やっぱりここに表現されている停留所情報、本当に正しいのかとか。これ多分オープンストリートマップというところから取ってきてるんだと思うんです、停留所情報は。それが本当に正しいのかよく分からない。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2571s" data-timestamp="2571"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:51</a></div><div class="say">それから、時刻表のデータが、今のデータよく分かんないんですけど、〇〇されていたものだとすると、それも正確かどうかよく分からない。それから更新が本当にされてるのか、されてないのかもよく分からないということになります。</div><div class="say">なので、市民が正しい分析を行おうとすると、やっぱり市が責任を持って正しい情報を担保して発信してくださいということになるということです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2601s" data-timestamp="2601"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:21</a></div><div class="say">それが何よりも大事であります。</div><div class="say">で、繰り返しになりますけれども、正確かつ出所の明らかにされた情報をしっかりと市のホームページに置いていただいたり、分かりやすい場所に配置していただく、それから情報と情報の関連を市がちゃんと説明していただくということは、それほど手間がかからないんじゃないかと思いますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2631s" data-timestamp="2631"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:51</a></div><div class="say">これについてはぜひともお願いしたいし、これは交通対策課だけじゃなくて、全部署で発信するデータについてこういうことをお願いしていきたいなと。全庁の問題として取り組んで、意識を植え付けしていただければと思います。</div><div class="say">市民が納得できる公共交通体制というのをですね、CoCoバスの場合にはやっぱり京王バスさんの運行、要するに私企業の運行とは全く違うわけですので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2662s" data-timestamp="2662"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:22</a></div><div class="say">そういった体制を作るためにも、各種データのオープンデータ化、あるいは公開、テキストデータの公開などを含めて進めていただくことを重ねてお願い申し上げます。</div><div class="say">ただ公開するだけでなく、どのような目的で誰に利用してもらうのか、正確性の担保はどうするのか、しっかりと認識していただいて、今後のデータの公開と市民の皆様への周知をお願いしたいと思いまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2693s" data-timestamp="2693"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:53</a></div><div class="say">私の一般質問を終わります。今回、〇〇さん、〇〇さん、いろいろご協力ありがとうございました。円滑に進めることができました。感謝いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t51">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">お諮りします。ただ今までの議事の進行状況から考え、しばらく時間延長することにご異議ありませんか。ご異議なしと認め、しばらく時間延長します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2730s" data-timestamp="2730"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:30</a></div>
+</div>
+
+<div class="turn chair reveal" id="t52">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">次に、11番、沖浦あつし議員の発言を許可します。沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t53">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">みらいのこがねい、沖浦あつしでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2763s" data-timestamp="2763"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:03</a></div><div class="say">今日は通告1、2、3となりまして、時間の関係もありまして、3から最初やりたいと思います。よろしくお願いします。3、1、2でやりますのでお願いします。</div><div class="say">9月1日、市長報告が行われました。現設計・現方針で進むことを支持していた我々にも何ら説明もなく、自ら残念、その歩みを諦め、基本計画策定時の13年前に後戻りする方針転換を突如発表し、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2794s" data-timestamp="2794"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:34</a></div><div class="say">その後どうするのかはノープラン、ノーアイデアという、承服しかねる内容でありました。</div><div class="say">まず冒頭申し上げます。8月20日、今定例会の議案当初送付の日、庁舎等建設の再積算の予算が入っていないことを確認した時点で、私はこの通告を出しました。9月議会の一般質問は、来年度予算編成に差し掛かる時期に当たって、事業改善の提案や取組の進捗状況を確認して、来年度への提案をする重要なものと捉えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2828s" data-timestamp="2828"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:08</a></div><div class="say">議会日程の中で説明の場の要請を市長の方から提起されていれば、私はこの通告ではなく違う質問ができたことになります。</div><div class="say">8月24日午後、通告時間が終了した後の議会日程を決める議会運営委員会で、みらいの会派の岸田議員が、現時点で議長に対して何らかの〇〇の要請があるか聞いたところ、そのような相談・要請はなかったと、総務部長も答えられない状況でした。何も用意していなかったと考えられますが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2860s" data-timestamp="2860"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:40</a></div><div class="say">議会運営上の問題が指摘されて以降、長く見積もっても1週間あるかないかの間に、重要な意思決定と市長報告内容をしたためた。時系列から見てそう考えるのが自然と考えますが、お間違いないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t54">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t55">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">9月1日の市長報告でも答弁をさせていただきましたとおり、8月26日の庁内検討委員会に諮ったものでございました。サウンディング調査を踏まえて、7月下旬にはこの影響について、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2892s" data-timestamp="2892"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:12</a></div><div class="say">サウンディング調査の影響について考える必要があると判断し、8月に入ってから240億円相当を想定した公債費を中心に、財政運営に大きな支障があることについて検討してきたところでございます。</div><div class="say">結果的に8月19日の担当の協議の中で見直す方針を決断し、翌21日の理事者協議、そして26日の庁内検討委員会という流れであったことは間違いございません。</div><div class="say">なお、8月24日の議会運営委員会までに説明や要請等ができなかったこと、心からお詫び申し上げます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2924s" data-timestamp="2924"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:44</a></div><div class="say">一般質問の機会を失ってしまったというご意見でございました。大変申し訳ありません。</div>
+</div>
+
+<div class="turn chair reveal" id="t56">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t57">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">ご答弁いただきました。議会の方も、運営のことも〇〇していたというようなご発言、そのお詫びの言葉はありましたということです。</div><div class="say">そして今、ちょっと前からなんですけれども、市民から庁舎どうなったのと、再々再度声をいただいております。定例会直前の8月26日午後の定例記者会見で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2961s" data-timestamp="2961"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:21</a></div><div class="say">これ建通新聞の記事を見てるんですけれども、まだ市政でやり残したことがあると、事実上の出馬表明をされたということですが、その理由としてこの庁舎等建設を挙げておられました。</div><div class="say">ただ、この時は、この時点では既に現方針を断念することの意思決定の後だったのではないでしょうか。結果、先送り・後戻りした課題を、やり残したことがある、引き続き担わせてほしいというのは、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=2994s" data-timestamp="2994"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:54</a></div><div class="say">自作自演と市民に言われてもおかしくないと思っております。</div><div class="say">この庁舎建設事業を市長として4年間になった、その結果が就任時よりはるかに後退した現状を見て、就任時に期待をかけていた市民に対して、市長は今どんな言葉をかけるのでしょうか。</div>
+</div>
+
+<div class="turn reveal" id="t58">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">少し補足させていただきますけれども、今引用いただきました建通新聞さんの、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3025s" data-timestamp="3025"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:25</a></div><div class="say">まだ市政でやり残したことがあるという発言について報道されたことについて引用されました。</div><div class="say">定例の記者会見では、私は質問に答える形で継続の意思があるということだけは申し上げましたが、その場はあくまで市が開いている定例記者会見の場でございましたので、そのことについてはこの場ではやめてくださいということで、定例記者会見が終わった後、別の場所で取材を受けたということで、話したことが引用された言葉になりますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3055s" data-timestamp="3055"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:55</a></div><div class="say">その点だけはご注意ください。</div><div class="say">おっしゃっている意味は分かります。ただ、仮にそのまま進めるとしても、当然入札というのはこの先になりますので、庁舎建設については課題であり続けるということ、そういった意味からも、やり残したことがあるということに間違いないわけでございます。</div><div class="say">ですので、時間軸でいきますと、沖浦さんおっしゃったとおり、庁議を踏まえた後、その〇〇に答えたという、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3087s" data-timestamp="3087"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:27</a></div><div class="say">時間軸の事実はおっしゃるとおりでございます。ただ、このやり残したことがあるというのは、仮にこのまま進めるとしても、まだ入札がこれから先のことでございますので、そういった意味でも、私としてはやり残したことがあるということは、どちらにしても、この言葉は私は発していたと考えております。</div><div class="say">なお、4年間取り組んできたこと、私自身も本当に膨大な時間をかけて、担当とも議会の皆さんとも市民の皆さんとも多くのやり取りがあって取り組んできた結果、こうなったことは私自身苦渋の選択でございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3121s" data-timestamp="3121"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:01</a></div><div class="say">建設費のさらなる高騰など社会情勢の大きな変化があり、財政的な理由により事業を進めることができず、市民の皆様の期待に沿えない状況となったことは申し訳なく思っております。持続可能な市政運営のため、市長として必要な判断であることをご理解いただきたいと考えております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t59">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t60">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">市長からご答弁いただきました。やり残したという意味合いが、先送りや後戻りしたという直後で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3154s" data-timestamp="3154"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:34</a></div><div class="say">そういう話を、言い方をよく言えばですね、よく言えばそういう言葉になるのかなと思います。その入札が残っているからということですけれども、それより相当市政の課題は山積しているんだという言葉も、その中で言われていると思います。大きな荷物を残しているという段階で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3188s" data-timestamp="3188"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:08</a></div><div class="say">そのやり残したという言葉というのはどうなのかなと。それを引き続き担わせてほしいという言葉が、どういうふうに市民に伝わるかということだと思っております。</div><div class="say">これ、一応聞いておきたいと思うんですけれども、市長にとって庁舎建設、新福祉会館建設、これ何番地だったのでしょうか。</div>
+</div>
+
+<div class="turn reveal" id="t61">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">一丁目一番地であると考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3218s" data-timestamp="3218"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:38</a></div><div class="say">最も早く、先に優先して取り組むべき最重要課題であると認識をしておりますので、そういう意味でも一丁目一番地であると私は考えております。</div><div class="say">補足しますけれども、就任後ですね、私はすぐに担当に現設計で再開する準備をするようにということをすぐに指示をいたしました。それから市長報告でその後の経過はお答えしましたので割愛させていただきますが、そのように私自身、優先として、最重要課題として取り組んできたつもりです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3249s" data-timestamp="3249"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:09</a></div><div class="say">以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t62">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t63">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">一つ飛ばして質問していきたいと思うんですけれども、その物価高騰、中東情勢の情勢が相まって、その物価高騰によりという言葉、財政的な見通し、そういうものを見出せなかったというお話は非常によく聞くんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3279s" data-timestamp="3279"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:39</a></div><div class="say">であればですね、この公募型サウンディング調査を実施するよう、なぜ指示したのでしょうか。</div><div class="say">市長報告の答弁を聞く限り、サウンディング調査で自身が設定している選択肢の範囲の中で答えは収まっているのにもかかわらず、その結果に、価格上昇に驚いたというような理由をつけるのは、経営者にとって先が読めていないか、またあたかもできない理由を集めていましたと言わんばかりのどちらかと受け止めますが、それ自体ですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3313s" data-timestamp="3313"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:13</a></div><div class="say">参加していただいたゼネコン各社からの信用を落とし、担当部長・課長以下対応した職員に極めて失礼な総括の仕方であると私は考えますが、市長の見解はいかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t64">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t65">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">令和8年度施政方針では、現設計により3回目の入札を行うこととしたわけでございます。またスケジュールにつきましては、建設市場動向を踏まえた上で、令和10年度、可能であれば令和9年度の着工を目指すとしました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3347s" data-timestamp="3347"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:47</a></div><div class="say">一方ですね、建設工事費については青天井ではないということも市議会でも答弁してきたところでございます。</div><div class="say">これらの方針に基づき、施工会社を対象としたサウンディング調査を実施いたしました。このサウンディング調査におきましては、本工事への関心度、参加条件、建設工事費等を調査したところです。建設工事費がさらに上昇する可能性があると考えておりましたが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3382s" data-timestamp="3382"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:22</a></div><div class="say">240億円程度まで見込まざるを得ないことを重く受け止めたものでございます。</div><div class="say">今回のサウンディング調査に協力していただきました事業者の皆様には、今回の方針見直しについて丁寧に説明を行い、引き続き本事業に関心を持っていただけるよう情報発信をしてまいります。</div>
+</div>
+
+<div class="turn chair reveal" id="t66">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t67">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">何で、事業費というのがすごい焦点になっていたということでございます。それであれば、それをどういうふうに求めていくかっていう、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3415s" data-timestamp="3415"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:55</a></div><div class="say">そこに特化したような何かアンケートでもよかったんじゃないですか。参加意欲とか、そういうところまで職員を、いろんな全国の事業者に参加していただくように、いろいろ声をかけて回られたようですよ。そういうところの努力を、僕はある意味無駄にしているというふうに思っております。</div><div class="say">いわゆるこれができないための理由を集めたというようなサウンディング調査ではなかったかと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3449s" data-timestamp="3449"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:29</a></div><div class="say">職員の方には何もないんですか。こういう行為をさせたっていうことで、かなり努力してたと思うんですけれども、その総括の仕方は、僕は逆に職員には失礼だというふうに思ってますけれども、いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t68">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3479s" data-timestamp="3479"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:59</a></div>
+</div>
+
+<div class="turn reveal" id="t69">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">沖浦さんおっしゃるとおり、担当職員は本当に汗をかいて、このサウンディング調査っていうのを行った。当然このサウンディング調査だけではなくて、これまで私が就任して以降、担当の職員は、若干人の入れ替わりもございましたが、やっぱりこの庁舎建設を実現するために、かなり汗をかいてきたわけでございます。</div><div class="say">今回この見直しをするに当たっては、私の方から直接、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3511s" data-timestamp="3511"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:31</a></div><div class="say">お詫びの言葉といいますか、こういう判断をせざるを得ないということについては伝えさせていただいたところです。議会でもそれが今問われておりますので、改めて、これまでご尽力いただいた職員の皆さんに本当に申し訳ないと思うところでございますが、私としては経営上必要な判断だと認識をしております。</div>
+</div>
+
+<div class="turn chair reveal" id="t70">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t71">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">これでは無責任すぎます。</div><div class="say">本庁舎についてですけれども、老朽化や耐震性・安全性におけるリスク、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3546s" data-timestamp="3546"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:06</a></div><div class="say">行政機能低下への危機感と対策へ、どのような指示を出しているのでしょうか。平成27年度の耐震診断で一部NG判定とされて以降、追加の診断や補強改修は行われましたでしょうか。行われていないのであれば、10年以上の時が経過した現在のIS値、耐震診断の値をどう評価しているのでしょうか。</div><div class="say">補強を全くなくして使い続ける前提で良いのでしょうか。再度の耐震診断費用や給水配管の抜本的な修繕費用の予算措置の指示は出したのでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3584s" data-timestamp="3584"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:44</a></div><div class="say">そういうことも市民に聞いてみないと判断できないのでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t72">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t73">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">既に現状を把握し、少なくとも延伸することは確実なため、緊急対応が必要な修繕について検討するよう指示したところです。</div><div class="say">私の報告でもお答えをいたしましたが、新庁舎建設のスケジュールによって、本庁舎についての耐震診断や給排水設備等の老朽化対策の検討が必要になるものと考えております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t74">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t75">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">はい。新庁舎建設のスケジュールによっては検討をすると。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3619s" data-timestamp="3619"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:19</a></div><div class="say">だから、まだその先に何をするかは分かっていない。予算措置をするかどうか、何が必要なのかというのも、そこら辺で考えるというような答えになるのかなと。これ、実際いつ検討するか不明という、そういうご答弁だったと思います。</div><div class="say">このままの状態で何年までこの本庁舎を使用できると踏んでおるのでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3649s" data-timestamp="3649"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:49</a></div><div class="say">年度でお答えください。以上。</div>
+</div>
+
+<div class="turn chair reveal" id="t76">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t77">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">明確にはお答えできません。新庁舎のスケジュールによってはという答弁をいたしましたが、この間、市長報告でお答えをさせていただいたように、2年以上は間違いなく延伸するということでございました。最短でできるスケジュールというのはどういうものか、それらを見極めながら、この状況を見て、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3681s" data-timestamp="3681"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:21</a></div><div class="say">我々としては当然しっかり検討したいと思いま</div><div class="say">す。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t78">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t79">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">今その程度の段階の認識でいられるということを受け止めました。時代の変化に応じた市民ニーズに対応していくための組織改正、庁舎移転決定後に検討していくということになっていたかと思いますけれども、20年間大きな組織改正が行われていないものは、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3715s" data-timestamp="3715"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:55</a>　今回断念するということで、もう待ってられないということを、むしろこの検討をもっと先に進めていくのでしょうか。これだけではなくてですね、今回断念することでむしろ進みが早くなるもの、これは何でしょうか。お答えください。</div>
+</div>
+
+<div class="turn chair reveal" id="t80">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t81">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">組織改正につきましては、本年3月に策定いたしました小金井市行財政改革2030において、重点取組を支える土台の一つとして位置付けているところであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3747s" data-timestamp="3747"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:27</a>　その個別取組におきましては、組織改正の検討に当たっては、将来的な庁舎移転を見据えつつも、移転時期を待つことなく、現行体制下で解決すべき課題の解消を優先し、必要な組織改正を段階的に検討する旨を記載してございます。年次計画におきましても、令和8年度から検討実施の年次を置いているところです。この方針に従って、本年度、庁内における組織課題の把握整理に既に着手しているところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3777s" data-timestamp="3777"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:57</a>　従って、新庁舎等に係る今回の方針の見直しを受けて、これから検討を始めるというものではなく、また、今回の見直しによって、組織改正の検討が早まる、あるいは遅れるという性質のものではございません。なお、平成19年度以降、全庁的な組織改正を行うことができておりませんでしたのは、第二庁舎のフロア面積と物理的な制約が大きかったことによるものでございますが、そうした制約がある中にあっても、現行の体制下で対応できるものから、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3807s" data-timestamp="3807"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:27</a>　着実に取り組んでまいりたいと考えているところです。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t82">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">組織改正の件は非常に詳しく、今、現状というものを述べていただきました。ただ、これは今回の判断があったから早くとか遅れるとか、そういう判断ではないということでございます。市長が断念をしても、これだけは早く進むという市民に対するメリットが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3838s" data-timestamp="3838"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:58</a>　何かあるのであれば、言っていただきたいと思います。これだけは早く進むよって何でしょう。この質問はボーナス問題というか、もしそういうメリットが感じられることがあるんだったら、言ってくださいよと、こういう質問でございますので、正確にご答弁ください。</div>
+</div>
+
+<div class="turn reveal" id="t83">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3869s" data-timestamp="3869"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:29</a>　すみません。現設計は断念いたしましたが、新庁舎建設を断念したわけではございませんので、今回この見直しをすることによって、何かを早めるということを、この見直しによって決めたことは、今の段階ではございません。ちなみに、組織改正は、私は就任してから早くやろう、やりたいということをずっと申し上げてきました。</div><div class="say">物理的な環境があるので、本当に大掛かりなものは、やはり庁舎建設を行ってからでございますが、やっぱりこの間も、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3900s" data-timestamp="3900"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:00</a>　行財政改革2030を作る際に、何とかもうできるところから始めようということを私の意思として申し上げ、先ほど申し上げた答弁があるわけでございます。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t84">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t85">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">最低2年は遅くなると言いながら、じゃあ市民に何か、その分の何か早く進みますよというものを提示できるかと、一応お伺いしました。特にないということが、今の質問で分かったところでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3930s" data-timestamp="3930"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:30</a>　市長は以前より、庁舎が進まないことによっての損失というのが多々あるんだということをおっしゃっておりました。これは議事録の答弁から引っ張っております。これは特に市長になってより強く感じているところです。</div><div class="say">本当にこれが進まないことによって、それがボトルネックになってしまって、いろんなことができない、そういう状況を作ってしまっていることは、もう市政の停滞であると私は感じておりますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3961s" data-timestamp="3961"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:01</a>　何としてもこれはやはり進めなければならないという思いです。この損失等は年間どのくらいと算出されていますでしょうか。財政計画上はその点は含まれているのでしょうか。市長は庁舎を進めた上で、この街をどのような街にしたかったのでしょうか。お答えください。</div>
+</div>
+
+<div class="turn chair reveal" id="t86">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t87">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">失礼しました。損失について聞かれました。沖浦さんおっしゃったように、私、何度も議会で損失ということを述べてきたつもりです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=3997s" data-timestamp="3997"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:37</a>　ただ、同じような質問をですね、お金に換算していくらということを質問された経過もございました。その時に、すいませんが、経済的な意味での損失ではないので、お金には換算できません、そういう答弁はできませんという話をさせていただいたところです。かつて述べてきたことについては、福祉会館がないことによって、団体の活動機会や保健センターの利便性、跡地活用が進まないこと、市民協働支援センターができないこと、新庁舎が改善しないことによって分散庁舎が解消しない、設備の不具合がある、その働く環境が改善しないこと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4030s" data-timestamp="4030"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:10</a>　また、先ほどありました組織改正が進まないこと、こういったことが機会の損失として〇〇生まれているのではないか、確かに、こういうお話をさせていただいたところでございます。ただし、これはすいませんが、お金に換算できるものではございませんので、ご理解ください。なお、中期財政計画上は具体的な、例えば第二庁舎の賃料については見込んでおるところでございます。</div><div class="say">しかし、この第二庁舎の賃料そのものは、今、第二庁舎はそこで市役所を運営しているわけでございますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4060s" data-timestamp="4060"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:40</a>　必要な経費として考えているということでございます。どういう街にしたかったのかという質問もございました。ちょっとごめんなさい。この事業を何としても進めなければならないという思いは同じと思っています。</div><div class="say">ただし、説明をさせていただきましたように、庁舎等建設は最重要課題でありますが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4096s" data-timestamp="4096"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:16</a>　しかしながら、学校の長寿命化も含めて、さまざまな課題にも応えつつ、できるだけ市民生活に大きな影響とならないように、財政運営をこれからもずっと我々はやり続けなければなりません。まちづくりについてでございますが、庁舎建設は市政の最重要の課題の一つであり、さまざまな施策のボトルネックになっているということは、先ほども述べたとおりでございます。〇〇の課題解決のみならず、これによりこの事業が完了することによって、小金井市の中心部に新たな防災福祉の拠点ができ、人の流れが変わり、新たなつながりを生み、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4129s" data-timestamp="4129"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:49</a>　また、跡地活用によって、今後の新たな活力と賑わいの拠点として整備することも当然念頭に入れてきたわけでございます。それによって小金井市の魅力をさらに上げていく、そういった機会になろう、そういうふうに思ってきたところでございました。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t88">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t89">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">ご答弁いただきました。損失できる金額は第二庁舎の賃借料と維持管理料、これだけでいいんですか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4160s" data-timestamp="4160"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:20</a>　本当にこれだけでいいんですか。これは損失じゃないですか。だからリカバリーできる金額として、今払っているものっていうことですよね。それは必要経費だけれども、建てたらそれがなくなるものというイメージですよね。</div><div class="say">福祉会館の復活が課題だと言われるのであれば、ここに入る予定の社協さんの今の賃借料とか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4190s" data-timestamp="4190"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:50</a>　そういう数だって損失できるじゃないですか。それに含まれるじゃないですか。シルバー人材センターのところだって含まれるじゃないですか。市長はまちづくり、跡地活用も含めてやっていきたいと、賑わいを創出したいとおっしゃってましたが、跡地活用、この跡地をどういうふうに活用しながら収入を得ていく、処分というか売却とか貸し出したり、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4227s" data-timestamp="4227"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:27</a>　そういうことをするという、そういう資産というか、そういうものは財政計画に入っているんですか、じゃあ。ちょっと答えてください。そこまでは、もうかなり基本的なことじゃないですか。</div><div class="say">そんなに難しい話してないですよ。財政計画に入れて、今回の表に出ているんですか、その数字は。何かに入っているんですか、包含されているんですか。だって第二庁舎のことしか言ってないじゃないですか。ちょっとご答弁をお願いします。</div>
+</div>
+
+<div class="turn chair reveal" id="t90">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4261s" data-timestamp="4261"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:01</a>　市長。</div>
+</div>
+
+<div class="turn reveal" id="t91">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">申し訳ありません。跡地活用の件につきましては、内容が固まっておりませんので、いろんな、こういう思い、こういうことをしたいというのはありますけれども、内容が固まっておりませんので、当然、そういった費用、お金というものは算出できておりません。</div>
+</div>
+
+<div class="turn chair reveal" id="t92">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t93">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">そうなるとですね、じゃあ学校の方、一小以外の学校の方は全部固まっているんですか。全部やり方固まっているんですか。どうなんですか。それだって固まってないものを、ある程度推測して入れてるわけでしょ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4299s" data-timestamp="4299"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:39</a>　整合性取れないじゃないですか。それ説明してください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4329s" data-timestamp="4329"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:09</a>　それがないのがおかしいんだよと。結論は違うんだけどさ、そこに行き着くところがまだ全然ありません。じゃあ時間も足りないんで。</div>
+</div>
+
+<div class="turn chair reveal" id="t94">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t95">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">私ね、例えばさらにね、損失する金額って、自分でこれ調査したやつとか8年前なんですけれども、その分散庁舎、その解消というのも言われましたね。それを往復するのにどのくらいロス時間があるのと</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4364s" data-timestamp="4364"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:44</a>　ということで、部局の方からいろいろ答弁を、調査を、資料をいただいてですね、計算したのが8年前ですけれども、年間で少なくとも1912時間、2000時間ぐらい。これが、ある意味簡単に言えば残業代になっている、そういう話だってできるわけじゃないですか。そういうことだって損失でしょっていうことを、なんでそういうところまで考えてないのかっていうのを、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4397s" data-timestamp="4397"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:17</a>　どこまで考えているかっていうのを、私は知りたくて質問しました。でも、だから、この時間終わればいいやみたいな、そんな感じで答弁作られてたら、僕ははっきり言って信用しないです、ということだけ申し上げておきたいと思います。次の質問です。</div><div class="say">令和5年の庁舎建設、この再開方針の際ですね、その時の市場価格が、令和3年11月、中断した際の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4429s" data-timestamp="4429"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:49</a>　90.7億円から既に約20億円、建設工事費が膨らんでいたという数字も出てました。令和3年度の決算等が出てきまして、今一度そのまま引き直してみたら、という形で整理したんだということで、中期財政計画と一緒に再開方針を、方針決定時に出されました。その理由としては、コロナ禍の影響で損失する見込みだった市税歳入が、いざ蓋を開けてみると、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4465s" data-timestamp="4465"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:25</a>　財政上はあまり影響はなく、令和3年11月に策定した中期財政計画には見えてこなかった約60億円ほどがあったと。いわゆる鉛筆舐めただけで、5年後の基金の残高が約60億円上昇したと。それどころか、市税歳入はその後も過去最高税収を更新、公債費は、平成23年の、借金が一番多いそのピーク時から、市長就任時には約半分の150億円台に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4500s" data-timestamp="4500"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:00</a>　なっていたということが、令和5年のいろいろ決算関係でも見て取れたという状況でありました。物価高騰は市長就任前から始まっていたことであり、言うまでもありませんが、財政状況は厳しいと当時の企画財政部長も発言しておりますが、過去の市長の在任中に置かれていた状況というよりは、財政状況というのは悪くはなかったはずです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4533s" data-timestamp="4533"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:33</a>　その中で、公約に掲げる庁舎等建設について財政的課題をクリアできなかったのは事実と、市長答弁で述べられました。つまり、その絵を描けなかったのは何が足りなかったのでしょうか。4年間の間、経営責任者としてどのような自己評価をされていますでしょうか。お答えください。</div>
+</div>
+
+<div class="turn chair reveal" id="t96">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">市長。</div>
+</div>
+
+<div class="turn reveal" id="t97">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">市税収入は増加しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4563s" data-timestamp="4563"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:03</a>　令和7年度の決算年度までの5年間でも、約26億円市税収入が増えております。国庫支出金の歳入増も10億円増えておりますが、一方、歳出の主なものとして、人件費、扶助費、物件費の合計も44億円増えております。沖浦さんおっしゃったようにですね、私の就任時は西岡さんの時よりも財政状況が良くなったという、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4594s" data-timestamp="4594"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:34</a>　その趣旨の発言もございました。それは私も、例えば公債費は下がっているし、市税収入も当時より増加しているわけですから、その通りだと思います。ただ、西岡さんの時の建設費として想定していた約90億円から、私が再開方針を出した段階ではすでに115億円、その1年後に131億円という数字になり、174億で、今回240億円相当を捉えないといけないという状況に大きく変遷したわけでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4625s" data-timestamp="4625"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:05</a>　就任前からのやり取りの中で、まずこの財政的課題をクリアして早期建設を目指すということにつきましては、私自身は議員だったものですから、当然、就任前のやり取りから捉えていたのは、やっぱり財政の問題であるということ、また、市民生活にできるだけ影響のないようにするということが大きな課題であったと認識をしておりまして、公約として私はそれを当然掲げて目指してきたものでございます。131億円段階でも乗り切れるように財政の調整をしてご提示をして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4658s" data-timestamp="4658"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:17:38</a>　議員の皆さんに予算を可決いただきました。ただ、今回のサウンディング調査を踏まえますと、240億円を想定する、ここまでの上昇の対応ができていないと、私はもう判断せざるを得なかったものでございます。物価高騰と建設費の上昇傾向は分かったものの、中東情勢は、すみません、2月28日に始まりましたので、〇〇方針を出してからの話はございますが、それが読めていなかったと言われれば、そんなことが起こるとは思っておりませんでした。</div><div class="say">それらを踏まえて、この世界情勢を踏まえた</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4690s" data-timestamp="4690"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:10</a>　社会情勢の変化に耐えられる状況ではないと考えたわけでございますので、ご理解いただきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t98">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t99">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">はい、ご答弁いただきました。一番最初の方で、市税収入は増えているけど、ここにこんだけ色々お金がかかって、というお話ですけれども、僕はね、この場ではね、そういう話は僕はしない方がいいと思います。逆に、ここまで頑張ったんだけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4721s" data-timestamp="4721"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:18:41</a>　あと一歩ここまで及ばなかったんだっていう説明ぐらいしてほしいんですよ。なんでそういう理由になっちゃうの。もうできない理由になっちゃうの。もうだから、そういう風になっちゃってるでしょ。</div><div class="say">だって状況良かったのに、そういう、なんかどんどんいっぱい出てくる、出ていくものが多くてみたいな話するわけじゃないですか。だから食い潰してきちゃって、この後どうするんですかって話になっちゃうでしょ。そうしたら、そんな夢物語になっちゃうんじゃないですか、庁舎建設なんて。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4752s" data-timestamp="4752"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:12</a>　いやだから、そこでどういう手を打ってきたんですかとか、そういう話を聞きたいわけですよ。だって、財政的課題をクリアしたいっておっしゃったのは市長の方ですよ。クリアしろってこっち側から攻め立てたわけでもなんでもない。</div><div class="say">物価上昇なんて、物価高騰なんて始まってるわけじゃないですか。90.7億で止まった時にも始まってましたよ</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4784s" data-timestamp="4784"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:19:44</a>　っていう話ですよ。私はもうその時点で、再開方針を立てる時に25億もう上がってるかもしれないという中で、これをちゃんと市民に説明していくのは、自分のような努力しないとダメなんじゃないですかと、僕は、議事録引っ張ってください、ちゃんと言ってますよ。手抜いたら絶対許さないということは伝えたつもりです。</div><div class="say">その絵を描く、その指示をされるのは</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4819s" data-timestamp="4819"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:19</a>　僕らじゃないんですよ。市長、副市長なんですよ。結果的にそれができなかったとおっしゃる。でも、そこまでにどういう努力してたんですか、どういう指示を出してたんですかと。</div><div class="say">それはなかなか聞いても答えてくれない、こういう状況だということでございます。それは何につながるかといったら、経営能力、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4851s" data-timestamp="4851"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:20:51</a>　そういう話になっていくのではないかなと思いますけれども、今回市長報告で述べ</div><div class="say">られた1日も早く事業を進められるよう取り組む、1日も早くとは、市長にとって具体的に何年度の着工、何年度の供用開始を目指すのでしょうか。年度で明らかにしていただければと思います。この年度が示せないのであれば、今年度の市政方針の早期建設は、市民に対して何を約束したことになるのでしょうか。教えてください。</div>
+</div>
+
+<div class="turn chair reveal" id="t100">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4887s" data-timestamp="4887"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:21:27</a>　市長。</div>
+</div>
+
+<div class="turn reveal" id="t101">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">今後のスケジュールの検討結果によりますが、現時点では市長報告でも答弁させていただきましたように、最低2年以上の延伸となることが考えられます。ですので、今具体的にこの年度で開始するということまでは申し上げられません。非常に厳しい状況でございますが、その中でも最も早い時期に新庁舎を建設すること、これが市民への約束であると考えております。</div><div class="say">市政方針に関しましては、その時点で</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4920s" data-timestamp="4920"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:00</a>　市として決めた方向性を持って、市民の皆さんに説明をさせていただきました。こういったことになったことについては、これからも市民の皆さんにはしっかり、市報、ホームページ、いろんな手段を使って伝えていきたいと思います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t102">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t103">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">今ご答弁いただきましたけれども、あと2年でまた違う建物というのが着工できると思っている方っていますか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4954s" data-timestamp="4954"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:22:34</a>　ここに。僕らだってずっとこの話、私は当選時からずっとやってきたけれども、それでもこんな時間かかってるわけですよ。2年で着工できる、なんか少し期待を抱かせるような表現をいつも使われるなと思っているんですよ。これで最後に裏切られる、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=4986s" data-timestamp="4986"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:06</a>　それが続いてるんですよ。私は市民に聞かれた時に、また止まっちゃいましたという話はしました。今までは何でって言われたんですけれども、今回はやっぱりっていう、そういう言葉がよく返ってきます。</div><div class="say">財政状況とか全然知らない人ですよ。じゃあ何を考えてるの、その人たちはって話ですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5021s" data-timestamp="5021"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:23:41</a>　だから今までいろいろな言葉に踊らされてきたわけでしょっていうことになるわけでしょ。やっぱり言葉遊びみたいなところが、非常に〇〇な心境に市民を打ち入らせているということではないでしょうか。私は13年前に戻ったわけですよね。</div><div class="say">これ、1日も早い、早期だと、早期建設、こういう言葉を二度と使ってほしくないと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5058s" data-timestamp="5058"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:18</a>　この質問最後なんですけれども、これまで私は、先ほど再開方針の時に述べたように、並大抵の努力じゃなかなか難しいよと、市民に対してもなかなか説明できないよと、こんだけ物価高騰で建設費が上がってということで、厳しい中でもね、これまでどんな努力をしてきたんですかと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5088s" data-timestamp="5088"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:24:48</a>　でも僕らはちゃんと進めるんだ、庁内で一枚岩なんだと、事あるたびに確認してきましたよ。そこではちゃんとした答えが来てる。なのに実は、こういう事態に陥ってですね、いろいろ聞いてみると、どこまで努力したのかっていうのが全然見えないっていう話になる。</div><div class="say">他の話と本当シンクロするような話なんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5121s" data-timestamp="5121"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:21</a>　これってね、僕らだってずっと進めると、一日も早いということが市民のためになるんだったら支持しますよと、そういうことも議会の中で言ってます。結局こういう形で説明もなくですね、こういう重要な判断をして、市長ご自身はですね、英断したという形で思ってるかもしれないです。でも結局、どちらの側からも</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5153s" data-timestamp="5153"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:25:53</a>　なんか評価されてないじゃないですか。僕はそれが市政運営どうなんですかと、先ほどから申し上げてる経営者の能力はどうなんですかと。今回の質疑でどういうことを述べられるのかなと、こういうことを私は再確認してですね、これからこの小金井の未来をですね、託せる人は誰なのかっていうのは判断していきたいと思っております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5188s" data-timestamp="5188"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:26:28</a>　次のテーマに参ります。20分切ってるんで、すごい早口でいきます。1番、1番に戻ります。移動支援は、知的・精神障害のある方が日常生活や外出を安心して過ごせるように支援するサービスで、一緒に外出し、買い物や通院、旅行、活動をサポートするものです。</div><div class="say">根拠法は障害者総合支援法ですが、居宅介護、同行援護、行動援護等の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5220s" data-timestamp="5220"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:00</a>　全国一律の障害福祉サービスとは制度の位置づけが異なり、市町村が行う地域生活支援事業に位置づけられるものです。移動支援事業について、令和4年4月から、これまで通学等に係る外出は移動支援事業の給付の対象外とされていましたが、一定の条件を満たす場合については利用できるようになり、移動支援の開始場所及び終了場所については、対象者の自宅のみとしていたものが、必要と認められる場合には外出先から利用も可能となりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5250s" data-timestamp="5250"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:27:30</a>　本人資料と、いただいた資料、これをご覧ください。内容については今日は割愛します。移動支援事業の対象要件緩和以降の利用状況につき、所管課としてどのような傾向であると捉えていますでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t104">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t105">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">利用状況につきましては、議員ご指摘のとおり、要件緩和後、実利用人数及び実利用時間はいずれも増加傾向で推移しております。担当課といたしましては、移動支援に対するニーズは引き続き高いものと認識しており、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5282s" data-timestamp="5282"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:02</a>　令和4年度に実施した利用要件の緩和により、利用者が必要な場面でサービスを利用しやすくなったことが利用の増加につながっているものと捉えております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t106">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t107">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">資料を出していただきましてありがとうございます。年度ごとの資料ではないのでということで、今の状況をお伝えいただきました。そこでですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5313s" data-timestamp="5313"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:28:33</a>　この資料を見ると、これ利用実績かな、これを見たいと思います。端的に言うとですね、5割未満の利用にとどまっている方っていうのが57%、約6割になっているということで、ここが何かこう、うまく使えてないんじゃないかと、そういうその理由って何なんですかっていうのが、今回のお題なんです。で、市の取り組みの状況を伺います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5344s" data-timestamp="5344"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:04</a>　支給決定は市が行う行政手段であるがゆえにですね、実際運用されているかどうか、その理由を把握することも必要と考えます。支給決定後に一定期間利用実績がない方について、現在どのようなフォローや確認を取っているのでしょうか。お願いします。</div>
+</div>
+
+<div class="turn chair reveal" id="t108">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t109">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">現在は、支給決定の更新時や相談支援事業所によるモニタリング等を通じて、利用状況や利用に至っていない理由の把握に努めております。利用実績がない理由としては、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5375s" data-timestamp="5375"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:29:35</a>　利用機会がなかった場合、ご家族等による支援で対応できている場合のほか、議員ご指摘のように、ヘルパー確保や事業所との調整が難しいケースもあるものと認識しております。利用実績のある方についても、8割以上利用できている方が約2割である一方、半分未満の利用に留まっている方が半数を超えており、支給決定と実際の利用との間に差が生じている状況があります。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t110">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t111">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">すぐ質問に移るんですが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5409s" data-timestamp="5409"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:09</a>　今ですね、私が仮説としてこの移動支援従業者、いわゆるガイドヘルパー、この方々でね、今足りてないのではないかと、こういうような推察というか、そういうことを考えているんですけども、市としてどういう認識にありますでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t112">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t113">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">市内のサービス提供事業者からの声ですが、事業者の確保が容易ではないということも伺っており、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5442s" data-timestamp="5442"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:30:42</a>　利用希望の日時や支援内容によっては、サービス提供に係る調整に時間を要する場合があるものと認識しております。一方で、受入状況につきましては事業所ごとに異なっており、市全体として一律にガイドヘルパーが不足している状況にあるとまでは認識しておりません。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t114">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t115">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">ご答弁いただきました。移動支援に従事するには、市が実施する移動支援従業者研修、ガイドヘルパー養成研修を修了することが必要です。資料をご覧のようにですね、この研修は現在年1回しか開催されていません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5477s" data-timestamp="5477"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:17</a>　移動支援事業所の方々、お声をいただきました。ガイドヘルパーが退職・転職等で欠けた場合に、新しい担い手の補充に最大11か月も待つことがある。これが年1回だから、それを待つと11か月ぐらいは待たなきゃいけないと。</div><div class="say">採用したくても、年1回の研修日程が到来するまで採用そのものができない状態に置かれるという課題を抱えています。年1回の研修を複数回にしてほしいという声があります。年1回、講義や演習で3日間の日程で実施されていると思いますが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5508s" data-timestamp="5508"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:31:48</a>　昨年度は定員20名に対して修了した方は11名、それ以前は一桁の人数ということで、これをですね、年複数回開催して、来年度からやってみてはいかがでしょうか。特にできないことはないと思いますが、見解を伺います。</div>
+</div>
+
+<div class="turn chair reveal" id="t116">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t117">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">市が実施しております移動支援従業者養成研修につきましては、過去の実績を見ると、定員に対する受給率が必ずしも高い状況ではございません。もっとも、応募者数につきましては、令和5年度の3人から令和7年度には15人へと増加しており、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5544s" data-timestamp="5544"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:24</a>　定員充足率も15%から55%へ上昇するなど、受講人数は着実に高まっているものと認識しております。このような傾向は見られるものの、現時点では定員を超える応募状況には至っていないことから、まずは現在の研修への参加促進や周知の充実を図ることが重要であると考えております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t118">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t119">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">ちょっとこれ、大いに質問を考えてたんですけれども、これちょっと割愛します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5576s" data-timestamp="5576"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:32:56</a>　ぜひね、ちょっとそういう検討、いろいろな、ここで確認したら何かそういういろいろ、利用実績が少ない理由が分かるんじゃないかとか、いろんな場面でチェックすることっていうのがあるし、改善する余地というか、試みることも多分できると思うので、そういう形で、利用率はどんどん上がっていっているという状況で、この要件緩和された後の、この移動支援事業のPDCAをしっかり回していただきたいなと</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5610s" data-timestamp="5610"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:33:30</a>　いうことを申し上げて、次の項目に行きます。引きこもり支援の連携についてでございます。引きこもりの定義は、仕事や学校に行かず、家族以外との交流をほとんどせず、原則として6か月以上続けて自宅にいる状態と定義しておりますが、令和7年1月に厚労省より策定された引きこもり支援ハンドブック、寄り添うための羅針盤では、引きこもり支援の対象者を、社会的に孤立し孤独を感じている状態にある人や、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5641s" data-timestamp="5641"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:01</a>　様々な生活上の困難を抱え、家族を含む他者との交流が限定的な状態であり、かつ支援を必要とする本人及び家族とされまして、引きこもり支援対象者の引きこもり期間は問わないこととされました。また、本人だけではなく家族も支援対象者とされました。引きこもり支援の目標は、本人やその家族が自らの意思により、今後の生き方や社会との関わり方を決めていくことができるようになること、自分を律するということで自律という方もいます。</div><div class="say">こういうことを目標としています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5678s" data-timestamp="5678"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:34:38</a>　ここで自立とは、自身を肯定し、主体的な決定ができる状態のことを指します。引きこもり支援といっても、支援対象者の状況は百人百様であるがため、どの支援に当てはまるというよりは、本人が望む支援であるべきで、地域にある様々な支援の手があるべきだと考えた上で質問に入っていきたいと思いますが、難しいのは、やはりその相談支援を求める方が本人ではない場合が多いということです。ご家族から相談されるケースが多いのではないかなと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5712s" data-timestamp="5712"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:12</a>　今回は、引きこもりの状態にある方のご家族からの相談を受けた相談支援専門員、障害福祉サービスのいわゆるケアマネさんから伺った現状をもとに、支援の選択肢、地域の支援の手が広がらないか質問させていただきます。引きこもりの相談があってですね、おそらくその相談の場には本人がいない場合が想定されると思います。本人に面会するために訪問されているのでしょうか。</div><div class="say">また、どのような状況であれば医療機関につなげているのでしょうか、お答えください。</div>
+</div>
+
+<div class="turn chair reveal" id="t120">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5746s" data-timestamp="5746"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:35:46</a>　福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t121">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">社会福祉協議会へ委託しております属性を問わない福祉総合相談窓口において、引きこもり・不登校に関する相談は、令和5年度30件、令和6年度31件、令和7年度38件と増加しております。ご要望があれば訪問してお話を伺うこともございます。相談を受けた際には、まず本人や家族の状況把握に努めるとともに、必要に応じて福祉、保健、就労、医療等の関係機関へつないだり、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5778s" data-timestamp="5778"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:18</a>　同行支援なども状況に合わせて行ったりしております。また、本人との直接的な接点を持つことが難しいケースについては、家族支援を入り口としながら、継続的かつ段階的な関係づくりに努めております。</div>
+</div>
+
+<div class="turn chair reveal" id="t122">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t123">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">事例紹介でよく見る事例というのが、親御さん、ご家族がどの医療機関に行っても、そこで相談してもですね、ご本人に来てもらってくださいと言われ、初診すらままならないというものであります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5810s" data-timestamp="5810"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:36:50</a>　引きこもりの相談をその福祉総合相談窓口で受けて、医療機関につなげる場合は、訪問診療ができる医師を紹介する等のことをしているのでしょうか。また、訪問診療や初診オンライン診療を行う医師やクリニックを、近隣市を含む市内外でどの程度把握しているのでしょうか、お伺いください。</div>
+</div>
+
+<div class="turn chair reveal" id="t124">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t125">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">市では、総合相談窓口で相談を受けた際、必要に応じて地域の精神科医療機関や保健所、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5845s" data-timestamp="5845"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:25</a>　東京都精神保健福祉センター等の関係機関と連携しながら支援を行っております。また、医療機関によっては訪問診療やオンライン診療を実施しており、本人の状態や希望を踏まえながら活用が図られているものと認識しております。相談支援の中では、本人の状況に応じて、訪問診療やオンライン診療を実施している医療機関に関する情報提供を行う場合もございます。</div><div class="say">市としては、厚生労働省が提供する全国の医療機関検索システムである</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5879s" data-timestamp="5879"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:37:59</a>　医療情報ネットナビなども活用しながら、訪問診療やオンライン診療に対応する医療機関の情報収集に努めるとともに、本人の状況に応じて適切な医療につなげられるよう、引き続き関係機関との連携を進めてまいります。</div>
+</div>
+
+<div class="turn chair reveal" id="t126">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t127">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">総括的にそういうご答弁になるのかなと思います。何らかの支援が必要で、その支援につながっていたいと思うご家族で、藁をもつかみたい気持ちで直接そういう連絡を取ったり、そういう動かれる方というのもいらっしゃるのではないかなと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5916s" data-timestamp="5916"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:38:36</a>　そういったケースも含めてですね、訪問診療やオンライン診療ができる市内外、近隣市を含めてはですね、医療機関のリストを整えて、例えば家族会、福祉総合相談窓口、あるいは相談支援事業所、こちらの方に周知共有すべきと考えますが、いかがでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t128">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t129">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">ご提案の趣旨は重要であることと認識しております。訪問診療が可能な医療機関に関する情報の整理や周知のあり方については、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5950s" data-timestamp="5950"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:10</a>　家族会、福祉総合相談窓口、相談支援事業所など、関係機関との連携の中で、医療機関のみならず地域資源を共有することは必要と考えておりますので、今後何ができるかを含め、関係機関と協議していきたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t130">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t131">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">ぜひ、そういうことができるようご努力いただきたいと思います。私、引きこもりの状態にある方が全て障害のある方だとは思っておりません。ただ、うつ病等の精神疾患や発達障害に起因している例があるということ、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=5986s" data-timestamp="5986"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:39:46</a>　だからといって、医療機関につなげれば全て事足りるとも思っていませんが、家族会の方々と懇談した際には、やはり何らかの支援につながっていたいと具体的には思っております。訪問看護ということを希望されている方もいらっしゃいました。一方で、相談支援事業所で相談をし、支援を求める場合には、受給者証の発行に医師の診断書や意見書が事実上求められてい</div><div class="say">ます。診療を受けることができず、受給者証を取得できずに、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6018s" data-timestamp="6018"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:18</a>　支援の入り口にも立つことができないという、事業所側にとっても、いろいろ、その事案によってもどかしさや制度の狭間感があるということでした。医師の診断書や意見書がなくても受給者証を発行できる特例があるのかどうか、そのために必要な条件など、基準はあるのでしょうか。お答えください。</div>
+</div>
+
+<div class="turn chair reveal" id="t132">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t133">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">障害福祉サービスの受給者証の交付にあたりましては、ただいまご説明ありましたとおり、障害者総合支援法等に基づき、対象者に該当するかどうかを市が確認した上で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6051s" data-timestamp="6051"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:40:51</a>　支給決定を行っております。医師の診断書や意見書につきましては、各種障害者手帳を所持している場合には、その内容により障害の状況を確認できることから、改めて提出を求めておりません。また、手帳を所持していない場合であっても、自立支援医療受給者証や障害年金の受給状況など、法令等で定められた資料により対象要件の確認ができる場合には、必ずしも新たな診断書等の提出を要しないケースもございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6082s" data-timestamp="6082"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:22</a>　一方で、対象要件を確認するための資料がない場合には、障害の状態を確認する必要があることから、医師の診断書や意見書等の提出をお願いしております。そのため、市の判断のみで要件確認に必要な資料を不要とすることは難しいものと考えております。ただし、議員ご指摘のとおり、引きこもり状態にある方の中には、医療機関の受診そのものに大きな困難を抱えている場合もあると認識しております。</div><div class="say">そのため、市といたしましては、まずは相談をお受けし、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6112s" data-timestamp="6112"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:41:52</a>　相談支援事業所や関係機関と連携しながら、個々の状況に応じて利用可能な制度や必要な手続について丁寧にご案内するとともに、必要な支援につながるよう努めてまいります。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t134">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t135">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">ご答弁いただきました。引きこもり支援というのを〇〇であれば、本来は障害福祉サービスとかじゃなくて、自立支援福祉サービスというべきものであろうと私は思うのですが、今回の質問の趣旨からすると、法令上は</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6143s" data-timestamp="6143"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:23</a>　障害福祉サービスということになろうかと思います。そして、今いただいた答弁の中で、自立支援医療受給者証があれば必ずしも新たな診断書等の提出を要しないケースもあるとおっしゃられましたが、その自立支援医療の受給者証自体を受けようとする際には、医師の関与が必ず必要になってくるということになります。このように望まれる支援が届けられない壁があることの課題、これを共通認識として今回持っていただきたいとまず申し上げるとともに、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6177s" data-timestamp="6177"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:42:57</a>　そのような制度上の壁を打ち破るような引きこもり支援基本法の制定を望んでいるところでございます。そして、ご答弁の最後にもあったように、地域の様々な支援の手を増やして連携を取っていくことが引きこもり支援体制の構築の基本でありまして、引きこもり支援ネットワークづくりを進めることは、この法令制定の有無に関わらず必要不可欠と考えます。今回声を届けていただいた相談支援事業所の方からは、引きこもり支援にも協力したいと、地域の支援の手となりたいとおっしゃられていました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6209s" data-timestamp="6209"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:43:29</a>　ただ、そこには業務上、実務上の壁が存在していることも同時に伺いました。一事例ずつでも、このような壁が取り除かれていくことで、今後の支援体制が広がっていくのではないかと期待しております。家族会、相談支援事業所、行政の情報交換の場を設けてはいかがと考えますが、最後の質問になります。</div><div class="say">よろしくお願いします。</div>
+</div>
+
+<div class="turn chair reveal" id="t136">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">福祉保健部長。</div>
+</div>
+
+<div class="turn reveal" id="t137">
+  <div class="meta"><span class="name">福祉保健部長</span></div>
+  <div class="say">現在、社会福祉協議会とともに、地域における引きこもり支援の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6242s" data-timestamp="6242"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:02</a>　ネットワークづくりを進めているところでございます。ご提案につきましても、その中での連携のあり方の一つとして参考にさせていただきながら、関係機関との情報共有や連携の充実について研究してまいります。</div>
+</div>
+
+<div class="turn chair reveal" id="t138">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">沖浦さん。</div>
+</div>
+
+<div class="turn reveal" id="t139">
+  <div class="meta"><span class="name">沖浦あつし</span></div>
+  <div class="say">1分ちょっと残ったので、最後なんですけども、関係機関との情報共有、連携の充実という、基本的にはその一言になるのかなと、それは仕方ないとしても、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6273s" data-timestamp="6273"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:44:33</a>　単なる連絡先を知っているとか紹介する程度の連携ではなくて、引きこもり支援の対象者が望む支援について、制度上の何か壁、障壁があれば、それをどのようにすれば取り除くことができるかという視点に立って連携していただくことを願っております。引きこもり支援における、それが行政の使命でもあると考えておりますので、今後ともよろしくお願いしますということで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6306s" data-timestamp="6306"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:06</a>　前回、ちょうど1年前に、この障害福祉サービスの利用者の支援の充実ということでいろいろお話しした、今回はまた続編みたいな形になりましたけれども、今後もこういう分野のところ、課題の共通認識を持ちながら、行政の方にもご協力いただきたいと提案をさせていただきたいと思っておりますので、どうぞよろしくお願いいたしますと申し上げまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6338s" data-timestamp="6338"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:45:38</a>　私、みらいのこがねい、沖浦あつしの一般質問を終了いたします。ありがとうございました。</div>
+</div>
+
+<div class="turn chair reveal" id="t140">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">お諮りします。本日の会議は議事の都合により、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6369s" data-timestamp="6369"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:46:09</a>　この程度にとどめ、これをもって散会することにご異議ありませんか。ご異議なしと認め、散会することと決定しました。本日はこれをもちまして散会します。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=coefC-zy3rI&t=6420s" data-timestamp="6420"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:47:00</a></div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
