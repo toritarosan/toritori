@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年9月4日 本会議_藤川議員_新庁舎建設</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年9月4日 本会議_藤川議員_新庁舎建設</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年9月4日</p>
+    <h1>本会議_藤川議員_新庁舎建設</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-09-04</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h1>【抜粋】R8.9.4 本会議 藤川賢治議員 一般質問「新庁舎・新福祉会館建設について」</h1>
+<blockquote>
+<p><strong>このページは会議全体の記録ではありません。</strong> 2026年9月4日午前の本会議（9:59-11:58）で行われた藤川賢治議員の一般質問のうち、通告2「新庁舎・新福祉会館建設について」の部分（動画の19分56秒〜42分05秒）だけを抜き出したものです。同議員の他の通告項目（1 市施設の上流ネットワーク、3 ワクチン、4 新型インフルエンザ等対策行動計画、5 市の窓口のパーテイションとマスク）およびこの日の他の議員の質疑は含まれていません。</p>
+</blockquote>
+<p>藤川賢治議員（小金井市政を見える化する会）が、令和7年の2度の入札不調と、9月1日の市長報告で示された方針転換をめぐって、庁舎建設等担当部長および市長に質疑した。答弁は庁舎建設等担当部長が中心で、市長も1度答弁している。</p>
+<h2>入札の経過と現在の位置づけ</h2>
+<p>藤川議員は、令和7年2月の入札が落札業者が現れず中止となり、その後、議会で可決された130億1000万円を上限として再度入札を行ったものの不調に終わった経過を確認した。市側は、2回目の入札予定価格は税抜きで117億9000万円（税込129億7000万円）であったと訂正を含めて答弁した。</p>
+<p>そのうえで藤川議員は、入札が不調に終わっているにもかかわらず、議会での議決を経ていない174億円という金額で、設計変更をせずに令和10年の入札・着工を目指すのかと質した。市側は、現設計により3回目の入札を目指すことは断念せざるを得ないとの認識を示した。</p>
+<h2>240億円という試算の根拠</h2>
+<p>藤川議員は、市が示した240億円という数字の計算式を確認した。平米単価120万円に17,400を掛けたものが200億円（正確には約208.8億円）で、市場動向から将来の値上がり分15%を加算して240億円になったという内容である。そのうえで、この計算式は8月4日の時点でも分かっていたはずだとして、どういう要因で計算式が変わったのかを質した。</p>
+<p>庁舎建設等担当部長は、8月4日の特別委員会で「今後の建設費の上昇を見込んで算出した方が良い」との意見があったこと、市としてもその点を見極める必要があると考えたことを挙げ、今後の物価上昇を見込んで算出した結果、240億円程度まで上昇することも想定せざるを得ないと考えたと答弁した。</p>
+<p>藤川議員は、15%上がることは委員が指摘しなくても分かる話であるとして、「進めたい時は低い見積もりを伝えて、いざ止めるとなったら高い方の見積もりを伝えてくる」と受け止めざるを得ないと述べた。</p>
+<h2>建設費ごとの起債額と利子</h2>
+<p>藤川議員の求めに応じ、庁舎建設等担当部長は建設費の水準ごとの地方債と利子を答弁した。</p>
+<table>
+<thead>
+<tr>
+<th>建設費</th>
+<th>地方債</th>
+<th>利子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>240億円</td>
+<td>187億2578万円</td>
+<td>68億687万3千円</td>
+</tr>
+<tr>
+<td>174億円（令和8年3月の中期財政計画）</td>
+<td>132億円</td>
+<td>32億5670万3千円</td>
+</tr>
+<tr>
+<td>132億円（令和6年10月の計画）</td>
+<td>98億3048万2千円</td>
+<td>14億6892万3千円</td>
+</tr>
+</tbody>
+</table>
+<p>藤川議員は、利子は「何の利益も生まない」もので市民が負担するものだとして、174億円でも利子32億円は相当であり、240億円になれば68億円という水準になると指摘した。</p>
+<h2>設計の考え方をめぐる質疑</h2>
+<p>同時竣工・総免震化といった設計上の選択について、市側は令和5年度に実施した現設計の検証調査の結果を踏まえた経過を説明し、同時竣工では0.1億円の工事費減、総免震化では3億円の工事費増との結果が出ていたことを答弁した。</p>
+<p>藤川議員は最後に、設計とは機能を盛り込むことではなく削ることに尽きるとの考えを述べ、この項目の質疑を終えた。</p>
+<hr />
+<h3>この抜粋についての注記</h3>
+<ul>
+<li><strong>聞き取れなかった箇所は「〇〇」で伏字</strong>にしている（3箇所）。推測で語を補ってはいない。</li>
+<li><strong>数値の裏取り</strong>: 「200億円」「約208.8億円」は、平米単価120万円×17,400＝208.8億円という検算と、音声の短窓での再確認の両方で一致を確認した。「240億円」も同様に確認している。</li>
+<li><strong>否定の有無を音声で確認した箇所がある</strong>: 「議会での議決を経ていない174億円」は、通常の文字起こしでは否定が落ちて「経て」の形になっていたが、区間を短く切って複数条件で聞き直したところ否定を伴う形で一致したため復元した。公式の発言通告書の記載（議決を経ない金額174億円で…）とも一致する。</li>
+<li><strong>未解決の疑問点</strong>: 部長答弁のうち、同時竣工・総免震化の採否を述べた部分は、直後に示された数値（同時竣工＝0.1億円減、総免震化＝3億円増）と整合しないように読める。音声を複数回確認したが「採用」としか聞き取れなかったため、聞こえたまま記録している。公式会議録が公開された際の確認事項とする。</li>
+</ul>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/E5YOp9yF6d0" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn reveal" id="t0">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1196s" data-timestamp="1196"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:56</a>　続きましてですね、新庁舎・新福祉会館建設についての質問に移らせていただきたいと思います。新しい市役所、新福祉会館建設、令和7年2月に入札を行いましたが落札業者が現れず中止となり、その後、議会で可決された130億1000万円を上限として再度入札を行ったものの、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1227s" data-timestamp="1227"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:27</a>　これも不調に終わったという理解で間違いないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t1">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">庁舎建設等担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t2">
+  <div class="meta"><span class="name">庁舎建設等担当部長</span></div>
+  <div class="say">はい、流れの方は今おっしゃったとおりでございます。ただ、その上で不調というか事態がありましたので、こちらの方で入札中止にしていることが一つと、あと2回目の入札予定価格は、正しくは税抜きで117億9000万円となっております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1258s" data-timestamp="1258"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:58</a>　以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t3">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t4">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">ご答弁ありがとうございます。細かい文言を間違っていてすみません。税込みだと129億7000万円になるんですかね。大体130億円ぐらいだということですね。次の質問としてはですね、入札が不調に終わっているにもかかわらず、議会での議決を経ていない174億円という金額で設計変更せずに令和10年入札着工を目指すのでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1288s" data-timestamp="1288"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:28</a>　これはあえてですね、通告通りの質問とさせていただきます。</div>
+</div>
+
+<div class="turn chair reveal" id="t5">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">庁舎建設等担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t6">
+  <div class="meta"><span class="name">庁舎建設等担当部長</span></div>
+  <div class="say">9月1日の市長報告のとおりでございますが、現設計により3回目の入札を目指すことは断念せざるを得ず、方針を見直すこととなりました。現設計も見直すこととなります。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t7">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t8">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">それではまたね、経緯の方針変わったということですけど、ちょっと経緯だけね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1318s" data-timestamp="1318"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:58</a>　まず確認させていただきます。これまでの答弁では、いわゆる市民案、見直し案と呼ばれていたものについて、市として不足していると考えている機能はなく、また市民案が提案されたことで事業スケジュールに影響はなく、令和7年の入札不調、中止、不調になったこととも関係はないとの答弁がありましたが、その認識で間違いないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t9">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">庁舎建設等担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t10">
+  <div class="meta"><span class="name">庁舎建設等担当部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1350s" data-timestamp="1350"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:30</a>　間違いありません。</div>
+</div>
+
+<div class="turn chair reveal" id="t11">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t12">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">ありがとうございます。このあたりでちょっと資料の1ページ目、2ページ目あたりを見ていただきながら聞いていただきたいなと思うんですね。これ朝の駅頭で配っているビラの図をちょっとそのまま取ってきました。元はね、そこに書いてある</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1380s" data-timestamp="1380"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:00</a>　庁舎と福祉会館の建設を考える会のブログの図を、AIも活用しながら書き直したものになっています。サウンディング調査結果、つまり業者から広く意見を聞いた結果には、中間免震は難易度が高いとの意見がある一方で、同じ文のですね、前段にですね、福祉会館の先行竣工がなくなったことにより施工条件が改善していると記載されています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1410s" data-timestamp="1410"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:30</a>　その上でお伺いします。事業者には先行竣工がなくなったと説明している一方でですね、今もう断念している設計案になりますけども、先行竣工を前提として採用された耐震構造と免震構造のハイブリッド構成が残っていたということになるんでしょうか。この点は建設のための環境の条件とですね、設計内容が一致しておらず、矛盾していたのではないでしょうか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1440s" data-timestamp="1440"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:00</a>　これもコスト高の原因だったのではないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t13">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">庁舎建設等担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t14">
+  <div class="meta"><span class="name">庁舎建設等担当部長</span></div>
+  <div class="say">まず、設計開始後の時間経過と状況の変化によってですね、なくなった与条件は確かにございます。経過になってきますが、令和5年度に実施した現設計の検証調査結果を踏まえ、新庁舎と（仮称）新福祉会館の同時竣工を採用しまして、総免震化を採用とした結果、現設計に至った結果がございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1472s" data-timestamp="1472"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:32</a>　そのためですね、その上で検証調査では、同時竣工だと0.1億円の工事費減、総免震化だと3億円の工事費増との結果が出ておりまして、福祉会館先行竣工、総免震化により、現設計の方がコストダウンを図ったというふうな経過になっております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t15">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t16">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">今お話しあったように、令和5年には同時竣工、つまり同時に完成、つまり同時に着工もできるという意味になるとは思うんですけども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1513s" data-timestamp="1513"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:13</a>　ということになったということで理解よろしいですかね。そこで一体型をやっぱり考えるべきではなかったのでしょうか。もちろん、もともと2020年から提案されてるんですけどね。</div><div class="say">そういうところでいくらでも方針転換の目はあったんじゃないかと思うんですね。総免震化だと3億円の工事費増とおっしゃってますけど、今の130億、174億、210億、240億という建設費の値上がりを考えるとですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1543s" data-timestamp="1543"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:43</a>　こだわるところが違うのではないかと言わざるを得ません。それに3億円増って建設費に関してですよね。メンテ費用、ランニングコスト、ライフサイクルコストはどうなるんですかね。</div><div class="say">結局あまり例がない中間免震、耐震構造の上に免震構造がある、福祉会館の上に免震構造が必要なくなっていることを考慮しての計算だったのか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1575s" data-timestamp="1575"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:15</a>　さすがにそこは考慮してるんだろうとは思いますが、一体型にするんだったら福祉会館の上にも階を置けるんじゃないかと思うわけですよね。その分免震部分を減らせるのでは。本当に3億円増っていうのが正しいのかなとも思うわけです。</div><div class="say">昔話になるんですけども、私が庁舎問題を詳しく知ることになったのは</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1605s" data-timestamp="1605"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:45</a>　昨年の1月なんですね。この話はあまり他の方にお話ししてなかったんですけど、その前でいわゆる市民案、見直し案のポスティングなどは全員届いてたんですけども、これすみません、真剣に見てませんでした。昨年の1月、東小金井駅で熱心に庁舎問題を語るSさんという方と出会ったんですね。</div><div class="say">隅田さんですね。〇〇する必要はありません。その話を聞いて、熱意だけではなくて、私はやっぱり話の筋の一貫性っていうのをいつも見ているんですよ。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1636s" data-timestamp="1636"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:16</a>　それが筋一貫してるなと。一方で市側はあまりに穴が多いと感じました。ただ、一方の話だけで聞いて判断するの良くないので、市の担当者の方にも電話しましてですね、端的なことだけ質問させていただいて、市側の説明の方が苦しいなと私は判断しました。</div><div class="say">聞いたのはですね、敷地外の桜の木の枝を切らないといけないかどうかということだけなんですけども、その質問の回答いただいてですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1666s" data-timestamp="1666"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:46</a>　これはやっぱり隅田さんの言ってること正しいなと判断したわけですね。桜の木を切る切らないだけの話じゃなくてですね、だけに留まらずですね、北側と南側両方から工事ができるかどうかということにも関わってきますので、そこだけ聞いてもですね、これは市側がまずいなと思ったわけですね。実際その後ですね、選挙ということになっていくんですけども、実際ですね、庁舎問題も一つの争点にするかどうかっていうのもですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1697s" data-timestamp="1697"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:17</a>　ボランティアの方と議論したくらいなんですよ。結局はですね、情報の見える化と、あとご存知のようにワクチンとかマスクとかね、コロナ対策問題だけに絞って政治的な主張をしていったわけなんですけども、ですから取り組み始めた時期っていうのは、どの道遅いと言われればそれまでなんですけども、庁舎問題は市側が苦しい設計になっていて問題だという意識は、これ議員になる前から持っていたんですね。技術的、工学的な話なんですけども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1728s" data-timestamp="1728"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:48</a>　枯れた技術って我々言ってますけど、枯れた技術って一般的な言葉なんですかね。施工実績が多くて維持管理や更新方法も確立された技術、そういうものを基本とすべきなんですよね。耐震構造と免震構造を組み合わせたハイブリッド構造、中間免震、これ施工条件を複雑にして、事業者が技術的リスクを見込んで入札コストを上乗せする原因になり得るし、完成後も点検とか部品交換、改修とかも難しくなるんじゃないかなと。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1766s" data-timestamp="1766"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:26</a>　管理、維持管理コストが高くなる可能性がありまして、メンテナンスコスト、長期間使用するライフサイクルコストが高くなっていくと思うんですよね。これもいわゆる市民の見直し案で示されています。ちょっと質問にまた移っていきますけども、サウンディング調査のあり方についてお伺いします。</div><div class="say">建設工事費の上限を約130億円と設定して、必要な庁舎機能、福祉会館機能を確保しながら、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1797s" data-timestamp="1797"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:57</a>　130億円でどの程度の規模、構造、配置の施設が実現可能かという形での事業者の自由な提案を求めることも、サウンディング型市場調査に該当すると考えますが、市の認識を伺います。そのような調査が可能であるなら、今回と言えないのかな、それを実施しなかった理由は何でしょうか。実施しなかったことも、現設計断念の理由だったのではないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t17">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1829s" data-timestamp="1829"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:29</a>　庁舎建設等担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t18">
+  <div class="meta"><span class="name">庁舎建設等担当部長</span></div>
+  <div class="say">サウンディング調査において、どのような調査を行うのか、その目的によってまいります。市といたしましては、新庁舎・（仮称）新福祉会館建設事業については、過去2回の建設工事入札中止を受け、現設計に基づいて令和10年度、可能であれば令和9年度の着工を目指すというものでございました。それに向けたサウンディング調査でございますので、このような形、その事業を広く周知するとともに、参加しやすい条件を創出するために</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1859s" data-timestamp="1859"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:59</a>　実施するというふうになったものであります。それが今回のサウンディング調査だった、そのためにそのような質問をしていないというふうにお答弁いたします。</div>
+</div>
+
+<div class="turn chair reveal" id="t19">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t20">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">先ほど私、現設計断念の理由だったんじゃなくて、現設計断念が遅くなった理由だったのではないでしょうか、ちょっと言い間違いました、すみません。今お答えいただきましたが、ちょっと答弁が噛み合ってないと思うところです。最大130億円なら何ができるのか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1889s" data-timestamp="1889"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:29</a>　こういった方のサウンディング調査は許されないという回答ではなかったので、それはあり得るということだと私は受け止めます。今回のサウンディング調査は、それによりようやく断念したということで、若干意味があったかもなと思わなくもないんですけども、〇〇の見通しが立たないであろうことが予想できたわけで、現設計の質問ややり方としては間違っていたと言わざるを得ないと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1921s" data-timestamp="1921"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:01</a>　サウンディング調査結果を基に答弁いただいた8月4日の特別委員会では、最大210億円が174億円という試算もあり、進めていきたいという話だった。これは私の受け止めですね、そう認識しています。外構部分を含めると230億という話もあるんですが、計算が違うのでここは置いておいて、まずこの認識は正しいでしょうか。</div><div class="say">しかし現在240億円が基準となって進める、だから断念ということになっていると思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1953s" data-timestamp="1953"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:33</a>　計算式を教えていただいたので、200億円は平米単価120万円に17,400をかけたもの、それが200億円ですね、正確には約208.8億円、市場動向から将来の値上がり分15%を加算して240億円になったということは、計算式としては分かるのですが、8月4日の時点でも分かっていたはずで、どういう要因で今回計算式が変わったのか教えてください。</div>
+</div>
+
+<div class="turn chair reveal" id="t21">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=1984s" data-timestamp="1984"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:04</a>　庁舎建設等担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t22">
+  <div class="meta"><span class="name">庁舎建設等担当部長</span></div>
+  <div class="say">端的に申しますと、今、計算式を説明してご紹介いただいた通り、今後の分を見込んだかというところでございます。8月4日の特別委員会では、工事費の見込みは今後の建設費の上昇を見込んで算出した方が良いとご意見もいただきましたし、私どもとしても、その辺も見極めていく必要があると考えたものです。今後の物価上昇を見込み、バッファーも想定される金額を算出した結果、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2016s" data-timestamp="2016"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:36</a>　8月4日にも踏み込んだ形で、240億円程度まで上昇することも想定せざるを得ないと考えた次第です。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t23">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t24">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">正直、苦しい答弁だと思うんですね。15%上がることを、委員が指摘しなくても分かる話なんですね。あと、バッファという話があったんですけど、私プログラマーなんでバッファってよく使うんですけど、どうだろう、一般的に通じるんですかね。ちょっと余裕を持ってというような意味だと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2052s" data-timestamp="2052"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:12</a>　結局、正直なところで言うと、進めたい時は低い見積もりを伝えて、いざ止めるとなったら高い方の見積もりを伝えてくると、こういうことだと受け止めざるを得ません。ただ、それでも今の240億という金額が正直な回答だと思ってますので、これ以上は突っ込みはしません。建設費240億円の場合の起債額と利子について教えてください。</div><div class="say">また、130億と174億円との場合、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2083s" data-timestamp="2083"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:43</a>　それぞれについても教えていただけますでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t25">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">庁舎建設等担当部長。</div>
+</div>
+
+<div class="turn reveal" id="t26">
+  <div class="meta"><span class="name">庁舎建設等担当部長</span></div>
+  <div class="say">試算でございますが、建設費240億円の場合は、地方債は187億2578万円、利子については68億687万3千円となってきます。これに対して、令和8年3月の中期財政計画における建設費174億円の場合については、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2113s" data-timestamp="2113"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:13</a>　地方債が132億円、利子は32億5670万3千円となります。また、令和6年10月の〇〇計画における建設費132億円の場合は、地方債98億3048万2千円、利子は14億6892万3千円となります。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t27">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t28">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">打ち合わせの時の差額も聞こうと思ったんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2144s" data-timestamp="2144"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:44</a>　計算時期と、その時に想定した利子が違うんで、確かに差額を出すのはあまり適切じゃないかなと思って。ざっくりで言うとですね、132億円の時は利子14億円、建設費174億円だと利子32億円、建設費240億円の時は利子68億円ということですね。私、利子って何の利益も生まないものだと思ってるんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2174s" data-timestamp="2174"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:14</a>　これは本当に市民の方々に払ってもらうんですかというものだと思うんですよ。174億円の建設費での利子32億円も相当だと思ってるんですね。240億円になったら68億円という、かなりとんでもないことになっていると。</div><div class="say">払って消えていって何の資産にも残らないものですよね。もちろん起債の意味はですね、毎年払う金額をなるべく均等にしていくということにあるんで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2208s" data-timestamp="2208"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:48</a>　それのために利子がかかってくるっていうのは、ある程度仕方ないと思うところでありますが、なるべく減らさないといけないですね。私は本当に68億どころか32億だってとんでもないと思うんですよね。こう言うとですね、着工が遅くなることで建設費用が上がって、トータルでは費用が高くなるという、そういう見解もあると思うんですけども、それはですね、だから私、メンテナンスコストとかライフサイクルコストの話したんですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2238s" data-timestamp="2238"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:18</a>　結局そちらが安く済むのであればですね、着工時期が遅くなって初期の建設費用が高くなっても、結局トータルコストは低く抑えられると思うんですよ。ただ、数値で示すべきだという見解もあるでしょうから、それは全くその通りですので、建設費その他費用で起債額、利子、そしてですね、サイクルコストもですね、含めてですね、しかも短い期間じゃなくて長い期間、こちら示していただければと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2269s" data-timestamp="2269"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:49</a>　最後に市長にお伺いします。現設計での設計は断念したという理解で、これよろしいんですよね。8月4日では最大210億だったのが、174億なら可能だから進めているという立場だったのに、210億の方がですね、240億に化けてですね、240億を採用して、だから断念と変わったことの要因は、これ何だったんでしょうか。</div><div class="say">またどういう設計だったら庁舎建設進められるとお考えでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t29">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2300s" data-timestamp="2300"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:20</a>　市長。</div>
+</div>
+
+<div class="turn reveal" id="t30">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">先ほどお答弁させていただいてます通り、現設計は見直すということとしたということでございます。また、240億円につきましては、先ほどのご答弁いたしましたが、今後の物価上昇も見込んで想定される金額を算出したものでございます。庁舎建設を進められる条件ということでございますが、今後の検討に際しましては、財政的な見地から適正な事業規模及び建設時期を見定めた上で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2331s" data-timestamp="2331"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:51</a>　本事業の具体的な進め方を整理することとなりまして、総事業費を下げる必要があると考えております。事業規模等を踏まえ、施設の機能・規模及び整備手法を見直すことが必要と考えております。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t31">
+  <div class="meta"><span class="name">議長</span></div>
+  <div class="say">藤川さん。</div>
+</div>
+
+<div class="turn reveal" id="t32">
+  <div class="meta"><span class="name">藤川賢治</span></div>
+  <div class="say">部長の方の答弁で断念という言葉もありましたし、市長からも現設計を見直すとはっきりお答えいただきました。240億の数値ももっと早く分かっていたはずで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2361s" data-timestamp="2361"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:21</a>　なぜもっと早く採用しなかったのかと。やっぱり止めると決めたから採用したのではないかと思わざるを得ないところなんですけども、私自身は設計見直しを求めていたのですから、まずは良かったと胸を撫で下ろすところです。市民の皆様からいただいた税金を効率的に運用することが一番優先すべきことだと考えています。</div><div class="say">以前、議場でサンクコストの話をさせていただいています。既にかけたコストを理由に、今後の方針を決めてはいけないという考え方です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2392s" data-timestamp="2392"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:52</a>　既に支出し回収できなくなったコストは、今後の判断では考慮せずに、既にその時点での支出を、資金、そして今後の見通しをもとに判断すべきであるという考え方です。</div><div class="say">もっと早い段階で方針転換していればよかった、これは事実です。しかし、だからといって、方針転換すべきベストな時期を過ぎてしまったからといって、もう方針転換できない、してはいけないということにはなりません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2423s" data-timestamp="2423"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:23</a>　サンクコストの埋没費用、これを考慮してはいけないという考え方であれば、いつであってもその時点で方針転換した方が良いのであれば、方針転換すべきです。その意味で遅かったと思っていますが、今回方針転換したこと自体は良かったと考えています。</div><div class="say">私、「庁舎どうなっているの」と聞かれることあります。資料を見ていただいたように、複雑なコストがかかる設計にしたから入札に応じる業者が現れなかった、コスト削減できる設計にしないと建設は無理ですと答えています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2459s" data-timestamp="2459"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:59</a>　簡単だと思うんですね、この説明に関しては。皆さん、この件に関しては納得していただけると思います。むしろ質問されるのは、「どうしてそんな設計で進めていたの」ということなんです。</div><div class="say">それに関しても、私もなぜこの破綻が見える設計で継続して進めようとしているのか分からない、これまでの設計と見直しを見れば、これまでの設計ではダメだと分かると思うのだけどと答えざるを得ません。いずれにせよ、複雑なことはやめましょう、シンプルでいいんですということです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=E5YOp9yF6d0&t=2492s" data-timestamp="2492"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:32</a>　シンプル・イズ・ザ・ベスト。私の座右の銘と言っていいかもしれません。これはマジック業界でよく言われるんですけどね。マジックを見せるときに、不思議な現象はシンプルで分かりやすい方がいい、手順も分かりやすい方がいいという話なんですけどね。</div><div class="say">大学の講義で習った説明的な文言で言えば、設計とは機能を盛り込むことではなく、削ること、これに尽きると考えています。庁舎問題に関しては以上とさせていただきます。</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
