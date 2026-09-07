@@ -8,7 +8,7 @@
   <meta name="description" content="小金井市長 白井とおる 公式サイト。約4年間の確かな成果とともに、市民に近い、あたたかい市政を。子育て・教育・福祉・防災・環境の取り組みをご紹介します。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="koganei-campaign/campaign.css?v=14">
+  <link rel="stylesheet" href="koganei-campaign/campaign.css?v=17">
 </head>
 <body>
 
@@ -26,6 +26,7 @@
         <a href="#achievements" class="nav-link">約4年間の成果</a>
         <a href="#profile" class="nav-link">プロフィール</a>
         <a href="#events" class="nav-link">お知らせ</a>
+        <a href="#column" class="nav-link">連載</a>
       </nav>
       <a href="#support" class="btn btn-pop header-cta">応援する <span class="arrow">♡</span></a>
       <button class="nav-burger" id="burger" aria-label="メニュー" aria-expanded="false"><span></span></button>
@@ -35,6 +36,7 @@
       <a href="#achievements" class="nav-link">約4年間の成果</a>
       <a href="#profile" class="nav-link">プロフィール</a>
       <a href="#events" class="nav-link">お知らせ</a>
+        <a href="#column" class="nav-link">連載</a>
       <a href="#support" class="btn btn-pop header-cta">応援する <span class="arrow">♡</span></a>
     </nav>
   </header>
@@ -242,6 +244,67 @@
       </div>
     </div>
   </section>
+
+  <!-- ============ COLUMN（季刊デモテック連載・2026.9.6追加。元に戻す: このセクション＋#rd リーダー＋column スクリプトを削除し campaign.css の COLUMN ブロックも削除、?v=15 に戻す） ============ -->
+  <section class="sec column" id="column" data-screen-label="連載コラム">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-no">(07)</span>
+      <h2 class="sec-en">Column</h2>
+      <p class="sec-ja">季刊デモテック 連載寄稿</p>
+      <p class="sec-lead">全国の地方自治体・議会に届く季刊誌「デモテック」（発行：東京インタープレイ株式会社）に、2024年から4回にわたって寄稿した連載です。カードをクリックすると誌面をそのまま読めます</p>
+    </div>
+
+    <div class="col-grid" id="col-grid"></div>
+
+    <div class="col-foot">
+      <span>季刊誌「デモテック」Produced by SideBooks（東京インタープレイ株式会社）掲載誌面を許諾のうえ転載</span>
+      <span>PDF・各2〜4ページ</span>
+    </div>
+  </div>
+</section>
+
+  <!-- VOICE（応援メッセージ）は 2026.9.7 一時非公開。復活: 下の「<!~~ ~~>」をHTMLコメント記号に戻し、外側のコメントを外す。CSS の VOICE ブロックは残置 -->
+  <!--
+  <section class="sec voice" id="voice" data-screen-label="応援メッセージ">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-no">(06)</span>
+        <h2 class="sec-en">Voice</h2>
+        <p class="sec-ja">応援メッセージ</p>
+        <p class="sec-lead">白井とおるの活動を応援してくださっているみなさまからのメッセージです</p>
+        <p class="voice-note">※ 以下はダミー原稿です。実際のメッセージに差し替えてください</p>
+      </div>
+      <div class="voice-grid">
+        <div class="vcard reveal">
+          <p class="vcard-text">子育て支援の相談に行ったとき、こちらの話を最後まで聞いてくださったのが印象的でした。市政が身近になったと感じています</p>
+          <div class="vcard-who"><span class="vcard-avatar">A</span><div><div class="vcard-name">Aさん</div><div class="vcard-role">市内在住・30代</div></div></div>
+        </div>
+        <div class="vcard reveal d1">
+          <p class="vcard-text">地域の防災訓練に毎年顔を出してくださいます。現場を見て、そこから政策につなげる姿勢を信頼しています</p>
+          <div class="vcard-who"><span class="vcard-avatar">B</span><div><div class="vcard-name">Bさん</div><div class="vcard-role">自治会役員・60代</div></div></div>
+        </div>
+        <div class="vcard reveal d2">
+          <p class="vcard-text">商店街のイベントでご一緒しました。まちの小さな取り組みにも目を向けてくれるのがありがたいです</p>
+          <div class="vcard-who"><span class="vcard-avatar">C</span><div><div class="vcard-name">Cさん</div><div class="vcard-role">市内で商店を営む・50代</div></div></div>
+        </div>
+        <div class="vcard reveal">
+          <p class="vcard-text">学校のトイレや設備が少しずつ良くなっていくのを、子どもを通じて実感しています。これからも続けてほしい</p>
+          <div class="vcard-who"><span class="vcard-avatar">D</span><div><div class="vcard-name">Dさん</div><div class="vcard-role">保護者・40代</div></div></div>
+        </div>
+        <div class="vcard reveal d1">
+          <p class="vcard-text">市民参加の場をつくろうとしているのが伝わってきます。意見を言える場があるのは大きいと思います</p>
+          <div class="vcard-who"><span class="vcard-avatar">E</span><div><div class="vcard-name">Eさん</div><div class="vcard-role">市民活動団体・20代</div></div></div>
+        </div>
+        <div class="vcard reveal d2">
+          <p class="vcard-text">長く小金井に住んでいますが、まちの空気が少しずつ変わってきたと感じます。次の4年も期待しています</p>
+          <div class="vcard-who"><span class="vcard-avatar">F</span><div><div class="vcard-name">Fさん</div><div class="vcard-role">市内在住・70代</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+
 
   <!-- ============ SUPPORT CTA ============ -->
   <section class="sec support" id="support" data-screen-label="応援する">
@@ -519,6 +582,86 @@
       dlg?.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); }); // 背景クリックで閉じる
     })();
   </script>
+
+  <!-- COLUMN 誌面リーダー（pdf.js でPDFをブラウザ内描画） -->
+  <div class="rd" id="rd" role="dialog" aria-modal="true" aria-label="誌面リーダー">
+  <div class="rd-bar">
+    <span class="rd-ep" id="rd-ep"></span>
+    <div class="rd-ttl" id="rd-ttl"></div>
+    <span class="sp"></span>
+    <a class="rd-btn" id="rd-pdf" href="#" target="_blank" rel="noopener">PDFで開く <span class="lbl">↗</span></a>
+    <a class="rd-btn yl" id="rd-dl" href="#" download>ダウンロード ↓</a>
+    <button class="rd-close" id="rd-close" aria-label="閉じる">×</button>
+  </div>
+  <div class="rd-stage" id="rd-stage"><div class="rd-spread" id="rd-spread"></div></div>
+  <button class="rd-nav prev" id="rd-prev" aria-label="前の回">‹</button>
+  <button class="rd-nav next" id="rd-next" aria-label="次の回">›</button>
+  <div class="rd-dots" id="rd-dots"></div>
+</div>
+  <script type="module">
+import * as pdfjs from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs';
+pdfjs.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs';
+const CMAP='https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/cmaps/';
+const EPS=[
+ {ep:'第1回',en:'01',quote:'首長になったことに、自分が一番驚いている',sub:'手段として選んだ、市長という道',issue:'創刊号（2024年）',file:'uploads/demotech1.pdf',dl:'デモテック連載_第1回.pdf',thumb:1},
+ {ep:'第2回',en:'02',quote:'自ら手を挙げて拾った栗は想像以上に熱かった',sub:'就任直後の市議会で早速提案した条例が否決',issue:'No.002 9月号（2024年9月1日発刊）',file:'uploads/demotech2.pdf',dl:'デモテック連載_第2回.pdf',thumb:1},
+ {ep:'第3回',en:'03',quote:'ワタシと職員との関係　組織活性化へ地道な歩み',sub:'部長職者と毎月1on1',issue:'No.003 12月号（2024年12月）',file:'uploads/demotech3.pdf',dl:'デモテック連載_第3回.pdf',thumb:1},
+ {ep:'最終回',en:'04',quote:'行政、議会、市民のより良い三角関係を　みんなでまちをつくる',sub:'首長はとても難しい仕事であると実感',issue:'No.004 3月号（2025年3月）',file:'uploads/demotech4.pdf',dl:'デモテック連載_最終回.pdf',thumb:1}
+];
+const docs={};
+async function getDoc(i){ if(!docs[i]) docs[i]=pdfjs.getDocument({url:EPS[i].file,cMapUrl:CMAP,cMapPacked:true}).promise; return docs[i]; }
+// 描画は1件ずつ直列化（同時描画でワーカーが詰まるのを防ぐ）。gen が変わった描画はキャンセル
+let queue=Promise.resolve(), gen=0, activeTask=null;
+function renderPage(doc,n,canvas,cssW,myGen){
+  const run=async()=>{
+    if(myGen!==undefined&&myGen!==gen) return false;
+    const page=await doc.getPage(n); const base=page.getViewport({scale:1});
+    const dpr=Math.min(window.devicePixelRatio||1,1.5); const scale=cssW*dpr/base.width;
+    const vp=page.getViewport({scale}); canvas.width=vp.width; canvas.height=vp.height;
+    activeTask=page.render({canvasContext:canvas.getContext('2d'),viewport:vp});
+    try{ await activeTask.promise; return true; }catch(e){ return false; } finally{ activeTask=null; }
+  };
+  const p=queue.then(run,run); queue=p.catch(()=>{}); return p;
+}
+// cards
+const grid=document.getElementById('col-grid');
+EPS.forEach((e,i)=>{
+  const b=document.createElement('button'); b.className='col-card'; b.setAttribute('aria-label',`${e.ep}を読む`);
+  b.innerHTML=`<div class="col-ep">${e.en}<small>${e.ep}</small></div><div class="col-thumb"><canvas></canvas><span class="col-open">誌面を読む →</span></div><p class="col-quote">${e.quote}</p><p class="col-issue">季刊デモテック ${e.issue}</p>`;
+  b.addEventListener('click',()=>openReader(i)); grid.appendChild(b);
+  getDoc(i).then(d=>renderPage(d,e.thumb,b.querySelector('canvas'),420));
+});
+// reader
+const rd=document.getElementById('rd'),spread=document.getElementById('rd-spread'),dots=document.getElementById('rd-dots');
+let cur=0;
+EPS.forEach((e,i)=>{const d=document.createElement('button');d.setAttribute('aria-label',e.ep);d.addEventListener('click',()=>show(i));dots.appendChild(d)});
+async function show(i){
+  cur=i; const e=EPS[i];
+  document.getElementById('rd-ep').textContent=e.en;
+  document.getElementById('rd-ttl').innerHTML=`${e.ep}　${e.quote}<small>季刊デモテック ${e.issue}</small>`;
+  document.getElementById('rd-pdf').href=e.file; const dl=document.getElementById('rd-dl'); dl.href=e.file; dl.download=e.dl;
+  document.getElementById('rd-prev').disabled=i===0; document.getElementById('rd-next').disabled=i===EPS.length-1;
+  [...dots.children].forEach((d,k)=>d.classList.toggle('on',k===i));
+  spread.innerHTML=''; document.getElementById('rd-stage').scrollTop=0;
+  const myGen=++gen; if(activeTask) activeTask.cancel();
+  const doc=await getDoc(i); if(myGen!==gen) return;
+  const stageW=document.getElementById('rd-stage').clientWidth-48, stageH=document.getElementById('rd-stage').clientHeight-40;
+  const two=stageW>820; const p1=await doc.getPage(1); const r=p1.getViewport({scale:1}); const ar=r.height/r.width;
+  let w=two?Math.min((stageW-10)/2, stageH/ar):Math.min(stageW, stageH/ar);
+  const hosts=[];
+  for(let n=1;n<=doc.numPages;n++){const h=document.createElement('div');h.className='rd-page';h.style.width=w+'px';h.style.aspectRatio=`${r.width}/${r.height}`;h.innerHTML='<canvas></canvas><span class="pg-load">読み込み中…</span>';spread.appendChild(h);hosts.push(h)}
+  // 12秒待っても描けない場合はPDFリンクへ誘導
+  const fallback=setTimeout(()=>{ if(myGen!==gen) return; hosts.forEach(h=>{const l=h.querySelector('.pg-load'); if(l) l.innerHTML=`表示に時間がかかっています<br><a href="${e.file}" target="_blank" rel="noopener" style="color:var(--accent-deep);text-decoration:underline">PDFで開く ↗</a>`;}); },12000);
+  for(let n=1;n<=doc.numPages;n++){ if(myGen!==gen) return; const ok=await renderPage(doc,n,hosts[n-1].querySelector('canvas'),w,myGen); if(myGen!==gen) return; if(ok){ clearTimeout(fallback); const l=hosts[n-1].querySelector('.pg-load'); if(l) l.remove(); } }
+}
+function openReader(i){rd.classList.add('open');document.body.style.overflow='hidden';show(i)}
+function closeReader(){rd.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('rd-close').onclick=closeReader;
+document.getElementById('rd-prev').onclick=()=>show(cur-1);
+document.getElementById('rd-next').onclick=()=>show(cur+1);
+rd.addEventListener('click',ev=>{if(ev.target===rd||ev.target.id==='rd-stage')closeReader()});
+document.addEventListener('keydown',ev=>{if(!rd.classList.contains('open'))return;if(ev.key==='Escape')closeReader();if(ev.key==='ArrowRight'&&cur<EPS.length-1)show(cur+1);if(ev.key==='ArrowLeft'&&cur>0)show(cur-1)});
+</script>
 
 </body>
 <template id="__bundler_thumbnail">
