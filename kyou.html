@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="小金井市議会の一般質問。きょう誰が何番目に登壇するか、通告書に書かれた質問、終わった質問の記録へのリンク。日付は西暦と元号を併記。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小金井市議会 今日の一般質問">
+<meta property="og:description" content="小金井市議会の一般質問。きょう誰が何番目に登壇するか、通告書に書かれた質問、終わった質問の記録へのリンク。日付は西暦と元号を併記。">
+<meta property="og:url" content="https://toritarosan.github.io/toritori/kyou.html">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://toritarosan.github.io/toritori/kyou.html">
+<link rel="icon" href="https://toritarosan.github.io/Kaigiroku/icon.svg">
+<title>小金井市議会 今日の一般質問｜非公式会議録</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=BIZ+UDPGothic:wght@400;700&display=swap">
+<style>
+:root{
+  --bg:#EEF1F7; --ink:#18213A; --muted:#5B6683; --line:#C9D1E3; --card:#FFFFFF; --paper:#FFFDF7;
+  --amber:#F2B134; --amber-deep:#C97D00; --amber-text:#8A5600; --amber-ink:#2A1E00;
+  --k-hon:#3B5BDB; --k-q:#C97D00; --k-iin:#2F9E8F; --k-kyu:#D5DBE8; --k-ink:#FFFFFF; --k-kyu-ink:#5B6683;
+  --focus:#3B5BDB;
+  --fd:"Barlow Condensed","Zen Kaku Gothic New",sans-serif;
+  --fh:"Zen Kaku Gothic New","BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif;
+  --fb:"BIZ UDPGothic","Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A1020; --ink:#E8ECF6; --muted:#A2ACC6; --line:#253052; --card:#131C33; --paper:#17213C;
+    --k-kyu:#25304F; --k-kyu-ink:#A2ACC6; --amber-deep:#E0A030; --amber-text:#E8B455;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A1020; --ink:#E8ECF6; --muted:#A2ACC6; --line:#253052; --card:#131C33; --paper:#17213C;
+  --k-kyu:#25304F; --k-kyu-ink:#A2ACC6; --amber-deep:#E0A030; --amber-text:#E8B455;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--fh);text-wrap:balance;margin:0}
+.eyebrow{font-family:var(--fd);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--muted)}
+/* header */
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding:28px 0 16px;flex-wrap:wrap}
+.top h1{font-size:28px;font-weight:900;letter-spacing:.02em}
+.top .sub{color:var(--muted);font-size:14px}
+.ctl{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.ctl select{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink)}
+/* board */
+.board{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:22px 24px 18px;box-shadow:0 18px 40px -28px rgba(24,33,58,.5)}
+.board-head{display:grid;grid-template-columns:auto 1fr auto;gap:20px;align-items:end;padding-bottom:14px;border-bottom:3px solid var(--amber-deep)}
+.bigdate{font-family:var(--fd);font-weight:700;font-size:76px;line-height:.9;letter-spacing:-.01em;color:var(--ink);font-variant-numeric:tabular-nums}
+.bigdate small{font-size:26px;font-family:var(--fh);font-weight:700;color:var(--muted);margin-left:6px;vertical-align:baseline}
+.datelines{display:flex;flex-direction:column;gap:2px;padding-bottom:6px}
+.datelines .l1{font-family:var(--fh);font-weight:700;font-size:18px}
+.datelines .l2{color:var(--muted);font-size:13px}
+.status{justify-self:end;display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:var(--amber-ink);font-family:var(--fh);font-weight:900;font-size:15px;padding:8px 14px;border-radius:999px;white-space:nowrap}
+.status.quiet{background:var(--bg);color:var(--ink);border:1px solid var(--line)}
+.rows{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:64px 1fr 1.4fr 120px;gap:16px;align-items:center;padding:14px 4px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.no{font-family:var(--fd);font-weight:700;font-size:44px;line-height:1;color:var(--amber-deep);font-variant-numeric:tabular-nums;text-align:right;padding-right:6px}
+.name{font-family:var(--fh);font-weight:900;font-size:22px;letter-spacing:.04em;line-height:1.2}
+.fac{color:var(--muted);font-size:12.5px;margin-top:3px}
+.t1{font-size:14.5px;line-height:1.5}
+.more{color:var(--muted);font-size:12.5px;margin-top:2px}
+.time{font-family:var(--fd);font-weight:600;font-size:24px;color:var(--ink);text-align:right;font-variant-numeric:tabular-nums;line-height:1;white-space:nowrap}
+.time span{display:block;font-family:var(--fb);font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.06em}
+.board-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+.board-foot .acts{display:flex;gap:8px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-family:var(--fh);font-weight:700;font-size:13px;padding:8px 14px;border-radius:8px;border:1px solid var(--line);color:var(--ink);background:var(--bg)}
+.btn.primary{background:var(--amber);color:var(--amber-ink);border-color:var(--amber)}
+.empty{padding:26px 6px 10px;font-family:var(--fh)}
+.empty .big{font-size:24px;font-weight:900;margin-bottom:6px}
+.empty p{margin:4px 0;color:var(--muted);font-family:var(--fb);font-size:14px}
+/* sections */
+section{margin-top:44px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:22px;font-weight:900}
+.sec-head .note{color:var(--muted);font-size:13px}
+/* day tabs */
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.tab{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-align:left;cursor:pointer;font:inherit;color:var(--ink);display:flex;flex-direction:column;gap:2px}
+.tab .d{font-family:var(--fd);font-weight:700;font-size:30px;line-height:1;font-variant-numeric:tabular-nums}
+.tab .d small{font-family:var(--fh);font-size:14px;font-weight:700;margin-left:4px}
+.tab .c{font-size:12.5px;color:var(--muted)}
+.tab[aria-selected="true"]{border-color:var(--amber-deep);box-shadow:inset 0 0 0 2px var(--amber-deep)}
+.tab .st{font-size:11.5px;font-weight:700;color:var(--amber-text)}
+.list{margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.item{display:grid;grid-template-columns:56px 1fr;gap:14px;padding:16px 18px;border-bottom:1px solid var(--line)}
+.item:last-child{border-bottom:0}
+.item .n{font-family:var(--fd);font-weight:700;font-size:34px;line-height:1;color:var(--amber-deep);text-align:right;font-variant-numeric:tabular-nums}
+.item .hd{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.item .nm{font-family:var(--fh);font-weight:900;font-size:19px}
+.item .fc{font-size:12.5px;color:var(--muted)}
+.item ol{margin:8px 0 0;padding-left:1.3em}
+.item ol li{margin:3px 0}
+.item details{margin-top:4px}
+.item summary{cursor:pointer;color:var(--muted);font-size:12.5px;list-style:none;display:inline-flex;gap:6px;align-items:center}
+.item summary::before{content:"▸";display:inline-block;transition:transform .15s}
+.item details[open] summary::before{transform:rotate(90deg)}
+.item ul{margin:6px 0 0;padding-left:1.2em;font-size:13.5px;color:var(--muted)}
+/* timeline */
+.tl-scroll{overflow-x:auto;padding-bottom:6px}
+.tl{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(30px,1fr);gap:3px;min-width:760px}
+.cell{border-radius:5px;padding:6px 0 5px;text-align:center;font-family:var(--fd);font-weight:600;font-size:13px;line-height:1.1;color:var(--k-ink);position:relative;font-variant-numeric:tabular-nums}
+.cell .k{display:block;font-family:var(--fh);font-size:10.5px;font-weight:700;margin-top:3px;opacity:.95}
+.cell.本会議{background:var(--k-hon)} .cell.一般質問{background:var(--k-q)} .cell.委員会{background:var(--k-iin)} .cell.協議会{background:var(--k-iin)}
+.cell.休会{background:var(--k-kyu);color:var(--k-kyu-ink)}
+.cell.today{outline:3px solid var(--ink);outline-offset:1px}
+.cell.today::after{content:"きょう";position:absolute;left:50%;transform:translateX(-50%);top:-22px;font-family:var(--fh);font-size:11px;font-weight:900;color:var(--ink);white-space:nowrap}
+.months{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(30px,1fr);gap:3px;min-width:760px;margin-bottom:26px;font-family:var(--fd);font-weight:600;font-size:13px;color:var(--muted)}
+.months div{border-left:2px solid var(--line);padding-left:6px;white-space:nowrap}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:12.5px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:14px;height:14px;border-radius:3px;display:inline-block}
+.upnext{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.up{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.up .d{font-family:var(--fd);font-weight:700;font-size:22px;line-height:1;font-variant-numeric:tabular-nums}
+.up .d small{font-family:var(--fh);font-size:13px;margin-left:4px;color:var(--muted)}
+.up .w{font-size:12px;color:var(--muted)}
+.up .k{font-family:var(--fh);font-weight:700;margin-top:6px}
+.up .t{font-size:12.5px;color:var(--muted)}
+/* 会議録ボード(終わった質問を読む) */
+.read-lead{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:12px;font-size:14px}
+.read-lead p{margin:0 0 8px}
+.read-lead p:last-child{margin:0}
+.read-lead .cau{color:var(--muted);font-size:13px}
+.read-lead a{color:var(--k-hon)}
+.rdays{display:flex;flex-direction:column;gap:12px}
+.rday{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.rhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;padding:11px 16px;background:var(--bg);border-bottom:1px solid var(--line)}
+.rhead .rd{font-family:var(--fd);font-weight:700;font-size:24px;line-height:1;font-variant-numeric:tabular-nums}
+.rhead .rd small{font-family:var(--fh);font-size:13px;font-weight:700;margin-left:3px}
+.rhead .rw{font-size:12.5px;color:var(--muted)}
+.rhead .rall{margin-left:auto;font-family:var(--fh);font-weight:700;font-size:13px;color:var(--k-hon);text-decoration:none}
+.rhead .rall:hover{text-decoration:underline}
+.rlist{display:grid;grid-template-columns:repeat(3,1fr)}
+.rp{display:flex;align-items:center;gap:10px;padding:12px 14px;text-decoration:none;color:var(--ink);border-right:1px solid var(--line);border-top:1px solid var(--line)}
+.rlist>.rp:nth-child(-n+3){border-top:0}
+.rlist>.rp:nth-child(3n){border-right:0}
+.rp .rn{font-family:var(--fd);font-weight:700;font-size:22px;line-height:1;color:var(--amber-deep);font-variant-numeric:tabular-nums;min-width:22px;text-align:right}
+.rp .rnm{font-family:var(--fh);font-weight:700;font-size:15.5px;line-height:1.25;display:flex;flex-direction:column}
+.rp .rnm small{font-family:var(--fb);font-weight:400;font-size:11.5px;color:var(--muted)}
+.rp .rgo{margin-left:auto;font-family:var(--fh);font-weight:700;font-size:12px;color:var(--k-hon);white-space:nowrap}
+a.rp:hover{background:var(--bg)}
+a.rp:hover .rgo{text-decoration:underline}
+.rp.off{color:var(--muted)}
+.rp.off .rn{color:var(--muted)}
+.rp.off .rgo{color:var(--muted);font-weight:400}
+/* explain cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px 16px}
+.card h3{font-size:17px;font-weight:900;margin-bottom:8px}
+.card p{margin:0 0 8px;font-size:14px}
+.card p:last-child{margin-bottom:0}
+.card .q{border-left:3px solid var(--amber-deep);padding-left:10px;color:var(--muted);font-size:13.5px}
+.card a{color:var(--k-hon)}
+/* sources */
+.src{font-size:13px;color:var(--muted)}
+.src ol{padding-left:1.4em;margin:8px 0}
+.src li{margin:4px 0;overflow-wrap:anywhere}
+.src a{color:var(--k-hon)}
+footer{margin:40px 0 30px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:760px){
+  .board{padding:18px 16px 14px}
+  .board-head{grid-template-columns:1fr auto}
+  .datelines{grid-column:1/-1}
+  .bigdate{font-size:58px}
+  .row{grid-template-columns:44px 1fr;gap:6px 12px;padding:12px 2px}
+  .no{font-size:32px}
+  .topics{grid-column:2}
+  .time{grid-column:2;text-align:left;font-size:16px;display:flex;gap:8px;align-items:baseline}
+  .time span{margin:0}
+  .tabs{grid-template-columns:repeat(2,1fr)}
+  .upnext,.cards{grid-template-columns:1fr}
+  .rlist{grid-template-columns:1fr}
+  .rlist>.rp{border-right:0;border-top:1px solid var(--line)}
+  .rlist>.rp:first-child{border-top:0}
+  .item{grid-template-columns:40px 1fr;padding:14px 12px}
+  .item .n{font-size:26px}
+}
+@media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
+<style>
+.sitebar{background:var(--card);border-bottom:1px solid var(--line);font-size:12.5px}
+.sitebar .in{max-width:1080px;margin:0 auto;padding:9px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.sitebar a{font-family:var(--fh);font-weight:700;color:var(--k-hon);text-decoration:none}
+.sitebar a:hover{text-decoration:underline}
+.sitebar span{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="sitebar"><div class="in"><a href="https://toritarosan.github.io/Kaigiroku/">&larr; 非公式会議録トップ</a><span><b>確認用のページです</b>（正式な公開先は非公式会議録サイト内 kyou.html の予定）</span></div></div>
+
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Koganei City Council</div>
+      <h1>小金井市議会 今日の一般質問</h1>
+      <div class="sub" id="session-line"></div>
+    </div>
+    <div class="ctl">
+      <label for="date-sel">表示を確かめる(日付を仮に変える)</label>
+      <select id="date-sel"></select>
+    </div>
+  </header>
+
+  <div class="board" id="board" aria-live="polite"></div>
+
+  <section id="days">
+    <div class="sec-head"><h2>4日間の登壇順と通告した質問</h2><div class="note">順番・日付は「予定」。都合で入れ替わることがあります</div></div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <section id="read">
+    <div class="sec-head"><h2>終わった質問を読む</h2><div class="note">名前をおすと、その議員が話し始めたところが開きます</div></div>
+    <div class="read-lead">
+      <p>質問が終わった日は、<strong>YouTubeの字幕をAIで整えた「非公式会議録」</strong>で当日から読めます。発言のひとつひとつに、録画のその場面へ飛ぶボタンが付いています。</p>
+      <p class="cau">これは市議会が出したものではなく、<strong>市の公式な会議録ではありません</strong>。公式の会議録は定例会が終わってからおおむね1か月半後に<a id="kaigiroku-link2" href="#" target="_blank" rel="noopener">会議録検索</a>で公開されます。引用や正確な確認は公式版か録画で。</p>
+    </div>
+    <div class="rdays" id="rdays"></div>
+  </section>
+
+  <section id="calendar">
+    <div class="sec-head"><h2>9月議会の全日程 <span class="eyebrow" style="font-size:13px;margin-left:8px">8/27 → 10/5</span></h2><div class="note">会議日割表(案)より。一般質問は40日の会期のうち4日</div></div>
+    <div class="tl-scroll">
+      <div class="months" id="months"></div>
+      <div class="tl" id="tl"></div>
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--k-hon)"></i>本会議(本)</span>
+      <span><i style="background:var(--k-q)"></i>一般質問の本会議(質)</span>
+      <span><i style="background:var(--k-iin)"></i>委員会・協議会(委)</span>
+      <span><i style="background:var(--k-kyu)"></i>休会</span>
+    </div>
+    <div class="upnext" id="upnext"></div>
+  </section>
+
+  <section id="first">
+    <div class="sec-head"><h2>はじめての人へ</h2><div class="note">言葉の意味は市議会サイトの説明どおり</div></div>
+    <div class="cards">
+      <div class="card">
+        <h3>一般質問とは</h3>
+        <p class="q">「議案に関係なく、市政全般について、議員が市長などの執行機関の考えや方針を自由に問いただすことができます」(市議会サイト「議会のしくみ」)</p>
+        <p>年4回(3・6・9・12月)の定例会ごとに行われ、今回は24人の議員のうち23人が質問します(議長は含みません)。1人あたり質問と答弁を合わせておよそ60分です。</p>
+      </div>
+      <div class="card">
+        <h3>「通告」とは</h3>
+        <p>質問する議員は、何を聞くかを前もって文書(発言通告書)で議長に出します。市議会は全員分をまとめて1本のPDFで公開しています。このページの「質問」欄はそのPDFの表題を写したものです。</p>
+        <p><a id="pdf-link" href="#" target="_blank" rel="noopener">通告書PDF(全25ページ)を開く</a></p>
+      </div>
+      <div class="card">
+        <h3>見る・行く・読む</h3>
+        <p><strong>見る:</strong> <a id="yt-link" href="#" target="_blank" rel="noopener">YouTube「小金井市議会」</a>で生中継と録画。</p>
+        <p><strong>行く:</strong> 誰でも傍聴できます。市役所本庁舎4階の議会事務局で受付(傍聴券)。<a id="bocho-link" href="#" target="_blank" rel="noopener">傍聴の案内</a></p>
+        <p><strong>読む:</strong> 会議録は定例会終了後おおむね1か月半から未定稿が<a id="kaigiroku-link" href="#" target="_blank" rel="noopener">会議録検索</a>に載ります。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="sources" class="src">
+    <div class="sec-head"><h2 style="color:var(--ink)">出典</h2><div class="note">すべて小金井市公式サイト。取得日 2026年9月7日(令和8年9月7日)</div></div>
+    <ol id="src-list"></ol>
+    <p>通告書はスキャンPDFのため、表題は原本を読んで写しました。判読しにくい小項目は省略しています。会派名は「会派別所属議員名簿」(更新日 2026年8月12日)によります。開始時刻の「ごろ」は、10時開始・1人60分に休憩(12時〜13時、15時〜15時30分)をはさんで足した目安で、公式の時刻表はありません。実際の進行では前後します。</p>
+  </section>
+
+  <footer>日付は西暦と元号(令和)を併記しています。このページは市議会サイトの公開資料を読みやすく並べ直したもので、市の公式ページではありません。内容は取得時点のもの。最新の予定は市議会サイトで確認してください。</footer>
+</div>
+
+<script>
+/* 小金井市議会 令和8年(2026年)第3回定例会 一般質問データ
+   出典(すべて小金井市公式サイト、2026-09-07取得):
+   - 「令和8年第3回小金井市議会定例会一般質問」PDF(令和8年8月26日登録・25ページ)
+     https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8yotei_gikai/r8simoki.files/20260826ippansitumon-OCR.pdf
+   - 「令和8年第3回小金井市議会定例会会議日割表」PDF(令和8年8月24日登録)
+     https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8yotei_gikai/r8simoki.files/20260825hiwari.pdf
+   - 会派別所属議員名簿(更新日 2026-08-12)
+     https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/youkoso_sigikaihe/202104kaihameibo.html
+   表題・小項目は通告書PDF(スキャン)からの転記。判読が難しい箇所は省略した(原本PDFを参照)。
+*/
+const DATA = {
+  fetched: "2026-09-07",
+  session: {
+    official: "令和8年第3回小金井市議会定例会",
+    short: "令和8年第3回定例会",
+    nickname: "9月議会",
+    gengoYear: "令和8年",
+    seirekiYear: 2026,
+    start: "2026-08-27",
+    end: "2026-10-05",
+    qDays: ["2026-09-02", "2026-09-03", "2026-09-04", "2026-09-07"],
+    qStart: "10:00",
+    qMinutes: 60,
+    place: "小金井市役所本庁舎4階 本会議場(小金井市本町6-6-3)",
+    reception: "傍聴の受付は本庁舎4階 議会事務局(傍聴券を発行)",
+    tel: "042-387-9947",
+    members: 24,
+    speakers: 23,
+    chair: "斎藤康夫(参政党小金井)",
+    pageUrl: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8yotei_gikai/r8simoki.html",
+    pdfUrl: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8yotei_gikai/r8simoki.files/20260826ippansitumon-OCR.pdf",
+    hiwariUrl: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8yotei_gikai/r8simoki.files/20260825hiwari.pdf",
+    posterUrl: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8yotei_gikai/r8simoki.files/R8.3posuta.pdf",
+    youtube: "https://www.youtube.com/@koganeishigikai",
+    bochoUrl: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teianhoho/shigikaibocho.html",
+    kaigirokuUrl: "https://www.city.koganei.tokyo.dbsr.jp/",
+    kaihaUrl: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/youkoso_sigikaihe/202104kaihameibo.html",
+    shikumiUrl: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teianhoho/gikainosikumi.html"
+  },
+  /* 非公式会議録(YouTubeの字幕をAIで校正した記録。市の公式会議録ではない)。
+     公開先 toritarosan.github.io/Kaigiroku。2026-09-07に公開ページから機械抽出し、
+     18人分すべてアンカー先が本人の発言開始位置であることを確認した(発言順とも一致)。
+     公式会議録の公開後に本文が差し替えられると tNN は変わるので、その時点で再抽出する。 */
+  rec: {
+    site: "https://toritarosan.github.io/Kaigiroku/",
+    name: "非公式会議録",
+    desc: "YouTubeの字幕をAIで整えた記録です。市の公式な会議録ではありません",
+    fetched: "2026-09-07",
+    days: {
+      "2026-09-02": { file: "R8.9.2_本会議.html", label: "9月2日の本会議" },
+      "2026-09-03": { file: "R8.9.3_本会議.html", label: "9月3日の本会議" },
+      "2026-09-04": { file: "R8.9.4_本会議.html", label: "9月4日の本会議" }
+    }
+  },
+  /* 会議日割表(案)(令和8年8月24日登録)+ポスターの補足(括弧内) */
+  calendar: [
+    { d: "2026-08-27", kind: "本会議", note: "開会。会期の決定、議長報告、議案の説明・質疑・委員会付託など" },
+    { d: "2026-08-28", kind: "協議会", note: "広報・広聴協議会" },
+    { d: "2026-08-29", kind: "休会" },
+    { d: "2026-08-30", kind: "休会" },
+    { d: "2026-08-31", kind: "本会議", note: "議案の説明、質疑、委員会付託又は討論、採決" },
+    { d: "2026-09-01", kind: "本会議", note: "議案の説明、質疑、委員会付託又は討論、採決(この日は午後1時から)" },
+    { d: "2026-09-02", kind: "一般質問", note: "本会議・一般質問(1日目)" },
+    { d: "2026-09-03", kind: "一般質問", note: "本会議・一般質問(2日目)" },
+    { d: "2026-09-04", kind: "一般質問", note: "本会議・一般質問(3日目)" },
+    { d: "2026-09-05", kind: "休会" },
+    { d: "2026-09-06", kind: "休会" },
+    { d: "2026-09-07", kind: "一般質問", note: "本会議・一般質問(4日目・最終日)" },
+    { d: "2026-09-08", kind: "委員会", note: "議会運営委員会" },
+    { d: "2026-09-09", kind: "委員会", note: "厚生文教委員会" },
+    { d: "2026-09-10", kind: "委員会", note: "建設環境委員会" },
+    { d: "2026-09-11", kind: "委員会", note: "総務企画委員会" },
+    { d: "2026-09-12", kind: "休会" },
+    { d: "2026-09-13", kind: "休会" },
+    { d: "2026-09-14", kind: "委員会", note: "予算特別委員会(補正予算の審査)" },
+    { d: "2026-09-15", kind: "委員会", note: "庁舎等建設及び公共施設マネジメント推進調査特別委員会" },
+    { d: "2026-09-16", kind: "休会", note: "本会議予備日" },
+    { d: "2026-09-17", kind: "休会", note: "議会整理日" },
+    { d: "2026-09-18", kind: "本会議", note: "委員会に付託した案件の審査報告、質疑、討論、採決(請願・陳情・議案・議員案の採決)" },
+    { d: "2026-09-19", kind: "休会" },
+    { d: "2026-09-20", kind: "休会" },
+    { d: "2026-09-21", kind: "休会", note: "敬老の日" },
+    { d: "2026-09-22", kind: "休会", note: "国民の休日" },
+    { d: "2026-09-23", kind: "休会", note: "秋分の日" },
+    { d: "2026-09-24", kind: "休会" },
+    { d: "2026-09-25", kind: "委員会", note: "決算特別委員会(令和7年度決算の審査)" },
+    { d: "2026-09-26", kind: "休会" },
+    { d: "2026-09-27", kind: "休会" },
+    { d: "2026-09-28", kind: "委員会", note: "決算特別委員会" },
+    { d: "2026-09-29", kind: "委員会", note: "決算特別委員会" },
+    { d: "2026-09-30", kind: "委員会", note: "決算特別委員会" },
+    { d: "2026-10-01", kind: "委員会", note: "決算特別委員会" },
+    { d: "2026-10-02", kind: "休会", note: "議会整理日" },
+    { d: "2026-10-03", kind: "休会" },
+    { d: "2026-10-04", kind: "休会" },
+    { d: "2026-10-05", kind: "本会議", note: "閉会日。委員会に付託した案件の採決(令和7年度決算等)、議員派遣の採決" }
+  ],
+  /* no=発言順, day=質問日(予定), notice=通告書の日付(通告書の記載どおり) */
+  members: [
+    { no: 1, name: "吹春やすたか", faction: "自由民主党小金井", day: "2026-09-02", notice: "2026-08-20", rec: "t1",
+      items: [
+        { t: "小金井市は自然大災害発災時に市民を守るための施策の充実を図れているだろうか",
+          s: ["避難所の環境について、熊本地震や能登半島地震の教訓が生かされているか", "災害発災時のトイレ対策について問う", "自然大災害発災時の緊急医療体制について問う", "災害対策本部について問う"] }
+      ] },
+    { no: 2, name: "鈴木成夫", faction: "みらいのこがねい", day: "2026-09-02", notice: "2026-08-20", rec: "t31",
+      items: [
+        { t: "小金井市の防災力を強化し、向上しよう",
+          s: ["被災地に対する災害支援のルール化を検討しないか", "「災害に強いまちづくり」実現のため、どのような取組みを強化したのか", "地域防災計画に基づいた全庁的な予防対策の点検をしないか", "「防災フェス」に合わせて、災害対策本部の立上げと運用訓練をしないか", "被災地への職員派遣について", "福祉避難所となる施設の要配慮者受入れについて", "避難行動要支援者、個別避難計画作成者数について"] }
+      ] },
+    { no: 3, name: "小林正樹", faction: "小金井市議会公明党", day: "2026-09-02", notice: "2026-08-20", rec: "t99",
+      items: [
+        { t: "前立腺がん検診の導入による男性のがん対策の充実について", s: ["本市における前立腺がんの現状と検診の考え方について", "近隣自治体における前立腺がん検診の実施状況について", "前立腺がん検診の導入と男性のがん対策の充実について"] },
+        { t: "公共工事における総合評価方式の検証と改善について", s: ["本市における総合評価方式の現状と効果について", "近隣自治体との比較から見た制度の課題について", "今後の総合評価方式の改善について"] },
+        { t: "公共サービスの質を支える労働条件審査の導入について", s: ["本市における指定管理業務の労働条件の把握について", "都内自治体における「労働条件審査」の導入状況と効果について", "本市における労働条件審査の導入について"] },
+        { t: "災害時の混乱を防ぐ生産緑地の活用ルールと協定の検証について", s: ["本市における生産緑地の防災機能について", "協定に基づいた具体的な災害時における農地の活用等の検証について", "生産緑地を活用した地域防災力の向上について"] }
+      ] },
+    { no: 4, name: "清水学", faction: "自民党・街の仲間たち", day: "2026-09-02", notice: "2026-08-20", rec: "t159",
+      items: [
+        { t: "「自転車、どこに停める？」東小金井の自転車環境を考える〜安心して「走る・停める・歩く」まちへ〜", s: [] },
+        { t: "梶野公園における駐輪常態化とその対策、東小金井駅周辺の駐輪環境について", s: ["梶野公園における駐輪常態化の実態と、市の認識について", "梶野公園での駐輪常態化対策について", "東小金井駅周辺の自転車駐車場の収容台数、利用状況について", "利用率に余裕のある自転車駐車場への誘導・利用促進策のその後の検討について"] },
+        { t: "東小金井駅北口に新設される駅前公園の駐輪対策について", s: ["駅前公園における公園利用者の駐輪についての考え方", "梶野公園と同様の状況を生じさせないため、整備段階から検討することについて", "東小金井駅北口まちづくり協議会で積み重ねてきた議論を踏まえた今後の公園整備について"] },
+        { t: "市営自転車駐車場の利便性向上について", s: ["今年7月から開始したキャッシュレス決済の利用状況と効果について", "今後の既存自転車駐車場へのキャッシュレス決済対応の拡大について"] },
+        { t: "小金井市自転車総合計画の策定に向けた取組について", s: ["令和7年度から令和9年度までの準備・検討の進捗状況について", "駐輪施策、利用実態・ニーズ調査等、現在検討している内容について", "自転車ネットワーク計画、自転車通行空間及び歩行者の安全確保について", "令和10年度の計画策定に向けた今後の取組について"] }
+      ] },
+    { no: 5, name: "岸田正義", faction: "みらいのこがねい", day: "2026-09-02", notice: "2026-08-20", rec: "t312",
+      items: [
+        { t: "小中学校等における起立性調節障害の周知啓発について", s: ["起立性調節障害を当事者から広める会から寄贈頂いたリーフレットの活用状況について", "当事者による講演会について", "担任の先生など現場教員の研修会の更なる周知啓発について"] },
+        { t: "フロントヤード改革に資する開庁時間の短縮について", s: ["行財政改革2030における位置づけと目的について", "これまでの検討状況について", "市民利用手段の確保について", "持続可能な市民サービスの提供体制について", "今後の方針について"] },
+        { t: "マイナンバーカード手続きについて", s: ["窓口の混雑状況について", "混雑の要因と対策について", "今後の対策について"] }
+      ] },
+    { no: 6, name: "吉良のりこ", faction: "みらいのこがねい", day: "2026-09-02", notice: "2026-08-20", rec: "t399",
+      items: [
+        { t: "第10期小金井市介護保険・高齢者保健福祉総合事業計画／認知症施策推進計画策定に関する調査報告書を踏まえた高齢者施策について", s: ["同調査報告書に示された高齢者の就労・生きがい、社会参加、地域での支え合い、デジタル活用、介護を支える人材・専門職の環境整備等について、市の認識と今後の取り組みを伺う"] }
+      ] },
+    { no: 7, name: "村上ようすけ", faction: "いのちの党小金井", day: "2026-09-03", notice: "", rec: "t1",
+      items: [
+        { t: "不登校支援の進捗と今後の方向性について", s: ["チャレンジクラスの現状と今後の取組みについて", "「もくせい教室」の現状と課題について", "「学びの多様化」の推進強化について"] },
+        { t: "フードドライブの現状と今後の対応について", s: ["フードドライブの現状と課題について", "フードバンク構築に向けて"] },
+        { t: "市立公園の指定管理の現状と今後の対応について", s: ["指定管理の現状と課題について", "業者連携の現状と今後の対応について"] }
+      ] },
+    { no: 8, name: "たゆ久貴", faction: "日本共産党小金井市議団", day: "2026-09-03", notice: "2026-08-21", rec: "t51",
+      items: [
+        { t: "防災・減災対策の充実を求める", s: ["避難所運営への十分な対策を", "地震・水害への備えと被災者支援の対策を"] },
+        { t: "気候危機対策の充実を求める", s: ["この間の取組について", "さらなる充実を求める", "あらゆる分野で気候危機対策の視点を持ち気候危機対策の主流化を"] }
+      ] },
+    { no: 9, name: "太田宏徳", faction: "小金井市議会公明党", day: "2026-09-03", notice: "2026-08-21", rec: "t87",
+      items: [
+        { t: "私道の維持管理支援について", s: ["私道の補修の補助について", "私道維持管理の課題について", "シルバー人材センターによる簡易舗装の可能性について", "私道所有者と舗装事業者をつなぐ支援について", "地権者の合意形成に対する行政支援について"] },
+        { t: "激甚化するゲリラ豪雨に対する内水氾濫対策について", s: ["局地的な浸水・冠水等の発生状況を、市が迅速かつ的確に把握するための情報収集・共有体制について", "市民からの通報、気象情報、ライフライン事業者等からの情報を活用した、リアルタイムな情報把握と情報発信の強化について", "水防法に基づく「雨水出水浸水想定区域」の指定について、市の現状と今後の考えについて", "同区域の指定を踏まえた内水ハザードマップの整備・法定化と、市民への周知・避難行動につなげる取り組みについて", "想定を超える局地的豪雨に備え、現在の内水氾濫対策について、今後どのような強化が必要と認識しているか"] }
+      ] },
+    { no: 10, name: "天野かな", faction: "みらいのこがねい", day: "2026-09-03", notice: "", rec: "t147",
+      items: [
+        { t: "母子保健事業の利便性の向上及び産前産後の各種申請のデジタル化について", s: ["産後ケア事業について、利用者想定と実際の利用実績、見込みと実績についての分析、今後の課題についての市の見解", "母子保健事業に係る各種手続きのWeb申請化並びに母子健康手帳アプリもしくはLINE等を活用した申請・予約のワンストップ化についての市の見解", "事務事業評価においても市が課題としている相談体制や情報提供及び周知に対する具体策"] },
+        { t: "ガバメントクラウド・システム標準化への対応・AI導入に係る現況について", s: ["地方公共団体情報システム運用最適化計画の策定・提出状況及び東京自治体クラウドの覚書更新状況", "標準準拠システムの移行完了状況並びに稼働開始後のバグ修正・追加開発費・窓口業務負担等の現況", "シャドーIT・セキュリティリスクへの認識及び内部業務効率化のための生成AI活用に関する市の方針"] }
+      ] },
+    { no: 11, name: "ながとり太郎", faction: "小金井をおもしろくする会", day: "2026-09-03", notice: "2026-08-21", rec: "t244",
+      items: [
+        { t: "単身者が安心して暮らせるまちづくりを", s: ["小金井市での単身世帯率と世帯主が40〜64歳の単身率を把握しているか", "40〜64歳の単身者が現在使用できる事業にはどのようなものがあるか", "現状の施策・事業でただちにできる改善にはどのようなものがあるか"] },
+        { t: "CoCoバス再編を契機に運行データの公開と効果測定を", s: ["再編・運賃改定の効果を測るための基準と、実施前データの記録・公開を行わないか", "再編に伴う運行データ(GTFS-JP)の整備と市による全路線データの公開を行わないか", "利用実績・収支を分かりやすく定期公表しないか"] }
+      ] },
+    { no: 12, name: "沖浦あつし", faction: "みらいのこがねい", day: "2026-09-03", notice: "2026-08-21", rec: "t307",
+      items: [
+        { t: "移動支援事業について問う", s: ["対象要件緩和以降の利用状況について", "支給決定後に、一定期間サービス利用実績がない方へのフォロー", "ガイドヘルパーは不足していないか現状確認", "移動支援従事者研修の状況について"] },
+        { t: "ひきこもり支援、医療機関につないだ場合の対応について問う", s: ["ひきこもりに関する相談件数や対応状況", "本人が出向けない場合の、訪問診療やオンライン診療を行うクリニック(診療所・医院)の把握", "医師の診断書・意見書がなくても受給者証を発行できる事例について", "相談支援事業所との連携(ひきこもり支援ネットワークづくり)"] },
+        { t: "庁舎及び(仮称)新福祉会館建設事業", s: ["今定例会で「建設工事費の再積算に係る予算」が上程されなかったことによる影響と今後のプランについて市長に問う"] }
+      ] },
+    { no: 13, name: "藤川賢治", faction: "小金井市政を見える化する会", day: "2026-09-04", notice: "2026-08-21", rec: "t2",
+      items: [
+        { t: "市施設の上流ネットワークについて", s: ["市がネットワークを構築している拠点のリスト", "ネットワーク拠点の上流回線は各何種類か、また年額費用", "年間のネットワークの管理委託費"] },
+        { t: "新庁舎・新福祉会館建設について", s: ["新庁舎・新福祉会館建設の令和7年の入札失敗と不調について", "議決を経ない金額174億円で、設計見直しせずR10年の入札を目指すことについて", "「市民案(見直し案)」について、機能や入札時期、入札失敗との関係について", "「中期財政計画における庁舎等建設事業の取扱いについて」の先行竣工に関する矛盾", "130億円でどの程度の規模、構造、配置が実現可能かのサウンディング調査について", "130億円で試算すると総額242億から、53億円、利子だけで10億円減るのでは無いか"] },
+        { t: "ワクチンについて", s: ["妊婦向けRSウイルスワクチンでの副反応疑い報告や健康被害救済制度申請について", "モノクローナル抗体をワクチンとして使用するための予防接種法の改正について", "上記の薬価や小金井市で定期接種に組込まれた際の接種委託料について", "厚生科学審議会「HPVワクチンの安全性に関するフォローアップ研究」について", "市の広報やHPでワクチン接種に関する情報として健康被害情報の提供について", "2021年〜2023年接種歴のVRSへの記入で先に死亡していた場合でも入力されていたか"] },
+        { t: "小金井市新型インフルエンザ等対策行動計画の改定について", s: ["新型コロナ対策の効果と評価と振り返りと評価について(世界での対応を踏まえ)", "「庁内調査結果等報告書」と計画への反映について", "マスク、行動制限、緊急事態措置、ワクチンについて"] },
+        { t: "市の窓口のパーテイションとマスクについて", s: [] }
+      ] },
+    { no: 14, name: "中井れい子", faction: "小金井市議会公明党", day: "2026-09-04", notice: "2026-08-24", rec: "t74",
+      items: [
+        { t: "不登校支援・多様な学びと居場所の充実について", s: ["国・東京都の不登校支援を踏まえた本市の現状について", "(小項目の一部は原本の判読が難しいため省略)"] },
+        { t: "香りによる健康への影響(香害)について", s: ["香りによる健康への影響についての本市の認識", "(小項目の一部は原本の判読が難しいため省略)"] },
+        { t: "5歳児健診の実施と健診後の支援体制について", s: ["他市の先行事例を踏まえた本市における5歳児健診の実施について", "(小項目の一部は原本の判読が難しいため省略)"] }
+      ] },
+    { no: 15, name: "遠藤百合子", faction: "自由民主党小金井", day: "2026-09-04", notice: "2026-08-24", rec: "t150",
+      items: [
+        { t: "健康維持のための食育を！！", s: ["教育委員会としての取組は", "学校で栄養士さんに、改めて講話等をお願い出来ないか", "大人の食育運動を掲げ企業・家庭等、連携した取組を", "食育を担う人材確保の充実は", "市の取組の、その成果の見える化と効果検証を", "玄米の持つ健幸への効果と広報を"] },
+        { t: "伝統文化の継承と歴史文化の再認識を", s: ["小・中学校における伝統文化体験(茶道、書道、和楽器、郷土芸能、神社祭礼の見学等)の実施状況と歴史文化認識状況は", "地域伝統行事の課題の状況について市はどのように把握しているか", "地域伝統文化と歴史的文化を守るためにどのような支援がよいと思うのか、今後具体的な検討、また予算化の予定があるか", "施設の貸出し状況において、伝統文化及び歴史文化関連の年間利用件数、学校向け優先枠、料金免除・助成は", "市長は議員時代に小金井桜への認識が薄かったが現状の認識は"] },
+        { t: "主権・国土(地域を守る意識)の醸成を", s: [] }
+      ] },
+    { no: 16, name: "水上洋志", faction: "日本共産党小金井市議団", day: "2026-09-04", notice: "2026-08-24", rec: "t212",
+      items: [
+        { t: "国民健康保険税の負担軽減を求める", s: ["「国保の構造的問題」をどう考えるのか", "「保険料統一」の問題点(さらなる負担増を招くことになるのではないか)", "国保税の負担軽減を求める"] },
+        { t: "会計年度任用職員の処遇改善を求める", s: ["会計年度任用職員の現状について", "災害時の会計年度任用職員の対応について", "「雇止め」の上限撤廃を行うべき", "さらなる処遇改善を求める"] },
+        { t: "子どもが不登校の場合の介護休業の適用について周知徹底を求める", s: [] }
+      ] },
+    { no: 17, name: "安田けいこ", faction: "生活者ネットワーク", day: "2026-09-04", notice: "2026-08-24", rec: "t289",
+      items: [
+        { t: "HPVワクチン接種リスクについて周知を", s: ["厚労省の情報をもとに副反応について情報提供を", "副反応被害者への対応、相談体制、医師会や学校の認識", "子宮頸がん検診を受けやすく", "自己決定するための包括的性教育について"] },
+        { t: "身体にも環境にも優しい石けん利用を広げよう", s: ["保育園・小中学校での石けん利用状況", "石けん使用指針をつくらないか", "香害についての周知、学校での給食衣の移香について"] },
+        { t: "ごみ減量の取組を進めよう", s: ["布団・羽毛・食器類等の資源化について", "リユース事業について", "マイボトル専用給水機の設置を増やそう"] }
+      ] },
+    { no: 18, name: "坂井えつ子", faction: "緑・つながる小金井", day: "2026-09-04", notice: "2026-08-24", rec: "t370",
+      items: [
+        { t: "市立小中学校の教室を断熱改修しよう", s: ["文部科学省が「夏の時期に最も望ましい」とする28度を超えている教室の、2026年の測定結果及び測定の状況・体制を確認する"] },
+        { t: "地震や、もはや想定外ではない地球沸騰化による気候変動に備えよう", s: ["感震ブレーカーの設置支援を", "本庁舎に非常用電源がない状況など、災害対策本部の非常用電源について"] },
+        { t: "「はけと野川をこわす道路」はいらない", s: ["小金井都市計画道路3・4・11号線について、はけ・野川及び武蔵野公園の自然環境をできる限り守るとする市長と、おもに直近の動静について"] }
+      ] },
+    { no: 19, name: "河野麻美", faction: "自由民主党小金井", day: "2026-09-07", notice: "2026-08-24",
+      items: [
+        { t: "「市民まつり」は本当に再開出来るのか！？", s: ["検討状況、検討体制について", "市の考える市民まつりの目的は", "今、市民に伝えるべきことは何か"] },
+        { t: "「稼ぐ自治体」についてこの4年間の取り組みは", s: ["稼ぐ自治体とは", "取り組み、成果について", "4年間の評価"] }
+      ] },
+    { no: 20, name: "渡辺大三", faction: "子どもの権利／情報公開", day: "2026-09-07", notice: "2026-08-24",
+      items: [
+        { t: "クビアカツヤカミキリから名勝小金井(サクラ)を守る施策の推進を", s: ["クビアカツヤカミキリに関する現状把握", "名勝小金井(サクラ)など市内の貴重な樹木を守る施策の展開を。先進自治体の取り組みを参考に必要経費を来年度予算に組み込まないか"] },
+        { t: "行政の不作為が大事故につながる…交通安全対策の推進を", s: ["北大通り、緑町郵便局の目の前の横断歩道が消えかかったまま長期間放置されている件について。すみやかな是正を", "路面標示が消えかかったまま放置されているケースが多いが、どの程度まで薄れたら引き直すのか、基準やマニュアルは整備されているのか"] },
+        { t: "白井市政4年間を検証する(その2)", s: ["白井市長の任期最終の定例議会となるので、4年前の市長選の際の主要公約に関して、さまざまな角度から、市長の認識や見解を問う"] }
+      ] },
+    { no: 21, name: "片山かおる", faction: "子どもの権利／情報公開", day: "2026-09-07", notice: "2026-08-24",
+      items: [
+        { t: "社会教育の衰退につながる公民館有料化は撤回せよ", s: ["「第65回社会教育研究全国集会」に小金井の社会教育関係職員や審議会関係の市民は参加しているか。どのように参考にしたのか", "「公民館40年のあゆみ」を参考に、これまでの公民館運営はどのような特徴をもち、どのような評価をされてきたものだったかの認識は", "「新しい公民館像をめざして」の中での4つの役割、7つの原則、4つの課題、公民館職員の5つの基本的任務、求められた施設空間などについて、どのように果たしてきたのか果たせなかったものは何か", "公民館有料化説明会で出された意見について、どのように対応するのか", "公民館の手引きの見直しが必要ではないか", "誰も排除しない公民館運営、社会教育の自由と権利を守るためには何が必要か"] },
+        { t: "利用者目線の生活保護行政となっているか", s: ["最高裁判決に基づく追加(遡及)支給について、2013年の基準引き下げの根拠は何だったのか。違法な処分に従ってきたことに対して自治体としての謝罪は。支給金額が半額にされた根拠は妥当と考えるのか", "全国での不適切な対応事例を把握し、その反省を市の生活保護行政に反映させているか", "家族介護料加算については計上漏れはないか", "国立市の生活保護のしおりやWebサイトなど、市民に寄り添った生活保護行政を参考にしないか。利用当事者も含む第三者機関による検証を行わないか", "生活保護基準が低すぎる。物価上昇に伴う扶助基準引き上げを国に要求しないか"] }
+      ] },
+    { no: 22, name: "水谷たかこ", faction: "小金井をおもしろくする会", day: "2026-09-07", notice: "2026-08-24",
+      items: [
+        { t: "在宅避難を支える仕組みを〜災害時の妊産婦・乳幼児支援を考える", s: ["在宅避難者への食料・物資支援は計画に位置付けられているか", "在宅避難している要配慮者を、どう把握するのか", "母子保健の仕組みを災害時のアウトリーチにつなげよう", "10月導入予定の母子健康手帳アプリを災害時にも活用しよう"] },
+        { t: "国の新たな方針を踏まえた在宅医療・介護連携の再構築について", s: ["厚生労働省が2025年3月に改定した「在宅医療・介護連携推進事業の手引き」Ver.4をどう受け止めているか", "「在宅医療に必要な連携を担う拠点」をどこに位置づけるのか", "高齢者以外の在宅療養者との接続", "支援室の機能拡充が必要ではないか"] },
+        { t: "児童・生徒の安全と緊急時の連絡体制確保のために", s: ["市立小中学校における緊急時の連絡体制は", "教職員の私物スマートフォンの取扱いと、公務用通信手段の確保"] },
+        { t: "人事異動における円滑な事務引継ぎのために", s: ["4月1日付の定期人事異動について、内示から辞令交付まで、現在どのような日程・手順で行っているか", "年度末に退職(転職)する職員について、後任者への事務引継ぎはどのように行っているか", "多摩地域の他自治体の内示、公表、引継ぎ等のスケジュールを調査・比較したことはあるか", "前任者と後任者が直接かつ十分に引継ぎを行える期間を確保するよう、人事異動のスケジュールを見直さないか"] }
+      ] },
+    { no: 23, name: "森戸よう子", faction: "日本共産党小金井市議団", day: "2026-09-07", notice: "2026-08-24",
+      items: [
+        { t: "物価高騰から市民生活を支援する施策について再び問う", s: ["幼稚園児への経済的支援の拡充を", "小中学校の副教材費、修学旅行費用等の負担軽減を問う", "低所得者世帯の高校生の交通費手当の支給を"] },
+        { t: "今後の高齢者借り上げ住宅の市の対応について", s: ["コーポくりのみの廃止の経過と市の対応について", "低所得者のひとり暮らし高齢者への家賃補助を"] },
+        { t: "災害対策の更なる拡充・強化を", s: ["木造住宅耐震化の助成制度の拡充をしないか", "感震ブレーカーの周知と助成を行わないか"] },
+        { t: "新庁舎等建設事業、学校施設の長寿命化計画について", s: ["財政規律ガイドラインを超えることについて、市の見解を問う", "新庁舎等建設の現設計の災害(地震、浸水)対策は大丈夫か。見直す必要があるのではないか"] }
+      ] }
+  ],
+  /* テーマ分類: 表題・小項目に含まれる語で機械的に分類する(人の判断は入れない) */
+  themes: [
+    { key: "防災・災害", re: "災害|防災|避難|地震|豪雨|氾濫|非常用電源|感震|在宅避難|水害|耐震" },
+    { key: "子ども・学校", re: "不登校|小中学校|学校|児童|生徒|幼稚園|5歳児|母子|産後|起立性|子ども|教室" },
+    { key: "高齢者・福祉", re: "高齢者|介護|ひきこもり|移動支援|生活保護|福祉|単身" },
+    { key: "庁舎・公共施設", re: "庁舎|福祉会館|公民館|公共施設|市民まつり" },
+    { key: "交通・道路", re: "自転車|駐輪|私道|道路|交通|CoCoバス|横断歩道|路面標示" },
+    { key: "健康・医療", re: "がん|ワクチン|健康|医療|香害|石けん|健診|食育|感染|インフルエンザ|マスク" },
+    { key: "暮らし・物価", re: "物価|国民健康保険|国保|住宅|家賃|負担軽減|交通費" },
+    { key: "行政運営・DX", re: "デジタル|AI|ガバメントクラウド|人事|開庁|マイナンバー|会計年度任用職員|総合評価|労働条件|指定管理|稼ぐ|市政|ネットワーク|Web申請|標準化|引継ぎ" },
+    { key: "環境・みどり", re: "気候|断熱|クビアカ|サクラ|生産緑地|ごみ|はけ|野川|石けん|リユース|地球沸騰" }
+  ],
+  /* 2026-09-07に実施したサイト内検索(Googleカスタム検索)の再現結果 */
+  searchTest: [
+    { q: "2026年9月2日 一般質問 通告", hits: "約2件", found: false,
+      results: ["令和6年第1回定例会一般質問(PDF・2024年)", "令和元年9月の一般質問(PDF・2019年)"],
+      note: "今回(令和8年第3回)の通告書は出てこない" },
+    { q: "令和8年第3回定例会 一般質問", hits: "約168件", found: true,
+      results: ["議案一覧", "令和8年第1回定例会議案一覧", "令和8年下期(7月から12月まで) ← ここに通告書PDF"],
+      note: "3件目に目的のページが出る" }
+  ],
+  /* トップページから通告書PDFまでの道のり(パンくずリストどおり) */
+  path: [
+    { label: "トップページ", url: "https://www.city.koganei.lg.jp/" },
+    { label: "市政", url: "https://www.city.koganei.lg.jp/shisei/index.html" },
+    { label: "市議会", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/index.html" },
+    { label: "定例会・臨時会(議案・審査結果など)", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/index.html" },
+    { label: "令和8年", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/index.html" },
+    { label: "一般質問・会議日割表・閉会中の委員会日程など", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8yotei_gikai/index.html" },
+    { label: "令和8年下期(7月から12月まで)", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8yotei_gikai/r8simoki.html" },
+    { label: "PDF「令和8年第3回小金井市議会定例会一般質問」(25ページ)", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8yotei_gikai/r8simoki.files/20260826ippansitumon-OCR.pdf" }
+  ],
+  /* 市議会サイト内で日付がどう書かれているか(2026-09-07確認) */
+  notation: [
+    { where: "ページの題名・本文", how: "元号のみ", ex: "「令和8年下期(7月から12月まで)」「令和8年8月26日登録」" },
+    { where: "ページの更新日(自動表示)", how: "西暦のみ", ex: "「更新日：2026年8月31日」" },
+    { where: "新着情報の日付", how: "西暦のみ", ex: "「2026年9月4日 議会運営委員会審査予定表を掲載しました」" },
+    { where: "市議会だよりの題名", how: "併記", ex: "「令和8年(2026年)8月19日発行」" },
+    { where: "通告書の様式(議員が書く用紙)", how: "併記欄あり", ex: "「令和8年8月20日(西暦2026年)」。空欄のままの通告書もある" },
+    { where: "PDFのファイル名", how: "西暦", ex: "20260826ippansitumon-OCR.pdf" },
+    { where: "ページのURL", how: "元号のローマ字", ex: "reiwa8_gikai / r8simoki" }
+  ]
+};
+
+</script>
+<script>
+/* 3案共通のユーティリティ(日付・元号・状態判定)。答えが一意に決まる処理だけを置く */
+const WD = ["日", "月", "火", "水", "木", "金", "土"];
+
+function parseYMD(s) { const [y, m, d] = s.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d)); }
+function ymd(dt) { return dt.toISOString().slice(0, 10); }
+function addDays(s, n) { const d = parseYMD(s); d.setUTCDate(d.getUTCDate() + n); return ymd(d); }
+function weekday(s) { return WD[parseYMD(s).getUTCDay()]; }
+
+/* 元号: 令和=2018+n, 平成=1988+n, 昭和=1925+n (元年は1) */
+function wareki(y) {
+  if (y >= 2019) return { era: "令和", n: y - 2018 };
+  if (y >= 1989) return { era: "平成", n: y - 1988 };
+  if (y >= 1926) return { era: "昭和", n: y - 1925 };
+  if (y >= 1912) return { era: "大正", n: y - 1911 };
+  return { era: "明治", n: y - 1867 };
+}
+function warekiStr(y) { const w = wareki(y); return w.era + (w.n === 1 ? "元" : w.n) + "年"; }
+function seireki(era, n) { return ({ "令和": 2018, "平成": 1988, "昭和": 1925, "大正": 1911, "明治": 1867 })[era] + n; }
+
+/* "2026-09-07" → 各種表記 */
+function fmtLong(s) { const [y, m, d] = s.split("-").map(Number); return `${y}年${m}月${d}日(${weekday(s)})`; }
+function fmtWareki(s) { const [y, m, d] = s.split("-").map(Number); return `${warekiStr(y)}${m}月${d}日`; }
+function fmtBoth(s) { return `${fmtLong(s)}／${fmtWareki(s)}`; }
+function fmtMD(s) { const [, m, d] = s.split("-").map(Number); return `${m}/${d}`; }
+function fmtMDJ(s) { const [, m, d] = s.split("-").map(Number); return `${m}月${d}日(${weekday(s)})`; }
+
+/* 日本時間の「きょう」。URLの ?date=YYYY-MM-DD があればそれを優先(確認用) */
+function todayJST() {
+  const p = new URLSearchParams(location.search).get("date");
+  if (p && /^\d{4}-\d{2}-\d{2}$/.test(p)) return p;
+  const t = new Date(Date.now() + 9 * 3600 * 1000);
+  return t.toISOString().slice(0, 10);
+}
+
+/* 会期に対する「きょう」の位置づけ */
+function sessionState(today, S) {
+  if (today < S.start) return { phase: "before", label: "開会前" };
+  if (today > S.end) return { phase: "after", label: "閉会済み" };
+  const idx = S.qDays.indexOf(today);
+  if (idx >= 0) return { phase: "qday", label: `一般質問 ${idx + 1}日目`, idx };
+  if (today < S.qDays[0]) return { phase: "beforeQ", label: "一般質問はこれから" };
+  if (today > S.qDays[S.qDays.length - 1]) return { phase: "afterQ", label: "一般質問は終了" };
+  return { phase: "betweenQ", label: "一般質問の合間(休会日)" };
+}
+function nextQDay(today, S) { return S.qDays.find(d => d >= today) || null; }
+function calendarEntry(today, cal) { return cal.find(c => c.d === today) || null; }
+function nextEvent(today, cal) { return cal.find(c => c.d > today && c.kind !== "休会") || null; }
+
+/* 開始時刻の目安。10時開始・1人60分に、昼休憩(12:00-13:00)と午後の休憩(15:00-15:30)をはさんで足す。
+   公式の時刻表はないので「ごろ」表記。実際の進行では前後する */
+const BREAKS = [[12 * 60, 13 * 60], [15 * 60, 15 * 60 + 30]];
+function skipBreak(t) { for (const [a, b] of BREAKS) if (t >= a && t < b) return b; return t; }
+function advanceMin(t, mins) {
+  let cur = skipBreak(t);
+  while (mins > 0) {
+    let next = Infinity;
+    for (const [a] of BREAKS) if (a > cur) next = Math.min(next, a);
+    const step = Math.min(mins, next - cur);   /* 休憩の手前までしか進めない */
+    cur = skipBreak(cur + step);
+    mins -= step;
+  }
+  return cur;
+}
+function hhmm(t) { return `${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}`; }
+function roughTime(m, D) {
+  const S = D.session;
+  const first = Math.min(...D.members.filter(x => x.day === m.day).map(x => x.no));
+  const [sh, sm] = S.qStart.split(":").map(Number);
+  let t = skipBreak(sh * 60 + sm);
+  for (let i = 0; i < m.no - first; i++) t = advanceMin(t, S.qMinutes);
+  return hhmm(t);
+}
+
+/* 非公式会議録の該当箇所URL。?q=で本文をハイライトし、#tNN(発言開始のかたまり)へ飛ばす。
+   アンカーが無い/その日の会議録が未公開なら null を返す(リンクを出さない) */
+function recUrl(m, D) {
+  const R = D.rec, day = R && R.days[m.day];
+  if (!day || !m.rec) return null;
+  return R.site + encodeURIComponent(day.file) + "?q=" + encodeURIComponent(m.name) + "#" + m.rec;
+}
+
+/* テーマ分類(表題+小項目の語で機械的に判定) */
+function themeCounts(D) {
+  return D.themes.map(t => {
+    const re = new RegExp(t.re);
+    const who = D.members.filter(m => m.items.some(it => re.test(it.t) || it.s.some(x => re.test(x))));
+    return { key: t.key, count: who.length, who: who.map(m => m.name) };
+  }).sort((a, b) => b.count - a.count);
+}
+
+function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]); }
+
+</script>
+<script>
+(function(){
+  const S = DATA.session, M = DATA.members, CAL = DATA.calendar;
+  const realToday = todayJST();
+  let today = realToday;
+  let viewDay = null;
+
+  // links
+  document.getElementById("pdf-link").href = S.pdfUrl;
+  document.getElementById("yt-link").href = S.youtube;
+  document.getElementById("bocho-link").href = S.bochoUrl;
+  document.getElementById("kaigiroku-link").href = S.kaigirokuUrl;
+  document.getElementById("kaigiroku-link2").href = S.kaigirokuUrl;
+  document.getElementById("session-line").textContent =
+    `${S.official}(通称「${S.nickname}」) 会期 ${fmtLong(S.start)}〜${fmtLong(S.end)} ／ ${fmtWareki(S.start)}〜${fmtWareki(S.end)}`;
+
+  // date selector (確認用)
+  const sel = document.getElementById("date-sel");
+  const opts = [["", `きょう(${fmtMDJ(realToday)})`], ["2026-09-01", "9/1 質問前の本会議日"], ...S.qDays.map(d => [d, `${fmtMDJ(d)} 一般質問`]), ["2026-09-05", "9/5 休会日"], ["2026-09-10", "9/10 委員会の日"], ["2026-10-06", "10/6 閉会後"]];
+  opts.forEach(([v, l]) => { const o = document.createElement("option"); o.value = v; o.textContent = l; sel.appendChild(o); });
+  sel.addEventListener("change", () => { today = sel.value || realToday; viewDay = null; renderAll(); });
+
+  function speakersOf(d){ return M.filter(m => m.day === d).sort((a,b)=>a.no-b.no); }
+
+  function renderBoard(){
+    const st = sessionState(today, S);
+    const [y,m,d] = today.split("-").map(Number);
+    let html = `<div class="board-head">
+      <div class="bigdate">${m}/${d}<small>${weekday(today)}</small></div>
+      <div class="datelines"><div class="l1">${y}年${m}月${d}日(${weekday(today)}曜)</div><div class="l2">${fmtWareki(today)} ／ ${S.short}(${S.nickname})</div></div>
+      <div class="status ${st.phase==="qday"?"":"quiet"}">${st.label}</div></div>`;
+    if (st.phase === "qday") {
+      const sp = speakersOf(today);
+      html += `<div class="rows">` + sp.map(x => `<div class="row">
+        <div class="no">${x.no}</div>
+        <div class="who"><div class="name">${escapeHtml(x.name)}</div><div class="fac">${escapeHtml(x.faction)}</div></div>
+        <div class="topics"><div class="t1">${escapeHtml(x.items[0].t)}</div>${x.items.length>1?`<div class="more">ほか${x.items.length-1}項目</div>`:""}</div>
+        <div class="time">${roughTime(x, DATA)}<span>ごろ〜・目安</span></div>
+      </div>`).join("") + `</div>`;
+      html += `<div class="board-foot"><div>午前${S.qStart.replace(":00","時")}開始 · 1人およそ${S.qMinutes}分(質問+答弁) · 時刻は休憩(12時〜13時／15時〜15時30分)をはさんだ目安で、進行により前後します · ${sp.length}人が登壇予定</div>
+        <div class="acts"><a class="btn primary" href="${S.youtube}" target="_blank" rel="noopener">▶ 生中継・録画(YouTube)</a><a class="btn" href="${S.bochoUrl}" target="_blank" rel="noopener">傍聴に行く</a><a class="btn" href="${S.pdfUrl}" target="_blank" rel="noopener">通告書PDF</a></div></div>`;
+    } else {
+      const ce = calendarEntry(today, CAL), nx = nextEvent(today, CAL), nq = nextQDay(today, S);
+      html += `<div class="empty">`;
+      if (st.phase === "before") html += `<div class="big">9月議会はまだ始まっていません</div><p>開会は ${fmtBoth(S.start)}。一般質問は ${S.qDays.map(fmtMDJ).join("・")} の4日間です。</p>`;
+      else if (st.phase === "after") html += `<div class="big">9月議会は ${fmtMDJ(S.end)} に閉会しました</div><p>一般質問の録画はYouTube、会議録は定例会終了後おおむね1か月半から未定稿が公開されます。</p>`;
+      else if (st.phase === "beforeQ") html += `<div class="big">きょうは一般質問の日ではありません</div><p>きょうの会議: ${ce && ce.kind!=="休会" ? escapeHtml(ce.kind + (ce.note?"／"+ce.note:"")) : "休会"}</p><p>一般質問は ${fmtMDJ(nq)} から。4日間で23人が登壇します。</p>`;
+      else if (st.phase === "betweenQ") html += `<div class="big">きょうは休会日です</div><p>次の一般質問は ${fmtMDJ(nq)}(${speakersOf(nq).length}人)。下の日付ボタンで顔ぶれを確認できます。</p>`;
+      else html += `<div class="big">一般質問は ${fmtMDJ(S.qDays[3])} で終わりました</div><p>きょうの会議: ${ce && ce.kind!=="休会" ? escapeHtml(ce.kind + (ce.note?"／"+ce.note:"")) : "休会"}</p>${nx?`<p>次の会議: ${fmtMDJ(nx.d)} ${escapeHtml(nx.kind)}${nx.note?"("+escapeHtml(nx.note)+")":""}</p>`:""}`;
+      html += `</div><div class="board-foot"><div>${S.short} 会期 ${fmtMD(S.start)}〜${fmtMD(S.end)}</div><div class="acts"><a class="btn primary" href="${S.youtube}" target="_blank" rel="noopener">▶ 録画(YouTube)</a><a class="btn" href="${S.pdfUrl}" target="_blank" rel="noopener">通告書PDF</a><a class="btn" href="${S.kaigirokuUrl}" target="_blank" rel="noopener">会議録</a></div></div>`;
+    }
+    document.getElementById("board").innerHTML = html;
+  }
+
+  function renderTabs(){
+    if (!viewDay) viewDay = S.qDays.includes(today) ? today : (nextQDay(today, S) || S.qDays[S.qDays.length-1]);
+    const tabs = document.getElementById("tabs");
+    tabs.innerHTML = S.qDays.map((d,i) => {
+      const [,m,dd] = d.split("-").map(Number);
+      const stt = d === today ? "きょう" : (d < today ? "終了" : "これから");
+      return `<button class="tab" role="tab" aria-selected="${d===viewDay}" data-d="${d}"><span class="d">${m}/${dd}<small>${weekday(d)}</small></span><span class="c">${i+1}日目 · ${speakersOf(d).length}人 · ${fmtWareki(d)}</span><span class="st">${stt}</span></button>`;
+    }).join("");
+    tabs.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => { viewDay = b.dataset.d; renderTabs(); renderList(); }));
+  }
+  function renderList(){
+    const sp = speakersOf(viewDay);
+    document.getElementById("list").innerHTML = sp.map(x => `<div class="item">
+      <div class="n">${x.no}</div>
+      <div>
+        <div class="hd"><span class="nm">${escapeHtml(x.name)}</span><span class="fc">${escapeHtml(x.faction)}</span><span class="fc">${x.notice?`通告 ${fmtLong(x.notice)}／${fmtWareki(x.notice)}`:"通告日は原本に記載なし"}</span></div>
+        <ol>${x.items.map(it => `<li>${escapeHtml(it.t)}${it.s.length?`<details><summary>小項目 ${it.s.length}件</summary><ul>${it.s.map(s=>`<li>${escapeHtml(s)}</li>`).join("")}</ul></details>`:""}</li>`).join("")}</ol>
+      </div></div>`).join("");
+  }
+
+  function renderRead(){
+    const R = DATA.rec;
+    document.getElementById("rdays").innerHTML = S.qDays.map((d, i) => {
+      const sp = speakersOf(d), day = R.days[d], [, m, dd] = d.split("-").map(Number);
+      const later = d > today ? "これから" : "準備中";
+      const head = `<div class="rhead"><span class="rd">${m}/${dd}<small>${weekday(d)}</small></span>
+        <span class="rw">${fmtWareki(d)} · 一般質問${i + 1}日目 · ${sp.length}人</span>
+        ${day ? `<a class="rall" href="${R.site}${encodeURIComponent(day.file)}" target="_blank" rel="noopener">${escapeHtml(day.label)}を通して読む →</a>`
+              : `<span class="rw">${d > today ? "まだ行われていません" : "会議録はまだ公開されていません"}</span>`}</div>`;
+      const list = sp.map(x => {
+        const u = recUrl(x, DATA);
+        const who = `<span class="rn">${x.no}</span><span class="rnm">${escapeHtml(x.name)}<small>${escapeHtml(x.faction)}</small></span>`;
+        return u ? `<a class="rp" href="${u}" target="_blank" rel="noopener">${who}<span class="rgo">読む →</span></a>`
+                 : `<div class="rp off">${who}<span class="rgo">${later}</span></div>`;
+      }).join("");
+      return `<div class="rday">${head}<div class="rlist">${list}</div></div>`;
+    }).join("");
+  }
+
+  function renderCalendar(){
+    const tl = document.getElementById("tl"), mo = document.getElementById("months");
+    tl.innerHTML = CAL.map(c => {
+      const [,m,d] = c.d.split("-").map(Number);
+      const k = c.kind==="本会議"?"本":c.kind==="一般質問"?"質":c.kind==="休会"?"":"委";
+      const tip = `${fmtLong(c.d)}／${fmtWareki(c.d)}: ${c.kind}${c.note?" "+c.note:""}`;
+      return `<div class="cell ${c.kind} ${c.d===today?"today":""}" title="${escapeHtml(tip)}" aria-label="${escapeHtml(tip)}">${d}<span class="k">${k||"休"}</span></div>`;
+    }).join("");
+    mo.innerHTML = CAL.map((c,i) => { const [y,m,d] = c.d.split("-").map(Number); return (i===0||d===1) ? `<div>${m}月<span style="font-size:11px;margin-left:4px">${y}年／${warekiStr(y)}</span></div>` : `<div style="border-left-color:transparent"></div>`; }).join("");
+    const ups = CAL.filter(c => c.d >= today && c.kind !== "休会").slice(0,3);
+    document.getElementById("upnext").innerHTML = ups.length ? ups.map(c => { const [,m,d]=c.d.split("-").map(Number); return `<div class="up"><div class="d">${m}/${d}<small>${weekday(c.d)}</small></div><div class="w">${fmtWareki(c.d)}${c.d===today?" · きょう":""}</div><div class="k">${escapeHtml(c.kind)}</div><div class="t">${escapeHtml(c.note||"")}</div></div>`; }).join("") : `<div class="up"><div class="k">会期は終了しました</div><div class="t">次の定例会は12月(令和8年第4回)の予定です。日程は市議会サイトで</div></div>`;
+  }
+
+  function renderSources(){
+    const L = [
+      ["「令和8年下期(7月から12月まで)」ページ(更新日 2026年8月31日) — 通告書PDF・日割表の置き場", S.pageUrl],
+      ["「令和8年第3回小金井市議会定例会一般質問」PDF(令和8年8月26日登録・25ページ) — 発言順・質問日(予定)・通告書", S.pdfUrl],
+      ["「令和8年第3回小金井市議会定例会会議日割表」PDF(令和8年8月24日登録)", S.hiwariUrl],
+      ["ポスター「令和8年第3回小金井市議会定例会を開催します」PDF — 会場・傍聴受付", S.posterUrl],
+      ["会派別所属議員名簿(更新日 2026年8月12日)", S.kaihaUrl],
+      ["議会のしくみ(一般質問の説明)", S.shikumiUrl],
+      ["市議会の傍聴について(更新日 2024年12月9日)", S.bochoUrl],
+      ["インターネット中継・録画配信 → YouTube「小金井市議会」", S.youtube],
+      ["会議録の検索と閲覧(更新日 2026年8月31日)", S.kaigirokuUrl],
+      ["【市の公式サイトではありません】非公式会議録(YouTube字幕＋AI校正)。「終わった質問を読む」のリンク先。2026年9月7日に各ページから発言開始位置を機械抽出", DATA.rec.site]
+    ];
+    document.getElementById("src-list").innerHTML = L.map(([t,u]) => `<li>${escapeHtml(t)}<br><a href="${u}" target="_blank" rel="noopener">${u}</a></li>`).join("");
+  }
+
+  function renderAll(){ renderBoard(); renderTabs(); renderList(); renderRead(); renderCalendar(); }
+  renderAll(); renderSources();
+})();
+</script>
+
+</body>
+</html>
