@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>令和8年9月15日 庁舎等建設及び公共施設マネジメント推進調査特別委員会</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#17150f; --navy:#157a4b; --pop:#e8482a;
+    --muted:#6f6d68; --line:#e6e6e2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--serif);
+       line-height:1.4; -webkit-font-smoothing:antialiased;}
+  .prog{position:fixed; top:0; left:0; height:3px; width:0; background:var(--pop); z-index:50;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 24px 72px;}
+
+  /* サイト共通ヘッダー（トップと同系の緑＋クリーム）。iframe埋め込み時は html.embedded で非表示 */
+  .sitenav{background:#fff;border-bottom:1px solid #e4dccf;position:sticky;top:0;z-index:60;}
+  html.embedded .sitenav{display:none;}
+  .sitenav-in{max-width:1100px;margin:0 auto;padding:0 18px;min-height:52px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .sitenav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:#157a4b;font-weight:700;font-size:1rem;white-space:nowrap;}
+  .sitenav-brand img{display:block;border-radius:2px;}
+  .sitenav-links{margin-left:auto;display:flex;align-items:center;gap:2px;flex-wrap:wrap;}
+  .sitenav-links a{color:#2a2620;font-size:.84rem;font-weight:600;text-decoration:none;padding:8px 11px;border-radius:2px;white-space:nowrap;}
+  .sitenav-links a:hover{color:#157a4b;background:#e7f4ec;}
+  .sitenav-links .ext{color:#8a8073;font-size:.8em;margin-left:1px;}
+  @media(max-width:640px){.sitenav-in{min-height:0;padding:8px 14px;}.sitenav-links a{padding:6px 9px;font-size:.8rem;}}
+
+  /* パンくず */
+  .crumb{background:#fbf9f4;border-bottom:1px solid #eee7db;position:sticky;top:52px;z-index:59;}
+  html.embedded .crumb{display:none;}
+  .crumb-in{max-width:1100px;margin:0 auto;padding:8px 18px;font-size:.76rem;color:#8a8073;display:flex;align-items:center;gap:7px;flex-wrap:wrap;line-height:1.5;}
+  .crumb a{color:#157a4b;text-decoration:none;font-weight:600;}
+  .crumb a:hover{text-decoration:underline;}
+  .crumb .sep{color:#c9c0b2;}
+  .crumb .cur{color:#4a443b;font-weight:600;}
+  @media(max-width:640px){.crumb{position:static;} .sitenav-in{flex-wrap:nowrap;} .sitenav-links{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}}
+
+  .top{display:flex; align-items:center; gap:9px; font-family:var(--sans); font-size:12px;
+       letter-spacing:.14em; color:var(--muted); padding:22px 0 10px;}
+  .top .sq{width:9px;height:9px;background:var(--pop);}
+
+  .hero{padding:16px 0 24px;}
+  .hero .date{font-family:var(--sans); font-weight:500; font-size:17px; letter-spacing:.1em; color:var(--muted); margin:0 0 10px;}
+  .hero h1{font-family:var(--sans); font-weight:900; font-size:clamp(24px,4vw,34px); line-height:1.2;
+           letter-spacing:.01em; margin:0; color:var(--ink);}
+  .hero .src{font-family:var(--sans); font-size:14px; color:var(--muted); margin-top:10px; display:inline-block;}
+  .hero .srcbadge{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:.04em;
+       color:#fff; background:var(--navy); padding:5px 12px; border-radius:4px; margin-top:12px; display:inline-block;}
+  .hero .srcbadge .dot{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--pop); margin-right:7px; vertical-align:middle;}
+  /* 未定稿（公式だが校正中）＝確定版と一目で区別できるようコーラル地にする */
+  .hero .srcbadge.draft{background:var(--coral-dark, #b83a25);}
+  .hero .srcbadge.draft .dot{background:#ffd9cf;}
+  .hero .src.official{display:block; margin-top:8px;}
+  .hero .src.official a{color:var(--navy); font-weight:700; text-decoration:none;}
+  .hero .src.official a:hover{text-decoration:underline;}
+  .hero .genmeta{font-family:var(--sans); font-size:11.5px; color:var(--muted); margin-top:10px; display:block; line-height:1.75;}
+
+  /* 要約 */
+  .sum{padding:22px 26px; background:#f5f7fa; border:1px solid var(--line); margin-bottom:28px;}
+  .sum .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 16px;}
+  .sum h3{font-family:var(--sans); font-weight:700; font-size:16px; margin:20px 0 8px; color:var(--navy);}
+  .sum h3:first-of-type{margin-top:0;}
+  .sum h4{font-family:var(--sans); font-weight:700; font-size:14.5px; margin:16px 0 6px; color:var(--ink); line-height:1.4;}
+  .sum ul{font-size:14.5px; line-height:1.35; color:var(--ink); margin:0 0 10px; padding-left:1.3em;}
+  .sum li{margin:1px 0;}
+  .sum p{font-size:14.5px; margin:0 0 10px;}
+  .sum strong{color:var(--navy); font-weight:700;}
+
+  /* 原典動画 */
+  .media{margin-bottom:28px;}
+  .media .lab{font-family:var(--sans); font-weight:700; font-size:12px; letter-spacing:.2em; color:var(--pop); margin:0 0 14px;}
+  .media .frame{position:relative; aspect-ratio:16/9; background:#000; border:1px solid var(--line);}
+  .media .frame+.frame{margin-top:12px;}
+  .media .frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
+  .media .cap{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin:10px 0 0;}
+
+  /* 本文 */
+  .turn{padding:10px 0; border-top:1px solid var(--line);}
+  .turn:first-of-type{border-top:none;}
+  .meta{display:flex; align-items:baseline; gap:16px; margin-bottom:7px;}
+  .meta .name{font-family:var(--sans); font-weight:700; font-size:16px; color:var(--navy); letter-spacing:.02em;}
+  .turn.chair .meta .name{font-weight:500; font-size:15px; color:var(--muted);}
+  .turn.voice .meta .name{font-weight:500; font-size:13px; color:var(--muted);}
+  .turn.voice .say{color:var(--muted); font-size:14px;}
+  .say{font-size:16px; line-height:1.4; letter-spacing:.01em;}
+  .say+.say{margin-top:8px;}
+
+  /* インライン動画チップ */
+  .ts{display:inline-flex; align-items:center; gap:3px; vertical-align:baseline;
+      font-family:var(--sans); font-weight:700; font-size:11px; letter-spacing:.03em;
+      color:var(--pop); text-decoration:none; margin:0 5px; white-space:nowrap; cursor:pointer;}
+  .ts svg{width:10px; height:10px;}
+  .ts:hover{text-decoration:underline;}
+
+  /* スクロール出現 */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  @media(max-width:680px){
+    .hero{padding:14px 0 22px;} .sum{padding:18px;}
+    .turn{padding:12px 0;} .say{font-size:15.5px;}
+  }
+
+/*qsearch*/
+mark.qhit{background:#ffe066;color:inherit;border-radius:2px;padding:0 1px;}
+.turn:target,.turn.qcurrent{background:#fff8e1;}
+.sum:target{background:#fff8e1;}
+/*qsearch-end*/
+
+  /* ページトップへ戻る */
+  .to-top{position:fixed;bottom:20px;right:20px;z-index:900;width:44px;height:44px;border:none;border-radius:50%;background:#157a4b;color:#fff;font-size:20px;line-height:1;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,background .15s;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  .to-top.show{opacity:.92;visibility:visible;transform:none;}
+  .to-top:hover{opacity:1;background:#12633d;}
+
+  /* 発言パーマリンク＆要約→本文アンカー */
+  .turn-link{margin-left:8px;font-size:12px;text-decoration:none;opacity:0;transition:opacity .15s;color:#8a8073;}
+  .turn:hover .turn-link,.turn-link:focus{opacity:.7;}
+  .turn-link:hover{opacity:1;}
+  .turn:target,.turn.turn-hl{background:#fff8e1;transition:background .3s;}
+  a.sum-jump{color:#157a4b;font-weight:700;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;cursor:pointer;}
+  a.sum-jump:hover{color:#12633d;}
+  .copy-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(8px);background:#157a4b;color:#fff;font-size:13px;padding:9px 16px;border-radius:4px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:1100;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .copy-toast.show{opacity:1;visibility:visible;transform:translateX(-50%);}
+</style>
+</head>
+<body>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded');}catch(e){document.documentElement.classList.add('embedded');}</script>
+<nav class="sitenav" aria-label="サイト共通ナビ">
+  <div class="sitenav-in">
+    <a class="sitenav-brand" href="index.html"><img src="icon.svg" alt="" width="30" height="30"><span>非公式会議録</span></a>
+    <div class="sitenav-links">
+      <a href="index.html">ホーム</a>
+      <a href="search.html">全文検索</a>
+      <a href="list.html">会議一覧</a>
+      <a href="https://www.city.koganei.tokyo.dbsr.jp/" target="_blank" rel="noopener">公式会議録<span class="ext">↗</span></a>
+      <a href="https://www.youtube.com/koganei_shigikai" target="_blank" rel="noopener">原典動画<span class="ext">↗</span></a>
+    </div>
+  </div>
+</nav>
+<nav class="crumb" aria-label="パンくずリスト"><div class="crumb-in"><a href="index.html">ホーム</a><span class="sep">›</span><a href="list.html">全会議一覧</a><span class="sep">›</span><span class="cur">令和8年9月15日 庁舎等建設及び公共施設マネジメント推進調査特別委員会</span></div></nav>
+<div class="prog" id="prog"></div>
+<div class="wrap">
+
+  <div class="top"><span class="sq"></span>小金井市議会 非公式会議録</div>
+
+  <header class="hero reveal">
+    <p class="date">令和8年9月15日</p>
+    <h1>庁舎等建設及び公共施設マネジメント推進調査特別委員会</h1>
+    <span class="src">YouTube字幕＋AI校正による記録（非公式）</span><div class="hero-note" style="font-family:var(--sans);font-size:13px;line-height:1.7;color:var(--muted);margin-top:10px;">本会議・委員会等の中継動画をもとに、文字起こし・校正・要約を行った非公式アーカイブです。<br><span style="color:#c0392b;font-weight:700;">致命的な話者の誤りや語句の誤りを含んでいます。転載などには適しません。最終的には必ず原典に当たってください。</span></div><span class="genmeta">本文・要約はAIによる自動生成で、小金井市議会の公式見解ではありません。発言者名や語句に誤りを含む場合があります。公式会議録が公開され次第、公式版に差し替えます。<br>最終生成日 2026-09-15</span>
+  </header>
+
+  <section class="sum reveal">
+    <p class="lab">A I 要 約</p>
+    <h1>R8.9.15 庁舎等建設及び公共施設マネジメント推進調査特別委員会（2026年9月15日）要約</h1>
+<p>（要約は作成中です。この版は午前の部（10:00-11:13）の本文だけを掲載した仮の版です。）</p>
+  </section>
+
+  <section class="media reveal">
+    <p class="lab">原 典 動 画</p>
+    <div class="frame"><iframe src="https://www.youtube.com/embed/BANc3m7WuoY" allowfullscreen loading="lazy"></iframe></div>
+    <p class="cap">動画を再生しながら会議録を読めます（YouTube・1本）</p>
+  </section>
+
+<div class="turn chair reveal" id="t0">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=120s" data-timestamp="120"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:00</a>　おはようございます。それでは庁舎等建設及び公共施設マネジメント推進調査特別委員会</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=154s" data-timestamp="154"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>02:34</a>　協議会の前段の協議会を始めます。まず本日の進行予定ですけれども、まず一括議題として陳情が15件ございます。それと調査項目柱の2の庁舎等建設についてこれを一括ではかっていただき、担当部局から資料の説明がなされて、それで次に調査項目の1、公共施設マネジメント推進についてはかりまして、という流れになりますけれどもよろしいですかね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=193s" data-timestamp="193"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:13</a>　はい、ありがとうございます。お手元に行政視察報告書が届いているかと思いますが、これの確認をいたします。この流れでよろしいでしょうか。ありがとうございます。それでは、委員会に入ってまいります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=225s" data-timestamp="225"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>03:45</a>　おはようございます。ただいまから庁舎等建設及び公共施設マネジメント推進調査特別委員会の会議を開きます。直ちに本日の議事に入ります。当委員会に付託されております案件は、陳情15件、調査1件です。</div><div class="say">以上16件につきましては、庁舎等建設及び公共施設マネジメント推進調査特別委員会審査予定表の順序で行うことといたします。はじめに、8陳情第4号、その5、新庁舎・新福祉会館建設事業の合理的見直しを求める陳情書、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=257s" data-timestamp="257"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:17</a>　8陳情第5号、その6、論点を整理し重要課題に絞り込んだ同一条件比較（現行案・見直し案）資料の整備と文書回答を求める陳情書、8陳情第6号、その7、豪雨リスクの不確実性を踏まえた浸水対策の前提条件・成立性・限界の同一条件比較を求める陳情書、8陳情第7号、その8、公共建築の公平性確保のため構造方式の選択理由の明確化と免震統一を含む</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=292s" data-timestamp="292"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>04:52</a>　同一条件比較資料の提出を求める陳情書、8陳情第19号、庁舎等建設と学校等の建て替えについて財政規律ガイドラインを含めた市民説明会の開催を求める陳情書、8陳情第23号、その9、新庁舎建設におけるサウンディング調査と議会報告を通じて見直し促進を求める陳情書、8陳情第24号、その10、新庁舎建設における市民提案（広場確保と建設費削減）の不採択理由に関する説明を求める陳情書、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=327s" data-timestamp="327"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>05:27</a>　8陳情第25号、その11、新庁舎・福祉会館の安全性に関する市民提案の不採択理由の説明と善管注意義務の履行を求める陳情書、8陳情第26号、その12、下田市新庁舎計画竣工式典で感じたこと、現地視察を求める陳情書、8陳情第30号、庁舎等建設の再設計に関する陳情書、8陳情第31号、庁舎等建設の再設計に関する陳情書、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=360s" data-timestamp="360"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:00</a>　8陳情第32号、庁舎等建設の再設計に関する陳情書、8陳情第〇〇号、庁舎等建設の再設計に関する陳情書、8陳情第34号、庁舎等建設の再設計に関する陳情書、8陳情第35号、庁舎等建設の再設計に関する陳情書、8陳情第36号、庁舎等建設及び公共施設マネジメントの推進に係る諸問題の調査項目に、庁舎等建設について</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=395s" data-timestamp="395"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>06:35</a>　新庁舎及び新福祉会館建設を対象とするにつきまして、一括して議題といたしたいと思います。これに御異議ありませんか。御異議なしと認め、そのような決定をいたします。本日、部局から資料が提出されておりますので、はじめに資料及び報告事項の説明を求めます。</div><div class="say">はい、庁舎建設等担当課長。</div>
+</div>
+
+<div class="turn reveal" id="t1">
+  <div class="meta"><span class="name">庁舎建設等担当課長</span></div>
+  <div class="say">それではおはようございます。企画財政部庁舎建設等担当より、調査報告資料1点提出させていただきます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=428s" data-timestamp="428"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:08</a>　資料内容としましては、現時点で想定される最短スケジュール試案についてでございます。スケジュールを含めた新庁舎等建設の今後の進め方については、今後検討を進め、令和9年3月に新方針を策定し、お示しする予定でございますが、現時点で可能な限り情報提供させていただきたいと考え、現時点で想定される最短スケジュールについて</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=458s" data-timestamp="458"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>07:38</a>　試案レベルのものではございますが、資料を提出させていただきました。資料の注釈にも記載がありますように、今後検討状況によっては、時期及び項目は変更可能性があることは、ご理解いただいた上で資料をご覧いただければと思っております。ポイントについてご説明しますと、令和9年3月までに財政計画等、新庁舎等建設の進め方について同時並行で検討を行い、令和9年3月に</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=492s" data-timestamp="492"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:12</a>　新庁舎等建設の新方針を策定、公表する予定です。その後、新方針に沿って事業を進めるわけですが、スケジュール最短の観点から、現行の基本計画に基づき、基本設計、実施設計、施工一括のデザインビルドにより事業を進めると仮定した場合、着工は令和12年7月、供用開始は令和15年10月になると想定されます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=527s" data-timestamp="527"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>08:47</a>　ただし注釈にありますとおり、延伸可能性欄を踏まえると、記載のスケジュールより48ヶ月延伸する可能性があり、その他の要素、市民参加手続き、市議会への協議状況等によっては、それによりさらに延伸する可能性がございます。詳細は資料をご覧ください。今後も方針策定に向け、検討状況については適宜情報提供させていただきたいと考えておりますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=559s" data-timestamp="559"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:19</a>　ご理解のほどよろしくお願いいたします。説明は以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t2">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">企画政策課長。</div>
+</div>
+
+<div class="turn reveal" id="t3">
+  <div class="meta"><span class="name">企画政策課長</span></div>
+  <div class="say">おはようございます。引き続きまして、企画政策課提出資料、合計3点ございますが、まず1点目が、新庁舎建設工事費240億円の場合における今後10年間の財政シミュレーションについてでございます。こちらの資料は、9月1日の市長報告において提出させていただきました庁舎建設事業費240億円を想定した年度別現債高及び公債費の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=592s" data-timestamp="592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>09:52</a>　試算結果の資料を保管するためのもので、全体的な市の財政的な状況を捉えるために、今後10年間の財政シミュレーションを財政シミュレーションとして提出させていただくものでございます。それでは1番の財政収支表の細部についてご説明いたします。この財政シミュレーションの推計の基本的な考え方としましては、各項目の算出に当たって近年の動向を踏まえつつ、一定の推計条件を設定し、現時点での見込みとして算出したものでございます。</div><div class="say">主な項目で説明いたしますと、まず上段の歳入につきましては</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=625s" data-timestamp="625"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:25</a>　地方税につきましては、決算額の状況及び令和8年度の調定額の状況等を踏まえ、現時点で把握している税制等を勘案の上推計をしております。国等支出金につきましては、国及び都からの補助金等でございますが、毎年度歳入される分と、各年度予定されている普通建設事業に係る部分等を分けて見込んでおります。地方債につきましては、建設事業債につきましては、事業に対して想定される起債額を見込んでおります。</div><div class="say">市長報告資料にも記載がございました、新庁舎建設、第一小学校、第三小学校、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=659s" data-timestamp="659"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>10:59</a>　第一中学校、学校の部位修繕分の記載分を含んでおります。続いて下段の歳出につきましては、人件費については定年退職が令和5年度から2年に1歳ずつ65歳まで引き上げられることを加味して見込んでおります。補助金につきましては、国の政策や社会情勢による影響が大きい経費でございまして、制度の見直しなど不確定要素がございますが、決算額の状況等も踏まえつつ、右肩上がりの伸びを見込んでおります。</div><div class="say">公債費につきましては、各年度の起債発行に伴う</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=689s" data-timestamp="689"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>11:29</a>　償還予定額を加えて見込んでいます。こちらは市長報告資料にも記載がございました新庁舎建設、学校施設標準化関係の起債額に対する償還予定額も含んでおります。物件費につきましては、計上的な経費について令和8年度当初予算と同額程度の推移で見込み、そのほか計画推進に係る経費について中期財政計画を基本に見込んでいるところでございます。</div><div class="say">投資的経費につきましては、中期財政計画掲載事業を基本に実施が見込まれる事業の経費を計上しております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=720s" data-timestamp="720"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:00</a>　市長報告資料にも記載がございました新庁舎建設、第一小学校、第三小学校、第一中学校、あと10年以内に改修に着手しない学校の部位修繕の事業費も含んでいるところでございます。なお、令和9年度から令和12年度分につきましては、実施計画の見直しの中で新たな事業を含め、現時点では事業の実施時期等について検討調整を要する事業もございますが、一定の条件でシミュレーションを行ったものであり、それを踏まえて令和13年度以降も推計しているものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=751s" data-timestamp="751"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>12:31</a>　それでは、一番下の収支の欄をご覧ください。この数値は歳入と歳出の差額を示すものですが、収支を合わせる前、いわゆる財政調整基金を繰り入れる前の数値をお示しするものでございます。特に令和16年度以降は20億円を超えるマイナスとなってございます。</div><div class="say">これは、公債費が現在令和8年度の約19億円と比較し約2倍程度の40億円を超えるタイミングと同様の推移となってございます。この収支のマイナスについて、令和9年度から令和17年度までの</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=784s" data-timestamp="784"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:04</a>　合計を計算すると、約103億円ございます。これは財政調整基金の繰り入れ前の数値ですので、このマイナス分については一般財源分となりますので、事業の見直し等による精査や、財政調整基金を取り崩して補填していくことになるかと思います。さらには、令和18年度以降も令和17年度同様、またはそれ以上に公債費の増加が見込まれるところでございまして、同程度のマイナスは続くことが想定されます。</div><div class="say">2番は年度末の現在高を示すものとなります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=816s" data-timestamp="816"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>13:36</a>　なお財政規律ガイドラインを照らし合わせますと、約310億円がそのラインになりますので、令和11年度以降は超えるということになり、令和17年度までを見ると420億円程度まで上昇すると見込まれております。そのような市全体の財政的な状況を示す資料として今回提出させていただいたものでございます。1点目の資料については、説明は以上となります。</div><div class="say">続きまして2点目の資料、主な経常経費の推移及び傾向でございます。これは先ほどの財政シミュレーションを保管する資料として提出させていただくものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=849s" data-timestamp="849"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:09</a>　内容としましては、経常的経費の直近の決算額の推移から読み取れる傾向を示したものでございます。表の右の方に、令和3年度から令和7年度までの前年度増減額の合計の欄がございます。こちらを見ますと、歳入の方では地方税が約26億円の増、国等支出金が約10億円の増となっております。</div><div class="say">一方で歳出では人件費が約10億円の増、扶助費が約19億円の増、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=880s" data-timestamp="880"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>14:40</a>　物件費が約15億円の増となっております。これらの増加傾向がどこまで続くかは不確実な部分はございますが、仮に現在の傾向が続いたとしても、歳入・歳出お互いの増加分がほぼ相殺されることが想定され、結果として、公債費の増加分の約20億円程度が残るという形になることをお示しするものになりまして、それが財政シミュレーションの令和16年度以降のマイナス20億円の部分にも繋がる見通しとなっております。このような傾向も頭に入れながら、これまでの推計条件も踏まえつつ、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=912s" data-timestamp="912"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:12</a>　慎重な形でございますが、財政シミュレーションを作成したというものでございます。こちら2点目の資料は以上となります。続いて3点目、こちら要求資料でございますが、新庁舎（仮称）新福祉会館建設及び学校施設標準化に関する償還額等の見込みについてでございます。</div><div class="say">本資料は森戸議員、渡辺議員からご要求になったもので、調整の上提出させていただくものでございます。本資料は財政シミュレーションに記載される事業のうち、新庁舎（仮称）新福祉会館建設、第1小学校、第3小学校、第1小学校の</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=945s" data-timestamp="945"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>15:45</a>　事業費の見込みに基づいて、起債額及び償還額の見込み等をお示しするものでございます。詳細は資料をご覧ください。説明は以上となります。</div>
+</div>
+
+<div class="turn reveal" id="t4">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">おはようございます。ただいま資料を説明させていただきましたスケジュールにもお示しをしておりましたが、財政計画の検討について補足説明をさせていただきます。先ほど担当から説明のありました通り、財政計画につきましては、令和9年3月までに検討を行い、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=976s" data-timestamp="976"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:16</a>　それを踏まえ、令和9年3月に新庁舎等建設の新方針を策定公表する予定と説明をしておりますが、新庁舎等建設の今後の検討に際しましては、財政的見地から適正な事業規模、そして建設時期を見定めた上で、本事業の具体的な進め方を整理することとなります。まずは財政的な見地から適正な事業規模、建設時期を早い時期に見定めることが必要となります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1008s" data-timestamp="1008"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>16:48</a>　そこで今後は、新庁舎等建設の適正な事業規模、建設時期を含む財政計画の基本的な考え方について早急に検討を行い、10月22日開催予定の当委員会においてお示ししたいと考えております。本日の時点では具体的なものをお示しすることはできませんが、そのように考えておりますので、ご理解のほどお願いいたします。私からは以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t5">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">これから質疑を行います。はい、渡辺さん。</div>
+</div>
+
+<div class="turn reveal" id="t6">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1055s" data-timestamp="1055"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>17:35</a>　質問させていただきますが、9月1日に市長報告が行われまして、現在の設計に基づく庁舎の建設については断念する、諦めるとの市長報告がなされて以降、最初の特別委員会ということになりますので、様々な角度から伺いたいと思います。まず一つ目がですね、今日の資料で、現時点で想定される最短スケジュール</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1086s" data-timestamp="1086"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:06</a>　（試案）についてという資料が提出されまして、今若干の補足説明が市長とまた課長からもなされたところなんですが、この件に関してきちんと伺っておきたいと思うんですけれども、まずこのスケジュール表によれば、一旦今の設計では建てられないということで、白紙に返ったわけですけれども、今後の作業の一番目にこのスケジュール表で出てくるのは</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1116s" data-timestamp="1116"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>18:36</a>　財政計画の検討というのが出てきていて、次に新庁舎、仮称新福祉会館の進め方の検討というこの2つの作業が来年令和9年の3月までということで、2つ並んでいるわけなんですよね。つまり財政計画の検討がいついつまでにということで、その後の検討ということじゃなくて、そこは来年の3月までスケジュール表上は1月のこととして表示されています。今市長からは今度10月22日に開催されるこの特別委員会までに</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1150s" data-timestamp="1150"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:10</a>　一定の何かものを示したいという話だったんですけれども、ちょっとそれできちんと伺っておきたいというふうには思うんですけれども、財政当局にもちょっと伺っておきたいんですけれども、今市長からそういうお話があったんですけれども、10月22日に市長が示すとされているものというのは、どういう水準のものを示すということになるのかということですね。つまり今何が一番問題になっているかというと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1181s" data-timestamp="1181"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>19:41</a>　小金井市が庁舎と福祉会館の建設事業に、どのぐらいの財源を充当することができるのか、充当可能な財源がどのぐらいあるのかということですね。このことに関してさっきの一般質問でも問わせていただきましたが、分からないということで、今の段階では分からないということで、数字を上げてのご説明がなかったんですけれども、この10月22日までには、投入可能財源などに関してとかですね、財政的なことに関してはきちんと明らかにしていただけるということなのか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1215s" data-timestamp="1215"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:15</a>　そこまで細かいことではないと、もうちょっとアバウトなものが10月22日に出てくるのか、ちょっとそのあたりは財政当局としては、どのぐらいの精度のものをこの10月22日に向けて作業するということなのかについて伺いたいのと、あとですね、この陳情が出ておりまして、この陳情書ではこの定例会ですね、現在開会中の定例議会のこの中において、この財政的なものに関してはきちんと示すべきではないか、ということが求められております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1247s" data-timestamp="1247"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>20:47</a>　それでこの後定例会もまだ、今日9月の15日ということでございまして、まだ半月以上、この定例会会期が残っておりますので、10月22日にですね、示せるようなものであれば、10月5日のですね、定例会の最終日までには、きちんと努力をすればですね、示すことが可能なのではないかというふうに思うんですけれども、なぜこう申し上げるかというと、そもそも論で言ってですね、いくらの財源が投入可能かとか、いくら以上になったら無理かとか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1279s" data-timestamp="1279"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:19</a>　こんなことはこれからその一生懸命作るものではないんだろうと思うんですよ。現在のこれまでの設計で進めるというふうに言ってこられたわけだから、それがどこまでなら支払いができるとか、これ以上になったら無理だとか、こういうことはちゃんと頭の中にあって、事業が遂行されてきたんじゃないってことなんですか。金額的なことはもう全く分からないままやってきたってことなんですかね、ってことになっちゃうじゃないですか。</div><div class="say">これから財政のこと考えますとか、定例会中無理ですとか、10月22日ですって言うんだったら、こういう金額的なことがきちんと頭の中になくて、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1309s" data-timestamp="1309"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>21:49</a>　現在の設計で進めるという方針だけが一人歩きをしてきたということで、自らそういうふうに言ってるようなものですよ。ちゃんとこの定例会中にですね、きちんと示せるように最大限のですね、努力をするということがあってしかるべきで、10月5日の定例会最終日は決算の採決だけですから、場合によったら定例会の最終日に一定時間取ってでも、ご報告をいただくということに向けてね、市長もぜひ担当の財政当局も特例していただいて、ぜひそれに間に合うような作業を進めていただきたいと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1341s" data-timestamp="1341"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:21</a>　つまりこれまでそういう数字をそもそも持ち合わせないで、事業をやってたってこと</div><div class="say">そのこと自体が異常ですよ、これは。その認識は持っていただきたいんですよね。だから、先般、一般質問で聞いても答えられない、まだ10月22日まで時間をくださいというのも、そのこと自体が異常ですよ、これは。</div><div class="say">お金のことが全くお留守になって事業をやったってことになるから、ということで伺いたいんですけども、10月22日と言わずですね、この定例会の開期末まで、10月5日までにきちんと示せるような努力をお願いしたいというふうに思うけどどうかということと、あとさっき細かいこと聞きましたが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1372s" data-timestamp="1372"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>22:52</a>　財政当局はどの程度の水準のものを示すことを考えているのかということですね。ここのところはなぜ大事になるかというとですね、要するに庁舎建設担当という担当もいらっしゃるわけですよね。庁舎建設担当の方も、これから何か新しい方針を作るんですよね。</div><div class="say">新しい方針を作るとか言ってもですね、いくらお金が使えるのかも分からないで、何の新しい方針を作るのかとなりますよね。とにかく今一番最優先なのは財政的なことで、どの程度のスペックのことができるのかと、この事業で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1404s" data-timestamp="1404"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:24</a>　ここをまず早く、一刻も早く確定させること。でないと庁舎建設担当が仕事に入れないってことなんですね。あるいは仕事をやったとしても、あとで全部無駄になるってことですよ。</div><div class="say">お金の話がはっきりしてないことをやらせるとなるとですね、そういう無駄なことをさせないためにも、これまでも壮大な無駄が積み重ねられてきたわけなんですけれども、これ以上の無駄を繰り返させないためにはね、きちんとまずお金の話を確たるものにしましょうよ、きちんと。だから急がせてるわけですけども、その点に関して市長からも財政当局からも、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1435s" data-timestamp="1435"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>23:55</a>　お話を伺っておきたいというふうに思います。それからこのスケジュール表の中でですね、こういうことが出てて、令和12年の1月から令和12年の6月まで、造成工事（浸水対策）というふうに出ております。これずっと伺っておきたいのは、これまでずっと議論になってきたのは、これまでのいわゆる現行案と現設計と言われるものは、要するに途中の、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1465s" data-timestamp="1465"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:25</a>　これは白井市長が市長になる前の話でありますけれども、要するに私の言葉で言えばですね、浸水対策やらなきゃいけないものを忘れていたと。当時の市長の言葉で言えば、浸水対策やらなきゃいけないことを読み取ることができなかった資料からというお話でした。私にはそれは忘れていたということなんですけど、あわてて何とかしなきゃいけないということで、設計の一部をやり直して、建物を浸水させるわけにいかないから、建物の下とかに急遽盛り上げることになったんです。</div><div class="say">あとは駐車場の一部を盛り上げて、だから敷地の大半は浸水するという前提の設計だったんです。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1497s" data-timestamp="1497"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>24:57</a>　だから見直し案、市民案ではそうじゃなくてやりましょうということをずっと求めていたわけですが、もうとにかく我々の言うことには全く耳を貸していただけなかったっていうのが長い歴史なわけでございますね。先般の千葉県とかの浸水状況などを見てもですね、やっぱりこれまで以上にこの浸水対策というものに関しては最大限の意を払う必要があるということだというふうに思っておりまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1527s" data-timestamp="1527"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>25:27</a>　そういう観点から考えて、ここで原設計が白紙に返り、ここでスケジュール表で示されたこの造成工事、浸水対策というのは、我々が従来から言ってきたような、もうちょっと浸水対策をレベルアップして、なるべく敷地全体をきちんと浸水対策やったほうがいいと、こういう考え方に比較的近い形のこの浸水対策ということになるのか、これまでどおり建物のところとプラスアルファぐらいでいいんだということなのか、どのぐらいのこの浸水対策とスケジュール表に出ている浸水対策はレベル感のものなのかということに関して、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1560s" data-timestamp="1560"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:00</a>　伺っておきたいというふうに思います。私はそもそも何でそんな中途半端な浸水対策になったか、皆さん思い出してくださいよ。当時の設計やってた佐藤総合計画さんからも、やるなら全部やったほうがいいですよと、浸水対策はという助言もあったんですよね。</div><div class="say">でもそれをやると開発行為になるとか、時間かかるとか言って、とにかく急ぎなんだからって言って、浸水対策は二の次、三の次でとにかく急がせて、必要最低限とかだけやって、任せちゃいましょうってやったわけですよね。一言で言えたらでしょ、一言で言ったらそういうことです。だからそういうようなことをやってたのは、単にスケジュールが急ぎだったからって言って、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1592s" data-timestamp="1592"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>26:32</a>　そんなことをやってたわけだけれども、白紙に返ったんだったら、ちゃんと理想的な形、将来にわたってね。それだって100%って言えないと思いますよ、全然想定外のことがこれからどんどん雨の関係で起こると思いますが、それでも今考える最善を尽くしておいたほうがいいと思うんですよね。そういう考え方に立った浸水対策というふうに理解をしておいていいのか、このスケジュール表に出てくる浸水対策っていうのは。</div><div class="say">その件に対してはちょっと考え方を伺っておきたいというふうに思います。それからまだお金の話がはっきりしませんから、この段階でどこまで聞くかは、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1622s" data-timestamp="1622"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:02</a>　ちょっといろいろ考えながら聞くわけですけども、これから新しい方針を作るということなんですけど、その新しい方針を考えていく上でですね、こないだ伺った際には、今基本的には白紙っていうことですよね。坂井さんからも質問があって、それに対しても答えなかったし、私が聞いても答えなかったので、基本的には白紙っていうことなんですけれども、ただそこのところでちょっと伺っていきたいのは、今のこの段階から、今のこの段階で考える一番市民にとって利益のある、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1654s" data-timestamp="1654"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>27:34</a>　市民にとっての一番利便性が高い、防災性が高い、あるいはコストもカットできると、こういうものはどういうものなのかっていうことをいろいろ考えてみると、これから私は私の思っていることを述べますが、今日の段階でもし市長なり担当から感想があれば伺いたいと思うんですが、まず建物の位置なんですけれども、これまでの設計で一番大きな問題だったのは、結局敷地内の北側にペットボトルの処理施設と〇〇リサイクル事業所が残ったまま工事をやる前提でしたので、建物全体を南に思いっきり寄せて、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1684s" data-timestamp="1684"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:04</a>　建てざるを得ないというか、設計せざるを得ないという状況があったんですね。このため建物の南には隙間しか残っていなくて、トミンハイムの桜の枝にすら抵触するような状況ということも懸念されておりました。また、工事も北側と南側から同時にあれば早く完成するのに、北側からしか工事ができないから、スケジュール上も不利なのではないかと、施工条件が悪いんじゃないかと指摘を我々はずっとしてきたんですが、とにかく急ぎだからといって今の設計のままずっと来たわけですけども、と考えると、ここで先ほども、昨日も申し上げましたが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1717s" data-timestamp="1717"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>28:37</a>　リサイクル事業所とペットボトルの処理施設が綺麗に解体が終わりまして、今、整地しているところでございますので、と考えると、この建物の位置に関しては、この敷地を有効に活用する観点からも、今までのような南にギリギリ寄せる必要性もなくなりましたので、これに関しては、これまではそれが与条件になってたわけですよ、設計の。この与条件に関しては取り払うという基本的な考え方に立つというふうに考えておいていいかどうか伺いたいと思います。それから同じことで広場の面積に関しても、これまでの設計では、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1749s" data-timestamp="1749"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:09</a>　約900平米程度の狭い広場しか設けることができなかったということだったんですけれども、建物全体をもし仮に北側に移動することができれば、建物の南側とトミンハイムの間のところに大きな空間ができますので、ここは広場として、約、大雑把に言うと3倍ぐらいの広さの広場は確保できる可能性があると思うんですが、この広場の面積に関しても大きく、これまでの設計よりは拡大をしていきたいという基本的な考え方に立って方針を考えていくのかどうか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1785s" data-timestamp="1785"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>29:45</a>　なぜかというと、何度もこれまでも何年間も言ってきたことですが、蛇の目跡地の周辺、庁舎建設予定地の周辺は、いわゆる公園空白エリアでございまして、園庭もないような保育園が多い中で、園児たちの貴重な遊び場にもなっていたわけでございますね。その点から考えればやっぱり十分な広さの広場をなるべく確保してあげたいということでございまして、そういったニーズもある中で言えばですね、今回の設計見直し、新しい方針を作るにあたっては、広場の面積も3倍程度まで広げられるような工夫が求められていると思いますが、そういった観点も新しい方針を作っていく上では考えながら作業されるということなのか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1820s" data-timestamp="1820"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:20</a>　ということですね。あともう一つが、耐震と免震が組み合わされた非常に複雑な構造に、これまでの設計はなっていたということで、これは結構多くの方、特に福祉関係の方とかからも、かなり指摘があって、つまり庁舎のほうにだけ免震構造を採用して、福祉会館のほうには免震構造は入れないで、耐震構造は激しく入れるわけですね。これが2つの建物がバラバラにあるならともかく、重ね合わされてると、設計の最初のコンセプトに大きく「重ね合わせる」って大きな字が踊っておりました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1850s" data-timestamp="1850"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>30:50</a>　という複雑な構造になっているということになっておりましたが、しかもその前提となっていたのが、結局福祉会館は先行竣工するということで、庁舎と一旦別に、もう福祉会館だけ先に建てるという前提があったんですね。だからそういう、まず異なる建物、なんだけれども複合化させるという前提があるから、異なる耐震のものを重ね合わせるってことになったと思うんですね。それから見ると、ここにきてもう我々が言うまでもなく、福祉会館の先行竣工ってことは、もう既に行政の側がそれはもうやめましたっていうことをこれまで言ってきたわけですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1880s" data-timestamp="1880"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:20</a>　考えてみると、耐震構造を別々にしなきゃいけないような必然性もないし、同時着工、同時竣工のものだということになればですね、建物はもう免震構造で統一するという考え方で新しい方針を作っていくということになるのかどうか。それから今とにかく一番求められてるのは、工費を少しでも安くすることですから、もうすぐ工費の問題がもう重んでしまってギブアップということになってますから、考えると地下駐車場どうするかなんですよね。これもこれまで我々が言っていた通り、地下構造を作るとですね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1912s" data-timestamp="1912"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>31:52</a>　やっぱりかなり建設工事費の単価も跳ね上がってしまいますので、これまでは地下駐車場というのを予定してたわけですけれども、地下駐車場を作らなくても、それとこれまでの設計と同等の駐車場の台数が地上で確保できることは明らかでございますので、と考えれば、あえてこれから浸水対策なども求められる中、地下に空間を作って駐車場にするということは、価格の面でも不利だし、浸水対策上も問題があるし、ということなどもありますので、地下に関しては基本的には駐車場を入れることはやめるべきだと考えているんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1945s" data-timestamp="1945"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:25</a>　このあたり、今後新しい方針を作る上での考え方としては、どういう考え方に立っているのかということですね。ここまでの論点は、これまでかなり議論してきた論点ですよね。それでここからはちょっと新しい論点になるんですけれども、去年の12月に担当のほうから9つの案っていうのが示されたじゃないですか、9つの案。</div><div class="say">この9つの案のうち1つは現行案ですよね。今までの設計でやるっていうのが9の中の1つだったんで、逆に言うと、だから今までの設計と違うものは8つの案が示されたというふうに思っているんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=1978s" data-timestamp="1978"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>32:58</a>　プラス、その8つの案だったんですが、ところが、例えば第2庁舎なんかは借りてる建物なので、その選択肢の中には組み込むことができなかったということで、後から聞いたらば、第2庁舎についてはどう考えてるんですかって聞いたら、第2庁舎の活用も視野に入ってるって答弁だったんですよね、というようなご答弁もあったんですね。となると、実は9つの案っていう言い方もあるんですが、実は9プラスアルファなんですね。9つの中に書けなかった、裏の案って言うと、ちょっとあれですけど、書くのがちょっとはばかられた案っていうのも実はあったらしく、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2011s" data-timestamp="2011"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>33:31</a>　そう考えると、多分10とか11とか12とか、いろんな案が実際にはあったのかっていうことで、だから僕はあえて9プラスアルファの案というふうに呼べたんですけれども、それから考えると、こういった建設コストの急上昇、急高騰によって今回のような事態になっていることから考えたときに、抜本的にコストを下げていくということになると、もちろん建物の構造とか地下をやめるとか、いろんなことでもコストダウンは可能なんですけれども、全体の床面積を相当圧縮しないと厳しいと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2041s" data-timestamp="2041"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:01</a>　いうことかというふうに思っております。そういう中で言うと、今後新しい方針を検討していく中では、いろんなことを検討されると思うんですけれども、例えば段階的整備、一括でまず建てるんじゃなくて段階的に整備をすると、例えばA棟を先に建てて、次にB棟とかですね。これは前もどっかで説明しましたが、武蔵小金井駅南口の再開発のときには、小金井市が財政負担が一括ではできないということで、地権者の皆さんにごめんなさいと言って、本来は一括でやる約束だったけれども、申し訳ないけど北と南に分けさせてくれと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2074s" data-timestamp="2074"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>34:34</a>　北を第一地区でやります、と南、第二地区でやると、市の負担が平準化されるんですね。地権者の皆さんの都合で分けたわけじゃないんですよ、市の財政負担を平準化させるために一地区と二地区に分けて施行したのは、南口の再開発なんですね。と考えると、今回もこういったお金で行き詰まったような展開になっているとなると、そういった分離分割、段階的整備みたいなことも選択肢の中に入れて検討するのか、いや、そうじゃなくて、あくまで一括ということ、この辺りの基本的な、今日の段階では決まってないことが分かってるんで。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2105s" data-timestamp="2105"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:05</a>　だから、物の考え方の筋道としてね、どういうようなことが検討されていくのか。それから、あとここが大事なところで、福祉会館の優先順位について伺っておきたいんですけど、これ福祉会館の関係者からもね、相当ちょっと心配の声もいただいてるんですけれども、この福祉会館に関しては実はですね、意外なことが分かって、一番最初は福祉会館は一番必要性が高いと、一刻も早く機能を復活しなきゃいけないっていうことで、庁舎よりも先行竣工だって言ってたんですよね。それが今の設計のコンセプトでもあるんです、これまでの設計のコンセプト。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2138s" data-timestamp="2138"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>35:38</a>　ところがそれが途中から同時竣工でいいということに変わっちゃったんですね。そして今日なんですけれども、福祉会館っていうのは行政の中での整理としては、庁舎と少なくとも同等の位置づけのものとして整備していくということになるのかどうか。それでちょっと行政の中でもブレがあったなと思うのは、去年の12月の9プラスアルファの案なんですね。</div><div class="say">この9プラスアルファの案の中で示された案の中のいくつかに、いわゆる福祉会館はやめたと、建てるのをやめたというやつも含まれてたんですね、選択肢として。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2168s" data-timestamp="2168"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:08</a>　今日的に言うと、この福祉会館に関しては、あくまで前西岡市長の頃から複合施設として一体整備するというのが大方針として、白井市長がそれに引き継がれたわけですけれども、その基本的な考え方に関しては維持をした上で、新方針というものについては検討していくということになるのか。そこは考え方はまた違う考え方が出てくるのか。あと、その福祉会館、福祉会館って我々一括で呼んでるんですけど、実は福祉会館の中っていろんなものが機能として入るわけですよ。</div><div class="say">言ってみると、雑居って言うと悪いんですけど、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2199s" data-timestamp="2199"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>36:39</a>　いろんなものが入って、それを福祉会館と呼んでるだけなんですね。その福祉会館の中のいろんな機能の中で、行政的にはこの機能については早く復旧させなきゃいけないというものについての優先順位、つまり福祉会館内優先順位ということで言うと、福祉会館の中のどの機能について急がれるんでしょうか、特に。その認識についてちょっと伺っておきたいなというふうに思います。</div><div class="say">次に財政の見通しに関してなんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2232s" data-timestamp="2232"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:12</a>　森戸議員と私の方で資料要求させていただきましたところ、行政っていうのはなかなか不確かなものは出しにくいということもありますが、そういう中では頑張っていろいろ作っていただいたということにはお礼を申し上げておきたいというふうに思うんですが、今日出されてきた資料の中で、やっぱり一番、今日なんかこの部屋の中にたくさん市長候補の人がいるんで、やりにくいんですけれども、この資料の中で、やっぱり一番注目しなければいけないことは、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2264s" data-timestamp="2264"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>37:44</a>　やっぱりこの財政シミュレーションについてっていう資料がございますよね。やっぱりこの資料で見てみると、歳出のところの公債費のところですね、やっぱりこれが令和16年、ずっと上がっていくんですけれども、特にやっぱりこの後、11年度、12年度あたりからどんどん上昇していって、16年度ではこの公債費、つまり借金の支払いですね、借金の支払いがですね、単年度でも41億円、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2294s" data-timestamp="2294"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:14</a>　17年度では42億円ということなんです。</div><div class="say">そこら辺になってくると、実はずっと赤字傾向なんですけれども、その16年度、17年度で見ると、単年度の赤字、収支で見ると、16年度では23億円の赤字、17年度では21億円の赤字ということで、20億円を超える赤字が出るということが、示されているということで、ここから先は昨日聞いてた人が、2回同じこと聞かせて申し上げないんですけど、これが何を意味してるかっていうと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2324s" data-timestamp="2324"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>38:44</a>結局これまでは、例えば25億円の黒字が出ると、黒字がずっと続いてますから、黒字が出ると、例えば25億円の黒字があるんで、その中で、例えば財政調整基金には13億円とか、庁舎建設基金には4億円とか、その黒字の分から積んでいったということなんですよね。ところが、さっき申し上げたような、このままの庁舎建設の額で進めると、今言ったような数字になるっていうことは、結局はまず一つには、貯金に回す財源はないですよね。黒字は出ないわけですから。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2354s" data-timestamp="2354"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:14</a>昔の小金井市を、森戸さんとか私、昔のその頃よく見てるんで、一般会計が赤字になりそうなんで、これどうしようかって言って、しょうがないと、じゃあ特別会計をもう無理やり赤字にしちゃって、一般会計だけ何とか黒字にして、体面を保とうとか言って、無理やり特別会計のほうが赤字になって、一般会計だけギリギリ黒字にしてるなんて時期もあったんですね、小金井市は実は。その頃よく見てるんで、つまりその再現なんですよ、これから始まることは、このままやっていくと。結局まず、基金を積むお金が全然枯渇するのみならず、単年取り20億円の赤字が出たらどうなるか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2386s" data-timestamp="2386"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>39:46</a>ちょっとどうやって払うんですか、ということになったら、もう貯金取り崩すしかないってことなんですよ、一般の家庭で言ったら。財政調整基金、たとえば15億とか20億とか払っていっても、でも逆ですよ。これまでは財政を取り崩して払っても、積み増していったじゃないですか。</div><div class="say">今度は逆ですよ。積み増せない。積み増す原資がない。赤字の補填に当てるわけですから、そうしたどういう財政状況になれば、素人にもわからない話であります。こういうような、まずそもそも財政シミュレーションが出ている上に、実は今回のやつも、実は17年度までしか出てないですよね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2419s" data-timestamp="2419"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:19</a>なんで17年度までしか出てないかっていうと、行政として責任を持って数字をはめられるのは、そこまでだということなので。ところが、この17年度の、この資料の翌年度の18年度からは、こないだも言ってるとおり、第二小学校と第二中学校に関して、どういうレベルのことをやるかは、ちょっとまだはっきりしてませんけれども、大規模な工事が必要になってくるということです。ただ、そこのところに関しては、なかなか行政としてもまだ出しにくいとこなんですけど、でもさっき言ったとおり、その18年度、この資料のもう、16年度、17年度でこの状況になってるのに、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2451s" data-timestamp="2451"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>40:51</a>その翌年の18年度、この隠されてる18年度以降は、すぐにまた二つも小学校と中学校ですね。これに関してのまた工事が始まるということであります。じゃあ、その分、二小と二中の分で、どのぐらい単年度で借金払うことになるのかっていうと、何年間か据置きの期間は当然あるというふうに思うんですけれども、あくまで資産ということにはなるんですけれども、多分、二小と二中の分も、この後追っかけてすぐ、1年間で5億5千万ぐらい、1年間での支払いがずっと続くんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2484s" data-timestamp="2484"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:24</a>それがこの資料には載ってないんですけれども、年間5億5千万がさらにこれに載るんですよ。さっきの赤字とか、公債費負担のこの表に、その後すぐ追っかけて載ってくるわけですよ。オーバーラップしてるんですね。</div><div class="say">一小、一中、三小のやつに、この二小、二中の分が微妙にずれてますけど、オーバーラップしてくるんですね。満額払わない、返済しなきゃいけない時期が、10年間ぐらい続くのかな。これずっと続くわけですよ。どうも考えると、さっきの冒頭の質問にも戻るんですが、これからもし財政当局が見通しを立てるということになると、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2518s" data-timestamp="2518"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>41:58</a>やっぱりその辺りのことまで見通して、つまり今日資料で正式に提出されたものに、さらに上乗せでいろんなことがその直後から、この資料の切れてるところ、17年度の後からすぐ始まるっていうことなんですね。この辺りも含めた、きちんとした財政見通しを持たないと、結局また大丈夫だろうっていうことで示したものでやってったら、また途中で息切れしちゃって、そこまでやったらまた設計が全部無駄になるとかね。こういうことの繰り返しになるんで、相当シビアに、その先まで見通した作業が、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2549s" data-timestamp="2549"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:29</a>これから財政見通しをこの中で作っていく中では必要と思うんですけど、今、私が申し上げたようなことに関しても、きちんと組み込んだ財政見通しの、つまりいくら庁舎建設に充てられるかということの金額の確定には、今、申し上げたような論点に関しても、きちんと斟酌した上で作られるものというふうに理解をしておいていいのかどうか。あと、今、私勝手にいろいろ数字述べましたけれども、今、私が述べたような数字に関して、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2579s" data-timestamp="2579"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>42:59</a>感想というか、そうじゃないと。小金井市のある副市長の人が、大臣さん、これまでは小金井市は大変だったけど、これからはバラ色ですからって言って、全然バラ色にならないんですよね。当時の副市長さんで財政担当長くやってた方が、バラ色だって言ったら、なかなかバラ色にならない。</div><div class="say">前よりは楽なんですけどね。それでもかなり大変だなと思って。ちょっとそこら辺の財政見通しに関しては伺っておきたいなと思います。それでは最後ですね。最後は、前の設計に基づく庁舎の模型が、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2616s" data-timestamp="2616"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>43:36</a>本庁舎の入口1階のところにずっと飾ってあったんですね。ところが9月1日の日に市長から、この今の設計での建設は諦める、断念するというご報告があって、何日間かそのまま展示されてたんですけれども、その後、白い布で覆われて今に至っております。あまり嫌味を言う気はないんですけれども、この取扱いに関してなんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2648s" data-timestamp="2648"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:08</a>今後どのように取り扱われるのかということであります。もう建てないことになった設計に基づく模型を、公の財産のある庁舎とか倉庫とかの中で保管するということに妥当性があるのかどうか。かといって、多分ですけどね、ゼネコンの人何人かに聞いたらば、おそらく模型作るのに2、300万かかってるんじゃないかっていうので、金額もし分かれば教えてもらいたいんですけど、2、300万かかってるんですよ。</div><div class="say">それを誰か特定個人とか団体にタダであげるわけにはいかないんでしょうから、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2680s" data-timestamp="2680"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>44:40</a>となると、誰かが適正なお金で買い取っていただいて、そのお金に関しては庁舎建設基金に積み立てるとかですね、そしていくらかでも庁舎建設の財源に充てるということがいいということで、気をつけなきゃいけないのは、倉庫か何かに入れておくと、どんどんあの手の物って傷んできますのでね、だからあまり傷む前にですね、きちんとどなたかに買い取っていただいたらよろしいんじゃないかと思うんですけれども、模型の取扱いは今後どうなるのかについてですね、伺っておきたいと思います。他にもちょっといろいろ聞きたいことあるんですけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2711s" data-timestamp="2711"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:11</a>スケジュールの件と、与条件の件と、財政見通しの件と模型の件ということで、趣旨質問で伺います。以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t7">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">関連で、岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t8">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">はい。私も全てにおいて関連したいところですが、まず建設スケジュールのことについてだけお伺いをしておきます。市長報告のご答弁、そして今日も財政的見地から……すみません、ありがとうございます。財政的見地から適正な規模、建設時期を見定めるとされています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2744s" data-timestamp="2744"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>45:44</a>ということは、まず財政的な枠組みが先に決められて、その枠組みの中で何がどこまでできるかということになるという考えでよいかどうかご答弁ください。また先ほど渡辺さんからもありましたけれども、なぜ10月22日なんでしょうかということで、それは当然ながら市長報告の際に示すべきだろうということは当然であると私は思っておりますし、だからこそ報告ではなくてまず説明でしょということを求めたと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2777s" data-timestamp="2777"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:17</a>しかしながら報告に耐えられる報告ではなかったために、様々な検討の上で、今回新たな資料もご提出をいただいている。逆に言えば議会がそれを求めなければ、提出もしなければ、このまま行こうとしていたんじゃないかという記載してしまうんですけれども、そもそもそういうことをやるご予定がなかったのか、なぜ10月22日にやるということをお決めになったのか、その経緯についてご答弁をいただきたいと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2808s" data-timestamp="2808"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>46:48</a>こういうふうに思っています。また渡辺委員からもありましたけれども、そこの10月22日に示される財政的枠組みなのか分かりませんが、それがどの程度のものなのかということです。仮に先ほど言ったように、先に財政的枠組みが決められた後に内容が決まっていくんだということからすると、じゃあここに資料にある一番上にある財政計画の検討ということの整合性っていうのはどうなるんですかね。</div><div class="say">どういう違いがあるんですか、ここの資料と、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2839s" data-timestamp="2839"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:19</a>この資料を作成するときには、もう既に10月22日にやるということが決まっていたのか。この資料を作成した後に10月22日に報告するということが決まったのか。ちょっとそこの辺の詳細について教えてください。</div><div class="say">また財政的枠組みについては10月22日に示されるということでよろしいかどうかもちょっと併せてお願いします。市民説明会の件は飛ばしましょう。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2869s" data-timestamp="2869"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>47:49</a>3段目の新庁舎建設の新方針の発表が令和9年3月とありますが、それというのはちょっと市長変わるかもしれませんが、市政方針に盛り込まれる予定なのか、市長報告なのか特別委員会なのか、現段階でのお考えをご答弁ください。併せてそれを行うためにはいつまでに庁議で決定される必要があるのか、ご答弁ください。そしてその新方針について伺います。</div><div class="say">新方針というのは現段階でノープランという、平成25年の新庁舎建設計画とそれ以来の基本方針まで戻るということでしたけれども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2902s" data-timestamp="2902"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:22</a>その基本方針、基本計画では、新庁舎を1万2千平米から1万3千平米の総合庁舎にするということになっているわけで、これさえも見直す必要があるのではないかと考えると、これからノープランで考える新庁舎の新方針の核となるものというのは一体何なんでしょうか。それをご答弁いただきたいと思っています。そしてその新たに示される新方針の発表というものは、事前に議会や市民と考えて作るものなのか、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2934s" data-timestamp="2934"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>48:54</a>庁内で決めて作るものなのか、どちらなのか、ご答弁いただきたいと思います。とりあえずスケジュールについては以上です。</div>
+</div>
+
+<div class="turn chair reveal" id="t9">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、遠藤さん。関連。</div>
+</div>
+
+<div class="turn reveal" id="t10">
+  <div class="meta"><span class="name">遠藤百合子</span></div>
+  <div class="say">渡辺さんのたくさんあったので、多分1問目と4問目じゃないかなと思うんですけれども、関連して質問させていただきたいと思います。まずもって今までの市の職員で庁舎福祉会館に関係していらした方々の仕事ぶりを本当に感心するものがございまして、よくやっていただいているということに感謝を述べるということを、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=2970s" data-timestamp="2970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>49:30</a>まず前提にお話をしたいと思います。それですね、最初の質問なんですけれども、ダブってしまうかもしれません。10月22日に本委員会に基本的な考え方を示す予定だということになっております。</div><div class="say">このスケジュール、先ほど出していただいたスケジュールなんですけれども、これによりますと、約48ヶ月遅れる可能性があるとはいうものの、サウンディング調査とか具体的に日程が入っておりますので、具体的な内容について、どのような内容についてお示しいただくのかどうかという、もうだぶっているかもしれませんけれども、そのあたりのことについてもう1回お伺いしたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3015s" data-timestamp="3015"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:15</a>それから、8陳情第35号なんですけれども、15年スパンの財政見通しを作成して、捻出できる金額を明らかにして、今定例会中に示してくださいということなんですが、それも含めて可能かどうかということですね。それと次の質問です。4番目の質問になるかと思うんですが、現設計についてどういうお考えなのかということなんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3050s" data-timestamp="3050"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>50:50</a>それで、白紙に戻すというような感覚で、市民の方々から本当に数多く質問を受けるんですけれども、白紙に戻っちゃったの?調査はどうなっちゃうの?というようなことで質問を受けるわけなんですけれども、現設計についてどういうお考えだったのか、そしてそれを白紙にするということでいいのかどうかということを確認したいと思います。お願いします。</div>
+</div>
+
+<div class="turn reveal" id="t11">
+  <div class="meta"><span class="name">企画財政部長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3080s" data-timestamp="3080"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>51:20</a>企画財政部長です。それでは、渡辺大三議員の趣旨質問、それから岸田議員、遠藤議員の関連でございました。10月22日に示すものの水準についてでございます。</div><div class="say">それで、この最短スケジュール主案の表にあります、一番上にあります財政計画の検討と、こちらにつきましては、具体的に申しますと、実施計画を作っていくという形になります。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3128s" data-timestamp="3128"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:08</a>こちらにつきましては、新庁舎建設、それから先ほど渡辺議員からもございました学校長寿命化の様々な学校への対応という非常に難しい面がございまして、この辺の調整も必要になってまいります。そのことから、今年度中にこちらについては、なんとか救っていきたいということで、策定に努めていくものでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3167s" data-timestamp="3167"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>52:47</a>それで、10月22日にというところにつきましては、これはいくらでできるのかというところにも関わってきますけれども、それを現時点ではなかなか具体的にお答えできないということになりまして、実際にはこの実施計画の中に落とし込んで初めて言えるということになりますが、そうしますと、その時期というのはかなり先に行ってしまいますので、今後の進め方としましては、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3206s" data-timestamp="3206"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>53:26</a>庁舎建設について一定の金額を想定しつつ、これに合わせて様々な事業等についても検討を進めるということを考えておりますので、10月22日にお示しするものは財政計画そのものということではございません。そこに至る進め方というような考え方ということになりますので、そこで財政計画そのものをまだお出しできるということではございません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3243s" data-timestamp="3243"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:03</a>渡辺議員の2問目ですね。それから遠藤議員の関連でもございました。定例会中に財政見通しを出せるかというところにつきましては、こちらについては先ほど申し上げましたような様々な調整がまだございますので、こちらについてはなかなか定例会中にお示しするのは難しいというふうにお答えをさせていただきます。</div>
+</div>
+
+<div class="turn reveal" id="t12">
+  <div class="meta"><span class="name">庁舎建設等担当課長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3282s" data-timestamp="3282"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>54:42</a>庁舎建設等担当課長。それでは質問を結構いただきました。もし抜けていることがありましたら、〇〇をよろしくお願いいたします。委員のですね、浸水対策、これについて、スケジュール上に書かれてるということで、考え方をお伝えしたいと思います。</div><div class="say">今回、設計をやり直す、見直すという形になりますので、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3315s" data-timestamp="3315"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:15</a>これまで出てきたですね、浸水対策については、改善したいなと考えております。ただですね、敷地の東側、ここはちょっと技術的に非常に難しい部分もございますので、またその場面が来ましたら、そういうとこも含めて検討をしていきたいということで、現時点では改善はしたいなということだけお伝えをしておきます。それと〇〇に関してですね、設計の与条件とか、これまでいろいろと言われてきた、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3349s" data-timestamp="3349"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>55:49</a>位置の関係、広場、耐震、あと地下駐車場の件ですね。これらのことについては、どう配慮するのか、ということだと思います。先ほども申しましたように、設計を見直すという形になりますので、今、あまり細かいことはお伝えできませんけども、当然、これまでいろいろと議会の中で出たご意見などを踏まえながらですね、新たに設計の方、入っていきたいなというところで、本日は答弁させていただきたいと思います。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3382s" data-timestamp="3382"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:22</a>それと新方針の内容ですね、これについてはですね、まず財政計画を踏まえた上でですね、新庁舎の今後については、集約〇〇施設の規模、スケジュール、あと事業手法を明確にしていく必要があるかなとは思っております。また、昨年ですね、今後の対応にかかる選択肢、これをお示しさせていただきました。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3413s" data-timestamp="3413"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>56:53</a>こういったものも含めましてですね、方針は固めていくものだと考えております。一旦、私の方は以上です。</div>
+</div>
+
+<div class="turn reveal" id="t13">
+  <div class="meta"><span class="name">庁舎建設等担当部長</span></div>
+  <div class="say">庁舎建設等担当部長。はい。続きまして、渡辺議員からご質問いただいたので、まず9つの選択肢に関連しまして、段階的整備を考えるのかというご質問いただきました。選択肢としては考えるものだと思っています。</div><div class="say">ただ、適正な事業規模と時期によって変わってくる。一番大きいのは段階的整備は、平準化に資するものである。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3444s" data-timestamp="3444"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:24</a>ただ、一方、工事が2段階、3段階となれば、総工費が上がるということも考えられますので、その適正な事業規模と時期というのに合わせて、選択肢としては考えるものだと思っております。次に、福祉会館の優先順位をどう考えるのかということをご質問いただきました。庁舎建設担当として答弁させていただきたいと思います。</div><div class="say">福祉会館に関する新福祉会館建設基本計画も、市民検討委員会からいただいた重要な方針であるというふうに、計画であると当然受け止めておりますので、優先順位の高いものだと思っています。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3476s" data-timestamp="3476"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>57:56</a>そういう意味で、現設計では複合施設として考えてきて、それらの機能を一体的に整備するとしてきましたので、その適正な事業規模と時期の中で、どう最大限に実現できるのかという形で考えて、ただ、適正な事業規模に関する厳しさの度合いで、いろいろ考</div><div class="say">えなきゃいけないことも出るかなと、現時点ではもちろん、中で最大限の整備に努めるものだというふうに答弁させていただきます。一旦、以上です。</div>
+</div>
+
+<div class="turn reveal" id="t14">
+  <div class="meta"><span class="name">企画政策課長</span></div>
+  <div class="say">企画政策課長です。企画政策課長。<br />
+<a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3508s" data-timestamp="3508"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>58:28</a>　渡辺委員からの今回提出した資料、償還額の関係のことを参考に、今後はそういった論点を三尺して、見通しとかを立てていくのかというような観点のご質問だったと思います。</div><div class="say">こちら、出させていただいた資料ですね、やはりこれを見ていくと、償還額がどんどん増えていくという形で、その後の今、ここには出ていない事業についても入っていくとさらに伸びていくということは、おっしゃる通りかと思っております。ですので、やはりこの公債費をどうしていくかというのが、ポイントかと私も考えておりまして、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3544s" data-timestamp="3544"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:04</a>　これを何かしら抑制するなり、平準化するなりしないと、根本的な解決には至らないというふうに考えておりますので、こういった論点を考えながら、今後検討していきたいと考えているところでございます。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t15">
+  <div class="meta"><span class="name">庁舎建設等担当課長</span></div>
+  <div class="say">庁舎建設等担当課長です。庁舎建設等担当課長。渡辺委員から模型の件、ご質問ございました。まず金額についてですけども、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3580s" data-timestamp="3580"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>59:40</a>　過去に資料要求がございましたので、模型自体のということではございませんけども、一応資料は提出させていただいております。資料は令和5年第2回定例会予算特別委員会、議案第56号の資料要求だったと思います。件名としましては、設計委託料の積算根拠についてという表を出させていただいております。</div><div class="say">その中にですね、その他というところで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3611s" data-timestamp="3611"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:11</a>　市民説明会の対応や模型の作成、施工者選定における設計に関する技術的支援ということで、275万円ということでお示しをさせていただいております。それと保管場所なんですけども、現状白い布をかぶせていただきました。いつまでもちょっと玄関、正面玄関のところに置いとくわけにもいきませんし、比較的大きなものですので、まずはちょっと一旦別の場所に移そうと思ってますんで、申し訳ございません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3644s" data-timestamp="3644"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:00:44</a>　それ以上のことはちょっとまだ今検討中ですので、とりあえず一旦あの場所からどこかに移したいなと思っております。すいません、今日は。はい。</div>
+</div>
+
+<div class="turn reveal" id="t16">
+  <div class="meta"><span class="name">庁舎建設等担当部長</span></div>
+  <div class="say">市財委員からの関連の質問の一面目でありますが、財政的に見定め、そしてその中で決まるのかというご質問でありました。提出させていただいたスケジューラーのスケジュール、最短スケジュールの試案のとおりですね、3月までのところは財政計画の検討と、それから新庁舎、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3676s" data-timestamp="3676"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:16</a>　仮称新福祉会館の進め方の検討は、同時並行で進めるものでございます。財政計画についての検討も財政当局としていただく一方、我々としてもどんな対応が取り得るのか、いろいろ考えていきたい。ただその上では岸田委員がおっしゃったとおり、適正な事業規模によって、ある程度事業規模、そこから単価とかを見ていけば、面積とかがある程度見えてくるということになりますので、3月に新方針を公表していくにあたっては、その適正な事業規模の範囲でどういうやり方ができるかという形で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3706s" data-timestamp="3706"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:01:46</a>　庁舎担当としてはまとめていくことになります。またちょっと関連して、先にお答えさせていただきたいんですが、施政方針、市長報告にどうなるのかということでありました。こちらについてはまだ検討中でございます。</div><div class="say">ただ施政方針に考え方が一定入っている必要があって、さらに具体的な形で新方針がまとまりますので、施政方針の中で、幾つかの文書の中で語りきれる内容ではないという意味では、別途しっかりした説明が必要になるだろうと思っています。ちょっと現時点ではそれぐらいでありますが、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3738s" data-timestamp="3738"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:18</a>　9月に市長報告としてさせていただいたことを受けてありますので、しっかりした説明が必要になるというふうに考えています。また併せまして新方針、基本構想では1万2千から1万3千平米と書いてあるものの中で、格となるものはどうかということでありました。確かに基本構想、基本計画に書いてある内容が、どこまで踏まえ得るかというのは適正な事業規模に左右されますが、ただやはりこの間、基本構想、基本計画の方で定めてまいりました、自治の要となる市民のための庁舎、人や地域に安全で優しい庁舎、素顔が見えるコンパクトな庁舎として、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3772s" data-timestamp="3772"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:02:52</a>　基本計画において機能が定められておりますので、その適正な事業規模の中で、それを最大限実現できるように考えていきたいというふうに答弁させていただきます。以上です。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3811s" data-timestamp="3811"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:03:31</a>　【質疑応答】遠藤委員からの関連質問、今、原設計をどう考えるのか、白紙に戻すのか、それによるのかということがありました。白紙に戻すという点につきましては、今、岸田委員の関連質問に答弁させていただきましたとおり、基本構想、基本計画はベースになっている、それを最大限実現できるように、適正な事業の中で考えていきたいということであります。原設計をどう考えるかということでございますが、端的に投資としてですね、最速で、また一定の事業費の範囲内で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3845s" data-timestamp="3845"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:05</a>　原設計で進めるのが一番経費といい、またはスピードといい、いいものであろうというふうな考え方が担当としてあります。ただ、その上では、市長報告でも説明させていただいたとですが、財政的な見通しとかの中でやっていかなければ、将来的な高年度期間につながっていきますので、そこで見直す必要があるとなったものであると思います。原設計、そういう意味では、担当としてはいいものだと思っておりますけれども、見直す必要があるというのは、そういう意味では当然あろうというふうに考えるものです。</div><div class="say">以上です。</div>
+</div>
+
+<div class="turn reveal" id="t17">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3877s" data-timestamp="3877"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:04:37</a>　議事進行です。</div>
+</div>
+
+<div class="turn chair reveal" id="t18">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">岸田さん、はい。</div>
+</div>
+
+<div class="turn reveal" id="t19">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">すいません、私の理解が悪かったら申し訳ございません。答弁でしたら委員長からその旨ご注意いただければと思いますが、まず庁舎建設等担当部長からはお話あったんですけども、財政的見地からまず決めるんですか、先に決めるんですかってことを聞いてるんですよ。明確なご答弁がないんですよ。</div><div class="say">その枠内で何か、意味がどこまでできるかっていう考えなんですかってことを聞いてるんですよ。曖昧な表現はここに来てやめていただきたいんです。はっきり言ってください。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3909s" data-timestamp="3909"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:09</a>　それが分かった方がいたらすいません。私は理解不足なんで、ちょっと教えていただければと思います。ということが一つと、新たな新方針については、その枠組みに基づいて決められていく。</div><div class="say">ちょっとごめんなさい、財政的枠組みは10月22日に出てくるものなんですか。3月との違いは分かりましたよ。3月は詳しい、庁舎だけではない、全体の財政計画の実施計画の中で落とし込んでいくんだと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3940s" data-timestamp="3940"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:05:40</a>　その前段なんだということですよね。財政的枠組みが10月22日に示されるんですかということなんですよ。それと新方針について、それっていうのは事前に議会や市民と考えるべきものなのか、庁内で作るものなのか、どちらでしょうか。はい。</div>
+</div>
+
+<div class="turn chair reveal" id="t20">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">議事進行の〇〇さん。</div>
+</div>
+
+<div class="turn reveal" id="t21">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">議事進行なんで委員長に、ちょっと私も聞いてるし、関連で岸田さんも聞いてるんですけれども、ちょっと答弁がちょっとはっきりしないんで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=3970s" data-timestamp="3970"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:10</a>　何が10月22日に出るのかとよくわからないんですけれども、先ほど企画財政部長は、財政計画に至る進め方、考え方なんですねというお話で、あと今、部長のほうは、要するに財政の話と庁舎の担当のほうの話は同時並行で進めるって言ってんですね。でね、何がどちらが、どの程度のものが先に出るのかとか、何とか整理してもらわないと、ちょっと非常に重要なところでしょ。つまり、鶏が先か卵が先かでね、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4001s" data-timestamp="4001"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:06:41</a>　お金の話が先なのか、スペックが先なのかもよくわかんないで、今の話だと。でこのものを読んで、まだそんな話で困りますから、ちょっと整理していただいて、そもそも10月22日に出るのはどんなものなのか。その財政的なことが先にあって、後からちゃんとそれに基づいて計画するのか、お金の話は関係なく、庁舎の設計のほうはまたいろいろ考え方は作業するのかとかですね。</div><div class="say">基本的なことはちょっと委員長申し上げないですけど、整理していただいたほうが、今のさっきの答弁じゃ、岸田さんもわかんないって言ったけど、俺もわかんないんで、ちょっとちゃんと整理していただけないでしょうか。</div>
+</div>
+
+<div class="turn chair reveal" id="t22">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4032s" data-timestamp="4032"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:12</a>　はい、岸田さん。</div>
+</div>
+
+<div class="turn reveal" id="t23">
+  <div class="meta"><span class="name">岸田正義</span></div>
+  <div class="say">自信以降で、もう一つ答弁漏れがあったのでお願いいたします。10月22日にやることになった経緯ですね。先ほど申し上げたように、最初から決まってた話なのか、市長報告の後、また議会からの声を受けてやるようにしたのか。その経緯、全国関係について教えてください。</div>
+</div>
+
+<div class="turn reveal" id="t24">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">議事進行いただきまして、大変申し訳ありません。明確にご答弁をいたしますと、10月22日の段階においては、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4065s" data-timestamp="4065"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:07:45</a>　新庁舎と建設にかけられる事業額、そして時期の目安を、まずしっかりと我々は明確にしたいと考えております。岸田さんもおっしゃいますけども、おっしゃる通りで、結局今回見直すことになった原因は、やっぱりお金の今後のやりくりでございます。ですので、まず新庁舎と建設事業に、どれだけお金をかけられるかっていうことを、我々としてまず最初に決める。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4096s" data-timestamp="4096"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:16</a>　これはやっぱり最重要課題であるからということでございます。それを置いた上で、その他の事業について調整をして、財政計画を最終的に作っていくという形になります。結局、事業規模を決めないと、事業額の目標を決めないと、事業の規模も絞ることができません。</div><div class="say">検討することができませんですので、そこが我々の新たな起点だと考えておりますので、それについてお示ししたいということで、その考え方をお示ししたいということでございます。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4128s" data-timestamp="4128"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:08:48</a>　10月22日にやるっていうことを、9月の1日段階から決めてたわけではございません。ただし、今後の特別委員会の予定であったりだとか、そういうことを考えると、ここで我々としては一定のものを示さないといけないということを検討してきたわけでございます。でいいですか。</div><div class="say">私からは以上です。</div>
+</div>
+
+<div class="turn reveal" id="t25">
+  <div class="meta"><span class="name">庁舎建設等担当部長</span></div>
+  <div class="say">新方針は庁内で作るのかというご質問でありました。結論から申し上げますと、庁内で作ることを考えております。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4161s" data-timestamp="4161"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:21</a>　一定の時間内に見直しの考え方を示さなければいけません。その上で申し上げますと、基本設計の策定過程でも市民参加を行っておりました。また、今スケジュールにも書かせていただきますが、4月のところで新方針についての説明会というのを考えておりますので、新方針の説明会、そして見直し内容に合わせた、基本計画の部分に一部関わってくるのか、基本設計の部分だけなのかによりますけれども、それに相応しい必要な市民参加を、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4191s" data-timestamp="4191"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:09:51</a>　やっていきたいという考えになります。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t26">
+  <div class="meta"><span class="name">市長</span></div>
+  <div class="say">9月1日段階で決めてたわけではございませんという答弁をしました。ただ10月22日に特別委員会があることは私は当然わかっておりましたので、今後の選択肢の中でそこで何かしらの、やっぱり次の段階での意思表示をする、何かを示すということは当然頭にあったわけでございます。ただ結果的には9月1日を踏まえた上で、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4222s" data-timestamp="4222"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:22</a>　次の特別委員会、そして10月22日の閉会中の特別委員会があるということから、結果的には9月1日以降、この10月22日の段階でそういうものをお示ししようということを決めたという経緯でございます。以上です。</div>
+</div>
+
+<div class="turn reveal" id="t27">
+  <div class="meta"><span class="name">企画財政部長</span></div>
+  <div class="say">すみません、私の先ほどの答弁分かりづらくて申し訳ございませんでした。先ほど市長からもご答弁いただきましたように、10月22日には庁舎建設の目安の金額等を、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4259s" data-timestamp="4259"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:10:59</a>　お示しさせていただきながら、それが実際実施計画にきちんと落とし込めるかどうかということについて、年度末にかけて作業していくと、そういうことになりますので、よろしくお願いいたします。</div>
+</div>
+
+<div class="turn reveal" id="t28">
+  <div class="meta"><span class="name">渡辺大三</span></div>
+  <div class="say">議事進行です。皆さん分かりましたよね、今の話ね。あのね、市長がおっしゃってることと企画財政部長がおっしゃってることは、実は決定的なところで、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4289s" data-timestamp="4289"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:11:29</a>　ちょっとずれてるんじゃないかと思うんですよ。いくらの事業費をかけられるのかは明らかにしてるって言ってるわけでしょ。で市長はさっき10月22日は事業額を明らかにしたと言ってるんだけど、企画財政部長はその事業額があっても、それが本当に財政上整合するかどうか、その後の作業ですって言うんですよ。</div><div class="say">じゃあ10月22日に発表される金額は何なんですかと。財政的に整合するかどうか分かんないけど、いくらぐらいかかりますって、単なる台本へ発表ですか。そんなんで聞けないじゃないですか、今この後に及んで。だからちゃんとそこは委員長整理していただいて、実際にきちんと充当可能な財源を、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4323s" data-timestamp="4323"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:03</a>　きちんと根拠を持って10月22日に示していただけるのかどうか、そういうこともちゃんと確認をしていただきたいんですよね。委員長も気になるでしょ、所管の担当委員長なんだから。そこだけちゃんと整理してください。</div><div class="say">企画財政部長の言ってることと市長の言ってることが、一緒のように言って実は微妙とか相当ずれがあると。我々が求めてる、岸田さんや私が求めてることでも相当ずれがあると思うので、ちょっと整理していただけないですか。10月22日に出てくる数字っていうのは、それが投入可能な財源が担当、説明できる状態で出てくるって理解でいいんですか。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4354s" data-timestamp="4354"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:12:34</a>　そこの説明ができないと、これまでと同じになっちゃうじゃないですか。だからちょっとそこはどういうことなのかっていうことについてですね、整理していただきたい。ちょっとあとそれと、今ずっとこの状況でやってるけど、ちょっと調整するならしてください。</div><div class="say">大事なとこなんで、市長と部長の言ってること認識合わせを、ちゃんとやっていただきたいんですよ。よろしくお願いします。</div>
+</div>
+
+<div class="turn chair reveal" id="t29">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、議事進行、〇〇さん。</div>
+</div>
+
+<div class="turn reveal" id="t30">
+  <div class="meta"><span class="name">不明</span></div>
+  <div class="say">今のお話を聞いてて、私もちょっと違和感を感じたんですね。市長がおっしゃっている、その10月22日に、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4384s" data-timestamp="4384"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:04</a>　庁舎にかけられる事業額、どれだけお金をかけられるかと時期を示したいとおっしゃったんですね。それは当然私たちが受け止めるのは、実施計画に落としても大丈夫なものが出てくるだろうというふうに思うわけですよ。でも今の部長のご発言だと、年度末までに実施計画に落とし込めるかどうかを検討するとおっしゃっているので、そこはですね、ちょっとすごくギャップがあるんですね。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4418s" data-timestamp="4418"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:13:38</a>　市長と部長の答弁に、ですからちょっとそこら辺は調整をしていただきたいなと思いますので、休憩なりして、委員長の方でもお取り払いをお願いしたいと思います。</div>
+</div>
+
+<div class="turn chair reveal" id="t31">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、小林さん。</div>
+</div>
+
+<div class="turn reveal" id="t32">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say">今の流れはもっともだなと思っていて、もしここでお持ち帰りいただくんであれば、ということで、後から言うとですね、また差し戻しになってしまうので申し上げておきますが、市長の方は事業額と時期と言われましたと、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4453s" data-timestamp="4453"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:13</a>　時期示すということはですね、結局要するに、あの9つのパターンかそれ以外かわかりませんけど、その事業パターンもですね、もう示さないと時期って出てこないわけですよ。そうするともう結局全部出てくるっていうことになるんですね。で市長の言われている金額と時期っていうのは、そういうことになります。</div><div class="say">でそのパターンによっては、今日示されている2年遅れで、さらに48ヶ月遅れるかもしれないという、そこに触れてくるわけですから。で当然ご存知の通り伸びれば、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4484s" data-timestamp="4484"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:14:44</a>　240はまた上がって、ほっとけば上がっていく。それに対してあの市長報告の時にも言いましたが、効果を生むバックホーン改革をしていかなきゃいけない。だから全部セットになりますから、時期を示すということは、そういうことを財政の方も含めて、担当の方も含めて、同じ目線で答弁をいただかないと、こちらも議論ができないということであります。</div><div class="say">でももし市長に協議いただくんだったら、</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4517s" data-timestamp="4517"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:17</a>　これいつも私の役割な紙で提出をいただきたいということで、間違いないようにですね、お願いしたいと。メモでも結構ですので、お願いします。</div><div class="say">【質問】</div>
+</div>
+
+<div class="turn reveal" id="t33">
+  <div class="meta"><span class="name">小林正樹</span></div>
+  <div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4550s" data-timestamp="4550"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:15:50</a>　正副委員長はですね、冒頭に市長から、10月22日のこの特別委員会にそういう報告をするというのは、事前に聞かれていたんでしょうか。ちょっとそこを確認させてください。</div>
+</div>
+
+<div class="turn chair reveal" id="t34">
+  <div class="meta"><span class="name">委員長</span></div>
+  <div class="say">はい、10月22日に報告をするということは聞いておりません。</div><div class="say"><a class="ts yt-btn" href="https://www.youtube.com/watch?v=BANc3m7WuoY&t=4580s" data-timestamp="4580"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>1:16:20</a>　休憩してよろしいですか。</div><div class="say">【質問】</div>
+</div>
+
+</div>
+
+  <div id="floating-player-container" style="display:none; position:fixed; bottom:20px; right:20px; width:350px; height:197px; box-shadow:0 4px 10px rgba(0,0,0,0.3); border-radius:8px; overflow:hidden; z-index:1000; background:#000; border:2px solid #cbd5e0;">
+    <div id="close-player-btn" style="position:absolute; top:-5px; right:8px; color:white; cursor:pointer; z-index:1001; font-weight:bold; font-size:24px; text-shadow:1px 1px 3px rgba(0,0,0,0.8); line-height:1;">&times;</div>
+    <div id="yt-player-wrapper" style="width:100%; height:100%;"></div>
+  </div>
+  <script>
+    var container=document.getElementById("floating-player-container");
+    var closeBtn=document.getElementById("close-player-btn");
+    var wrapper=document.getElementById("yt-player-wrapper");
+    closeBtn.addEventListener("click",function(){container.style.display="none";wrapper.innerHTML="";});
+    document.querySelectorAll(".yt-btn").forEach(function(link){
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        var href=this.getAttribute("href");
+        var mv=href.match(/v=([a-zA-Z0-9_-]+)/), mt=href.match(/t=(\d+)s?/);
+        if(mv){var vid=mv[1],t=mt?parseInt(mt[1],10):0;
+          container.style.display="block";
+          wrapper.innerHTML='<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/'+vid+'?start='+t+'&autoplay=1&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';}
+      });
+    });
+    var els=[].slice.call(document.querySelectorAll('.reveal'));
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0,rootMargin:"0px 0px -8% 0px"});
+      els.forEach(function(e){io.observe(e);});
+      setTimeout(function(){els.forEach(function(e){e.classList.add('in');});},1500);
+    } else { els.forEach(function(e){e.classList.add('in');}); }
+    var prog=document.getElementById('prog');
+    addEventListener('scroll',function(){var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1);prog.style.width=(p*100)+'%';},{passive:true});
+  </script>
+
+<script id="qsearch-js">
+(function(){
+  try{
+    var p=new URLSearchParams(location.search), raw=p.get('q');
+    if(!raw) return;
+    var terms=raw.split(/\s+/).filter(Boolean);
+    if(!terms.length) return;
+    var reveals=document.querySelectorAll('.reveal');
+    for(var i=0;i<reveals.length;i++){reveals[i].classList.add('in');}
+    function esc(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+    var re=new RegExp('('+terms.map(esc).join('|')+')','gi');
+    var scope=document.querySelectorAll('.say,.sum p,.sum li,.sum h3,.sum h4');
+    for(var k=0;k<scope.length;k++){
+      var root=scope[k];
+      var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null);
+      var nodes=[],node;
+      while(node=w.nextNode()){
+        var par=node.parentNode;
+        if(!node.nodeValue||!node.nodeValue.trim()||!par) continue;
+        if(par.nodeName==='MARK') continue;
+        if(par.classList&&par.classList.contains('ts')) continue;
+        nodes.push(node);
+      }
+      for(var j=0;j<nodes.length;j++){
+        var n=nodes[j]; re.lastIndex=0;
+        if(!re.test(n.nodeValue)) continue; re.lastIndex=0;
+        var s=n.nodeValue, frag=document.createDocumentFragment(), last=0, m;
+        while(m=re.exec(s)){
+          if(m.index>last) frag.appendChild(document.createTextNode(s.slice(last,m.index)));
+          var mk=document.createElement('mark'); mk.className='qhit'; mk.textContent=m[0];
+          frag.appendChild(mk);
+          last=m.index+m[0].length;
+          if(m.index===re.lastIndex) re.lastIndex++;
+        }
+        if(last<s.length) frag.appendChild(document.createTextNode(s.slice(last)));
+        n.parentNode.replaceChild(frag,n);
+      }
+    }
+    var target=null, h=location.hash?decodeURIComponent(location.hash.slice(1)):'';
+    if(h) target=document.getElementById(h);
+    if(!target){var f=document.querySelector('mark.qhit'); if(f) target=(f.closest&&f.closest('.turn,.sum'))||f;}
+    if(target){
+      if(target.classList&&target.classList.contains('turn')) target.classList.add('qcurrent');
+      setTimeout(function(){try{target.scrollIntoView({block:'center'});}catch(e){target.scrollIntoView();}},60);
+    }
+  }catch(e){}
+})();
+</script>
+<button class="to-top" type="button" aria-label="ページ上部へ戻る" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>(function(){var b=document.querySelector('.to-top');if(!b)return;function u(){b.classList.toggle('show',(window.pageYOffset||document.documentElement.scrollTop)>300);}window.addEventListener('scroll',u,{passive:true});u();})();</script>
+<script id="anchor-js">
+(function(){
+  try{
+    var turns=[].slice.call(document.querySelectorAll('.turn[id]'));
+    if(!turns.length) return;
+    var firstBy={};
+    turns.forEach(function(t){
+      var nm=t.querySelector('.name'); if(!nm) return;
+      var key=(nm.textContent||'').trim(); if(!key||key==='—') return;
+      if(!firstBy[key]) firstBy[key]=t.id;
+    });
+    var toast;
+    function showToast(){
+      if(!toast){ toast=document.createElement('div'); toast.className='copy-toast'; toast.textContent='この発言へのリンクをコピーしました'; document.body.appendChild(toast); }
+      toast.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(function(){toast.classList.remove('show');},1800);
+    }
+    function hl(el){ turns.forEach(function(x){x.classList.remove('turn-hl');}); if(el) el.classList.add('turn-hl'); }
+    // ② 発言パーマリンク
+    turns.forEach(function(t){
+      var meta=t.querySelector('.meta'); if(!meta) return;
+      var a=document.createElement('a');
+      a.className='turn-link'; a.href='#'+t.id; a.title='この発言へのリンクをコピー'; a.setAttribute('aria-label','この発言へのリンクをコピー');
+      a.textContent='🔗';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        var url=location.origin+location.pathname+'#'+t.id;
+        try{ history.replaceState(null,'','#'+t.id); }catch(e){}
+        if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(showToast).catch(function(){ location.hash=t.id; }); }
+        else { location.hash=t.id; showToast(); }
+        hl(t);
+      });
+      meta.appendChild(a);
+    });
+    // ① 要約中の発言者名(太字)→本文へ
+    [].slice.call(document.querySelectorAll('.sum strong')).forEach(function(st){
+      var txt=(st.textContent||'').trim(); if(!txt||txt.length<2) return;
+      var id=null;
+      for(var k in firstBy){ if(k.indexOf(txt)>=0 || txt.indexOf(k)>=0){ id=firstBy[k]; break; } }
+      if(!id) return;
+      var a=document.createElement('a');
+      a.className='sum-jump'; a.href='#'+id; a.textContent=st.textContent; a.title='本文の発言へ';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault(); var el=document.getElementById(id);
+        if(el){ hl(el); el.scrollIntoView({block:'center',behavior:'smooth'}); try{history.replaceState(null,'','#'+id);}catch(e){} }
+      });
+      st.parentNode.replaceChild(a, st);
+    });
+    // 直リンクで #tN が指定されていたらハイライト
+    if(location.hash){ var el0=document.getElementById(location.hash.slice(1)); if(el0&&el0.classList&&el0.classList.contains('turn')) el0.classList.add('turn-hl'); }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
