@@ -139,6 +139,151 @@
 
   <div class="wave to-alt"><svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C260,10 520,60 760,38 C1020,14 1220,58 1440,34 L1440,70 L0,70 Z"/></svg></div>
 
+  <!-- MAYORS-START 首長コメント欄(2026-09-29 追加。zip外の手動追加。再適用= shirai-web/首長コメント_2026-09-28/apply_mayors.py) -->
+<section class="sec mayors" id="mayors" data-screen-label="首長コメント">
+<style>
+#mayors{background:var(--paper-alt)}
+#mayors .ed-list{border-top:1px solid var(--line)}
+#mayors .ed-item{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;align-items:center;padding:96px 0 88px;border-bottom:1px solid var(--line)}
+#mayors .ed-photo{grid-column:1/span 4;grid-row:1;position:relative;z-index:1;margin:0}
+#mayors .ed-item.rev .ed-photo{grid-column:9/span 4}
+#mayors .ed-photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:var(--r-lg);border:8px solid #fff;box-shadow:var(--shadow-lg)}
+#mayors .ed-body{grid-column:6/span 7;grid-row:1;position:relative;z-index:1}
+#mayors .ed-item.rev .ed-body{grid-column:1/span 7}
+#mayors .ed-pull{margin:12px 0 0;font-family:var(--font-round);font-weight:900;font-size:2.3rem;line-height:1.65;letter-spacing:.02em;word-break:auto-phrase;text-wrap:balance}
+#mayors .ed-text{margin:26px 0 0;max-width:640px;font-size:1.02rem;line-height:2.05;color:var(--ink-soft);text-wrap:pretty}
+#mayors .ed-role{font-weight:700;font-size:.86rem;letter-spacing:.07em;color:var(--accent-deep)}
+#mayors .ed-name{font-family:var(--font-round);font-weight:900;font-size:1.6rem;letter-spacing:.08em;line-height:1.3}
+#mayors .rel{margin-top:80px}
+#mayors .rel-cap{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+#mayors .rel-cap b{font-family:var(--font-round);font-weight:900;font-size:1.4rem}
+#mayors .rel-cap span{font-size:.9rem;color:var(--ink-soft)}
+#mayors .rel-map{position:relative;width:100%;aspect-ratio:1104/620;background:var(--paper-alt);border-radius:var(--r-lg);overflow:hidden}
+#mayors .rel-map svg.svg-pc,#mayors .rel-map svg.svg-sp{position:absolute;top:0;left:0;width:100%;height:100%}
+#mayors .rel-map .svg-sp{display:none}
+#mayors .rel-node{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-48px);width:160px;display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
+#mayors .rel-node img{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center 14%;border:4px solid #fff;box-shadow:0 8px 24px rgba(20,40,70,.16);margin-bottom:4px}
+#mayors .rel-node b{font-family:var(--font-round);font-weight:900;font-size:1rem;letter-spacing:.06em;line-height:1.35}
+#mayors .rel-node .tie-sp{display:none}
+#mayors .rel-center{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-64px);display:flex;flex-direction:column;align-items:center;gap:10px}
+#mayors .rel-center img{width:128px;height:128px;border-radius:50%;object-fit:cover;border:5px solid #fff;box-shadow:0 0 0 8px var(--yellow),var(--shadow-md)}
+#mayors .rel-center b{font-family:var(--font-round);font-weight:900;font-size:1.15rem;letter-spacing:.08em;color:var(--blue-ink);line-height:1.3;margin-top:4px}
+#mayors .rel-tie{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);padding:4px 12px;background:#fff;border:1.5px solid var(--accent-deep);border-radius:999px;font-size:.8rem;font-weight:700;color:var(--blue-ink);white-space:nowrap;line-height:1.55}
+#mayors .rel-north{position:absolute;right:22px;top:16px;display:flex;flex-direction:column;align-items:center;gap:3px;font-family:var(--font-en);font-weight:800;font-size:.8rem;color:var(--ink-soft);line-height:1}
+#mayors .rel-legend{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.8rem;color:var(--ink-soft);line-height:1.7}
+#mayors .rel-legend i{display:inline-block;vertical-align:middle;margin-right:8px}
+#mayors .lg-chuo{width:28px;height:6px;border-radius:3px;background:#f7a86b}
+#mayors .lg-far{width:28px;height:0;border-top:2px dashed var(--accent-deep)}
+#mayors .ed-pull{margin-top:0}
+#mayors .ed-photo img{aspect-ratio:1/1;border-radius:50%;object-position:center}
+#mayors .rel-node img{object-position:center}
+#mayors .sec-ja-final{margin-bottom:0;word-break:auto-phrase;text-wrap:balance}
+#mayors .ed-cap{margin-top:22px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+#mayors .ed-cap .ed-role{font-weight:700;font-size:.9rem;letter-spacing:.1em;color:var(--accent-deep);line-height:1.6}
+#mayors .ed-cap .ed-name{font-family:var(--font-round);font-weight:900;font-size:1.6rem;letter-spacing:.1em;line-height:1.35}
+#mayors .rel-map{background:#fff}
+@media (max-width:1099px){
+#mayors .ed-photo{grid-column:1/span 5}
+#mayors .ed-item.rev .ed-photo{grid-column:8/span 5}
+#mayors .ed-body{grid-column:7/span 6}
+#mayors .ed-item.rev .ed-body{grid-column:1/span 6}
+#mayors .ed-pull{font-size:1.9rem}
+#mayors .rel{margin-top:56px}
+#mayors .rel-map{aspect-ratio:360/510;max-width:560px;margin:0 auto;border-radius:22px}
+#mayors .rel-map .svg-pc{display:none}
+#mayors .rel-map .svg-sp{display:block}
+#mayors .rel-node{left:var(--mx);top:var(--my);transform:translate(-50%,-26px);width:108px;gap:2px}
+#mayors .rel-node img{width:52px;height:52px;border-width:3px;margin-bottom:2px}
+#mayors .rel-node b{font-size:.78rem;letter-spacing:.02em}
+#mayors .rel-node .tie-sp{display:block;margin-top:2px;padding:2px 7px;background:#fff;border:1.2px solid var(--accent-deep);border-radius:10px;font-size:.66rem;font-weight:700;color:var(--blue-ink);line-height:1.45}
+#mayors .rel-tie{display:none}
+#mayors .rel-center{left:var(--mx);top:var(--my);transform:translate(-50%,-38px);gap:6px}
+#mayors .rel-center img{width:76px;height:76px;border-width:3px;box-shadow:0 0 0 5px var(--yellow),var(--shadow-sm)}
+#mayors .rel-center b{font-size:.86rem}
+#mayors .rel-north{right:14px;top:12px}
+#mayors .rel-legend{max-width:560px;margin-left:auto;margin-right:auto}
+}
+@media (max-width:819px){
+#mayors .ed-item{display:flex;flex-direction:column;align-items:stretch;padding:56px 0 48px}
+#mayors .ed-photo{width:210px}
+#mayors .ed-photo img{border-width:6px;border-radius:22px}
+#mayors .ed-body{margin-top:26px}
+#mayors .ed-pull{font-size:1.5rem;line-height:1.6}
+#mayors .ed-text{font-size:.95rem;line-height:2}
+#mayors .ed-name{font-size:1.35rem}
+#mayors .ed-photo img{border-radius:50%}
+#mayors .ed-cap{margin-top:14px}
+#mayors .ed-cap .ed-name{font-size:1.35rem}
+}
+</style>
+<div class="wrap">
+<div class="sec-head reveal"><div class="sec-en">Messages</div><h2 class="sec-ja sec-ja-final">各地の市長・区長からも応援いただいています！</h2></div>
+<div class="ed-list">
+<article class="ed-item">
+<figure class="ed-photo"><img src="uploads/mayors/kodaira.jpg" alt="小林 洋子さんの写真" loading="lazy">
+<figcaption class="ed-cap"><span class="ed-role">小平市長</span><span class="ed-name">小林 洋子</span></figcaption></figure>
+<div class="ed-body">
+<p class="ed-pull"><span class="mark">ご自身の子育て経験を市政に生かして頑張る白井さん</span></p>
+<p class="ed-text">隣市として、また昭和病院企業団や湖南衛生組合で共に歩む仲間です。弁当や朝食を担当しながらご自身の子育て経験を市政に生かして頑張る白井さんを心から応援しています。</p>
+</div>
+</article>
+<article class="ed-item rev">
+<figure class="ed-photo"><img src="uploads/mayors/tachikawa.jpg" alt="酒井 大史さんの写真" loading="lazy">
+<figcaption class="ed-cap"><span class="ed-role">立川市長</span><span class="ed-name">酒井 大史</span></figcaption></figure>
+<div class="ed-body">
+<p class="ed-pull"><span class="mark">&quot;ハブ&quot;のような包摂力の持ち主。</span></p>
+<p class="ed-text">白井市長は、子どもから高齢者まで多様な声を束ね前進させる&quot;ハブ&quot;のような包摂力の持ち主。インクルーシブな小金井市の実現を確信し、同世代の市長として応援します。</p>
+</div>
+</article>
+<article class="ed-item">
+<figure class="ed-photo"><img src="uploads/mayors/nakano.jpg" alt="酒井 直人さんの写真" loading="lazy">
+<figcaption class="ed-cap"><span class="ed-role">中野区長</span><span class="ed-name">酒井 直人</span></figcaption></figure>
+<div class="ed-body">
+<p class="ed-pull"><span class="mark">小金井市と中野区で連携し地方自治を進めて行きましょう！</span></p>
+<p class="ed-text">国政と市政は全く異なります。住民に最も身近な地方政府として、JR中央線の自治体同士、小金井市と中野区で連携し地方自治を進めて行きましょう！白井市長、頑張って！</p>
+</div>
+</article>
+<article class="ed-item rev">
+<figure class="ed-photo"><img src="uploads/mayors/shinagawa.jpg" alt="森澤 恭子さんの写真" loading="lazy">
+<figcaption class="ed-cap"><span class="ed-role">品川区長</span><span class="ed-name">森澤 恭子</span></figcaption></figure>
+<div class="ed-body">
+<p class="ed-pull"><span class="mark">いつもまっすぐで真摯に取り組む白井さんの姿勢</span></p>
+<p class="ed-text">白井さんとは議員時代からご縁があり、同じタイミングで首長に。バランス感覚があり、市長として市民と市政を近づけるべく、小金井市政にいつもまっすぐで真摯に取り組む白井さんの姿勢には刺激を受けています。ともにがんばりましょう！</p>
+</div>
+</article>
+<article class="ed-item">
+<figure class="ed-photo"><img src="uploads/mayors/katano.jpg" alt="山本 けいさんの写真" loading="lazy">
+<figcaption class="ed-cap"><span class="ed-role">大阪府交野市長</span><span class="ed-name">山本 けい</span></figcaption></figure>
+<div class="ed-body">
+<p class="ed-pull"><span class="mark">小金井市の更なる発展を心から願います。</span></p>
+<p class="ed-text">市長は、市民代表として特定の政党のためでなく、市民に公正公平であるべきです。私はこの9月に再選しましたが、青年市長会の仲間であり、また、同じく完全無所属の市長の仲間として、白井市長の再選と私が20歳代に過ごした小金井市の更なる発展を心から願います。</p>
+</div>
+</article>
+</div>
+<div class="rel">
+<div class="rel-cap"><b>つながり</b><span>図の中の言葉は、それぞれのコメントから。</span></div>
+<div class="rel-map" role="img" aria-label="白井とおるを中心に、小林 洋子さん(線の言葉「隣市として」)、酒井 大史さん(線の言葉「同世代の市長」)、酒井 直人さん(線の言葉「JR中央線の自治体同士」)、森澤 恭子さん(線の言葉「議員時代からご縁」)、山本 けいさん(線の言葉「青年市長会の仲間」)を線で結んだ図">
+<svg class="svg-pc" viewBox="0 0 1104 620" preserveAspectRatio="none" aria-hidden="true"><polyline points="155.4,188.8 234.7,205.0 552,270 964.1,238.3 1013.5,234.4" fill="none" stroke="#f7a86b" stroke-opacity=".55" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><line x1="552" y1="270" x2="413.3" y2="74.1" stroke="#0079bf" stroke-width="2"/><line x1="552" y1="270" x2="234.7" y2="205.0" stroke="#0079bf" stroke-width="2"/><line x1="552" y1="270" x2="964.1" y2="238.3" stroke="#0079bf" stroke-width="2"/><line x1="552" y1="270" x2="1019.6" y2="497.8" stroke="#0079bf" stroke-width="2"/><line x1="552" y1="270" x2="100.0" y2="401.7" stroke="#0079bf" stroke-width="2" stroke-dasharray="8 7"/><rect x="217.6" y="355.8" width="18" height="18" fill="#fff" transform="rotate(163.8 226.6 364.8)"/><line x1="237.6" y1="370.6" x2="223.2" y2="356.8" stroke="#0079bf" stroke-width="2"/><line x1="229.9" y1="372.9" x2="215.5" y2="359.0" stroke="#0079bf" stroke-width="2"/></svg>
+<svg class="svg-sp" viewBox="0 0 360 510" preserveAspectRatio="none" aria-hidden="true"><polyline points="22.5,235.0 54.0,238.0 180,250 300.0,238.0 314.4,236.6" fill="none" stroke="#f7a86b" stroke-opacity=".55" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><line x1="180" y1="250" x2="118.0" y2="92.0" stroke="#0079bf" stroke-width="2"/><line x1="180" y1="250" x2="54.0" y2="238.0" stroke="#0079bf" stroke-width="2"/><line x1="180" y1="250" x2="300.0" y2="238.0" stroke="#0079bf" stroke-width="2"/><line x1="180" y1="250" x2="286.0" y2="404.0" stroke="#0079bf" stroke-width="2"/><line x1="180" y1="250" x2="60.0" y2="392.0" stroke="#0079bf" stroke-width="2" stroke-dasharray="8 7"/><rect x="84.6" y="343.2" width="18" height="18" fill="#fff" transform="rotate(130.2 93.6 352.2)"/><line x1="106.0" y1="351.0" x2="86.3" y2="347.4" stroke="#0079bf" stroke-width="2"/><line x1="100.9" y1="357.1" x2="81.2" y2="353.5" stroke="#0079bf" stroke-width="2"/></svg>
+<span class="rel-tie" style="--x:43.47%;--y:27.12%">隣市として</span>
+<span class="rel-tie" style="--x:35.63%;--y:38.31%">同世代の市長</span>
+<span class="rel-tie" style="--x:70.53%;--y:40.73%">JR中央線の自治体同士</span>
+<span class="rel-tie" style="--x:71.18%;--y:61.92%">議員時代からご縁</span>
+<span class="rel-tie" style="--x:31.58%;--y:53.11%">青年市長会の仲間</span>
+<div class="rel-center" style="--x:50.00%;--y:43.55%;--mx:50.00%;--my:49.02%"><img src="uploads/mayors/shirai.jpg" alt=""><b>白井とおる</b></div>
+<div class="rel-node" style="--x:37.44%;--y:11.96%;--mx:32.78%;--my:18.04%"><img src="uploads/mayors/kodaira.jpg" alt="" loading="lazy"><b>小林 洋子</b><span class="tie-sp">隣市として</span></div>
+<div class="rel-node" style="--x:21.26%;--y:33.07%;--mx:15.00%;--my:46.67%"><img src="uploads/mayors/tachikawa.jpg" alt="" loading="lazy"><b>酒井 大史</b><span class="tie-sp">同世代の市長</span></div>
+<div class="rel-node" style="--x:87.33%;--y:38.43%;--mx:83.33%;--my:46.67%"><img src="uploads/mayors/nakano.jpg" alt="" loading="lazy"><b>酒井 直人</b><span class="tie-sp">JR中央線の自治体同士</span></div>
+<div class="rel-node" style="--x:92.36%;--y:80.28%;--mx:79.44%;--my:79.22%"><img src="uploads/mayors/shinagawa.jpg" alt="" loading="lazy"><b>森澤 恭子</b><span class="tie-sp">議員時代からご縁</span></div>
+<div class="rel-node" style="--x:9.06%;--y:64.79%;--mx:16.67%;--my:76.86%"><img src="uploads/mayors/katano.jpg" alt="" loading="lazy"><b>山本 けい</b><span class="tie-sp">青年市長会の仲間</span></div>
+<div class="rel-north" aria-hidden="true"><svg width="14" height="18" viewBox="0 0 14 18"><path d="M7 1 L13 17 L7 13 L1 17 Z" fill="#5d5650"/></svg>N</div>
+</div>
+<div class="rel-legend"><span><i class="lg-chuo"></i>JR中央線</span><span><i class="lg-far"></i>遠く離れたまち(途中を省略)</span><span>位置は市役所・区役所の方角をもとにした模式図です。距離は縮めています。</span></div>
+</div>
+</div></section>
+<!-- MAYORS-END -->
+
+
   <div class="wave to-paper"><svg viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,36 C320,72 540,4 760,32 C1000,62 1200,18 1440,40 L1440,70 L0,70 Z"/></svg></div>
 
   <!-- ============ PROFILE ============ -->
