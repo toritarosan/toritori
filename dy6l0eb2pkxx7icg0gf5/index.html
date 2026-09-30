@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>小金井市議会 会派別の発言傾向</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&display=swap">
+<style>
+/* レイアウト: 会議録を一枚ずつめくる読み物。本文幅760pxの1段組、図も同じ幅で左揃え。 */
+:root {
+  --bg: #f2f3f5;
+  --surface: #fcfcfb;
+  --ink: #15181d;
+  --ink-2: #4a4f57;
+  --muted: #767b84;
+  --rule: #dcdfe3;
+  --grid: #e7e9ec;
+  --accent: #4a3aa7;
+  --accent-wash: rgba(74, 58, 167, 0.07);
+  --before: #86b6ef;
+  --after: #1c5cab;
+  --s1: #2a78d6; --s1-t: #ffffff;
+  --s2: #eb6834; --s2-t: #0b0b0b;
+  --s3: #1baf7a; --s3-t: #0b0b0b;
+  --s4: #eda100; --s4-t: #0b0b0b;
+  --s5: #e87ba4; --s5-t: #0b0b0b;
+  --s6: #008300; --s6-t: #ffffff;
+  --tip-bg: #15181d; --tip-fg: #f2f3f5; --tip-fg-2: #b9bdc4;
+  --font-body: "BIZ UDPGothic", system-ui, "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+  --font-display: "BIZ UDPMincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --fs-xs: 11.5px; --fs-s: 13px; --fs-m: 15px; --fs-l: 18px; --fs-xl: 24px; --fs-xxl: 34px; --fs-hero: 46px;
+  --labw: 11.5em;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1113; --surface: #1a1a19; --ink: #f1f2f4; --ink-2: #c3c2b7; --muted: #8e939b; --rule: #2d3033; --grid: #262829;
+    --accent: #9085e9; --accent-wash: rgba(144, 133, 233, 0.11); --before: #256abf; --after: #86b6ef;
+    --s1: #3987e5; --s1-t: #0b0b0b; --s2: #d95926; --s2-t: #0b0b0b; --s3: #199e70; --s3-t: #0b0b0b;
+    --s4: #c98500; --s4-t: #0b0b0b; --s5: #d55181; --s5-t: #0b0b0b; --s6: #008300; --s6-t: #ffffff;
+    --tip-bg: #f1f2f4; --tip-fg: #15181d; --tip-fg-2: #4a4f57;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1113; --surface: #1a1a19; --ink: #f1f2f4; --ink-2: #c3c2b7; --muted: #8e939b; --rule: #2d3033; --grid: #262829;
+  --accent: #9085e9; --accent-wash: rgba(144, 133, 233, 0.11); --before: #256abf; --after: #86b6ef;
+  --s1: #3987e5; --s1-t: #0b0b0b; --s2: #d95926; --s2-t: #0b0b0b; --s3: #199e70; --s3-t: #0b0b0b;
+  --s4: #c98500; --s4-t: #0b0b0b; --s5: #d55181; --s5-t: #0b0b0b; --s6: #008300; --s6-t: #ffffff;
+  --tip-bg: #f1f2f4; --tip-fg: #15181d; --tip-fg-2: #4a4f57;
+  color-scheme: dark;
+}
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: var(--fs-m); line-height: 1.75; }
+.page { max-width: 760px; margin-inline: auto; padding-inline: 20px; padding-block: 44px 72px; display: grid; gap: 56px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.35; text-wrap: balance; margin: 0; }
+h1 { font-size: var(--fs-xxl); letter-spacing: 0.02em; }
+h2 { font-size: var(--fs-xl); }
+h3 { font-size: var(--fs-l); }
+h4.mini { font-family: var(--font-body); font-size: var(--fs-s); color: var(--ink-2); margin-top: 8px; }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+.tnum { font-variant-numeric: tabular-nums; }
+section { display: grid; gap: 18px; min-width: 0; }
+.eyebrow { font-size: var(--fs-s); color: var(--muted); letter-spacing: 0.08em; }
+.lede { font-size: var(--fs-l); line-height: 1.7; }
+.premise { font-size: var(--fs-s); color: var(--ink-2); border-top: 1px solid var(--rule); padding-top: 14px; }
+.kicker { font-size: var(--fs-s); color: var(--ink-2); }
+.masthead { display: grid; gap: 16px; }
+
+.periods { margin: 0; display: grid; gap: 6px; font-size: var(--fs-s); color: var(--ink-2); }
+.periods div { display: grid; grid-template-columns: 4.5em 1fr; gap: 8px; }
+.periods dt { font-weight: 700; color: var(--ink); } .periods dd { margin: 0; }
+/* 答え */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 18px; display: grid; gap: 4px; align-content: start; }
+.tile .label { font-size: var(--fs-s); color: var(--ink-2); }
+.tile .value { font-size: var(--fs-hero); font-weight: 700; line-height: 1.1; }
+.tile .value small { font-size: var(--fs-l); font-weight: 700; margin-left: 2px; }
+.tile .foot { font-size: var(--fs-s); color: var(--ink-2); }
+.tile.is-focus .value { color: var(--accent); }
+.points { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; }
+.points li::marker { color: var(--accent); }
+.points b { font-weight: 700; }
+
+/* 図の枠 */
+.fig { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 18px 14px; display: grid; gap: 14px; min-width: 0; }
+.fig-title { font-family: var(--font-body); font-size: var(--fs-m); font-weight: 700; }
+.fig-sub { font-size: var(--fs-s); color: var(--ink-2); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: var(--fs-s); color: var(--ink-2); }
+.key { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 11px; height: 11px; border-radius: 2px; background: var(--c); display: inline-block; }
+.sw.dot { border-radius: 50%; }
+.sw.before { background: var(--before); } .sw.after { background: var(--after); }
+
+/* ダンベル */
+.db { display: grid; gap: 2px; padding-right: 14px; }
+.db-row, .sb-row, .axis { display: grid; grid-template-columns: var(--labw) minmax(0, 1fr); gap: 12px; align-items: center; }
+.db-row { padding-block: 13px; border-radius: 6px; }
+.db-row.is-focus, .sb-row.is-focus { background: var(--accent-wash); }
+.db-label { font-size: var(--fs-s); line-height: 1.35; padding-left: 6px; min-width: 0; }
+.db-label .sub { display: block; font-size: var(--fs-xs); color: var(--muted); }
+.is-focus .db-label { font-weight: 700; }
+.db-track { position: relative; height: 14px; }
+.grid { position: absolute; top: -10px; bottom: -10px; width: 1px; background: var(--grid); }
+.db-line { position: absolute; top: 50%; height: 2px; transform: translateY(-50%); background: var(--muted); opacity: 0.55; }
+.db-dot { position: absolute; top: 50%; width: 12px; height: 12px; border-radius: 50%; transform: translate(-50%, -50%); box-shadow: 0 0 0 2px var(--surface); cursor: default; }
+.db-dot::after { content: ""; position: absolute; inset: -7px; }
+.db-dot.before { background: var(--before); } .db-dot.after { background: var(--after); z-index: 1; }
+.db-dot:hover, .db-dot:focus-visible { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--ink-2); }
+.db-val { position: absolute; font-size: var(--fs-xs); color: var(--ink-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.db-val.after { bottom: 100%; transform: translate(-50%, -3px); color: var(--ink); font-weight: 700; }
+.db-val.before { top: 100%; transform: translate(-50%, 3px); }
+.axis { margin-top: 4px; }
+.axis-track { position: relative; height: 18px; border-top: 1px solid var(--rule); }
+.tick { position: absolute; top: 3px; transform: translateX(-50%); font-size: var(--fs-xs); color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* 積み上げ */
+.sb { display: grid; gap: 4px; }
+.sb-row { padding-block: 5px; border-radius: 6px; }
+.sb-bar { display: flex; gap: 2px; height: 20px; min-width: 0; }
+.seg { flex-basis: 0; min-width: 3px; background: var(--c); display: flex; align-items: center; justify-content: center; }
+.seg:last-child { border-radius: 0 4px 4px 0; }
+.seg i { font-style: normal; font-size: var(--fs-xs); color: var(--t); white-space: nowrap; font-variant-numeric: tabular-nums; pointer-events: none; }
+.seg:hover, .seg:focus-visible { filter: brightness(1.08); outline: 2px solid var(--ink-2); outline-offset: 1px; }
+.s1 { --c: var(--s1); --t: var(--s1-t); } .s2 { --c: var(--s2); --t: var(--s2-t); } .s3 { --c: var(--s3); --t: var(--s3-t); }
+.s4 { --c: var(--s4); --t: var(--s4-t); } .s5 { --c: var(--s5); --t: var(--s5-t); } .s6 { --c: var(--s6); --t: var(--s6-t); }
+.defs { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px 16px; font-size: var(--fs-s); color: var(--ink-2); margin: 0; }
+.defs div { display: grid; grid-template-columns: 14px 1fr; gap: 8px; align-items: start; }
+.defs .sw { margin-top: 6px; }
+.defs dt { font-weight: 700; color: var(--ink); } .defs dd { margin: 0; }
+
+/* タブ */
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.tabs button { font: inherit; font-size: var(--fs-s); padding: 6px 14px; border-radius: 999px; border: 1px solid var(--rule); background: transparent; color: var(--ink-2); cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* 表 */
+details.tv summary { font-size: var(--fs-s); color: var(--ink-2); cursor: pointer; width: fit-content; }
+details.tv[open] summary { margin-bottom: 8px; }
+.tbl-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: var(--fs-s); }
+th, td { padding: 7px 8px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+th { font-weight: 700; color: var(--ink-2); white-space: nowrap; }
+table.num td:not(:first-child), table.num th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+table.touron td:not(:first-child), table.touron th:not(:first-child) { text-align: center; }
+.chip { display: inline-block; padding: 1px 10px; border-radius: 999px; font-size: var(--fs-xs); border: 1px solid var(--rule); white-space: nowrap; }
+.chip.yes { color: var(--ink); border-color: var(--ink-2); }
+.chip.no { color: var(--ink); border-color: var(--ink-2); border-style: solid; background: var(--grid); }
+.chip.none { color: var(--muted); }
+
+/* 会議録の引用 */
+.minutes { display: grid; gap: 10px; }
+.minutes h4 { font-family: var(--font-body); font-size: var(--fs-s); color: var(--ink-2); }
+.minute { margin: 0; padding: 12px 0 12px 1.2em; border-top: 1px solid var(--rule); display: grid; gap: 4px; }
+.minute figcaption { font-weight: 700; margin-left: -1.2em; }
+.minute figcaption span { font-weight: 400; font-size: var(--fs-s); color: var(--muted); }
+.minute blockquote { margin: 0; font-size: var(--fs-m); }
+.minute .note { font-size: var(--fs-s); color: var(--muted); }
+.minute.city figcaption { color: var(--ink-2); }
+
+/* 会派カード */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 18px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.card.is-focus { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.card header { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.card h3 { font-size: var(--fs-m); }
+.card .sub { font-size: var(--fs-xs); color: var(--muted); white-space: nowrap; }
+.card p { font-size: var(--fs-s); }
+.card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: var(--fs-xs); }
+.card dt { color: var(--muted); } .card dd { margin: 0; color: var(--ink-2); min-width: 0; }
+.mini-bars { display: grid; gap: 2px; margin: 3px 0 4px; }
+.mb { display: block; height: 4px; border-radius: 0 2px 2px 0; min-width: 2px; }
+.mb.before { background: var(--before); } .mb.after { background: var(--after); }
+
+/* 手順 */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; counter-reset: st; }
+.steps li { counter-increment: st; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 12px; font-size: var(--fs-s); display: grid; gap: 4px; align-content: start; }
+.steps li::before { content: counter(st); font-weight: 700; color: var(--accent); font-size: var(--fs-l); }
+.steps b { display: block; }
+.caveats { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; font-size: var(--fs-s); color: var(--ink-2); }
+footer { font-size: var(--fs-s); color: var(--ink-2); border-top: 1px solid var(--rule); padding-top: 16px; display: grid; gap: 6px; }
+footer code { font-size: var(--fs-xs); word-break: break-all; }
+
+/* ツールチップ */
+.tip { position: fixed; z-index: 10; pointer-events: none; background: var(--tip-bg); color: var(--tip-fg); border-radius: 6px; padding: 7px 10px; font-size: var(--fs-s); line-height: 1.45; max-width: 260px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18); }
+.tip .t-label { color: var(--tip-fg-2); font-size: var(--fs-xs); display: block; }
+.tip .t-val { font-weight: 700; display: block; }
+
+@media (max-width: 560px) {
+  :root { --labw: 7.2em; --fs-hero: 40px; --fs-xxl: 28px; }
+  .page { padding-inline: 16px; gap: 44px; }
+  .fig { padding: 14px 12px 12px; }
+  .db-label { font-size: var(--fs-xs); padding-left: 2px; }
+  .seg i { display: none; }
+  .cards { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .db-dot, .seg { transition: box-shadow 0.12s ease, filter 0.12s ease; }
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="masthead">
+    <p class="eyebrow">小金井市議会　会議録の分析　2026-09-30</p>
+    <h1>会派別の発言傾向</h1>
+    <p class="lede">「みらいのこがねい」は、事業の要望よりも、市の事業の進め方や、市長・部局の仕事の進め方を問いただすことが多いのか。他の会派と比べてどうか。</p>
+    <p class="premise">行政の進め方を問いただすことは、議会のチェック機能そのものです。ここで示すのは「発言の働きの割合」で、批判が多いことを悪い、要望が多いことを良いと評価するものではありません。議員の能力や姿勢の評価でもありません。問いは小金井をおもしろくする会所属の議員から出たもので、全12会派を同じ基準で測っています。紫の強調は、問いの対象の会派を示すだけで、評価の印ではありません。</p>
+    <dl class="periods">
+      <div><dt>公式期</dt><dd>2025-04-16〜2026-06-23。公式会議録（169会議）</dd></div>
+      <div><dt>速報期</dt><dd>2026-07-29〜09-29（約2か月・27会議）。閉会中の委員会（7/29〜8/7）と、9月定例会の本会議・委員会・庁舎特別委・決算特別委。議事録サイト Kaigiroku の<b>非公式の速報</b>（AIの文字起こしを校正したもの）で、話者の誤りが残りうる</dd></div>
+    </dl>
+  </header>
+
+  <section aria-labelledby="h-answer">
+    <h2 id="h-answer">答え</h2>
+    <div class="tiles">
+      <div class="tile">
+        <span class="label">公式期</span>
+        <span class="value">15<small>%</small></span>
+        <span class="foot">みらいの発言のうち、進め方への批判・姿勢の追及が主なもの（95%区間 10〜20%）。12会派中4番目で、生活者ネットと同率</span>
+      </div>
+      <div class="tile is-focus">
+        <span class="label">速報期（非公式）</span>
+        <span class="value">29<small>%</small></span>
+        <span class="foot">GPTで約1.9倍（Geminiで約1.7倍）。ただし12会派中7会派が上昇。上位5会派（29〜50%）は区間が重なり、順位は区別できない</span>
+      </div>
+      <div class="tile">
+        <span class="label">予算への討論（公式期）</span>
+        <span class="value">5<small>件とも賛成</small></span>
+        <span class="foot">R6決算は不認定。討論を確認できた10会派のうち8会派が不認定の側</span>
+      </div>
+    </div>
+    <ul class="points">
+      <li><b>みらい自身では、公式期は要望・提案（38%）が進め方批判・姿勢追及（15%）より多く、速報期は要望・提案（29%）と進め方批判・姿勢追及（29%）が並びました。</b></li>
+      <li><b>公式期は、予算の討論がすべて賛成だった6会派の中では、進め方を問う発言が最も多い側でした。</b>みらい15%に対し、生活者ネット15%・街の仲間たち10%・自由民主党小金井8%・公明党2%・おもしろくする会0%。要望・提案は6会派の中で最も少ない側でした（みらい38%、生活者ネット45%・街の仲間たち42%・自由民主党小金井52%・公明党50%・おもしろくする会52%）。議会全体では中位で、子どもの権利／情報公開（45%）・緑・つながる（30%）・共産党市議団（25%）のほうが多くなっています。</li>
+      <li><b>速報期は、みらいの割合がほぼ倍増しましたが、みらいだけが突出したわけではありません。</b>自民（33%）・街の仲間たち（32%）・緑・つながる（50%）も大きく増え、共産党市議団は13%に減りました。議員別では河野麻美議員（自民）の85%が24人で最も高く、自民の値は同議員が押し上げています（他の2人は7%・6%）。みらいの批判は、最も多い話題が庁舎（GPT 50%・Gemini 62%）、市長に向けたものがGPT 50%・Gemini 64%でした。</li>
+      <li><b>強い調子の発言が、他の会派より突出して多いわけではありません。</b>「強い調子」は、AIが語調を0〜3で採点して2以上としたもので、言葉の強さであって内容の是非ではありません。みらいは公式期22%（12会派中7番目）、速報期31%。速報期にみらいより高いのは5会派（緑・つながる59%・見える化する会50%・子どもの権利／情報公開48%・自由民主党小金井34%・参政党（議長）33%（9件））です。</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-f1">
+    <h2 id="h-f1">時期で比べる</h2>
+    <div class="fig">
+      <div>
+        <p class="fig-title">進め方への批判・姿勢の追及が主な発言の割合</p>
+        <p class="fig-sub">会派の値は所属議員の値の平均（GPTの分類）。速報期の多い順。点に触れると95%区間と、同じ発言を別に分類したGeminiの値が出ます。公式期と速報期は資料の出所が違うため、差の一部は資料の性質による可能性があります。※は抽出が15件未満の参考値。</p>
+      </div>
+      <div class="legend"><span class="key"><span class="sw dot before"></span>公式期</span><span class="key"><span class="sw dot after"></span>速報期（非公式）</span></div>
+      <div class="db"><div class="db-row"><div class="db-label">緑・つながる<span class="sub">1人</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:16.667%"></span><span class="grid" style="left:33.333%"></span><span class="grid" style="left:50.000%"></span><span class="grid" style="left:66.667%"></span><span class="grid" style="left:83.333%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:50.000%;width:33.333%"></span><span class="db-dot before" style="left:50.000%" tabindex="0" data-tip="緑・つながる / 公式期 30%（区間 18〜45%・Gemini 30%）"></span><span class="db-dot after" style="left:83.333%" tabindex="0" data-tip="緑・つながる / 速報期 50%（区間 32〜68%・Gemini 56%）"></span></div></div><div class="db-row"><div class="db-label">自由民主党小金井<span class="sub">3人</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:16.667%"></span><span class="grid" style="left:33.333%"></span><span class="grid" style="left:50.000%"></span><span class="grid" style="left:66.667%"></span><span class="grid" style="left:83.333%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:12.821%;width:41.741%"></span><span class="db-dot before" style="left:12.821%" tabindex="0" data-tip="自由民主党小金井 / 公式期 8%（区間 3〜13%・Gemini 8%）"></span><span class="db-dot after" style="left:54.561%" tabindex="0" data-tip="自由民主党小金井 / 速報期 33%（区間 26〜40%・Gemini 33%）"></span></div></div><div class="db-row"><div class="db-label">街の仲間たち<span class="sub">1人</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:16.667%"></span><span class="grid" style="left:33.333%"></span><span class="grid" style="left:50.000%"></span><span class="grid" style="left:66.667%"></span><span class="grid" style="left:83.333%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:16.129%;width:37.442%"></span><span class="db-dot before" style="left:16.129%" tabindex="0" data-tip="街の仲間たち / 公式期 10%（区間 0〜23%・Gemini 16%）"></span><span class="db-dot after" style="left:53.571%" tabindex="0" data-tip="街の仲間たち / 速報期 32%（区間 14〜50%・Gemini 29%）"></span></div></div><div class="db-row"><div class="db-label">子どもの権利／情報公開<span class="sub">2人</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:16.667%"></span><span class="grid" style="left:33.333%"></span><span class="grid" style="left:50.000%"></span><span class="grid" style="left:66.667%"></span><span class="grid" style="left:83.333%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:50.000%;width:25.000%"></span><span class="db-dot before" style="left:75.000%" tabindex="0" data-tip="子どもの権利／情報公開 / 公式期 45%（区間 34〜56%・Gemini 51%）"></span><span class="db-dot after" style="left:50.000%" tabindex="0" data-tip="子どもの権利／情報公開 / 速報期 30%（区間 20〜40%・Gemini 38%）"></span></div></div><div class="db-row is-focus"><div class="db-label">みらいのこがねい<span class="sub">5人</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:16.667%"></span><span class="grid" style="left:33.333%"></span><span class="grid" style="left:50.000%"></span><span class="grid" style="left:66.667%"></span><span class="grid" style="left:83.333%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:25.405%;width:23.263%"></span><span class="db-dot before" style="left:25.405%" tabindex="0" data-tip="みらいのこがねい / 公式期 15%（区間 10〜20%・Gemini 17%）"></span><span class="db-dot after" style="left:48.668%" tabindex="0" data-tip="みらいのこがねい / 速報期 29%（区間 23〜36%・Gemini 29%）"></span><span class="db-val before" style="left:25.405%">15%</span><span class="db-val after" style="left:48.668%">29%</span></div></div><div class="db-row"><div class="db-label">見える化する会<span class="sub">1人</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:16.667%"></span><span class="grid" style="left:33.333%"></span><span class="grid" style="left:50.000%"></span><span class="grid" style="left:66.667%"></span><span class="grid" style="left:83.333%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:12.500%;width:26.974%"></span><span class="db-dot before" style="left:12.500%" tabindex="0" data-tip="見える化する会 / 公式期 8%（区間 0〜18%・Gemini 5%）"></span><span class="db-dot after" style="left:39.474%" tabindex="0" data-tip="見える化する会 / 速報期 24%（区間 11〜39%・Gemini 29%）"></span></div></div><div class="db-row"><div class="db-label">共産党市議団<span class="sub">3人</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:16.667%"></span><span class="grid" style="left:33.333%"></span><span class="grid" style="left:50.000%"></span><span class="grid" style="left:66.667%"></span><span class="grid" style="left:83.333%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:21.759%;width:20.347%"></span><span class="db-dot before" style="left:42.106%" tabindex="0" data-tip="共産党市議団 / 公式期 25%（区間 18〜32%・Gemini 25%）"></span><span class="db-dot after" style="left:21.759%" tabindex="0" data-tip="共産党市議団 / 速報期 13%（区間 7〜20%・Gemini 12%）"></span></div></div><div class="db-row"><div class="db-label">れいわ<span class="sub">1人</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:16.667%"></span><span class="grid" style="left:33.333%"></span><span class="grid" style="left:50.000%"></span><span class="grid" style="left:66.667%"></span><span class="grid" style="left:83.333%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:20.833%;width:0.000%"></span><span class="db-dot before" style="left:20.833%" tabindex="0" data-tip="れいわ / 公式期 12%（区間 2〜22%・Gemini 15%）"></span><span class="db-dot after" style="left:20.833%" tabindex="0" data-tip="れいわ / 速報期 12%（区間 2〜22%・Gemini 10%）"></span></div></div><div class="db-row"><div class="db-label">生活者ネット<span class="sub">1人</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:16.667%"></span><span class="grid" style="left:33.333%"></span><span class="grid" style="left:50.000%"></span><span class="grid" style="left:66.667%"></span><span class="grid" style="left:83.333%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:20.202%;width:4.798%"></span><span class="db-dot before" style="left:25.000%" tabindex="0" data-tip="生活者ネット / 公式期 15%（区間 5〜28%・Gemini 18%）"></span><span class="db-dot after" style="left:20.202%" tabindex="0" data-tip="生活者ネット / 速報期 12%（区間 3〜24%・Gemini 15%）"></span></div></div><div class="db-row"><div class="db-label">公明党<span class="sub">3人</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:16.667%"></span><span class="grid" style="left:33.333%"></span><span class="grid" style="left:50.000%"></span><span class="grid" style="left:66.667%"></span><span class="grid" style="left:83.333%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:2.778%;width:8.333%"></span><span class="db-dot before" style="left:2.778%" tabindex="0" data-tip="公明党 / 公式期 2%（区間 0〜4%・Gemini 2%）"></span><span class="db-dot after" style="left:11.111%" tabindex="0" data-tip="公明党 / 速報期 7%（区間 2〜11%・Gemini 8%）"></span></div></div><div class="db-row"><div class="db-label">おもしろくする会<span class="sub">2人</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:16.667%"></span><span class="grid" style="left:33.333%"></span><span class="grid" style="left:50.000%"></span><span class="grid" style="left:66.667%"></span><span class="grid" style="left:83.333%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:0.000%;width:4.688%"></span><span class="db-dot before" style="left:0.000%" tabindex="0" data-tip="おもしろくする会 / 公式期 0%（区間 0〜0%・Gemini 0%）"></span><span class="db-dot after" style="left:4.688%" tabindex="0" data-tip="おもしろくする会 / 速報期 3%（区間 0〜7%・Gemini 4%）"></span></div></div><div class="db-row"><div class="db-label">参政党（議長）<span class="sub">1人・速報9件※</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:16.667%"></span><span class="grid" style="left:33.333%"></span><span class="grid" style="left:50.000%"></span><span class="grid" style="left:66.667%"></span><span class="grid" style="left:83.333%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:0.000%;width:8.333%"></span><span class="db-dot before" style="left:8.333%" tabindex="0" data-tip="参政党（議長） / 公式期 5%（区間 0〜12%・Gemini 5%）"></span><span class="db-dot after" style="left:0.000%" tabindex="0" data-tip="参政党（議長） / 速報期 0%（区間 0〜0%・Gemini 0%）"></span></div></div><div class="axis" aria-hidden="true"><div></div><div class="axis-track"><span class="tick" style="left:0.000%">0%</span><span class="tick" style="left:16.667%">10%</span><span class="tick" style="left:33.333%">20%</span><span class="tick" style="left:50.000%">30%</span><span class="tick" style="left:66.667%">40%</span><span class="tick" style="left:83.333%">50%</span><span class="tick" style="left:100.000%">60%</span></div></div></div><details class="tv"><summary>表で見る（カッコ内は95%区間）</summary><div class="tbl-wrap"><table class="num"><thead><tr><th>会派</th><th>公式期 GPT（区間）／Gemini</th><th>速報期 GPT（区間）／Gemini</th><th>差（GPT）</th></tr></thead><tbody><tr><td>緑・つながる</td><td>30%（18〜45）／30%</td><td>50%（32〜68）／56%</td><td>+20pt</td></tr><tr><td>自由民主党小金井</td><td>8%（3〜13）／8%</td><td>33%（26〜40）／33%</td><td>+25pt</td></tr><tr><td>街の仲間たち</td><td>10%（0〜23）／16%</td><td>32%（14〜50）／29%</td><td>+22pt</td></tr><tr><td>子どもの権利／情報公開</td><td>45%（34〜56）／51%</td><td>30%（20〜40）／38%</td><td>-15pt</td></tr><tr><td>みらいのこがねい</td><td>15%（10〜20）／17%</td><td>29%（23〜36）／29%</td><td>+14pt</td></tr><tr><td>見える化する会</td><td>8%（0〜18）／5%</td><td>24%（11〜39）／29%</td><td>+16pt</td></tr><tr><td>共産党市議団</td><td>25%（18〜32）／25%</td><td>13%（7〜20）／12%</td><td>-12pt</td></tr><tr><td>れいわ</td><td>12%（2〜22）／15%</td><td>12%（2〜22）／10%</td><td>+0pt</td></tr><tr><td>生活者ネット</td><td>15%（5〜28）／18%</td><td>12%（3〜24）／15%</td><td>-3pt</td></tr><tr><td>公明党</td><td>2%（0〜4）／2%</td><td>7%（2〜11）／8%</td><td>+5pt</td></tr><tr><td>おもしろくする会</td><td>0%（0〜0）／0%</td><td>3%（0〜7）／4%</td><td>+3pt</td></tr><tr><td>参政党（議長）</td><td>5%（0〜12）／5%</td><td>0%（0〜0）／0%</td><td>-5pt</td></tr></tbody></table></div></details>
+      <details class="tv"><summary>議員別で見る（全24人、速報期の多い順）</summary><div class="tbl-wrap"><table class="num"><thead><tr><th>議員</th><th>会派</th><th>公式期 GPT／Gemini</th><th>速報期 GPT／Gemini</th><th>抽出数 公式／速報</th></tr></thead><tbody><tr><td>河野麻美</td><td>自由民主党小金井</td><td>13%／15%</td><td>85%／85%</td><td>39／26</td></tr><tr><td>沖浦あつし</td><td>みらいのこがねい</td><td>12%／22%</td><td>62%／62%</td><td>32／34</td></tr><tr><td>坂井えつ子</td><td>緑・つながる</td><td>30%／30%</td><td>50%／56%</td><td>40／34</td></tr><tr><td>岸田正義</td><td>みらいのこがねい</td><td>35%／40%</td><td>45%／42%</td><td>40／40</td></tr><tr><td>渡辺大三</td><td>子どもの権利／情報公開</td><td>48%／52%</td><td>32%／35%</td><td>40／40</td></tr><tr><td>清水学</td><td>街の仲間たち</td><td>10%／16%</td><td>32%／29%</td><td>31／28</td></tr><tr><td>片山かおる</td><td>子どもの権利／情報公開</td><td>42%／50%</td><td>28%／40%</td><td>40／40</td></tr><tr><td>森戸よう子</td><td>共産党市議団</td><td>54%／62%</td><td>25%／30%</td><td>39／40</td></tr><tr><td>藤川賢治</td><td>見える化する会</td><td>8%／5%</td><td>24%／29%</td><td>40／38</td></tr><tr><td>鈴木成夫</td><td>みらいのこがねい</td><td>16%／16%</td><td>22%／26%</td><td>37／23</td></tr><tr><td>小林正樹</td><td>公明党</td><td>5%／5%</td><td>20%／25%</td><td>40／40</td></tr><tr><td>村上ようすけ</td><td>れいわ</td><td>12%／15%</td><td>12%／10%</td><td>40／40</td></tr><tr><td>安田けいこ</td><td>生活者ネット</td><td>15%／18%</td><td>12%／15%</td><td>40／33</td></tr><tr><td>吉良のりこ</td><td>みらいのこがねい</td><td>0%／0%</td><td>10%／8%</td><td>40／40</td></tr><tr><td>天野かな</td><td>みらいのこがねい</td><td>12%／8%</td><td>8%／5%</td><td>40／40</td></tr><tr><td>水上洋志</td><td>共産党市議団</td><td>19%／11%</td><td>8%／8%</td><td>36／40</td></tr><tr><td>吹春やすたか</td><td>自由民主党小金井</td><td>5%／3%</td><td>7%／7%</td><td>39／14※</td></tr><tr><td>たゆ久貴</td><td>共産党市議団</td><td>2%／2%</td><td>7%／0%</td><td>40／15</td></tr><tr><td>遠藤百合子</td><td>自由民主党小金井</td><td>5%／5%</td><td>6%／6%</td><td>39／31</td></tr><tr><td>ながとり太郎</td><td>おもしろくする会</td><td>0%／0%</td><td>3%／3%</td><td>40／32</td></tr><tr><td>水谷たかこ</td><td>おもしろくする会</td><td>0%／0%</td><td>2%／5%</td><td>39／40</td></tr><tr><td>中井れい子</td><td>公明党</td><td>0%／0%</td><td>0%／0%</td><td>40／25</td></tr><tr><td>太田宏徳</td><td>公明党</td><td>0%／0%</td><td>0%／0%</td><td>40／28</td></tr><tr><td>斎藤康夫</td><td>参政党（議長）</td><td>5%／5%</td><td>0%／0%</td><td>40／9※</td></tr></tbody></table></div></details>
+    </div>
+    <p class="kicker">速報期は、9/1の市長報告（庁舎）をめぐる質疑が大きな争点でした。自民・街の仲間たち・緑・見える化する会では割合が上がった一方、子どもの権利／情報公開（30%）と共産党市議団（13%）は下がっています。どこまでが庁舎の影響かは推測です。</p>
+  </section>
+
+  <section aria-labelledby="h-f2">
+    <h2 id="h-f2">発言の働きの内訳</h2>
+    <div class="fig">
+      <div>
+        <p class="fig-title">各会派の発言を、主な働きで5つに分けた割合</p>
+        <p class="fig-sub">並びは公式期の「進め方批判・姿勢追及」の多い順。タブで時期を切り替えます。色は種類の区別で、良し悪しを表しません。</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="時期">
+        <button role="tab" id="t-off" aria-selected="true" aria-controls="p-off">公式期　2025-04〜2026-06</button>
+        <button role="tab" id="t-s" aria-selected="false" aria-controls="p-s" tabindex="-1">速報期（非公式）　2026-07-29〜09-29</button>
+      </div>
+      <div id="p-off" role="tabpanel" aria-labelledby="t-off"><div class="legend"><span class="key"><span class="sw s1"></span>要望・提案</span><span class="key"><span class="sw s2"></span>進め方批判・姿勢追及</span><span class="key"><span class="sw s3"></span>確認・質問</span><span class="key"><span class="sw s4"></span>政策の中身への反対</span><span class="key"><span class="sw s5"></span>評価・その他</span></div><div class="sb"><div class="sb-row"><div class="db-label">子どもの権利／情報公開<span class="sub">80件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.17500" tabindex="0" data-tip="子どもの権利／情報公開 / 要望・提案 18%"><i>18%</i></span><span class="seg s2" style="flex-grow:0.45000" tabindex="0" data-tip="子どもの権利／情報公開 / 進め方批判・姿勢追及 45%"><i>45%</i></span><span class="seg s3" style="flex-grow:0.21250" tabindex="0" data-tip="子どもの権利／情報公開 / 確認・質問 21%"><i>21%</i></span><span class="seg s4" style="flex-grow:0.11250" tabindex="0" data-tip="子どもの権利／情報公開 / 政策の中身への反対 11%"><i>11%</i></span><span class="seg s5" style="flex-grow:0.05000" tabindex="0" data-tip="子どもの権利／情報公開 / 評価・その他 5%"><i></i></span></div></div><div class="sb-row"><div class="db-label">緑・つながる<span class="sub">40件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.30000" tabindex="0" data-tip="緑・つながる / 要望・提案 30%"><i>30%</i></span><span class="seg s2" style="flex-grow:0.30000" tabindex="0" data-tip="緑・つながる / 進め方批判・姿勢追及 30%"><i>30%</i></span><span class="seg s3" style="flex-grow:0.25000" tabindex="0" data-tip="緑・つながる / 確認・質問 25%"><i>25%</i></span><span class="seg s4" style="flex-grow:0.07500" tabindex="0" data-tip="緑・つながる / 政策の中身への反対 8%"><i></i></span><span class="seg s5" style="flex-grow:0.07500" tabindex="0" data-tip="緑・つながる / 評価・その他 7%"><i></i></span></div></div><div class="sb-row"><div class="db-label">共産党市議団<span class="sub">115件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.41902" tabindex="0" data-tip="共産党市議団 / 要望・提案 42%"><i>42%</i></span><span class="seg s2" style="flex-grow:0.25264" tabindex="0" data-tip="共産党市議団 / 進め方批判・姿勢追及 25%"><i>25%</i></span><span class="seg s3" style="flex-grow:0.18234" tabindex="0" data-tip="共産党市議団 / 確認・質問 18%"><i>18%</i></span><span class="seg s4" style="flex-grow:0.13768" tabindex="0" data-tip="共産党市議団 / 政策の中身への反対 14%"><i>14%</i></span><span class="seg s5" style="flex-grow:0.00833" tabindex="0" data-tip="共産党市議団 / 評価・その他 1%"><i></i></span></div></div><div class="sb-row is-focus"><div class="db-label">みらいのこがねい<span class="sub">189件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.37780" tabindex="0" data-tip="みらいのこがねい / 要望・提案 38%"><i>38%</i></span><span class="seg s2" style="flex-grow:0.15243" tabindex="0" data-tip="みらいのこがねい / 進め方批判・姿勢追及 15%"><i>15%</i></span><span class="seg s3" style="flex-grow:0.30233" tabindex="0" data-tip="みらいのこがねい / 確認・質問 30%"><i>30%</i></span><span class="seg s4" style="flex-grow:0.04125" tabindex="0" data-tip="みらいのこがねい / 政策の中身への反対 4%"><i></i></span><span class="seg s5" style="flex-grow:0.12618" tabindex="0" data-tip="みらいのこがねい / 評価・その他 13%"><i>13%</i></span></div></div><div class="sb-row"><div class="db-label">生活者ネット<span class="sub">40件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.45000" tabindex="0" data-tip="生活者ネット / 要望・提案 45%"><i>45%</i></span><span class="seg s2" style="flex-grow:0.15000" tabindex="0" data-tip="生活者ネット / 進め方批判・姿勢追及 15%"><i>15%</i></span><span class="seg s3" style="flex-grow:0.15000" tabindex="0" data-tip="生活者ネット / 確認・質問 15%"><i>15%</i></span><span class="seg s4" style="flex-grow:0.25000" tabindex="0" data-tip="生活者ネット / 政策の中身への反対 25%"><i>25%</i></span></div></div><div class="sb-row"><div class="db-label">れいわ<span class="sub">40件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.42500" tabindex="0" data-tip="れいわ / 要望・提案 42%"><i>42%</i></span><span class="seg s2" style="flex-grow:0.12500" tabindex="0" data-tip="れいわ / 進め方批判・姿勢追及 12%"><i>12%</i></span><span class="seg s3" style="flex-grow:0.37500" tabindex="0" data-tip="れいわ / 確認・質問 38%"><i>38%</i></span><span class="seg s4" style="flex-grow:0.07500" tabindex="0" data-tip="れいわ / 政策の中身への反対 8%"><i></i></span></div></div><div class="sb-row"><div class="db-label">街の仲間たち<span class="sub">31件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.41935" tabindex="0" data-tip="街の仲間たち / 要望・提案 42%"><i>42%</i></span><span class="seg s2" style="flex-grow:0.09677" tabindex="0" data-tip="街の仲間たち / 進め方批判・姿勢追及 10%"><i></i></span><span class="seg s3" style="flex-grow:0.29032" tabindex="0" data-tip="街の仲間たち / 確認・質問 29%"><i>29%</i></span><span class="seg s4" style="flex-grow:0.06452" tabindex="0" data-tip="街の仲間たち / 政策の中身への反対 6%"><i></i></span><span class="seg s5" style="flex-grow:0.12903" tabindex="0" data-tip="街の仲間たち / 評価・その他 13%"><i>13%</i></span></div></div><div class="sb-row"><div class="db-label">自由民主党小金井<span class="sub">117件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.52137" tabindex="0" data-tip="自由民主党小金井 / 要望・提案 52%"><i>52%</i></span><span class="seg s2" style="flex-grow:0.07692" tabindex="0" data-tip="自由民主党小金井 / 進め方批判・姿勢追及 8%"><i></i></span><span class="seg s3" style="flex-grow:0.28205" tabindex="0" data-tip="自由民主党小金井 / 確認・質問 28%"><i>28%</i></span><span class="seg s4" style="flex-grow:0.05128" tabindex="0" data-tip="自由民主党小金井 / 政策の中身への反対 5%"><i></i></span><span class="seg s5" style="flex-grow:0.06838" tabindex="0" data-tip="自由民主党小金井 / 評価・その他 7%"><i></i></span></div></div><div class="sb-row"><div class="db-label">見える化する会<span class="sub">40件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.20000" tabindex="0" data-tip="見える化する会 / 要望・提案 20%"><i>20%</i></span><span class="seg s2" style="flex-grow:0.07500" tabindex="0" data-tip="見える化する会 / 進め方批判・姿勢追及 8%"><i></i></span><span class="seg s3" style="flex-grow:0.30000" tabindex="0" data-tip="見える化する会 / 確認・質問 30%"><i>30%</i></span><span class="seg s4" style="flex-grow:0.35000" tabindex="0" data-tip="見える化する会 / 政策の中身への反対 35%"><i>35%</i></span><span class="seg s5" style="flex-grow:0.07500" tabindex="0" data-tip="見える化する会 / 評価・その他 8%"><i></i></span></div></div><div class="sb-row"><div class="db-label">参政党（議長）<span class="sub">40件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.37500" tabindex="0" data-tip="参政党（議長） / 要望・提案 38%"><i>38%</i></span><span class="seg s2" style="flex-grow:0.05000" tabindex="0" data-tip="参政党（議長） / 進め方批判・姿勢追及 5%"><i></i></span><span class="seg s3" style="flex-grow:0.30000" tabindex="0" data-tip="参政党（議長） / 確認・質問 30%"><i>30%</i></span><span class="seg s4" style="flex-grow:0.15000" tabindex="0" data-tip="参政党（議長） / 政策の中身への反対 15%"><i>15%</i></span><span class="seg s5" style="flex-grow:0.12500" tabindex="0" data-tip="参政党（議長） / 評価・その他 12%"><i>12%</i></span></div></div><div class="sb-row"><div class="db-label">公明党<span class="sub">120件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.50000" tabindex="0" data-tip="公明党 / 要望・提案 50%"><i>50%</i></span><span class="seg s2" style="flex-grow:0.01667" tabindex="0" data-tip="公明党 / 進め方批判・姿勢追及 2%"><i></i></span><span class="seg s3" style="flex-grow:0.40000" tabindex="0" data-tip="公明党 / 確認・質問 40%"><i>40%</i></span><span class="seg s4" style="flex-grow:0.02500" tabindex="0" data-tip="公明党 / 政策の中身への反対 2%"><i></i></span><span class="seg s5" style="flex-grow:0.05833" tabindex="0" data-tip="公明党 / 評価・その他 6%"><i></i></span></div></div><div class="sb-row"><div class="db-label">おもしろくする会<span class="sub">79件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.51699" tabindex="0" data-tip="おもしろくする会 / 要望・提案 52%"><i>52%</i></span><span class="seg s3" style="flex-grow:0.31763" tabindex="0" data-tip="おもしろくする会 / 確認・質問 32%"><i>32%</i></span><span class="seg s4" style="flex-grow:0.02500" tabindex="0" data-tip="おもしろくする会 / 政策の中身への反対 2%"><i></i></span><span class="seg s5" style="flex-grow:0.14038" tabindex="0" data-tip="おもしろくする会 / 評価・その他 14%"><i>14%</i></span></div></div></div><details class="tv"><summary>表で見る（公式期）</summary><div class="tbl-wrap"><table class="num"><thead><tr><th>会派</th><th>要望・提案</th><th>進め方批判・姿勢追及</th><th>確認・質問</th><th>政策の中身への反対</th><th>評価・その他</th><th>抽出数</th></tr></thead><tbody><tr><td>子どもの権利／情報公開</td><td>18%</td><td>45%</td><td>21%</td><td>11%</td><td>5%</td><td>80</td></tr><tr><td>緑・つながる</td><td>30%</td><td>30%</td><td>25%</td><td>8%</td><td>7%</td><td>40</td></tr><tr><td>共産党市議団</td><td>42%</td><td>25%</td><td>18%</td><td>14%</td><td>1%</td><td>115</td></tr><tr><td>みらいのこがねい</td><td>38%</td><td>15%</td><td>30%</td><td>4%</td><td>13%</td><td>189</td></tr><tr><td>生活者ネット</td><td>45%</td><td>15%</td><td>15%</td><td>25%</td><td>0%</td><td>40</td></tr><tr><td>れいわ</td><td>42%</td><td>12%</td><td>38%</td><td>8%</td><td>0%</td><td>40</td></tr><tr><td>街の仲間たち</td><td>42%</td><td>10%</td><td>29%</td><td>6%</td><td>13%</td><td>31</td></tr><tr><td>自由民主党小金井</td><td>52%</td><td>8%</td><td>28%</td><td>5%</td><td>7%</td><td>117</td></tr><tr><td>見える化する会</td><td>20%</td><td>8%</td><td>30%</td><td>35%</td><td>8%</td><td>40</td></tr><tr><td>参政党（議長）</td><td>38%</td><td>5%</td><td>30%</td><td>15%</td><td>12%</td><td>40</td></tr><tr><td>公明党</td><td>50%</td><td>2%</td><td>40%</td><td>2%</td><td>6%</td><td>120</td></tr><tr><td>おもしろくする会</td><td>52%</td><td>0%</td><td>32%</td><td>2%</td><td>14%</td><td>79</td></tr></tbody></table></div></details></div>
+      <div id="p-s" role="tabpanel" aria-labelledby="t-s" hidden><div class="legend"><span class="key"><span class="sw s1"></span>要望・提案</span><span class="key"><span class="sw s2"></span>進め方批判・姿勢追及</span><span class="key"><span class="sw s3"></span>確認・質問</span><span class="key"><span class="sw s4"></span>政策の中身への反対</span><span class="key"><span class="sw s5"></span>評価・その他</span></div><div class="sb"><div class="sb-row"><div class="db-label">子どもの権利／情報公開<span class="sub">80件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.32500" tabindex="0" data-tip="子どもの権利／情報公開 / 要望・提案 32%"><i>32%</i></span><span class="seg s2" style="flex-grow:0.30000" tabindex="0" data-tip="子どもの権利／情報公開 / 進め方批判・姿勢追及 30%"><i>30%</i></span><span class="seg s3" style="flex-grow:0.26250" tabindex="0" data-tip="子どもの権利／情報公開 / 確認・質問 26%"><i>26%</i></span><span class="seg s4" style="flex-grow:0.05000" tabindex="0" data-tip="子どもの権利／情報公開 / 政策の中身への反対 5%"><i></i></span><span class="seg s5" style="flex-grow:0.06250" tabindex="0" data-tip="子どもの権利／情報公開 / 評価・その他 6%"><i></i></span></div></div><div class="sb-row"><div class="db-label">緑・つながる<span class="sub">34件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.05882" tabindex="0" data-tip="緑・つながる / 要望・提案 6%"><i></i></span><span class="seg s2" style="flex-grow:0.50000" tabindex="0" data-tip="緑・つながる / 進め方批判・姿勢追及 50%"><i>50%</i></span><span class="seg s3" style="flex-grow:0.32353" tabindex="0" data-tip="緑・つながる / 確認・質問 32%"><i>32%</i></span><span class="seg s4" style="flex-grow:0.08824" tabindex="0" data-tip="緑・つながる / 政策の中身への反対 9%"><i></i></span><span class="seg s5" style="flex-grow:0.02941" tabindex="0" data-tip="緑・つながる / 評価・その他 3%"><i></i></span></div></div><div class="sb-row"><div class="db-label">共産党市議団<span class="sub">95件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.58056" tabindex="0" data-tip="共産党市議団 / 要望・提案 58%"><i>58%</i></span><span class="seg s2" style="flex-grow:0.13056" tabindex="0" data-tip="共産党市議団 / 進め方批判・姿勢追及 13%"><i>13%</i></span><span class="seg s3" style="flex-grow:0.16667" tabindex="0" data-tip="共産党市議団 / 確認・質問 17%"><i>17%</i></span><span class="seg s4" style="flex-grow:0.08889" tabindex="0" data-tip="共産党市議団 / 政策の中身への反対 9%"><i></i></span><span class="seg s5" style="flex-grow:0.03333" tabindex="0" data-tip="共産党市議団 / 評価・その他 3%"><i></i></span></div></div><div class="sb-row is-focus"><div class="db-label">みらいのこがねい<span class="sub">177件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.29335" tabindex="0" data-tip="みらいのこがねい / 要望・提案 29%"><i>29%</i></span><span class="seg s2" style="flex-grow:0.29201" tabindex="0" data-tip="みらいのこがねい / 進め方批判・姿勢追及 29%"><i>29%</i></span><span class="seg s3" style="flex-grow:0.35049" tabindex="0" data-tip="みらいのこがねい / 確認・質問 35%"><i>35%</i></span><span class="seg s4" style="flex-grow:0.01588" tabindex="0" data-tip="みらいのこがねい / 政策の中身への反対 2%"><i></i></span><span class="seg s5" style="flex-grow:0.04827" tabindex="0" data-tip="みらいのこがねい / 評価・その他 5%"><i></i></span></div></div><div class="sb-row"><div class="db-label">生活者ネット<span class="sub">33件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.54545" tabindex="0" data-tip="生活者ネット / 要望・提案 55%"><i>55%</i></span><span class="seg s2" style="flex-grow:0.12121" tabindex="0" data-tip="生活者ネット / 進め方批判・姿勢追及 12%"><i>12%</i></span><span class="seg s3" style="flex-grow:0.27273" tabindex="0" data-tip="生活者ネット / 確認・質問 27%"><i>27%</i></span><span class="seg s4" style="flex-grow:0.06061" tabindex="0" data-tip="生活者ネット / 政策の中身への反対 6%"><i></i></span><span class="seg s5" style="flex-grow:0.00000" tabindex="0" data-tip="生活者ネット / 評価・その他 0%"><i></i></span></div></div><div class="sb-row"><div class="db-label">れいわ<span class="sub">40件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.55000" tabindex="0" data-tip="れいわ / 要望・提案 55%"><i>55%</i></span><span class="seg s2" style="flex-grow:0.12500" tabindex="0" data-tip="れいわ / 進め方批判・姿勢追及 12%"><i>12%</i></span><span class="seg s3" style="flex-grow:0.32500" tabindex="0" data-tip="れいわ / 確認・質問 32%"><i>32%</i></span></div></div><div class="sb-row"><div class="db-label">街の仲間たち<span class="sub">28件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.50000" tabindex="0" data-tip="街の仲間たち / 要望・提案 50%"><i>50%</i></span><span class="seg s2" style="flex-grow:0.32143" tabindex="0" data-tip="街の仲間たち / 進め方批判・姿勢追及 32%"><i>32%</i></span><span class="seg s3" style="flex-grow:0.14286" tabindex="0" data-tip="街の仲間たち / 確認・質問 14%"><i>14%</i></span><span class="seg s5" style="flex-grow:0.03571" tabindex="0" data-tip="街の仲間たち / 評価・その他 4%"><i></i></span></div></div><div class="sb-row"><div class="db-label">自由民主党小金井<span class="sub">71件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.24554" tabindex="0" data-tip="自由民主党小金井 / 要望・提案 25%"><i>25%</i></span><span class="seg s2" style="flex-grow:0.32737" tabindex="0" data-tip="自由民主党小金井 / 進め方批判・姿勢追及 33%"><i>33%</i></span><span class="seg s3" style="flex-grow:0.31927" tabindex="0" data-tip="自由民主党小金井 / 確認・質問 32%"><i>32%</i></span><span class="seg s5" style="flex-grow:0.10782" tabindex="0" data-tip="自由民主党小金井 / 評価・その他 11%"><i>11%</i></span></div></div><div class="sb-row"><div class="db-label">見える化する会<span class="sub">38件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.13158" tabindex="0" data-tip="見える化する会 / 要望・提案 13%"><i>13%</i></span><span class="seg s2" style="flex-grow:0.23684" tabindex="0" data-tip="見える化する会 / 進め方批判・姿勢追及 24%"><i>24%</i></span><span class="seg s3" style="flex-grow:0.23684" tabindex="0" data-tip="見える化する会 / 確認・質問 24%"><i>24%</i></span><span class="seg s4" style="flex-grow:0.28947" tabindex="0" data-tip="見える化する会 / 政策の中身への反対 29%"><i>29%</i></span><span class="seg s5" style="flex-grow:0.10526" tabindex="0" data-tip="見える化する会 / 評価・その他 11%"><i>11%</i></span></div></div><div class="sb-row"><div class="db-label">参政党（議長）<span class="sub">9件※参考値</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.22222" tabindex="0" data-tip="参政党（議長） / 要望・提案 22%"><i>22%</i></span><span class="seg s3" style="flex-grow:0.22222" tabindex="0" data-tip="参政党（議長） / 確認・質問 22%"><i>22%</i></span><span class="seg s5" style="flex-grow:0.55556" tabindex="0" data-tip="参政党（議長） / 評価・その他 56%"><i>56%</i></span></div></div><div class="sb-row"><div class="db-label">公明党<span class="sub">93件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.44310" tabindex="0" data-tip="公明党 / 要望・提案 44%"><i>44%</i></span><span class="seg s2" style="flex-grow:0.06667" tabindex="0" data-tip="公明党 / 進め方批判・姿勢追及 7%"><i></i></span><span class="seg s3" style="flex-grow:0.42476" tabindex="0" data-tip="公明党 / 確認・質問 42%"><i>42%</i></span><span class="seg s4" style="flex-grow:0.02857" tabindex="0" data-tip="公明党 / 政策の中身への反対 3%"><i></i></span><span class="seg s5" style="flex-grow:0.03690" tabindex="0" data-tip="公明党 / 評価・その他 4%"><i></i></span></div></div><div class="sb-row"><div class="db-label">おもしろくする会<span class="sub">72件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.37812" tabindex="0" data-tip="おもしろくする会 / 要望・提案 38%"><i>38%</i></span><span class="seg s2" style="flex-grow:0.02813" tabindex="0" data-tip="おもしろくする会 / 進め方批判・姿勢追及 3%"><i></i></span><span class="seg s3" style="flex-grow:0.40000" tabindex="0" data-tip="おもしろくする会 / 確認・質問 40%"><i>40%</i></span><span class="seg s4" style="flex-grow:0.01562" tabindex="0" data-tip="おもしろくする会 / 政策の中身への反対 2%"><i></i></span><span class="seg s5" style="flex-grow:0.17812" tabindex="0" data-tip="おもしろくする会 / 評価・その他 18%"><i>18%</i></span></div></div></div><details class="tv"><summary>表で見る（速報期）</summary><div class="tbl-wrap"><table class="num"><thead><tr><th>会派</th><th>要望・提案</th><th>進め方批判・姿勢追及</th><th>確認・質問</th><th>政策の中身への反対</th><th>評価・その他</th><th>抽出数</th></tr></thead><tbody><tr><td>子どもの権利／情報公開</td><td>32%</td><td>30%</td><td>26%</td><td>5%</td><td>6%</td><td>80</td></tr><tr><td>緑・つながる</td><td>6%</td><td>50%</td><td>32%</td><td>9%</td><td>3%</td><td>34</td></tr><tr><td>共産党市議団</td><td>58%</td><td>13%</td><td>17%</td><td>9%</td><td>3%</td><td>95</td></tr><tr><td>みらいのこがねい</td><td>29%</td><td>29%</td><td>35%</td><td>2%</td><td>5%</td><td>177</td></tr><tr><td>生活者ネット</td><td>55%</td><td>12%</td><td>27%</td><td>6%</td><td>0%</td><td>33</td></tr><tr><td>れいわ</td><td>55%</td><td>12%</td><td>32%</td><td>0%</td><td>0%</td><td>40</td></tr><tr><td>街の仲間たち</td><td>50%</td><td>32%</td><td>14%</td><td>0%</td><td>4%</td><td>28</td></tr><tr><td>自由民主党小金井</td><td>25%</td><td>33%</td><td>32%</td><td>0%</td><td>11%</td><td>71</td></tr><tr><td>見える化する会</td><td>13%</td><td>24%</td><td>24%</td><td>29%</td><td>11%</td><td>38</td></tr><tr><td>参政党（議長）</td><td>22%</td><td>0%</td><td>22%</td><td>0%</td><td>56%</td><td>9※</td></tr><tr><td>公明党</td><td>44%</td><td>7%</td><td>42%</td><td>3%</td><td>4%</td><td>93</td></tr><tr><td>おもしろくする会</td><td>38%</td><td>3%</td><td>40%</td><td>2%</td><td>18%</td><td>72</td></tr></tbody></table></div></details></div>
+      <dl class="defs">
+        <div><span class="sw s1"></span><div><dt>要望・提案</dt><dd>事業の新設・拡充・改善を求める、具体策を示す</dd></div></div>
+        <div><span class="sw s2"></span><div><dt>進め方批判・姿勢追及</dt><dd>手続き・遅れ・説明不足など「やり方」、判断や答弁・責任を問う</dd></div></div>
+        <div><span class="sw s3"></span><div><dt>確認・質問</dt><dd>事実・数字・経緯・見解を尋ねる</dd></div></div>
+        <div><span class="sw s4"></span><div><dt>政策の中身への反対</dt><dd>施策・計画の中身や方向性そのものに反対する</dd></div></div>
+        <div><span class="sw s5"></span><div><dt>評価・その他</dt><dd>市の取組の評価・賛同、議事の手続きなど</dd></div></div>
+      </dl>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-mirai">
+    <h2 id="h-mirai">「みらいのこがねい」の中身</h2>
+    <div class="fig">
+      <div>
+        <p class="fig-title">議員ごとの、進め方批判・姿勢追及が主な発言の割合</p>
+        <p class="fig-sub">公式期は岸田議員が35%、他の4人は0〜16%でした。速報期は沖浦議員62%・岸田議員45%で、他の3人は8〜22%です。会派の値は議員の平均なので、少数の議員の値に左右されます（他会派も同じで、全24人の値は上の「議員別で見る」にあります）。</p>
+      </div>
+      <div class="legend"><span class="key"><span class="sw dot before"></span>公式期</span><span class="key"><span class="sw dot after"></span>速報期（非公式）</span></div>
+      <div class="db"><div class="db-row"><div class="db-label">沖浦あつし<span class="sub">32→34件</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:14.286%"></span><span class="grid" style="left:28.571%"></span><span class="grid" style="left:42.857%"></span><span class="grid" style="left:57.143%"></span><span class="grid" style="left:71.429%"></span><span class="grid" style="left:85.714%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:17.857%;width:70.378%"></span><span class="db-dot before" style="left:17.857%" tabindex="0" data-tip="沖浦あつし / 公式期 12%（Gemini 22%） / 32件"></span><span class="db-dot after" style="left:88.235%" tabindex="0" data-tip="沖浦あつし / 速報期 62%（Gemini 62%） / 34件"></span><span class="db-val before" style="left:17.857%">12%</span><span class="db-val after" style="left:88.235%">62%</span></div></div><div class="db-row"><div class="db-label">岸田正義<span class="sub">40→40件</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:14.286%"></span><span class="grid" style="left:28.571%"></span><span class="grid" style="left:42.857%"></span><span class="grid" style="left:57.143%"></span><span class="grid" style="left:71.429%"></span><span class="grid" style="left:85.714%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:50.000%;width:14.286%"></span><span class="db-dot before" style="left:50.000%" tabindex="0" data-tip="岸田正義 / 公式期 35%（Gemini 40%） / 40件"></span><span class="db-dot after" style="left:64.286%" tabindex="0" data-tip="岸田正義 / 速報期 45%（Gemini 42%） / 40件"></span><span class="db-val before" style="left:50.000%">35%</span><span class="db-val after" style="left:64.286%">45%</span></div></div><div class="db-row"><div class="db-label">鈴木成夫<span class="sub">37→23件</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:14.286%"></span><span class="grid" style="left:28.571%"></span><span class="grid" style="left:42.857%"></span><span class="grid" style="left:57.143%"></span><span class="grid" style="left:71.429%"></span><span class="grid" style="left:85.714%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:23.166%;width:7.890%"></span><span class="db-dot before" style="left:23.166%" tabindex="0" data-tip="鈴木成夫 / 公式期 16%（Gemini 16%） / 37件"></span><span class="db-dot after" style="left:31.056%" tabindex="0" data-tip="鈴木成夫 / 速報期 22%（Gemini 26%） / 23件"></span><span class="db-val before" style="left:23.166%">16%</span><span class="db-val after" style="left:31.056%">22%</span></div></div><div class="db-row"><div class="db-label">吉良のりこ<span class="sub">40→40件</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:14.286%"></span><span class="grid" style="left:28.571%"></span><span class="grid" style="left:42.857%"></span><span class="grid" style="left:57.143%"></span><span class="grid" style="left:71.429%"></span><span class="grid" style="left:85.714%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:0.000%;width:14.286%"></span><span class="db-dot before" style="left:0.000%" tabindex="0" data-tip="吉良のりこ / 公式期 0%（Gemini 0%） / 40件"></span><span class="db-dot after" style="left:14.286%" tabindex="0" data-tip="吉良のりこ / 速報期 10%（Gemini 8%） / 40件"></span><span class="db-val before" style="left:0.000%">0%</span><span class="db-val after" style="left:14.286%">10%</span></div></div><div class="db-row"><div class="db-label">天野かな<span class="sub">40→40件</span></div><div class="db-track"><span class="grid" style="left:0.000%"></span><span class="grid" style="left:14.286%"></span><span class="grid" style="left:28.571%"></span><span class="grid" style="left:42.857%"></span><span class="grid" style="left:57.143%"></span><span class="grid" style="left:71.429%"></span><span class="grid" style="left:85.714%"></span><span class="grid" style="left:100.000%"></span><span class="db-line" style="left:10.714%;width:7.143%"></span><span class="db-dot before" style="left:17.857%" tabindex="0" data-tip="天野かな / 公式期 12%（Gemini 8%） / 40件"></span><span class="db-dot after" style="left:10.714%" tabindex="0" data-tip="天野かな / 速報期 8%（Gemini 5%） / 40件"></span><span class="db-val before" style="left:17.857%">12%</span><span class="db-val after" style="left:10.714%">8%</span></div></div><div class="axis" aria-hidden="true"><div></div><div class="axis-track"><span class="tick" style="left:0.000%">0%</span><span class="tick" style="left:14.286%">10%</span><span class="tick" style="left:28.571%">20%</span><span class="tick" style="left:42.857%">30%</span><span class="tick" style="left:57.143%">40%</span><span class="tick" style="left:71.429%">50%</span><span class="tick" style="left:85.714%">60%</span><span class="tick" style="left:100.000%">70%</span></div></div></div><details class="tv"><summary>表で見る</summary><div class="tbl-wrap"><table class="num"><thead><tr><th>議員</th><th>公式期（GPT／Gemini）</th><th>速報期（GPT／Gemini）</th><th>抽出数（公式／速報）</th></tr></thead><tbody><tr><td>沖浦あつし</td><td>12%／22%</td><td>62%／62%</td><td>32／34</td></tr><tr><td>岸田正義</td><td>35%／40%</td><td>45%／42%</td><td>40／40</td></tr><tr><td>鈴木成夫</td><td>16%／16%</td><td>22%／26%</td><td>37／23</td></tr><tr><td>吉良のりこ</td><td>0%／0%</td><td>10%／8%</td><td>40／40</td></tr><tr><td>天野かな</td><td>12%／8%</td><td>8%／5%</td><td>40／40</td></tr></tbody></table></div></details>
+    </div>
+    <div class="fig">
+      <div>
+        <p class="fig-title">批判は何について、誰に向けたものか</p>
+        <p class="fig-sub">ここでの「批判」は、進め方批判・姿勢追及に政策の中身への反対を足したもの（公式期37件・速報期54件、GPTの分類）。最も多い話題は、公式期は主に都市計画道路（3・4・11号線、30%）、速報期は庁舎（50%）でした。件数が少ないため、割合は分類器によって数件単位で変わります（触れるとGeminiの件数が出ます）。</p>
+      </div>
+      <h4 class="mini">話題</h4><div class="legend"><span class="key"><span class="sw s1"></span>庁舎・公共施設</span><span class="key"><span class="sw s2"></span>まちづくり・交通・道路</span><span class="key"><span class="sw s3"></span>財政・予算</span><span class="key"><span class="sw s4"></span>行政運営・組織</span><span class="key"><span class="sw s5"></span>市民参加・情報公開</span><span class="key"><span class="sw s6"></span>上記以外</span></div><div class="sb"><div class="sb-row"><div class="db-label">公式期<span class="sub">37件</span></div><div class="sb-bar"><span class="seg s2" style="flex-grow:0.29730" tabindex="0" data-tip="公式期 / まちづくり・交通・道路 11件（30%） / Gemini 11件／36件"><i>30%</i></span><span class="seg s3" style="flex-grow:0.10811" tabindex="0" data-tip="公式期 / 財政・予算 4件（11%） / Gemini 3件／36件"><i></i></span><span class="seg s4" style="flex-grow:0.18919" tabindex="0" data-tip="公式期 / 行政運営・組織 7件（19%） / Gemini 5件／36件"><i>19%</i></span><span class="seg s5" style="flex-grow:0.13514" tabindex="0" data-tip="公式期 / 市民参加・情報公開 5件（14%） / Gemini 3件／36件"><i>14%</i></span><span class="seg s6" style="flex-grow:0.27027" tabindex="0" data-tip="公式期 / 上記以外 10件（27%） / Gemini 11件／36件"><i>27%</i></span></div></div><div class="sb-row"><div class="db-label">速報期<span class="sub">54件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.50000" tabindex="0" data-tip="速報期 / 庁舎・公共施設 27件（50%） / Gemini 31件／50件"><i>50%</i></span><span class="seg s2" style="flex-grow:0.09259" tabindex="0" data-tip="速報期 / まちづくり・交通・道路 5件（9%） / Gemini 5件／50件"><i></i></span><span class="seg s3" style="flex-grow:0.14815" tabindex="0" data-tip="速報期 / 財政・予算 8件（15%） / Gemini 5件／50件"><i>15%</i></span><span class="seg s4" style="flex-grow:0.05556" tabindex="0" data-tip="速報期 / 行政運営・組織 3件（6%） / Gemini 3件／50件"><i></i></span><span class="seg s5" style="flex-grow:0.01852" tabindex="0" data-tip="速報期 / 市民参加・情報公開 1件（2%） / Gemini 0件／50件"><i></i></span><span class="seg s6" style="flex-grow:0.18519" tabindex="0" data-tip="速報期 / 上記以外 10件（19%） / Gemini 6件／50件"><i>19%</i></span></div></div></div><details class="tv"><summary>表で見る（GPT件数（割合）／Gemini件数）</summary><div class="tbl-wrap"><table class="num"><thead><tr><th>時期</th><th>庁舎・公共施設</th><th>まちづくり・交通・道路</th><th>財政・予算</th><th>行政運営・組織</th><th>市民参加・情報公開</th><th>上記以外</th></tr></thead><tbody><tr><td>公式期</td><td>0件（0%）／3件</td><td>11件（30%）／11件</td><td>4件（11%）／3件</td><td>7件（19%）／5件</td><td>5件（14%）／3件</td><td>10件（27%）／11件</td></tr><tr><td>速報期</td><td>27件（50%）／31件</td><td>5件（9%）／5件</td><td>8件（15%）／5件</td><td>3件（6%）／3件</td><td>1件（2%）／0件</td><td>10件（19%）／6件</td></tr></tbody></table></div></details><h4 class="mini">向け先</h4><div class="legend"><span class="key"><span class="sw s1"></span>市長</span><span class="key"><span class="sw s2"></span>部局</span><span class="key"><span class="sw s3"></span>市全体</span><span class="key"><span class="sw s4"></span>上記以外</span></div><div class="sb"><div class="sb-row"><div class="db-label">公式期<span class="sub">37件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.21622" tabindex="0" data-tip="公式期 / 市長 8件（22%） / Gemini 12件／36件"><i>22%</i></span><span class="seg s2" style="flex-grow:0.40541" tabindex="0" data-tip="公式期 / 部局 15件（41%） / Gemini 20件／36件"><i>41%</i></span><span class="seg s3" style="flex-grow:0.29730" tabindex="0" data-tip="公式期 / 市全体 11件（30%） / Gemini 1件／36件"><i>30%</i></span><span class="seg s4" style="flex-grow:0.08108" tabindex="0" data-tip="公式期 / 上記以外 3件（8%） / Gemini 3件／36件"><i></i></span></div></div><div class="sb-row"><div class="db-label">速報期<span class="sub">54件</span></div><div class="sb-bar"><span class="seg s1" style="flex-grow:0.50000" tabindex="0" data-tip="速報期 / 市長 27件（50%） / Gemini 32件／50件"><i>50%</i></span><span class="seg s2" style="flex-grow:0.31481" tabindex="0" data-tip="速報期 / 部局 17件（31%） / Gemini 17件／50件"><i>31%</i></span><span class="seg s3" style="flex-grow:0.14815" tabindex="0" data-tip="速報期 / 市全体 8件（15%） / Gemini 0件／50件"><i>15%</i></span><span class="seg s4" style="flex-grow:0.03704" tabindex="0" data-tip="速報期 / 上記以外 2件（4%） / Gemini 1件／50件"><i></i></span></div></div></div><details class="tv"><summary>表で見る（GPT件数（割合）／Gemini件数）</summary><div class="tbl-wrap"><table class="num"><thead><tr><th>時期</th><th>市長</th><th>部局</th><th>市全体</th><th>上記以外</th></tr></thead><tbody><tr><td>公式期</td><td>8件（22%）／12件</td><td>15件（41%）／20件</td><td>11件（30%）／1件</td><td>3件（8%）／3件</td></tr><tr><td>速報期</td><td>27件（50%）／32件</td><td>17件（31%）／17件</td><td>8件（15%）／0件</td><td>2件（4%）／1件</td></tr></tbody></table></div></details>
+    </div>
+    <div class="minutes">
+      <h4>会議録から（原文どおり・照合済み）　公式期の要望・提案の例</h4>
+      <figure class="minute"><figcaption>◯岸田正義　<span>2025-12-02 本会議　sid=513545</span></figcaption><blockquote>「当事者から声が上げるのを待つのではなくて、積極的にこちらの方から関わっていただきたい」</blockquote><p class="note">教育の支援について</p></figure><figure class="minute"><figcaption>◯天野かな　<span>2026-03-06 総務企画委員会　sid=315384</span></figcaption><blockquote>「次回の計画策定時には他自治体を参考に、実績と予測の連続性を重視した資料作成についてのご検討もお願い申し上げます。」</blockquote><p class="note">中期財政計画の資料について</p></figure>
+      <h4>公式期の進め方を問う発言の例</h4>
+      <figure class="minute"><figcaption>◯岸田正義　<span>2025-06-13 建設環境委員会　sid=327959</span></figcaption><blockquote>「何度も申し上げたにもかかわらず強行した結果、撤回という事態に至った」</blockquote><p class="note">都市計画道路の陳情審査で。市長の判断の撤回についての議員側の主張</p></figure><figure class="minute"><figcaption>◯沖浦あつし　<span>2025-10-07 本会議　sid=323283</span></figcaption><blockquote>「総合的な判断として行政効果が認められる場合には決算を認定してまいりました」</blockquote><p class="note">R6決算の不認定討論（会派代表）</p></figure><figure class="minute"><figcaption>◯沖浦あつし　<span>2025-10-07 本会議　sid=323283</span></figcaption><blockquote>「トップマネジメントとして有効な手だてが講じられなかったことで、現場で対応する職員に負担を強いている現実があり」</blockquote><p class="note">同じ討論の続き</p></figure>
+      <h4>速報期の庁舎　議員の発言と市側の発言（隣り合う発言が同じ質問への答弁とは限りません）</h4>
+      <figure class="minute"><figcaption>◯鈴木成夫　<span>2026-09-01 本会議（速報）</span></figcaption><blockquote>「厳しいと判断する具体的な基準を示してください」</blockquote></figure><figure class="minute city"><figcaption>◯市長　<span>2026-09-01 本会議（速報）</span></figcaption><blockquote>「もともと174億円ということ、それでも何とかこれをやり切るんだという思いで取り組んできた」</blockquote><p class="note">鈴木議員の質問への答弁</p></figure><figure class="minute"><figcaption>◯天野かな　<span>2026-09-01 本会議（速報）</span></figcaption><blockquote>「検討している間もお金は出続けております。」</blockquote></figure><figure class="minute city"><figcaption>◯市長　<span>2026-09-03 本会議（速報）</span></figcaption><blockquote>「240億円程度まで見込まざるを得ないことを重く受け止めたものでございます。」</blockquote><p class="note">沖浦議員の一般質問への答弁</p></figure><figure class="minute city"><figcaption>◯企画財政部長　<span>2026-09-15 庁舎特別委員会（速報）</span></figcaption><blockquote>「令和16年度以降には公債費が40億円を超えてきて、現在よりも20億円増になってくる」</blockquote><p class="note">沖浦委員の質疑への答弁</p></figure><figure class="minute"><figcaption>◯岸田正義　<span>2026-09-01 本会議（速報）</span></figcaption><blockquote>「報告の前に説明だろうということだと思います。」</blockquote></figure><figure class="minute city"><figcaption>◯市長　<span>2026-09-03 本会議（速報）</span></figcaption><blockquote>「8月24日の議会運営委員会までに説明や要請等ができなかったこと、心からお詫び申し上げます。」</blockquote><p class="note">沖浦議員の一般質問への答弁</p></figure>
+      <p class="fig-sub">速報期の引用は非公式の速報から抜粋し、速報の原文と発言者を照合しています。公式会議録が出たら照合し直します。9月議会の論点の全体（8項目、市側の答弁つき）は下の別紙にあります。</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-touron">
+    <h2 id="h-touron">予算・決算への立場（公式期の本会議）</h2>
+    <p class="kicker">本会議で討論した会派だけを数えています（採決の賛否の全部ではなく、速報期の討論は含みません）。みらいは予算の討論がすべて賛成でした。R6決算の不認定の討論では、「総合的な判断として行政効果が認められる場合には決算を認定してまいりました」と述べたうえで、今回は「トップマネジメントとして有効な手だてが講じられなかった」ことを不認定の理由に挙げています。</p>
+    <div class="tbl-wrap"><table class="touron"><thead><tr><th>会派</th><th>予算の討論（補正を含む）賛成／反対</th><th>R8当初予算（2026-03-23）</th><th>R6一般会計決算（2025-10-07）</th></tr></thead><tbody><tr><td><b>みらいのこがねい</b></td><td><span class="tnum">5</span> ／ <span class="tnum">0</span></td><td><span class="chip yes">○ 賛成</span></td><td><span class="chip no">× 不認定</span></td></tr><tr><td>子どもの権利／情報公開</td><td><span class="tnum">1</span> ／ <span class="tnum">2</span></td><td><span class="chip no">× 反対</span></td><td><span class="chip no">× 不認定</span></td></tr><tr><td>緑・つながる</td><td><span class="tnum">0</span> ／ <span class="tnum">1</span></td><td><span class="chip no">× 反対</span></td><td><span class="chip no">× 不認定</span></td></tr><tr><td>共産党市議団</td><td><span class="tnum">2</span> ／ <span class="tnum">2</span></td><td><span class="chip none" title="本会議の討論を、冒頭の語で判定する方法では見つけられなかった">—</span></td><td><span class="chip no">× 不認定</span></td></tr><tr><td>生活者ネット</td><td><span class="tnum">1</span> ／ <span class="tnum">0</span></td><td><span class="chip yes">○ 賛成</span></td><td><span class="chip no">× 不認定</span></td></tr><tr><td>れいわ</td><td><span class="tnum">0</span> ／ <span class="tnum">1</span></td><td><span class="chip no">× 反対</span></td><td><span class="chip no">× 不認定</span></td></tr><tr><td>街の仲間たち</td><td><span class="tnum">1</span> ／ <span class="tnum">0</span></td><td><span class="chip none" title="本会議の討論を、冒頭の語で判定する方法では見つけられなかった">—</span></td><td><span class="chip yes">○ 認定</span></td></tr><tr><td>自由民主党小金井</td><td><span class="tnum">4</span> ／ <span class="tnum">0</span></td><td><span class="chip yes">○ 賛成</span></td><td><span class="chip no">× 不認定</span></td></tr><tr><td>見える化する会</td><td><span class="tnum">1</span> ／ <span class="tnum">1</span></td><td><span class="chip no">× 反対</span></td><td><span class="chip no">× 不認定</span></td></tr><tr><td>参政党（議長）</td><td><span class="tnum">0</span> ／ <span class="tnum">0</span></td><td><span class="chip none" title="本会議の討論を、冒頭の語で判定する方法では見つけられなかった">—</span></td><td><span class="chip none" title="本会議の討論を、冒頭の語で判定する方法では見つけられなかった">—</span></td></tr><tr><td>公明党</td><td><span class="tnum">3</span> ／ <span class="tnum">0</span></td><td><span class="chip yes">○ 賛成</span></td><td><span class="chip none" title="本会議の討論を、冒頭の語で判定する方法では見つけられなかった">—</span></td></tr><tr><td>おもしろくする会</td><td><span class="tnum">4</span> ／ <span class="tnum">0</span></td><td><span class="chip yes">○ 賛成</span></td><td><span class="chip yes">○ 認定</span></td></tr></tbody></table></div>
+    <p class="fig-sub">「—」は、本会議の討論を冒頭の語で判定する方法では見つけられなかったもの（討論が無かったとは限りません）。参政党は議長のため討論していません。R8当初予算の自民・公明は、組替え動議の可決後の予算に賛成する形でした。</p>
+  </section>
+
+  <section aria-labelledby="h-cards">
+    <h2 id="h-cards">各会派の主張の特徴</h2>
+    <p class="kicker">主な主張は、各会派の無作為の20発言と統計からの要約です。特徴語は、他の会派より目立って使う名詞（機械集計の上位20語）からの抜粋。並びは問いの対象の会派のあと、議員数の多い順。1人会派はその議員個人の傾向です。</p>
+    <div class="cards"><article class="card is-focus"><header><h3>みらいのこがねい</h3><span class="sub">5人</span></header><p>福祉・子育て・まちづくりの確認と要望が多い。批判は、公式期は都市計画道路、速報期は庁舎の進め方が最も多い。</p><dl><dt>よく出る話題</dt><dd>福祉・医療・介護／子育て・保育／まちづくり・交通・道路</dd><dt>特徴語</dt><dd>保育施設・ニーズ・サービス・リスク</dd><dt>予算・決算の討論</dt><dd>予算 賛成5・反対0／R6決算 不認定</dd><dt>進め方批判・追及</dt><dd><span class="mini-bars" aria-hidden="true"><span class="mb before" style="width:25.4%"></span><span class="mb after" style="width:48.7%"></span></span><span class="tnum">公式期 15% → 速報期 29%</span></dd></dl></article><article class="card"><header><h3>小金井市議会公明党</h3><span class="sub">3人</span></header><p>福祉・介護、移動支援、防災、環境などの具体的な要望が中心。</p><dl><dt>よく出る話題</dt><dd>福祉・医療・介護／まちづくり・交通・道路／環境・ごみ・みどり</dd><dt>特徴語</dt><dd>単身高齢・ケアマネジャー・健康寿命・災害時</dd><dt>予算・決算の討論</dt><dd>予算 賛成3・反対0／R6決算 —</dd><dt>進め方批判・追及</dt><dd><span class="mini-bars" aria-hidden="true"><span class="mb before" style="width:2.8%"></span><span class="mb after" style="width:11.1%"></span></span><span class="tnum">公式期 2% → 速報期 7%</span></dd></dl></article><article class="card"><header><h3>日本共産党小金井市議団</h3><span class="sub">3人</span></header><p>国保税・物価高騰の負担軽減、学童や公共施設の維持を求める。要望も批判も多い。</p><dl><dt>よく出る話題</dt><dd>福祉・医療・介護／庁舎・公共施設／まちづくり・交通・道路</dd><dt>特徴語</dt><dd>国民健康保険税・物価高騰・負担軽減・値上げ</dd><dt>予算・決算の討論</dt><dd>予算 賛成2・反対2／R6決算 不認定</dd><dt>進め方批判・追及</dt><dd><span class="mini-bars" aria-hidden="true"><span class="mb before" style="width:42.1%"></span><span class="mb after" style="width:21.8%"></span></span><span class="tnum">公式期 25% → 速報期 13%</span></dd></dl></article><article class="card"><header><h3>自由民主党小金井</h3><span class="sub">3人</span></header><p>防災・消防、健康、見守りの提案が中心。都市計画道路は早期整備を求める。R6決算の討論では市長報告の撤回後の市政運営を問題にした。速報期は河野議員の一般質問が市長の4年間の実績（財源確保・市民協働など）を問うた。</p><dl><dt>よく出る話題</dt><dd>防災・安全／福祉・医療・介護／環境・ごみ・みどり</dd><dt>特徴語</dt><dd>地震・消防・訓練・健康寿命</dd><dt>予算・決算の討論</dt><dd>予算 賛成4・反対0／R6決算 不認定</dd><dt>進め方批判・追及</dt><dd><span class="mini-bars" aria-hidden="true"><span class="mb before" style="width:12.8%"></span><span class="mb after" style="width:54.6%"></span></span><span class="tnum">公式期 8% → 速報期 33%</span></dd></dl></article><article class="card"><header><h3>子どもの権利／情報公開</h3><span class="sub">2人</span></header><p>学童や子どもの権利、都市計画道路と庁舎について、市長の判断や説明の正確さを問う。</p><dl><dt>よく出る話題</dt><dd>子育て・保育／まちづくり・交通・道路／庁舎・公共施設</dd><dt>特徴語</dt><dd>権利条例・子どもオンブズパーソン・判決・床面積</dd><dt>予算・決算の討論</dt><dd>予算 賛成1・反対2／R6決算 不認定</dd><dt>進め方批判・追及</dt><dd><span class="mini-bars" aria-hidden="true"><span class="mb before" style="width:75.0%"></span><span class="mb after" style="width:50.0%"></span></span><span class="tnum">公式期 45% → 速報期 30%</span></dd></dl></article><article class="card"><header><h3>小金井をおもしろくする会</h3><span class="sub">2人</span></header><p>DX・オープンデータ・業務効率化、学童の人材確保などの提案が中心。</p><dl><dt>よく出る話題</dt><dd>行政運営・組織・人事・DX／子育て・保育／市民参加・情報公開</dd><dt>特徴語</dt><dd>ＤＸ・オープンデータ・テレワーク・ＡＩ</dd><dt>予算・決算の討論</dt><dd>予算 賛成4・反対0／R6決算 認定</dd><dt>進め方批判・追及</dt><dd><span class="mini-bars" aria-hidden="true"><span class="mb before" style="width:0.0%"></span><span class="mb after" style="width:4.7%"></span></span><span class="tnum">公式期 0% → 速報期 3%</span></dd></dl></article><article class="card"><header><h3>れいわ新選組小金井</h3><span class="sub">1人</span></header><p>インクルーシブ教育と学びの多様化、ひきこもり支援、学童事故の検証を取り上げる。</p><dl><dt>よく出る話題</dt><dd>子育て・保育／教育／福祉・医療・介護</dd><dt>特徴語</dt><dd>フリースクール・教育支援センター・ひきこもり支援・インクルーシブ教育</dd><dt>予算・決算の討論</dt><dd>予算 賛成0・反対1／R6決算 不認定</dd><dt>進め方批判・追及</dt><dd><span class="mini-bars" aria-hidden="true"><span class="mb before" style="width:20.8%"></span><span class="mb after" style="width:20.8%"></span></span><span class="tnum">公式期 12% → 速報期 12%</span></dd></dl></article><article class="card"><header><h3>参政党小金井</h3><span class="sub">1人</span></header><p>ガバメントクラウド、外国籍職員、個人情報を取り上げる。議長のため、自分の意見としての発言は少なめ（速報期は9件でぶれやすい）。</p><dl><dt>よく出る話題</dt><dd>行政運営・組織・人事・DX／財政・予算／産業・経済</dd><dt>特徴語</dt><dd>ガバメントクラウド・個人情報・外国籍・戸籍謄本</dd><dt>予算・決算の討論</dt><dd>予算 賛成0・反対0／R6決算 —</dd><dt>進め方批判・追及</dt><dd><span class="mini-bars" aria-hidden="true"><span class="mb before" style="width:8.3%"></span><span class="mb after" style="width:0.0%"></span></span><span class="tnum">公式期 5% → 速報期 0%（速報9件・参考値）</span></dd></dl></article><article class="card"><header><h3>小金井市政を見える化する会</h3><span class="sub">1人</span></header><p>ワクチン政策への反対が中心。庁舎の再設計、行政ICTの費用も取り上げる。</p><dl><dt>よく出る話題</dt><dd>福祉・医療・介護／庁舎・公共施設／行政運営・組織・人事・DX</dd><dt>特徴語</dt><dd>ワクチン・予防接種・論文・マスク</dd><dt>予算・決算の討論</dt><dd>予算 賛成1・反対1／R6決算 不認定</dd><dt>進め方批判・追及</dt><dd><span class="mini-bars" aria-hidden="true"><span class="mb before" style="width:12.5%"></span><span class="mb after" style="width:39.5%"></span></span><span class="tnum">公式期 8% → 速報期 24%</span></dd></dl></article><article class="card"><header><h3>生活者ネットワーク</h3><span class="sub">1人</span></header><p>自然環境と街路樹、インクルーシブ教育、ロービジョン支援を取り上げる。</p><dl><dt>よく出る話題</dt><dd>まちづくり・交通・道路／教育／環境・ごみ・みどり</dd><dt>特徴語</dt><dd>自然環境・ロービジョン・視覚障害・ジェンダーバランス</dd><dt>予算・決算の討論</dt><dd>予算 賛成1・反対0／R6決算 不認定</dd><dt>進め方批判・追及</dt><dd><span class="mini-bars" aria-hidden="true"><span class="mb before" style="width:25.0%"></span><span class="mb after" style="width:20.2%"></span></span><span class="tnum">公式期 15% → 速報期 12%</span></dd></dl></article><article class="card"><header><h3>緑・つながる小金井</h3><span class="sub">1人</span></header><p>都市計画道路の判断の根拠と、住民意見の扱いを問う。再生可能エネルギーも取り上げる。</p><dl><dt>よく出る話題</dt><dd>まちづくり・交通・道路／市民参加・情報公開／環境・ごみ・みどり</dd><dt>特徴語</dt><dd>市施行路線・優先整備・市長報告・民意</dd><dt>予算・決算の討論</dt><dd>予算 賛成0・反対1／R6決算 不認定</dd><dt>進め方批判・追及</dt><dd><span class="mini-bars" aria-hidden="true"><span class="mb before" style="width:50.0%"></span><span class="mb after" style="width:83.3%"></span></span><span class="tnum">公式期 30% → 速報期 50%</span></dd></dl></article><article class="card"><header><h3>自民党・街の仲間たち</h3><span class="sub">1人</span></header><p>商店会と防災、AED、移動販売、ベンチなど、地域の具体策を取り上げる。</p><dl><dt>よく出る話題</dt><dd>防災・安全／福祉・医療・介護／まちづくり・交通・道路</dd><dt>特徴語</dt><dd>商店会・ベンチ・移動販売・ＡＥＤ</dd><dt>予算・決算の討論</dt><dd>予算 賛成1・反対0／R6決算 認定</dd><dt>進め方批判・追及</dt><dd><span class="mini-bars" aria-hidden="true"><span class="mb before" style="width:16.1%"></span><span class="mb after" style="width:53.6%"></span></span><span class="tnum">公式期 10% → 速報期 32%</span></dd></dl></article></div>
+  </section>
+
+  <section aria-labelledby="h-method">
+    <h2 id="h-method">どうやって測ったか</h2>
+    <ol class="steps">
+      <li><b>発言を集める</b>公式会議録から4,173件、速報から990件。議員本人の200字以上の発言</li>
+      <li><b>無作為に抜く</b>議員ごとに最大40件。公式期931件、速報期770件</li>
+      <li><b>名前を伏せる</b>話者名・会派名を「○○」に置き換える</li>
+      <li><b>2つのAIが別々に分類</b>GPTとGeminiに、同じ基準で主な働きを判定させる</li>
+      <li><b>一致を確かめる</b>進め方批判か否かの一致度κ＝0.81（公式期）・0.87（速報期）。ほぼ一致の水準</li>
+    </ol>
+    <p class="kicker">7分類の一致度はκ＝0.78（公式期）・0.82（速報期）。Claudeが公式期の30件を名前を伏せたまま分類した抜き取りでは、進め方批判か否かで28件、3分類（要望／批判／その他）で27件、7分類で24件がGPTと一致しました（人手による確認ではありません）。会派の値は、発言量の多い議員に引っ張られないよう、所属議員の値の平均にしています。</p>
+  </section>
+
+  <section aria-labelledby="h-caveat">
+    <h2 id="h-caveat">読むときの注意</h2>
+    <ul class="caveats">
+      <li>発言の「働き」の分類はAIによる判断です。一致度は高いものの、1件ごとには誤りがあります。</li>
+      <li>速報期（2026-07-29〜09-29）は非公式の速報で、話者の誤りも残りえます。公式会議録が出たら測り直すべきです。庁舎の議論に大きく影響された時期でもあります。</li>
+      <li>順位の近い会派は95%区間が重なっていて、順位そのものに大きな意味はありません。</li>
+      <li>数えたのは発言の件数です。一般質問の長い1回と、委員会の短い質疑を同じ1件としています。</li>
+      <li>1人会派と、議長・委員長を務める議員は、抽出が少なく数字がぶれやすくなります（※は15件未満）。</li>
+      <li>予算・決算の立場は、公式期の本会議で討論した会派だけの集計です。</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>資料: 小金井市議会 公式会議録（2025-04-16〜2026-06-23、169会議）、議事録サイト Kaigiroku の会議録速報（非公式）（2026-07-29〜09-29、27会議）</p>
+    <p>報告書（全文）: <a href="https://docs.google.com/document/d/1oHa_2YJkcQC4jPltjgb53PUEAcBc3-_9H4VXKEjpM3Y/edit" target="_blank" rel="noopener">会派別の発言傾向の比較</a>／別紙: <a href="https://docs.google.com/document/d/1QJEIJnp2dEnxr3ck5oihjWg9q2hXrkYQVN_e9jETfG8/edit" target="_blank" rel="noopener">9月議会の庁舎論点</a>（Googleドキュメント。共有設定をしないと、作成者以外は開けません）</p>
+    <p>集計と図は、再計算用のスクリプトから生成しています。</p>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var tip = document.createElement("div");
+  tip.className = "tip"; tip.hidden = true; tip.setAttribute("role", "status");
+  document.body.appendChild(tip);
+  function fill(el) {
+    var parts = (el.getAttribute("data-tip") || "").split(" / ");
+    tip.textContent = "";
+    var l = document.createElement("span"); l.className = "t-label"; l.textContent = parts.shift() || "";
+    tip.appendChild(l);
+    parts.forEach(function (p) { var v = document.createElement("span"); v.className = "t-val"; v.textContent = p; tip.appendChild(v); });
+    tip.hidden = false;
+  }
+  function place(x, y) {
+    var w = tip.offsetWidth, h = tip.offsetHeight, vw = document.documentElement.clientWidth;
+    var left = Math.min(Math.max(8, x + 12), vw - w - 8), top = y - h - 12;
+    if (top < 8) top = y + 16;
+    tip.style.left = left + "px"; tip.style.top = top + "px";
+  }
+  var focused = null;
+  function atEl(el) { var r = el.getBoundingClientRect(); place(r.left + r.width / 2, r.top); }
+  document.addEventListener("pointermove", function (ev) {
+    var el = ev.target.closest && ev.target.closest("[data-tip]");
+    if (!el) { if (!focused) tip.hidden = true; return; }
+    fill(el); place(ev.clientX, ev.clientY);
+  });
+  document.addEventListener("focusin", function (ev) {
+    var el = ev.target.closest && ev.target.closest("[data-tip]");
+    focused = el || null;
+    if (!el) { tip.hidden = true; return; }
+    fill(el); atEl(el);
+  });
+  document.addEventListener("focusout", function () { focused = null; tip.hidden = true; });
+  window.addEventListener("scroll", function () { if (focused) atEl(focused); else tip.hidden = true; }, { passive: true });
+
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  function select(t) {
+    tabs.forEach(function (b) {
+      var on = b === t;
+      b.setAttribute("aria-selected", on ? "true" : "false");
+      b.tabIndex = on ? 0 : -1;
+      document.getElementById(b.getAttribute("aria-controls")).hidden = !on;
+    });
+  }
+  tabs.forEach(function (b, i) {
+    b.addEventListener("click", function () { select(b); });
+    b.addEventListener("keydown", function (ev) {
+      if (ev.key === "ArrowRight" || ev.key === "ArrowLeft") {
+        var n = tabs[(i + (ev.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+        select(n); n.focus(); ev.preventDefault();
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
