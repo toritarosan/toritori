@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>本庁舎 修繕マトリックス</title>
+<style>
+:root{
+  --bg:#f7f7f5; --panel:#ffffff; --ink:#1d1d1f; --sub:#5b5b60; --line:#dcdcd8;
+  --fact:#1f5fbf; --fact-bg:#e6efff; --calc:#2d7a4f; --calc-bg:#e3f4ea;
+  --asm:#9a5b00; --asm-bg:#fff2dc; --need:#1d1d1f; --part:#8a8a90; --none:#c4c4c8;
+  --bar:#3b6fd1; --ref:#7a4fb5;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16171a; --panel:#1f2024; --ink:#ececee; --sub:#a3a3aa; --line:#34353a;
+    --fact:#8fb4ff; --fact-bg:#1c2a44; --calc:#7fd3a3; --calc-bg:#173126;
+    --asm:#ffc46b; --asm-bg:#3a2a10; --need:#ececee; --part:#9a9aa2; --none:#55565c;
+    --bar:#7ea3ff; --ref:#c3a2f0;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16171a; --panel:#1f2024; --ink:#ececee; --sub:#a3a3aa; --line:#34353a;
+  --fact:#8fb4ff; --fact-bg:#1c2a44; --calc:#7fd3a3; --calc-bg:#173126;
+  --asm:#ffc46b; --asm-bg:#3a2a10; --need:#ececee; --part:#9a9aa2; --none:#55565c;
+  --bar:#7ea3ff; --ref:#c3a2f0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;line-height:1.6;font-size:15px}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.45rem;margin:0 0 4px}
+h2{font-size:1.1rem;margin:28px 0 8px}
+.lead{color:var(--sub);margin:0 0 14px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;padding:1px 7px;border-radius:999px;white-space:nowrap;vertical-align:1px}
+.t-fact{color:var(--fact);background:var(--fact-bg)}
+.t-calc{color:var(--calc);background:var(--calc-bg)}
+.t-asm{color:var(--asm);background:var(--asm-bg)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.88rem}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.controls{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center}
+.controls label{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:.92rem}
+input[type=range]{width:180px;max-width:100%}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:900px;font-size:.88rem}
+th,td{border-bottom:1px solid var(--line);padding:8px 8px;vertical-align:top}
+thead th{position:sticky;top:0;background:var(--panel);text-align:center;font-size:.85rem;border-bottom:2px solid var(--line)}
+th.item{text-align:left;min-width:190px}
+td.basis{min-width:230px;color:var(--sub);font-size:.8rem}
+td.cell{text-align:center;min-width:92px}
+.mk{font-size:1.05rem;line-height:1}
+.mk.need{color:var(--need)} .mk.part{color:var(--part)} .mk.none{color:var(--none)}
+.amt{display:block;font-variant-numeric:tabular-nums;font-size:.82rem;margin-top:2px}
+.why{display:block;color:var(--sub);font-size:.72rem;line-height:1.35;margin-top:2px}
+tr.grp th{background:var(--bg);text-align:left;font-size:.8rem;color:var(--sub);padding:5px 8px}
+tr.total td,tr.total th{font-weight:700;border-top:2px solid var(--line)}
+tr.ref td,tr.ref th{color:var(--ref)}
+.asmcell{background:repeating-linear-gradient(135deg,transparent 0 6px,var(--asm-bg) 6px 7px)}
+.bars{display:grid;grid-template-columns:70px 1fr 110px;gap:6px 10px;align-items:center;font-size:.88rem}
+.bar{height:16px;background:var(--bar);border-radius:3px}
+.note{font-size:.84rem;color:var(--sub)}
+ul{padding-left:1.2em;margin:6px 0} li{margin:3px 0}
+.facts td,.facts th{font-size:.84rem}
+.facts table{min-width:640px}
+.warn{border-left:4px solid var(--asm);background:var(--asm-bg);padding:10px 12px;border-radius:6px;font-size:.88rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>本庁舎を使い続ける場合の修繕マトリックス（仮定の試算）</h1>
+<p class="lead">内部資料（本人・会派内用）・作成 2026-10-02。本庁舎（昭和40年12月竣工・築60年10か月・延床2,709.23㎡）を、あと何年使うかで「どの修繕が要るか」「いくらかかるか」を仮定で並べた表。<b>市の公式な試算ではない。</b></p>
+
+<div class="warn"><b>読み方の注意</b>：使える事実（市の答弁・公文書の数字）は「大規模改修一式で約10億円（2023年の情勢）」「平成28年は約6.5億円」などの<b>総額</b>だけで、<b>項目ごとの内訳と年数ごとの要否は、すべてClaudeの仮定</b>。仮定のセルは斜線の地にしてある。市が10/22以降に出す資料（沖浦委員の資料要求）が来たら、仮定を事実に置き換える。</div>
+
+<div class="panel">
+  <div class="legend">
+    <span><span class="tag t-fact">事実</span> 市の答弁・公文書にある数字・事実</span>
+    <span><span class="tag t-calc">計算</span> 事実の数字だけを使った単純計算</span>
+    <span><span class="tag t-asm">仮定</span> Claudeが置いた仮定（根拠となる統計に当たっていない）</span>
+    <span><span class="mk need">●</span> 必要（全面）</span>
+    <span><span class="mk part">◐</span> 一部だけ</span>
+    <span><span class="mk none">－</span> 不要（故障時は応急修繕で対応）</span>
+  </div>
+</div>
+
+<div class="panel controls">
+  <label>物価上昇（2023→2026年）<span class="tag t-asm">仮定</span>
+    <input type="range" id="esc" min="0" max="40" step="5" value="15">
+    <b id="escv">15%</b></label>
+  <label><input type="checkbox" id="seis7"> 7年使う場合も耐震補強を入れる <span class="tag t-asm">仮定</span></label>
+  <label><input type="checkbox" id="ref" checked> 参考：第二庁舎の賃料等も表示</label>
+</div>
+
+<h2>マトリックス（使用年数 × 修繕項目）</h2>
+<p class="note">金額は2026年価格の概算（億円）。各セルは「要否／金額／理由」。列は使い続ける年数＝新庁舎に移るまでの年数。最短スケジュール試案の供用開始R15.10ならあと約7年、48か月延びればあと約11年<span class="tag t-calc">計算</span>。</p>
+<div class="scroll"><table id="mx"><thead></thead><tbody></tbody></table></div>
+
+<h2>年数別の合計（修繕のみ）</h2>
+<div class="panel"><div class="bars" id="bars"></div>
+<p class="note" id="barnote"></p></div>
+
+<h2>年数ごとの考え方 <span class="tag t-asm">仮定</span></h2>
+<div class="panel">
+<ul>
+<li><b>3年</b>：今の延長。壊れたところを応急修繕でしのぐ（市の現状の対応＝職員→常駐の委託社員→専門業者の3段階<span class="tag t-fact">事実</span>）。ただし非常用発電とLED化は年数に関係なく必要な扱いにした。</li>
+<li><b>5年</b>：漏水・雨漏りが続く系統（給排水の一部・屋上防水）と消防設備は手当てが要る。空調・電気は一部だけ更新。</li>
+<li><b>7年</b>：<b>判断の分かれ目</b>。給排水の全面更新、外装、空調の主要機器は入れるが、耐震補強・内装・仮移転を伴う「大規模改修一式」までやるかは政策判断（チェックボックスで切り替え）。</li>
+<li><b>10年</b>：市が試算した「大規模改修一式（約10億円・2023年）」<span class="tag t-fact">事実</span>に相当する工事が要る想定。耐震補強のために工事中の仮移転も要る。</li>
+<li><b>15年</b>：10年の工事に加えて応急修繕が5年分増える。10年で更新した設備の2回目の更新は15年の範囲では見込まない。</li>
+</ul>
+</div>
+
+<h2>土台にした事実（データ）</h2>
+<div class="scroll facts"><table>
+<thead><tr><th class="item">事実</th><th>数字</th><th>出典</th></tr></thead>
+<tbody>
+<tr><td><span class="tag t-fact">事実</span> 本庁舎の竣工・構造・面積</td><td>昭和40年（1965年）12月竣工、SRC造・地上4階地下1階、延床2,709.23㎡</td><td>小金井市新庁舎建設基本構想（平成23年3月）p.30</td></tr>
+<tr><td><span class="tag t-fact">事実</span> 大規模改修の経費（市の試算）</td><td>平成28年当時 約6.5億円 → 2023年の社会情勢では約10億円。工事の範囲＝屋上防水・外壁／床・壁・天井／給排水管・衛生機器・冷暖房機／照明・配線・受変電設備＋耐震補強（10億円に耐震補強が含まれるかは答弁の文言からははっきりしない）</td><td>北村 総務部長 2023-06-06本会議（斎藤康夫議員への答弁・公式会議録）</td></tr>
+<tr><td><span class="tag t-fact">事実</span> 想定耐震化費用</td><td>約11.3億円（2014年の第二庁舎取得の比較の際の想定、「確定的な数値ではない」）</td><td>河野 企画財政部長 2015-10-02決算特委（公式）</td></tr>
+<tr><td><span class="tag t-fact">事実</span> 耐震診断の結果</td><td>12か所中3か所が防災拠点の目標値 Is 0.9 を下回る（1〜4階 0.68〜1.39）。国交省の一般建物の基準0.6は全箇所クリア。補強はしていない</td><td>総務部長 2026-09-04本会議（速報）／管財課長 2021-06-17（公式）／課長 2025-11-12（公式）</td></tr>
+<tr><td><span class="tag t-fact">事実</span> 仮設庁舎の単価（市の資料）</td><td>プレハブ 1㎡あたり10.2万円（平成22年当時・36か月リース、外構・解体を含まない）</td><td>今井 企画政策課長 2014-09-25全員協議会（公式）</td></tr>
+<tr><td><span class="tag t-fact">事実</span> 非常用発電</td><td>本庁舎には整備されていない。長期停電時の業務継続に課題</td><td>防災安全担当部長 2026-09-04本会議（速報）</td></tr>
+<tr><td><span class="tag t-fact">事実</span> 配管・雨漏り</td><td>2022年8月に配管の漏水でトイレ天井の一部が崩落／雨漏り年1〜2件／配管は「限界が来ている」</td><td>2024-06-06本会議・2025-11-12庁舎特委（公式）</td></tr>
+<tr><td><span class="tag t-fact">事実</span> エレベーター</td><td>既存不適格建築物のため、設置すると建物全体を現行規定に合わせる大規模改修が要る→困難</td><td>2021-12-02本会議（公式）</td></tr>
+<tr><td><span class="tag t-fact">事実</span> LED化</td><td>庁舎建設等担当部長が「管財課長と協議を始めた。LED化から始めている」</td><td>2026-09-15庁舎特委（速報）</td></tr>
+<tr><td><span class="tag t-fact">事実</span>（議員の提示額） 第二庁舎の賃料等</td><td>賃借料・維持管理料・駐車場で年3億2,189万4千円（議員が質問で示した額。<b>市の答弁で確認できていない</b>）</td><td>2026-09-15庁舎特委（速報）</td></tr>
+<tr><td><span class="tag t-calc">計算</span> ㎡あたりの改修単価</td><td id="unit"></td><td>10億円 ÷ 2,709.23㎡</td></tr>
+</tbody></table></div>
+
+<h2>置いた仮定（一覧）</h2>
+<div class="panel">
+<ul>
+<li><span class="tag t-asm">仮定A</span> 市の「約10億円（2023年）」を耐震補強込みの大規模改修一式とみなし、項目別に配分した：耐震補強25%・外装（屋上防水・外壁・サッシ）15%・給排水と衛生器具15%・空調15%・電気15%（うち照明のLED化を3割＝0.3億円とする）・内装10%・消防設備と防火戸5%。<b>配分率に根拠となる統計はない</b>。</li>
+<li><span class="tag t-asm">仮定B</span> 10億円に含まれないとみなした項目の金額：非常用発電と防災行政無線の電源確保 0.5億円、アスベスト調査 0.03億円（除去費は不明のため入れていない）、応急修繕 毎年0.1億円。いずれも規模からの粗い仮置き。</li>
+<li><span class="tag t-asm">仮定C</span> 仮移転費＝市のプレハブ単価（平成22年）×延床面積＝約2.76億円<span class="tag t-calc">計算</span>に、平成22年→2023年の物価補正1.5倍を掛けた。</li>
+<li><span class="tag t-asm">仮定D</span> 年数ごとの要否と「一部」の割合（表の◐の割合）。</li>
+<li><span class="tag t-asm">仮定E</span> 2023→2026年の物価上昇（初期値15%、上のスライダーで変更可）。参考として、市の試算は平成28年→2023年で約1.54倍<span class="tag t-calc">計算</span>。</li>
+<li>エレベーターは、建物全体の現行規定への適合改修と一体になるため<b>金額を出していない</b>。</li>
+</ul>
+<p class="note">この表で分からないこと：市の内訳／耐震補強を何年使う前提で入れるか（総務部長は2016年に「使う年数や補強の形は使い方で変わる」と答弁）／アスベストの有無／防火戸の現状（2023年に議員が「機能していない」と指摘、市側の確認は見ていない）。</p>
+</div>
+</div>
+
+<script>
+const Y=[3,5,7,10,15];
+// base: 億円・2023年価格（仮定Aの配分は 10億円×割合）
+const ITEMS=[
+ {g:'年数に関係なく必要とみなしたもの',name:'応急修繕（毎年）',tag:'asm',perYear:0.1,
+  basis:'仮定B：年0.1億円。現状は職員→常駐の委託社員→専門業者の3段階で対応（事実）',
+  f:{3:1,5:1,7:1,10:1,15:1},why:{3:'現状の延長',5:'',7:'',10:'',15:''}},
+ {g:'年数に関係なく必要とみなしたもの',name:'非常用発電・防災行政無線の電源確保',tag:'asm',base:0.5,
+  basis:'未整備（事実・9/4）。金額は仮定B',
+  f:{3:1,5:1,7:1,10:1,15:1},why:{3:'防災の課題',5:'',7:'',10:'',15:''}},
+ {g:'年数に関係なく必要とみなしたもの',name:'照明のLED化',tag:'asm',base:0.3,
+  basis:'すでに着手（事実・9/15）。金額＝電気1.5億円の3割（仮定A）',
+  f:{3:1,5:1,7:1,10:1,15:1},why:{3:'着手済み',5:'',7:'',10:'',15:''}},
+ {g:'設備・外装（年数で範囲が変わる）',name:'給排水管・衛生器具',tag:'asm',base:1.5,
+  basis:'配管は「限界」（事実）。金額＝10億円の15%（仮定A）',
+  f:{3:0.1,5:0.3,7:1,10:1,15:1},why:{3:'漏水箇所のみ',5:'劣化系統',7:'全面更新',10:'全面',15:'全面'}},
+ {g:'設備・外装（年数で範囲が変わる）',name:'屋上防水・外壁・サッシ',tag:'asm',base:1.5,
+  basis:'雨漏り年1〜2件（事実）。金額＝15%（仮定A）',
+  f:{3:0.1,5:0.4,7:0.7,10:1,15:1},why:{3:'雨漏り箇所',5:'屋上防水',7:'外壁まで',10:'全面',15:'全面'}},
+ {g:'設備・外装（年数で範囲が変わる）',name:'消防設備・防火戸',tag:'asm',base:0.5,
+  basis:'防火戸の不具合は議員の指摘のみ（市の確認なし）。金額＝5%（仮定A）',
+  f:{3:0.3,5:0.5,7:1,10:1,15:1},why:{3:'指摘箇所',5:'',7:'全面',10:'',15:''}},
+ {g:'設備・外装（年数で範囲が変わる）',name:'空調（冷暖房機）',tag:'asm',base:1.5,
+  basis:'15年超の機器が多い（事実・2023-12-15）。金額＝15%（仮定A）',
+  f:{3:0,5:0.3,7:0.6,10:1,15:1},why:{3:'故障時のみ',5:'古い機器',7:'主要機器',10:'全面',15:'全面'}},
+ {g:'設備・外装（年数で範囲が変わる）',name:'電気（受変電・配線）',tag:'asm',base:1.2,
+  basis:'市の大規模改修の範囲に含まれる（事実）。金額＝電気1.5億円の7割（仮定A）',
+  f:{3:0,5:0.2,7:0.5,10:1,15:1},why:{3:'故障時のみ',5:'一部',7:'受変電',10:'全面',15:'全面'}},
+ {g:'大規模改修一式で入るもの',name:'内装（床・壁・天井）',tag:'asm',base:1.0,
+  basis:'床タイルのはがれは職員が補修（事実）。金額＝10%（仮定A）',
+  f:{3:0,5:0,7:0.3,10:1,15:1},why:{3:'',5:'',7:'傷みの大きい所',10:'全面',15:'全面'}},
+ {g:'大規模改修一式で入るもの',name:'耐震補強（診断・設計・工事）',tag:'asm',base:2.5,seis:true,
+  basis:'12か所中3か所が Is 0.9 未満（事実）。金額＝25%（仮定A）。補強すると執務面積が減る（議員の指摘）',
+  f:{3:0,5:0,7:0,10:1,15:1},why:{3:'',5:'',7:'政策判断',10:'防災拠点として',15:''}},
+ {g:'大規模改修一式で入るもの',name:'アスベスト調査',tag:'asm',base:0.03,
+  basis:'有無は未確認。調査費のみ（仮定B）。除去費は不明',
+  f:{3:0,5:0,7:1,10:1,15:1},why:{3:'',5:'',7:'工事の前提',10:'',15:''}},
+ {g:'大規模改修一式で入るもの',name:'工事中の仮移転（仮設庁舎）',tag:'asm',base:2.763*1.5,seisDep:true,
+  basis:'市のプレハブ単価10.2万円/㎡（事実・平成22年）×2,709㎡＝2.76億円（計算）×1.5倍（仮定C）',
+  f:{3:0,5:0,7:0,10:1,15:1},why:{3:'',5:'',7:'耐震補強時のみ',10:'補強工事のため',15:''}},
+ {g:'大規模改修一式で入るもの',name:'エレベーター',tag:'asm',na:true,
+  basis:'既存不適格のため全体の現行規定適合改修と一体（事実）→金額は出していない',
+  f:{3:0,5:0,7:0,10:0.5,15:0.5},why:{3:'',5:'',7:'',10:'検討対象',15:'検討対象'}},
+];
+const $=s=>document.querySelector(s);
+function fmt(oku){ if(oku<=0) return ''; if(oku<1) return Math.round(oku*10000).toLocaleString()+'万円'; return oku.toFixed(1)+'億円'; }
+function render(){
+  const esc=+$('#esc').value/100, m=1+esc, seis7=$('#seis7').checked, showRef=$('#ref').checked;
+  $('#escv').textContent=Math.round(esc*100)+'%';
+  $('#unit').textContent='約'+Math.round(10e8/2709.23/1e4).toLocaleString()+'万円/㎡（2023年価格）';
+  const th=$('#mx thead'), tb=$('#mx tbody');
+  th.innerHTML='<tr><th class="item">修繕項目</th><th>根拠</th>'+Y.map(y=>`<th>${y}年<br><span class="note">使い続ける</span></th>`).join('')+'</tr>';
+  let html='', g='', tot={}; Y.forEach(y=>tot[y]=0);
+  for(const it of ITEMS){
+    if(it.g!==g){ g=it.g; html+=`<tr class="grp"><th colspan="${Y.length+2}">${g}</th></tr>`; }
+    const b=it.basis
+      .replace(/（事実(・[^）]+)?）/g,(s,d)=>` <span class="tag t-fact">事実${d||''}</span>`)
+      .replace(/（計算）/g,' <span class="tag t-calc">計算</span>')
+      .replace(/（(仮定[A-E])）/g,' <span class="tag t-asm">$1</span>');
+    html+=`<tr><th class="item">${it.name}</th><td class="basis"><span class="tag t-asm">金額は仮定</span> ${b}</td>`;
+    for(const y of Y){
+      let f=it.f[y], why=it.why[y]||'';
+      if(y===7 && (it.seis||it.seisDep) && seis7){ f=1; why=it.seis?'入れる設定':'補強工事のため'; }
+      let amt=0, mk;
+      if(it.na){ mk=f>0?'<span class="mk part">◐</span>':'<span class="mk none">－</span>'; html+=`<td class="cell asmcell">${mk}<span class="amt">${f>0?'算定不能':''}</span><span class="why">${why}</span></td>`; continue; }
+      if(it.perYear){ amt=it.perYear*y*m; mk='<span class="mk need">●</span>'; why=why||`${y}年分`; }
+      else { amt=it.base*f*m; mk=f>=1?'<span class="mk need">●</span>':f>0?'<span class="mk part">◐</span>':'<span class="mk none">－</span>'; }
+      tot[y]+=amt;
+      html+=`<td class="cell asmcell">${mk}<span class="amt">${fmt(amt)}</span><span class="why">${why}</span></td>`;
+    }
+    html+='</tr>';
+  }
+  html+=`<tr class="total"><th class="item">合計（修繕のみ）</th><td class="basis"><span class="tag t-asm">仮定</span> 上の合計。エレベーター・アスベスト除去は含まない</td>`+Y.map(y=>`<td class="cell">${fmt(tot[y])}</td>`).join('')+'</tr>';
+  html+=`<tr><th class="item">（比較）市の試算 大規模改修一式</th><td class="basis"><span class="tag t-fact">事実</span> 2023年の情勢で約10億円。右は物価補正（仮定E）後</td>`+Y.map(y=>`<td class="cell"><span class="amt">${y>=10?fmt(10*m):''}</span><span class="why">${y>=10?'10年以上の列と比較':''}</span></td>`).join('')+'</tr>';
+  if(showRef){
+    html+=`<tr class="ref"><th class="item">参考：第二庁舎の賃料等（修繕ではない）</th><td class="basis"><span class="tag t-fact">議員の提示額</span> 年3億2,189万円×年数<span class="tag t-calc">計算</span>。市の答弁では未確認。新庁舎に移るまでかかり続ける</td>`+Y.map(y=>`<td class="cell"><span class="amt">${fmt(3.21894*y)}</span></td>`).join('')+'</tr>';
+  }
+  tb.innerHTML=html;
+  const mx=Math.max(...Y.map(y=>tot[y]));
+  $('#bars').innerHTML=Y.map(y=>`<div>${y}年</div><div><div class="bar" style="width:${(tot[y]/mx*100).toFixed(1)}%"></div></div><div style="text-align:right;font-variant-numeric:tabular-nums">${fmt(tot[y])}</div>`).join('');
+  $('#barnote').innerHTML=`物価上昇${Math.round(esc*100)}%・7年での耐震補強${seis7?'あり':'なし'}の場合。<span class="tag t-asm">仮定</span> 金額はすべて仮定の上の概算で、市の試算ではない。`;
+}
+['#esc','#seis7','#ref'].forEach(s=>$(s).addEventListener('input',render));
+render();
+</script>
+</body>
+</html>
