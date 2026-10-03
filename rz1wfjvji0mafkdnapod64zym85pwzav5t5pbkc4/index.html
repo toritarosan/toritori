@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>庁舎建設 9月議会の論点</title>
+<meta name="description" content="2026年9月の小金井市議会で、庁舎建設について議員が何を言ったかを、論点・議員・会派の切り口で図解する検討用ページ。">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f2f3f5; --surface: #fcfcfb; --ink: #15181d; --ink-2: #52514e; --muted: #898781;
+  --rule: #dcdfe3; --grid: #e1e0d9; --axis: #c3c2b7;
+  --accent: #4a3aa7; --accent-wash: rgba(74,58,167,0.08);
+  --s1: #2a78d6; --s1-dim: #cde2fb; --gray-mark: #c3c2b7;
+  --r1:#cde2fb; --r2:#86b6ef; --r3:#5598e7; --r4:#2a78d6; --r5:#1c5cab; --r6:#0d366b;
+  --tip-bg: #15181d; --tip-fg: #f2f3f5;
+  --font: "BIZ UDPGothic", system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0f1113; --surface: #1a1a19; --ink: #f1f2f4; --ink-2: #c3c2b7; --muted: #8e939b;
+    --rule: #2d3033; --grid: #2c2c2a; --axis: #383835;
+    --accent: #9085e9; --accent-wash: rgba(144,133,233,0.12);
+    --s1: #3987e5; --s1-dim: #184f95; --gray-mark: #383835;
+    --r1:#184f95; --r2:#1c5cab; --r3:#256abf; --r4:#3987e5; --r5:#6da7ec; --r6:#9ec5f4;
+    --tip-bg: #f1f2f4; --tip-fg: #15181d;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1113; --surface: #1a1a19; --ink: #f1f2f4; --ink-2: #c3c2b7; --muted: #8e939b;
+  --rule: #2d3033; --grid: #2c2c2a; --axis: #383835;
+  --accent: #9085e9; --accent-wash: rgba(144,133,233,0.12);
+  --s1: #3987e5; --s1-dim: #184f95; --gray-mark: #383835;
+  --r1:#184f95; --r2:#1c5cab; --r3:#256abf; --r4:#3987e5; --r5:#6da7ec; --r6:#9ec5f4;
+  --tip-bg: #f1f2f4; --tip-fg: #15181d;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.7; -webkit-text-size-adjust: 100%; }
+.page { max-width: 920px; margin-inline: auto; padding: 36px 16px 72px; display: grid; gap: 40px; }
+/* グリッドの子が中身の最小幅でページを横に押し広げないようにする（スマホ幅のブローアウト対策） */
+.page > *, .sec > *, .two > *, .kpis > *, .flow > *, .card { min-width: 0; }
+.scroll { max-width: 100%; }
+svg.chart { max-width: 100%; }
+h1, h2, h3 { margin: 0; line-height: 1.35; font-weight: 700; text-wrap: balance; }
+h1 { font-size: 27px; }
+h2 { font-size: 20px; padding-left: 12px; border-left: 4px solid var(--accent); }
+h3 { font-size: 16px; color: var(--ink-2); }
+p { margin: 0; }
+.lead { color: var(--ink-2); font-size: 14px; margin-top: 6px; }
+.meta { color: var(--muted); font-size: 12.5px; margin-top: 10px; line-height: 1.6; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 18px 14px; }
+.sec { display: grid; gap: 14px; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.kpi { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px 12px; }
+.kpi .lb { font-size: 12.5px; color: var(--ink-2); }
+.kpi .v { font-size: 38px; font-weight: 700; line-height: 1.1; margin-top: 2px; }
+.kpi .v small { font-size: 15px; font-weight: 400; color: var(--ink-2); margin-left: 3px; }
+.kpi .d { font-size: 12px; color: var(--muted); margin-top: 4px; }
+@media (max-width: 640px) { .kpis { grid-template-columns: 1fr 1fr; } .kpi .v { font-size: 30px; } h1 { font-size: 22px; } }
+ul.bul { margin: 0; padding-left: 1.3em; display: grid; gap: 8px; }
+ul.bul li { padding-left: 2px; }
+ul.bul b { color: var(--ink); }
+.chart { width: 100%; display: block; overflow: visible; font-family: var(--font); }
+.chart text { fill: var(--ink-2); font-size: 12px; }
+.chart .lab { fill: var(--ink); font-size: 12.5px; }
+.chart .val { fill: var(--ink); font-size: 12px; font-weight: 700; }
+.chart .mut { fill: var(--muted); font-size: 11.5px; }
+.chart .grid { stroke: var(--grid); stroke-width: 1; }
+.chart .axis { stroke: var(--axis); stroke-width: 1; }
+.chart .bar { fill: var(--s1); }
+.chart .bar.dim { fill: var(--gray-mark); }
+.chart .hit { fill: transparent; cursor: default; }
+.chart .hit:hover + .bar, .chart .bar:hover { opacity: .85; }
+.cap { color: var(--muted); font-size: 12.5px; margin-top: 6px; line-height: 1.55; }
+details.tbl { margin-top: 8px; }
+details.tbl summary { cursor: pointer; color: var(--accent); font-size: 13px; }
+table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+th, td { text-align: left; vertical-align: top; padding: 8px 8px; border-bottom: 1px solid var(--rule); }
+th { color: var(--ink-2); font-weight: 700; font-size: 12.5px; background: var(--accent-wash); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.num b { font-size: 17px; }
+.sub { color: var(--muted); font-size: 12px; line-height: 1.5; }
+.q { margin-top: 5px; padding-left: 9px; border-left: 3px solid var(--accent); color: var(--ink-2); font-size: 12.5px; line-height: 1.55; }
+.q.small { font-size: 12px; }
+.q .who { color: var(--muted); margin-left: 4px; }
+tr.zero td { color: var(--muted); }
+tr.zero td b { color: var(--muted); font-weight: 400; }
+.chk { display:inline-block; margin-left:6px; font-size:10.5px; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 0 6px; vertical-align: middle; }
+.scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.heat { border-collapse: separate; border-spacing: 2px; font-size: 11.5px; }
+.heat th { background: none; font-weight: 400; color: var(--muted); padding: 2px 4px; white-space: nowrap; }
+.heat th.rot { writing-mode: vertical-rl; transform: rotate(180deg); text-align: left; height: 150px; padding: 4px 0; }
+.heat td { padding: 0; border: 0; width: 34px; height: 26px; text-align: center; font-variant-numeric: tabular-nums; }
+.heat td.rowlab { text-align: left; white-space: nowrap; color: var(--ink); padding-right: 8px; font-size: 12.5px; }
+.heat td.c { border-radius: 3px; color: var(--ink); }
+.heat td.c0 { background: var(--surface); color: transparent; border: 1px solid var(--rule); }
+.heat td.c1 { background: var(--r1); } .heat td.c2 { background: var(--r2); } .heat td.c3 { background: var(--r3); }
+.heat td.c4 { background: var(--r4); color: #fff; } .heat td.c5 { background: var(--r5); color: #fff; } .heat td.c6 { background: var(--r6); color: #fff; }
+:root[data-theme="dark"] .heat td.c1, :root[data-theme="dark"] .heat td.c2, :root[data-theme="dark"] .heat td.c3 { color: #fff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .heat td.c1, :root:not([data-theme="light"]) .heat td.c2, :root:not([data-theme="light"]) .heat td.c3 { color: #fff; } }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; color: var(--ink-2); font-size: 12.5px; }
+.sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 5px; }
+.tip { position: fixed; pointer-events: none; background: var(--tip-bg); color: var(--tip-fg); font-size: 12.5px; line-height: 1.5; padding: 8px 10px; border-radius: 6px; max-width: 320px; z-index: 10; opacity: 0; transition: opacity .08s; box-shadow: 0 4px 16px rgba(0,0,0,.18); }
+.tip b { font-weight: 700; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 760px) { .two { grid-template-columns: 1fr; } }
+.flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+.flow .st { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; font-size: 13px; position: relative; }
+.flow .st .dt { font-weight: 700; color: var(--ink); }
+.flow .st .n { color: var(--accent); font-weight: 700; }
+.flow .st.hot { border-color: var(--accent); background: var(--accent-wash); }
+@media (max-width: 760px) { .flow { grid-template-columns: 1fr 1fr; } }
+footer { color: var(--muted); font-size: 12.5px; line-height: 1.7; border-top: 1px solid var(--rule); padding-top: 16px; }
+.warn { background: var(--accent-wash); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px; font-size: 13.5px; }
+</style>
+</head>
+<body>
+<div class="tip" id="tip"></div>
+<main class="page">
+
+<header>
+  <h1>庁舎建設をめぐる9月議会 ― 議員は何を言ったか</h1>
+  <p class="lead">2026年9月1日の市長報告「現設計での3回目入札を断念し、方針を見直す」を受けて、議員24人が本会議・委員会で述べた<b>意見・要望・質問・要求・疑問</b>を、<b>論点・議員・会派</b>の3つの切り口で整理した。</p>
+  <p class="meta">対象: 2026-09-01〜10-01に議事録化された28会議（市長報告質疑／一般質問／予算特委／庁舎特委／決算特委ほか）。数え方は「論点1つ＝1件」（発言回数ではない）。<br>
+  出典: 小金井市議会のAI速報版議事録（YouTube中継の自動音声認識＋AI校正・<b>非公式</b>）。公式会議録は本期間分が未公表。引用はすべて速報版本文と機械照合済みだが、速報版そのものに聞き取り誤りがありうる。作成 2026-10-03・検討用。</p>
+</header>
+
+<section class="sec">
+  <div class="kpis">
+    <div class="kpi"><div class="lb">論点の数</div><div class="v">637<small>件</small></div><div class="d">本人の意見として採ったもの</div></div>
+    <div class="kpi"><div class="lb">発言した議員</div><div class="v">20<small>／24人</small></div><div class="d">4人は庁舎建設に触れず</div></div>
+    <div class="kpi"><div class="lb">発言した会派</div><div class="v">10<small>／12会派</small></div><div class="d">1人会派5つを含む</div></div>
+    <div class="kpi"><div class="lb">9/1＋9/15 の割合</div><div class="v">71<small>%</small></div><div class="d">市長報告質疑と庁舎特委に集中</div></div>
+  </div>
+</section>
+
+<section class="sec card">
+  <h2>結論を3つ</h2>
+  <ul class="bul">
+    <li><b>「設計をどう直すか」より「なぜこの時期に、この決め方で決まったのか」に集まった。</b> 1位「方針転換の判断時期と意思決定過程」68件と2位「市長の公約・政治責任と庁内体制」60件の合計128件は全体の20.1%で、設計の中身を論じた「設計・規模・整備手法の見直し内容」39件の3.3倍。</li>
+    <li><b>財政の論点は4つに割れている。</b> 上限額の確定（43件）／財政規律と公債費の限界（34件）／判断材料となる資料の要求（39件）／基金と市債の管理（25件）。合計141件で最大の塊だが「お金が足りない」という一枚の話ではなく、<b>何を先に決めるか</b>の争い。</li>
+    <li><b>問うより先に評価・批判する発言が同じくらい多い。</b> 質問166件に対し指摘151件・意見99件。さらに要求77件（資料提出や説明の場など実行を求めるもの）が要望46件を上回り、「お願い」ではなく「出させる」段階に入っている。</li>
+  </ul>
+</section>
+
+<section class="sec">
+  <h2>いつ、どこで出たか</h2>
+  <div class="flow">
+    <div class="st hot"><div class="dt">9/1 本会議</div>市長報告「現設計での3回目入札を断念」への質疑<div class="n">239件</div></div>
+    <div class="st"><div class="dt">9/2〜9/7 本会議</div>一般質問（4日）<div class="n">89件</div></div>
+    <div class="st"><div class="dt">9/14 予算特委</div>補正予算の質疑<div class="n">19件</div></div>
+    <div class="st hot"><div class="dt">9/15・16 庁舎特委</div>陳情15件＋調査1件。16日は採決のみ<div class="n">213件</div></div>
+    <div class="st"><div class="dt">9/25〜10/1 決算特委</div>10/1は総括質疑<div class="n">74件</div></div>
+  </div>
+  <div class="card">
+    <h3>図1　日付ごとの論点数</h3>
+    <svg id="c-dates" class="chart" role="img" aria-label="日付ごとの論点数の棒グラフ"></svg>
+    <p class="cap">色の濃い2本（9/1・9/15）で全体の 71%。9/16の庁舎特委は陳情の採決のみで委員の質疑がなく0件。9/28は庁舎の論点が出ていない。</p>
+    <details class="tbl"><summary>表で見る</summary><div id="t-dates"></div></details>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>どの論点が多かったか</h2>
+  <div class="card">
+    <h3>図2　18の論点カテゴリ（件数の多い順）</h3>
+    <svg id="c-cats" class="chart" role="img" aria-label="論点カテゴリ別の件数の横棒グラフ"></svg>
+    <p class="cap">棒の右の薄い数字は、その論点に触れた議員の人数。棒にマウスを乗せると定義と主な発言者が出る。</p>
+    <details class="tbl"><summary>表で見る（定義つき）</summary><div id="t-cats"></div></details>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3>図3　言い方の分布（8類型）</h3>
+      <svg id="c-types" class="chart" role="img" aria-label="類型別の件数の横棒グラフ"></svg>
+      <p class="cap">質問＝事実や見解を問う／指摘＝誤りや問題点の明示／意見＝評価・論評／要求＝資料提出・説明など実行を求める／疑問＝前提への疑い／要望＝努力を求める／提案＝代替案／賛否表明＝陳情・議案への賛否。</p>
+      <details class="tbl"><summary>表で見る</summary><div id="t-types"></div></details>
+    </div>
+    <div class="card">
+      <h3>図4　会議の種類ごと</h3>
+      <svg id="c-venues" class="chart" role="img" aria-label="会議種別ごとの件数の横棒グラフ"></svg>
+      <p class="cap">9/1の市長報告質疑は全議員に開かれていたため、庁舎特委の委員でない議員の発言がここに集中した。</p>
+      <details class="tbl"><summary>表で見る</summary><div id="t-venues"></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>誰が言ったか</h2>
+  <div class="card">
+    <h3>図5　議員別の論点数（発言のあった20人）</h3>
+    <svg id="c-members" class="chart" role="img" aria-label="議員別の件数の横棒グラフ"></svg>
+    <p class="cap">★＝庁舎等建設及び公共施設マネジメント推進調査特別委員会の委員。上位3人（森戸・渡辺・岸田）で全体の42%。片山かおる・中井れい子・安田けいこ・斎藤康夫（議長）の4人は期間中に庁舎建設への言及が確認できなかった。</p>
+    <details class="tbl"><summary>表で見る</summary><div id="t-members"></div></details>
+  </div>
+  <div class="card">
+    <h3>図6　議員×論点のヒートマップ（上位12人）</h3>
+    <div class="legend"><span><span class="sw" style="background:var(--r1)"></span>1〜2</span><span><span class="sw" style="background:var(--r2)"></span>3〜4</span><span><span class="sw" style="background:var(--r3)"></span>5〜7</span><span><span class="sw" style="background:var(--r4)"></span>8〜11</span><span><span class="sw" style="background:var(--r5)"></span>12〜16</span><span><span class="sw" style="background:var(--r6)"></span>17〜</span><span class="sub">数字は件数。列は論点を件数順に並べてある</span></div>
+    <div class="scroll" id="heat"></div>
+    <p class="cap">同じ上位でも寄り方が違う。森戸議員は「判断時期」と「市民説明・市民案」、渡辺議員は「現設計の扱い」と「事業費の上限」、岸田議員は「基金・市債償還」と「事業費の上限」と「議会への報告」に厚い。</p>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>会派ごとに見ると</h2>
+  <div class="card">
+    <h3>図7　会派別の論点数と1人あたり</h3>
+    <svg id="c-factions" class="chart" role="img" aria-label="会派別の件数の横棒グラフ"></svg>
+    <p class="cap">棒は件数、右の数字は「件数÷在籍人数」。会派の規模と発言量は一致しない（1人会派の渡辺議員95件、藤川議員39件）。</p>
+    <details class="tbl"><summary>表で見る</summary><div id="t-factions"></div></details>
+  </div>
+  <div class="card">
+    <h3>表1　会派別のまとめ</h3>
+    <p class="cap" style="margin:0 0 10px"><b>「立場の軸」は所属議員の発言を束ねたもので、会派の公式見解ではない。</b>「会派として」と明言しているのは森戸・水上（共産）、ながとり（おもしろくする会）、小林（公明）の発言に限られる。複数人会派は内部で論点が違う（公明は小林32件・太田6件・中井0件）。1人会派はその議員の立場そのもの。引用は速報版本文と機械照合済み。</p>
+    <div class="scroll"><table>
+      <thead><tr><th>会派（発言した議員と件数）</th><th class="num">件数</th><th>立場の軸と、特徴的な一言</th><th>よく出た論点（上位3）</th></tr></thead>
+      <tbody><tr><td class="fac"><b>みらいのこがねい</b><div class="sub">岸田正義★ 68／鈴木成夫 61／沖浦あつし★ 54／天野かな 23／吉良のりこ 7</div></td><td class="num"><b>213</b><div class="sub">／5人<br>1人42.6</div></td><td>現設計での建設継続を支持してきた立場から、断念の判断と手続きを最も厳しく追及。「立ち止まるコスト」の試算と、資料要求・質疑ができる説明の場を要求（鈴木議員は「240億円でも無条件に建設すべき」とは言っていないと留保）<div class="q">「私は現設計で原則進めていくという白井市長の政策は支持してきましたし、そうあるべきだと今でも思っています。」<span class="who">— 鈴木成夫</span></div></td><td class="cats">市長の公約・政治責任と庁内体制 <b>25</b>　立ち止まるコストと事業者の信用 <b>25</b>　議会への報告形式と事前説明・議会運営 <b>17</b></td></tr>
+<tr><td class="fac"><b>日本共産党小金井市議団</b><div class="sub">森戸よう子★ 103／水上洋志 16／たゆ久貴★ 3</div></td><td class="num"><b>122</b><div class="sub">／3人<br>1人40.7</div></td><td>建設は必要だが現設計には6年間反対し、市民・専門家の見直し案を対案に。方針転換は「勇気ある判断」と評価しつつ「決断が遅すぎた」と批判。市民説明会と複数パターンの財政試算を要求<div class="q">「共産党は、庁舎の建設はやる必要があると考えています。同時に、市民生活を犠牲にするような庁舎建設のあり方であってはならない」<span class="who">— 森戸よう子</span></div></td><td class="cats">方針転換の判断時期と意思決定過程 <b>25</b>　市民への説明と市民案・陳情の扱い <b>16</b>　設計・規模・整備手法の見直し内容 <b>13</b></td></tr>
+<tr><td class="fac"><b>子どもの権利／情報公開</b><div class="sub">渡辺大三★ 95／片山かおる 0</div></td><td class="num"><b>95</b><div class="sub">／2人<br>1人47.5</div></td><td>まず「いくら投入できるか」の上限を長期の財政見通しで確定せよ、それ無しに新方針は立たない。与条件（南寄せ・免震と耐震の併用・地下駐車場）を外した再設計と早期サウンディングを提案（発言は渡辺議員のみ）<div class="q">「とにかく今一番最優先なのは財政的なことで、どの程度のスペックのことができるのかと、この事業で」<span class="who">— 渡辺大三</span></div></td><td class="cats">現設計の扱いと見直しの範囲 <b>17</b>　投入可能な事業費の上限と「目安」提示 <b>14</b>　設計・規模・整備手法の見直し内容 <b>11</b></td></tr>
+<tr><td class="fac"><b>自由民主党小金井</b><div class="sub">遠藤百合子★ 24／河野麻美 12／吹春やすたか★・庁舎特委委員長 6</div></td><td class="num"><b>42</b><div class="sub">／3人<br>1人14.0</div></td><td>市長選公約と市長の決断責任を正面から問う。「前に進める道筋が示されない」「なぜその方法かの説明がない」と説明責任を批判。入札不調の増加を読めなかった経営判断の甘さも指摘<div class="q">「そういう市長の決断を感じたことが今まで、庁舎に関しては一度もありませんでした。」<span class="who">— 遠藤百合子</span></div></td><td class="cats">市長の公約・政治責任と庁内体制 <b>13</b>　現設計の扱いと見直しの範囲 <b>8</b>　方針転換の判断時期と意思決定過程 <b>8</b></td></tr>
+<tr><td class="fac"><b>小金井市政を見える化する会</b><div class="sub">藤川賢治★ 39</div></td><td class="num"><b>39</b><div class="sub">／1人<br>1人39.0</div></td><td>一貫して現設計の見直し・撤回を求めてきた立場。転換自体は「良かった」が遅かった。8/4の最大210億円が1か月で240億円になった数値の出し方を追及し、ライフサイクルコストの提示と削るための再設計を要求<div class="q">「進めたい時は低い見積もりを伝えて、いざ止めるとなったら高い方の見積もりを伝えてくると、こういうことだと受け止めざるを得ません。」<span class="who">— 藤川賢治</span></div></td><td class="cats">設計・規模・整備手法の見直し内容 <b>8</b>　財政見通し・比較試算資料の要求 <b>8</b>　方針転換の判断時期と意思決定過程 <b>6</b></td></tr>
+<tr><td class="fac"><b>小金井市議会公明党</b><div class="sub">小林正樹★・副議長 32／太田宏徳 6／中井れい子★ 0</div></td><td class="num"><b>38</b><div class="sub">／3人<br>1人12.7</div></td><td>建設は避けて通れないが「財政の見通しが立つことが大前提」。財政・時期・手法はセットで、手法を示さず目安だけ出せば根拠のない数字になると異議。財政が「どこまで耐えられるか」を本市の基準で示せと要求<div class="q">「行政側が財政見通しの中にはまらないといったものを、それでも突っ込んでいけということは、少なくとも私は言えない」<span class="who">— 小林正樹</span></div></td><td class="cats">建設の必要性・優先順位と見直しへの賛否 <b>6</b>　議会への報告形式と事前説明・議会運営 <b>6</b>　個別公共施設のあり方と機能確保・推進体制 <b>6</b></td></tr>
+<tr><td class="fac"><b>自民党・街の仲間たち</b><div class="sub">清水学 31</div></td><td class="num"><b>31</b><div class="sub">／1人<br>1人31.0</div></td><td>「時間もコスト」。現設計が60点でも早期建設で長年の庁舎問題を解決すべきと一貫し、転換は「非常に残念」。総合庁舎の大方針は変えるな、先送りコストを事業費目標に算入せよ<div class="q">「仮に今の現設計が満点でなくて60点であったとしても、この長年にわたる庁舎問題を早期に解決して」<span class="who">— 清水学</span></div></td><td class="cats">市長の公約・政治責任と庁内体制 <b>6</b>　建設の必要性・優先順位と見直しへの賛否 <b>5</b>　立ち止まるコストと事業者の信用 <b>4</b></td></tr>
+<tr><td class="fac"><b>緑・つながる小金井</b><div class="sub">坂井えつ子 22</div></td><td class="num"><b>22</b><div class="sub">／1人<br>1人22.0</div></td><td>事業の前進を望み、断念は受け止めるが、議決事項でない市長報告で処理されたことは「不本意」。提出資料では断念が適切か判断できないと根拠不足を指摘。本庁舎の非常用電源未設置など停滞のツケも<div class="q">「見込みとして2年ということを示すこと自体も、私は誠実な見解だと思えないんですね。」<span class="who">— 坂井えつ子</span></div></td><td class="cats">個別公共施設のあり方と機能確保・推進体制 <b>6</b>　建設の必要性・優先順位と見直しへの賛否 <b>3</b>　財政見通し・比較試算資料の要求 <b>3</b></td></tr>
+<tr><td class="fac"><b>小金井をおもしろくする会</b><div class="sub">ながとり太郎 17／水谷たかこ★ 4</div></td><td class="num"><b>21</b><div class="sub">／2人<br>1人10.5</div></td><td>会派として「大変重く、影響の大きい判断」と受け止め、形式・時期・240億円の根拠・新方針の具体性・市民説明の5点を確認。理由と根拠は「理解した」とし賛否は明言せず、早めの議会報告と市民周知を要望<div class="q">「従来の方針を大きく見直す内容となっており、私ども小金井をおもしろくする会としましても、大変重く、そして影響の大きい判断であると受け止めております。」<span class="who">— ながとり太郎</span></div></td><td class="cats">議会への報告形式と事前説明・議会運営 <b>6</b>　建設の必要性・優先順位と見直しへの賛否 <b>3</b>　市民への説明と市民案・陳情の扱い <b>3</b></td></tr>
+<tr><td class="fac"><b>れいわ新選組小金井</b><div class="sub">村上ようすけ★ 14</div></td><td class="num"><b>14</b><div class="sub">／1人<br>1人14.0</div></td><td>賛否は論じず「進め方」に集中。投入できる費用がスタート地点だとし、設計段階での費用削減と、専門知識を持つ市民・民間から随時助言を得る体制を提案。糾弾する調子はない<div class="q">「大前提はこの庁舎建設に、どのぐらいの費用が投入できるかと、いったところがスタート地点というか、大前提になると思うんですけども」<span class="who">— 村上ようすけ</span></div></td><td class="cats">個別公共施設のあり方と機能確保・推進体制 <b>5</b>　サウンディング調査と単価前提の見直し <b>4</b>　市民への説明と市民案・陳情の扱い <b>2</b></td></tr>
+<tr class="zero"><td class="fac"><b>生活者ネットワーク</b><div class="sub">安田けいこ 0</div></td><td class="num"><b>0</b><div class="sub">／1人<br>1人0.0</div></td><td>期間中、庁舎建設に関する発言は確認できなかった</td><td class="cats">—</td></tr>
+<tr class="zero"><td class="fac"><b>参政党小金井</b><div class="sub">斎藤康夫・議長 0</div></td><td class="num"><b>0</b><div class="sub">／1人<br>1人0.0</div></td><td>議長のため本会議では質疑せず。決算特委の発言は建設の論点ではない</td><td class="cats">—</td></tr></tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>議員ごとに見ると</h2>
+  <div class="card">
+    <h3>表2　議員別の一覧（24人・件数順）</h3>
+    <p class="cap" style="margin:0 0 10px">「検証済」＝別のエージェントが原文を再読して抜け・誤りを点検した5人。他は単独抽出で裏取りの濃さが一段落ちる。一言は本文からの逐語引用（機械照合済み）。</p>
+    <div class="scroll"><table>
+      <thead><tr><th>議員・会派</th><th class="num">件数</th><th>主な会議</th><th>よく出た論点（上位3）と一言</th></tr></thead>
+      <tbody><tr><td class="fac"><b>森戸よう子</b><span class="sub"> ★</span><div class="sub">日本共産党小金井市議団</div><span class="chk" title="別エージェントが原文に当たって抜け・誤りを点検した5人">検証済</span></td><td class="num"><b>103</b></td><td class="sub">庁舎特別委員会 50／市長報告質疑 30／一般質問 12</td><td class="cats">判断時期・意思決定過程 19／市民説明・市民案・陳情 16／財政規律GL・公債費 12<div class="q small">「共産党は、庁舎の建設はやる必要があると考えています。同時に、市民生活を犠牲にするような庁舎建設のあり方であってはならない」</div></td></tr>
+<tr><td class="fac"><b>渡辺大三</b><span class="sub"> ★</span><div class="sub">子どもの権利／情報公開</div><span class="chk" title="別エージェントが原文に当たって抜け・誤りを点検した5人">検証済</span></td><td class="num"><b>95</b></td><td class="sub">庁舎特別委員会 44／市長報告質疑 29／予算特別委員会 9</td><td class="cats">現設計の扱い・見直し範囲 17／事業費の上限・「目安」 14／設計・規模・整備手法 11<div class="q small">「とにかく今一番最優先なのは財政的なことで、どの程度のスペックのことができるのかと、この事業で」</div></td></tr>
+<tr><td class="fac"><b>岸田正義</b><span class="sub"> ★</span><div class="sub">みらいのこがねい</div><span class="chk" title="別エージェントが原文に当たって抜け・誤りを点検した5人">検証済</span></td><td class="num"><b>68</b></td><td class="sub">庁舎特別委員会 56／予算特別委員会 6／市長報告質疑 3</td><td class="cats">基金・市債償還 13／事業費の上限・「目安」 13／議会への報告・事前説明 9<div class="q small">「だから報告じゃなくて説明が先なんでしょってずっと言ってたわけですよ」</div></td></tr>
+<tr><td class="fac"><b>鈴木成夫</b><span class="sub"> </span><div class="sub">みらいのこがねい</div></td><td class="num"><b>61</b></td><td class="sub">市長報告質疑 39／決算特別委員会 22</td><td class="cats">公共施設全体の更新負担 9／公約・政治責任 8／判断時期・意思決定過程 8<div class="q small">「私は現設計で原則進めていくという白井市長の政策は支持してきましたし、そうあるべきだと今でも思っています。」</div></td></tr>
+<tr><td class="fac"><b>沖浦あつし</b><span class="sub"> ★</span><div class="sub">みらいのこがねい</div><span class="chk" title="別エージェントが原文に当たって抜け・誤りを点検した5人">検証済</span></td><td class="num"><b>54</b></td><td class="sub">一般質問 34／庁舎特別委員会 18／市長報告質疑 2</td><td class="cats">現庁舎の安全・維持 12／公約・政治責任 10／立ち止まるコスト・信用 9<div class="q small">「現設計・現方針で進むことを支持していた我々にも何ら説明もなく、自ら残念、その歩みを諦め、基本計画策定時の13年前に後戻りする方針転換を突如発表し」</div></td></tr>
+<tr><td class="fac"><b>藤川賢治</b><span class="sub"> ★</span><div class="sub">小金井市政を見える化する会</div></td><td class="num"><b>39</b></td><td class="sub">一般質問 23／庁舎特別委員会 11／市長報告質疑 5</td><td class="cats">設計・規模・整備手法 8／財政試算資料の要求 8／判断時期・意思決定過程 6<div class="q small">「進めたい時は低い見積もりを伝えて、いざ止めるとなったら高い方の見積もりを伝えてくると、こういうことだと受け止めざるを得ません。」</div></td></tr>
+<tr><td class="fac"><b>小林正樹</b><span class="sub"> ★・副議長</span><div class="sub">小金井市議会公明党</div></td><td class="num"><b>32</b></td><td class="sub">市長報告質疑 15／庁舎特別委員会 11／決算特別委員会 6</td><td class="cats">必要性・賛否 6／議会への報告・事前説明 6／個別公共施設のあり方 5<div class="q small">「行政側が財政見通しの中にはまらないといったものを、それでも突っ込んでいけということは、少なくとも私は言えない」</div></td></tr>
+<tr><td class="fac"><b>清水学</b><span class="sub"> </span><div class="sub">自民党・街の仲間たち</div></td><td class="num"><b>31</b></td><td class="sub">市長報告質疑 29／決算特別委員会 2</td><td class="cats">公約・政治責任 6／必要性・賛否 5／立ち止まるコスト・信用 4<div class="q small">「仮に今の現設計が満点でなくて60点であったとしても、この長年にわたる庁舎問題を早期に解決して」</div></td></tr>
+<tr><td class="fac"><b>遠藤百合子</b><span class="sub"> ★</span><div class="sub">自由民主党小金井</div><span class="chk" title="別エージェントが原文に当たって抜け・誤りを点検した5人">検証済</span></td><td class="num"><b>24</b></td><td class="sub">庁舎特別委員会 12／市長報告質疑 7／決算特別委員会 5</td><td class="cats">公約・政治責任 9／現設計の扱い・見直し範囲 5／市民説明・市民案・陳情 3<div class="q small">「そういう市長の決断を感じたことが今まで、庁舎に関しては一度もありませんでした。」</div></td></tr>
+<tr><td class="fac"><b>天野かな</b><span class="sub"> </span><div class="sub">みらいのこがねい</div></td><td class="num"><b>23</b></td><td class="sub">決算特別委員会 15／市長報告質疑 8</td><td class="cats">個別公共施設のあり方 15／立ち止まるコスト・信用 2／財政規律GL・公債費 2<div class="q small">「時間をかけること自体にコストがかかっている以上、丁寧に検討することと先送りにすることは全く別物であると考えます」</div></td></tr>
+<tr><td class="fac"><b>坂井えつ子</b><span class="sub"> </span><div class="sub">緑・つながる小金井</div></td><td class="num"><b>22</b></td><td class="sub">市長報告質疑 12／一般質問 9／建設環境委員会 1</td><td class="cats">個別公共施設のあり方 6／必要性・賛否 3／財政試算資料の要求 3<div class="q small">「市長報告は議決事項でもないということについては、大変不本意であるということは申し上げておきます。」</div></td></tr>
+<tr><td class="fac"><b>ながとり太郎</b><span class="sub"> </span><div class="sub">小金井をおもしろくする会</div></td><td class="num"><b>17</b></td><td class="sub">市長報告質疑 17</td><td class="cats">議会への報告・事前説明 3／市民説明・市民案・陳情 3／必要性・賛否 2<div class="q small">「従来の方針を大きく見直す内容となっており、私ども小金井をおもしろくする会としましても、大変重く、そして影響の大きい判断であると受け止めております。」</div></td></tr>
+<tr><td class="fac"><b>水上洋志</b><span class="sub"> </span><div class="sub">日本共産党小金井市議団</div></td><td class="num"><b>16</b></td><td class="sub">市長報告質疑 11／決算特別委員会 5</td><td class="cats">判断時期・意思決定過程 6／議会への報告・事前説明 4／必要性・賛否 2<div class="q small">「ようやくここに至ったということについては、設計変更、当然だと、良かったというふうに思ってるんですが」</div></td></tr>
+<tr><td class="fac"><b>村上ようすけ</b><span class="sub"> ★</span><div class="sub">れいわ新選組小金井</div></td><td class="num"><b>14</b></td><td class="sub">庁舎特別委員会 7／決算特別委員会 3／市長報告質疑 2</td><td class="cats">個別公共施設のあり方 5／サウンディング・単価前提 4／市民説明・市民案・陳情 2<div class="q small">「大前提はこの庁舎建設に、どのぐらいの費用が投入できるかと、いったところがスタート地点というか、大前提になると思うんですけども」</div></td></tr>
+<tr><td class="fac"><b>河野麻美</b><span class="sub"> </span><div class="sub">自由民主党小金井</div></td><td class="num"><b>12</b></td><td class="sub">市長報告質疑 10／決算特別委員会 2</td><td class="cats">公約・政治責任 3／現設計の扱い・見直し範囲 3／判断時期・意思決定過程 2<div class="q small">「庁舎建設というのをどう前に進めるのか、具体的な道筋というのが一切示されることのなかった」</div></td></tr>
+<tr><td class="fac"><b>吉良のりこ</b><span class="sub"> </span><div class="sub">みらいのこがねい</div></td><td class="num"><b>7</b></td><td class="sub">市長報告質疑 7</td><td class="cats">必要性・賛否 5／判断時期・意思決定過程 1／立ち止まるコスト・信用 1<div class="q small">「庁舎建設を真の最優先にさせて、これから取り組んでいってほしいという気持ちの中で、今の質問をさせていただきました。」</div></td></tr>
+<tr><td class="fac"><b>太田宏徳</b><span class="sub"> </span><div class="sub">小金井市議会公明党</div></td><td class="num"><b>6</b></td><td class="sub">市長報告質疑 5／議会運営委員会 1</td><td class="cats">財政規律GL・公債費 3／事業費の上限・「目安」 1／スケジュール・新方針工程 1<div class="q small">「問題は、本市の財政がどこまでなら耐えられるのかっていうことが知りたいわけでありまして」</div></td></tr>
+<tr><td class="fac"><b>吹春やすたか</b><span class="sub"> ★・庁舎特委委員長</span><div class="sub">自由民主党小金井</div></td><td class="num"><b>6</b></td><td class="sub">市長報告質疑 6</td><td class="cats">判断時期・意思決定過程 4／公約・政治責任 1／市民説明・市民案・陳情 1<div class="q small">「そういった流れをですね、市長が捉えられなかったのかなと思うんですよ。」</div></td></tr>
+<tr><td class="fac"><b>水谷たかこ</b><span class="sub"> ★</span><div class="sub">小金井をおもしろくする会</div></td><td class="num"><b>4</b></td><td class="sub">庁舎特別委員会 4</td><td class="cats">議会への報告・事前説明 3／必要性・賛否 1<div class="q small">「議会へのご相談をする時間がなかったことについては遺憾だったということを、始まる前の議会運営委員会でも発言をさせていただきました」</div></td></tr>
+<tr><td class="fac"><b>たゆ久貴</b><span class="sub"> ★</span><div class="sub">日本共産党小金井市議団</div></td><td class="num"><b>3</b></td><td class="sub">一般質問 3</td><td class="cats">設計・規模・整備手法 1／個別公共施設のあり方 1／公共施設全体の更新負担 1<div class="q small">「例えば、新庁舎等、福祉会館建設もそうですし、今後の学校や公共施設の建て替えや大型改修の際には」</div></td></tr>
+<tr class="zero"><td class="fac"><b>中井れい子</b><span class="sub"> ★</span><div class="sub">小金井市議会公明党</div></td><td class="num"><b>0</b></td><td class="sub">—</td><td class="cats">—</td></tr>
+<tr class="zero"><td class="fac"><b>安田けいこ</b><span class="sub"> </span><div class="sub">生活者ネットワーク</div></td><td class="num"><b>0</b></td><td class="sub">—</td><td class="cats">—</td></tr>
+<tr class="zero"><td class="fac"><b>斎藤康夫</b><span class="sub"> ・議長</span><div class="sub">参政党小金井</div></td><td class="num"><b>0</b></td><td class="sub">—</td><td class="cats">—</td></tr>
+<tr class="zero"><td class="fac"><b>片山かおる</b><span class="sub"> </span><div class="sub">子どもの権利／情報公開</div></td><td class="num"><b>0</b></td><td class="sub">—</td><td class="cats">—</td></tr></tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>どう確かめたか・限界</h2>
+  <div class="two">
+    <div class="card">
+      <h3>検証したこと</h3>
+      <ul class="bul" style="font-size:14px">
+        <li><b>引用のねつ造チェック</b>: 643件の引用文字列を議事録本文と機械照合し、<b>643/643件が完全一致</b>。</li>
+        <li><b>会議種別の整合</b>: 各レコードの（議員・日付・会議）を実データと突合。1件の誤記を検出・修正。</li>
+        <li><b>抜け漏れ・誤り</b>: 発言量上位5人を別エージェントが原文で点検し、抜け21件を追加、誤り11件を修正（うち5件は作業側の背景メモの語が議員発言に混入したもの。2件は誤りでないと確認）。</li>
+        <li><b>陽性対照</b>: 0件だった片山議員の全発言（99ターン・8.8万字）を機械走査し、庁舎関連語が1件もないことを確認。</li>
+        <li><b>既存資料との突合</b>: 9/15について別系統の論点台帳（85論点）と比べ、発言者の集合と上位3人が一致。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>限界（読む前に）</h3>
+      <ul class="bul" style="font-size:14px">
+        <li><b>出典は非公式の速報版。</b> 公式会議録・動画で裏取りする前に、公開物や議会提出物には使わない。</li>
+        <li><b>キーワード起点の抽出。</b>「庁舎」などの語を使わずに庁舎を論じた発言は落ちうる。「言及なし」は「この方法で見つからなかった」の意味。</li>
+        <li><b>数字は議員の主張をそのまま転記</b>（例: 年3億4711万4000円、見直し案なら165億円）。正誤は判定していない。</li>
+        <li><b>速報版に誤りを1件検出</b>: 9/18の委員長報告テキストに「8陳情第35号は起立多数により採択」とあるが、9/16委員会と9/18本会議②の記録はいずれも「起立少数・不採択」。正しくは不採択。</li>
+        <li><b>立場の要約の裏取りは5人のみ</b>（渡辺・森戸・岸田・遠藤・沖浦）。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  作成: 2026-10-03。対象28会議・実テキスト171万字から庁舎関連27.5万字を機械抽出し、論点643件（本人の意見637件）を18カテゴリに分類。検討用の非公開ページ（検索避け）。元データ（全643件の要旨・原文引用・市側答弁）は作成者の手元に保存。
+</footer>
+</main>
+
+<script>
+const DATA = {"dates": [{"date": "2026-09-01", "label": "9/1 本会議・市長報告質疑", "n": 239}, {"date": "2026-09-02", "label": "9/2 一般質問", "n": 1}, {"date": "2026-09-03", "label": "9/3 一般質問", "n": 38}, {"date": "2026-09-04", "label": "9/4 一般質問", "n": 32}, {"date": "2026-09-07", "label": "9/7 一般質問", "n": 18}, {"date": "2026-09-08", "label": "9/8 議運", "n": 1}, {"date": "2026-09-09", "label": "9/9 厚生文教委", "n": 1}, {"date": "2026-09-10", "label": "9/10 建設環境委", "n": 1}, {"date": "2026-09-14", "label": "9/14 予算特委", "n": 19}, {"date": "2026-09-15", "label": "9/15 庁舎特委", "n": 213}, {"date": "2026-09-16", "label": "9/16 庁舎特委（採決のみ）", "n": 0}, {"date": "2026-09-18", "label": "9/18 本会議（最終日）", "n": 0}, {"date": "2026-09-25", "label": "9/25 決算特委", "n": 10}, {"date": "2026-09-28", "label": "9/28 決算特委", "n": 0}, {"date": "2026-09-29", "label": "9/29 決算特委", "n": 1}, {"date": "2026-09-30", "label": "9/30 決算特委", "n": 10}, {"date": "2026-10-01", "label": "10/1 決算特委（総括質疑）", "n": 53}], "cat_rank": [{"id": "C11", "name": "方針転換の判断時期と意思決定過程", "short": "判断時期・意思決定過程", "definition": "なぜ9月のこの時期の判断になったのかを検証するもの。1月13日資料で既に超過が分かっていた点、8月4日特別委との不整合、庁内検討委員会・庁議・理事者協議の経過、建設市況の把握不足、半年の空白と見切りの遅れを含む。", "n": 68, "members": 13, "types": [["指摘", 29], ["質問", 21], ["疑問", 9], ["意見", 4], ["要求", 3], ["要望", 2]], "top": [["森戸よう子", 19], ["渡辺大三", 9], ["鈴木成夫", 8]]}, {"id": "C14", "name": "市長の公約・政治責任と庁内体制", "short": "公約・政治責任", "definition": "4年前の公約や施政方針との関係、公約違反・責任の所在、4年間の自己評価、説明責任を果たさない決定の是非を問うもの。第一副市長の進言、庁内のワンチーム体制、担当職員の働きへの評価など理事者・組織の役割も含む。", "n": 60, "members": 13, "types": [["意見", 18], ["指摘", 16], ["質問", 15], ["疑問", 8], ["要望", 2], ["要求", 1]], "top": [["沖浦あつし", 10], ["遠藤百合子", 9], ["鈴木成夫", 8]]}, {"id": "C02", "name": "投入可能な事業費の上限と「目安」提示", "short": "事業費の上限・「目安」", "definition": "庁舎・福祉会館にいくらまで投入できるのかという上限額・負担能力と、10月22日に示すとされた「目安となる事業費と時期の財政的な考え方」の中身・算定根拠・精度・決定経緯を問うもの。財政の枠組みを先に決める方式の是非も含む。", "n": 43, "members": 9, "types": [["質問", 17], ["要求", 8], ["疑問", 6], ["指摘", 4], ["意見", 4], ["要望", 3], ["提案", 1]], "top": [["渡辺大三", 14], ["岸田正義", 13], ["森戸よう子", 4]]}, {"id": "C16", "name": "建設の必要性・優先順位と見直しへの賛否", "short": "必要性・賛否", "definition": "庁舎建設そのものをどう位置づけるかの立場表明。現設計での早期建設を堅持する立場、断念・再設計を評価する立場、立ち止まりに納得しない立場に加え、庁舎へのリソース集中の是非、停滞が他事業に及ぶ影響を含む。", "n": 43, "members": 12, "types": [["意見", 25], ["賛否表明", 9], ["質問", 3], ["要望", 3], ["提案", 2], ["疑問", 1]], "top": [["小林正樹", 6], ["森戸よう子", 5], ["清水学", 5]]}, {"id": "C01", "name": "現設計の扱いと見直しの範囲", "short": "現設計の扱い・見直し範囲", "definition": "断念した現設計を維持するのか白紙化するのか、見直しがどこまで戻るのか（基本構想・基本計画、総合庁舎か分散か、清掃施設・複合化・耐震方式などの与条件）を問うもの。新方針の核や、模型・図面といった旧設計成果物の処理も含む。", "n": 40, "members": 11, "types": [["質問", 12], ["指摘", 8], ["意見", 6], ["要望", 5], ["要求", 4], ["疑問", 4], ["提案", 1]], "top": [["渡辺大三", 17], ["遠藤百合子", 5], ["清水学", 4]]}, {"id": "C12", "name": "議会への報告形式と事前説明・議会運営", "short": "議会への報告・事前説明", "definition": "議決も資料要求もできない「市長報告」という形式の是非、議会運営委員会までに事前説明・日程調整をしなかった経緯、質疑に耐える資料の自主的提出、別途の説明の場の設定、陳情の審査手続きなど議会運営に関わるもの。", "n": 40, "members": 11, "types": [["指摘", 16], ["要求", 6], ["要望", 5], ["疑問", 5], ["質問", 4], ["意見", 3], ["提案", 1]], "top": [["岸田正義", 9], ["小林正樹", 6], ["沖浦あつし", 4]]}, {"id": "C04", "name": "財政見通し・比較試算資料の要求", "short": "財政試算資料の要求", "definition": "判断の前提となる資料の提出を求めるもの。15年規模の長期財政見通し、令和18年度以降や学校を含む全体、174億円・140億円など複数パターン、ライフサイクルコスト、庁議・庁内検討の記録、推計の前提条件の妥当性を含む。", "n": 39, "members": 11, "types": [["要求", 23], ["指摘", 8], ["質問", 5], ["意見", 1], ["疑問", 1], ["要望", 1]], "top": [["森戸よう子", 10], ["藤川賢治", 8], ["鈴木成夫", 5]]}, {"id": "C06", "name": "設計・規模・整備手法の見直し内容", "short": "設計・規模・整備手法", "definition": "新しい設計で何をどう変えるかの具体論。免震への統一、地下駐車場の廃止、敷地全体の浸水対策、床面積の圧縮、建物配置と広場の拡大、省エネ性能、組織・動線との連動に加え、段階的整備・分割施工による平準化とその長期コストを含む。", "n": 39, "members": 9, "types": [["提案", 13], ["意見", 7], ["指摘", 6], ["質問", 6], ["疑問", 3], ["要望", 2], ["要求", 2]], "top": [["森戸よう子", 12], ["渡辺大三", 11], ["藤川賢治", 8]]}, {"id": "C13", "name": "市民への説明と市民案・陳情の扱い", "short": "市民説明・市民案・陳情", "definition": "市民説明会の開催時期、市報・ホームページでの周知、断念の経緯や謝罪の伝え方に加え、6年来の見直し案（市民案）や多数の陳情で示された提案を新しい設計にどう生かすのかを問うもの。市民の受け止めの報告も含む。", "n": 37, "members": 10, "types": [["指摘", 12], ["要望", 7], ["意見", 6], ["質問", 5], ["要求", 5], ["提案", 1], ["賛否表明", 1]], "top": [["森戸よう子", 16], ["渡辺大三", 6], ["遠藤百合子", 3]]}, {"id": "C18", "name": "個別公共施設のあり方と機能確保・推進体制", "short": "個別公共施設のあり方", "definition": "庁舎に隣接する論点のうち、清里山荘やはけの森美術館の存廃・改修費比較、あり方方針と優先順位の基準、本庁舎の非常用電源と災害対策本部、教育支援センターや指定管理、仮運動場・第二庁舎空きスペースの活用、推進組織を扱うもの。", "n": 37, "members": 9, "types": [["質問", 19], ["要望", 5], ["要求", 4], ["指摘", 4], ["提案", 3], ["意見", 2]], "top": [["天野かな", 15], ["坂井えつ子", 6], ["小林正樹", 5]]}, {"id": "C09", "name": "立ち止まるコストと事業者の信用", "short": "立ち止まるコスト・信用", "definition": "延伸によって生じる負担と比較検証の不在を問うもの。第二庁舎賃借料など年約3.5億円、分散庁舎の往復ロス、物価・人件費の上昇、跡地活用収入の喪失に加え、サウンディングに応じた事業者や自治体の信用への影響を含む。", "n": 35, "members": 11, "types": [["指摘", 11], ["質問", 10], ["意見", 5], ["要求", 4], ["疑問", 4], ["要望", 1]], "top": [["沖浦あつし", 9], ["鈴木成夫", 7], ["岸田正義", 6]]}, {"id": "C03", "name": "財政規律ガイドラインと公債費・起債残高", "short": "財政規律GL・公債費", "definition": "240億円・174億円の場合に起債残高や公債費、単年度収支、健全化判断比率がどうなるか、財政規律ガイドライン超過をどう扱うか、どの水準を超えると持続可能でなくなるのかを問うもの。他事業への削減圧力も含む。", "n": 34, "members": 10, "types": [["指摘", 13], ["意見", 7], ["質問", 7], ["要求", 4], ["要望", 1], ["疑問", 1], ["提案", 1]], "top": [["森戸よう子", 12], ["鈴木成夫", 8], ["渡辺大三", 3]]}, {"id": "C07", "name": "サウンディング調査と単価前提の見直し", "short": "サウンディング・単価前提", "definition": "240億円の積算に使われた平米単価120万円や15%上乗せの性格を問い、現設計を前提にした調査結果の使い回しを避け、前提を外した早期の再調査、上限額を示す対話型市場調査、準大手も応札できる条件づくりを求めるもの。", "n": 27, "members": 10, "types": [["提案", 8], ["疑問", 5], ["指摘", 4], ["質問", 4], ["要求", 3], ["意見", 2], ["要望", 1]], "top": [["渡辺大三", 6], ["藤川賢治", 6], ["森戸よう子", 4]]}, {"id": "C05", "name": "基金の積立・運用と市債償還の方針", "short": "基金・市債償還", "definition": "庁舎建設基金・財政調整基金・公共施設マネジメント基金への積立の考え方や目標額、基金の債券運用と情報公開、繰上償還による市債圧縮など、財源づくりと市債管理をめぐるもの。4年間の財政運営実績の市政間比較も含む。", "n": 25, "members": 4, "types": [["質問", 13], ["指摘", 4], ["要望", 2], ["提案", 2], ["要求", 2], ["疑問", 2]], "top": [["岸田正義", 13], ["森戸よう子", 6], ["渡辺大三", 5]]}, {"id": "C10", "name": "現本庁舎・第二庁舎の安全確保と維持", "short": "現庁舎の安全・維持", "definition": "新庁舎が延びる間、現本庁舎と第二庁舎をどう持たせるかを問うもの。平成27年の耐震診断NG後の放置、給水配管や設備の修繕、防災行政無線・非常用電源、使用可能年限の設定、第二庁舎の不具合と賃借期間を含む。", "n": 24, "members": 7, "types": [["質問", 11], ["指摘", 5], ["要求", 3], ["疑問", 2], ["意見", 2], ["要望", 1]], "top": [["沖浦あつし", 12], ["清水学", 4], ["坂井えつ子", 3]]}, {"id": "C17", "name": "公共施設全体の更新負担と財政運営", "short": "公共施設全体の更新負担", "definition": "庁舎に隣接する論点のうち、学校施設813億円など公共施設全体の更新費用、将来人口に合わせた適正規模化、学校への複合化の余地、不用額・繰越金と予算編成手法、人件費などの経常経費増を扱うもの。", "n": 21, "members": 8, "types": [["意見", 6], ["指摘", 5], ["質問", 4], ["要望", 3], ["要求", 2], ["疑問", 1]], "top": [["鈴木成夫", 9], ["渡辺大三", 4], ["森戸よう子", 2]]}, {"id": "C08", "name": "スケジュールと新方針策定の工程", "short": "スケジュール・新方針工程", "definition": "着工・供用開始の時期、最短スケジュール試案と48か月延伸の可能性、令和9年3月の新方針策定と財政計画の同時確定、発表の形式と庁議決定の期限、議会合意の取り方など、いつ何を決めて進めるのかを問うもの。", "n": 18, "members": 11, "types": [["質問", 6], ["指摘", 4], ["疑問", 3], ["要求", 2], ["要望", 2], ["意見", 1]], "top": [["岸田正義", 4], ["渡辺大三", 2], ["沖浦あつし", 2]]}, {"id": "C15", "name": "福祉会館と入る予定だった機能の手当て", "short": "福祉会館の機能", "definition": "（仮称）新福祉会館の位置づけと早期建設、館内機能の優先順位、床面積削減で入らなくなる機能の代替策と賃料増、社会福祉協議会やシルバー人材センターなど入居予定団体への説明を問うもの。", "n": 7, "members": 3, "types": [["質問", 4], ["指摘", 2], ["要求", 1]], "top": [["岸田正義", 4], ["渡辺大三", 2], ["森戸よう子", 1]]}], "type_rank": [["質問", 166], ["指摘", 151], ["意見", 99], ["要求", 77], ["疑問", 55], ["要望", 46], ["提案", 33], ["賛否表明", 10]], "venue_rank": [["本会議・市長報告質疑", 237], ["庁舎特別委員会", 213], ["本会議・一般質問", 89], ["決算特別委員会", 74], ["予算特別委員会", 19], ["議会運営委員会", 3], ["建設環境委員会", 1], ["厚生文教委員会", 1]], "factions": [{"name": "みらいのこがねい", "n": 213, "size": 5, "per_capita": 42.6, "speakers": [{"name": "岸田正義", "n": 68, "chosha_iin": true, "role": "", "audited": true, "quotes": ["だから報告じゃなくて説明が先なんでしょってずっと言ってたわけですよ", "そこと比べて今立ち止まるのことの方がベターなんだってことが全く示されてないんですよ、全く"]}, {"name": "鈴木成夫", "n": 61, "chosha_iin": false, "role": "", "audited": false, "quotes": ["私は現設計で原則進めていくという白井市長の政策は支持してきましたし、そうあるべきだと今でも思っています。", "公債費が増えることと財政的に建設できないっていうことは違うんじゃないかなと思っていて、"]}, {"name": "沖浦あつし", "n": 54, "chosha_iin": true, "role": "", "audited": true, "quotes": ["現設計・現方針で進むことを支持していた我々にも何ら説明もなく、自ら残念、その歩みを諦め、基本計画策定時の13年前に後戻りする方針転換を突如発表し", "1日も早くとは、市長にとって具体的に何年度の着工、何年度の供用開始を目指すのでしょうか"]}, {"name": "天野かな", "n": 23, "chosha_iin": false, "role": "", "audited": false, "quotes": ["時間をかけること自体にコストがかかっている以上、丁寧に検討することと先送りにすることは全く別物であると考えます", "議会としても、庁舎が建たないことを是としている方はいらっしゃらないかと思っております"]}, {"name": "吉良のりこ", "n": 7, "chosha_iin": false, "role": "", "audited": false, "quotes": ["庁舎建設を真の最優先にさせて、これから取り組んでいってほしいという気持ちの中で、今の質問をさせていただきました。", "市民の皆様から、当初の約90億円からなぜ240億円まで概算費用が膨らんだのかという不安の声、"]}], "cats": [["市長の公約・政治責任と庁内体制", 25], ["立ち止まるコストと事業者の信用", 25], ["議会への報告形式と事前説明・議会運営", 17]], "types": [["質問", 63], ["指摘", 52], ["要求", 31]]}, {"name": "日本共産党小金井市議団", "n": 122, "size": 3, "per_capita": 40.7, "speakers": [{"name": "森戸よう子", "n": 103, "chosha_iin": true, "role": "", "audited": true, "quotes": ["共産党は、庁舎の建設はやる必要があると考えています。同時に、市民生活を犠牲にするような庁舎建設のあり方であってはならない", "このまま突き進んで莫大な借金を抱え、起債制限団体に陥ることの方が、私は自治体の信頼を失うと"]}, {"name": "水上洋志", "n": 16, "chosha_iin": false, "role": "", "audited": false, "quotes": ["ようやくここに至ったということについては、設計変更、当然だと、良かったというふうに思ってるんですが", "結局あの市長のあの判断の遅れが、あの早期建設を遅らせてきたと、この間で言うと。そういうふうに私は言えるんではないかな"]}, {"name": "たゆ久貴", "n": 3, "chosha_iin": true, "role": "", "audited": false, "quotes": ["例えば、新庁舎等、福祉会館建設もそうですし、今後の学校や公共施設の建て替えや大型改修の際には", "ZEBを導入するとイニシャルコストがかかるので、なかなか厳しく難しい面もあるかと感じますが、検討し模索することが必要だと考えます。"]}], "cats": [["方針転換の判断時期と意思決定過程", 25], ["市民への説明と市民案・陳情の扱い", 16], ["設計・規模・整備手法の見直し内容", 13]], "types": [["指摘", 37], ["質問", 24], ["要求", 21]]}, {"name": "子どもの権利／情報公開", "n": 95, "size": 2, "per_capita": 47.5, "speakers": [{"name": "渡辺大三", "n": 95, "chosha_iin": true, "role": "", "audited": true, "quotes": ["とにかく今一番最優先なのは財政的なことで、どの程度のスペックのことができるのかと、この事業で", "1日も早く建設するためにはですね、1日も早く見切るべきだったんじゃないかと、これまでの設計に関してはして"]}, {"name": "片山かおる", "n": 0, "chosha_iin": false, "role": "", "audited": false, "quotes": []}], "cats": [["現設計の扱いと見直しの範囲", 17], ["投入可能な事業費の上限と「目安」提示", 14], ["設計・規模・整備手法の見直し内容", 11]], "types": [["質問", 27], ["指摘", 18], ["要求", 15]]}, {"name": "自由民主党小金井", "n": 42, "size": 3, "per_capita": 14.0, "speakers": [{"name": "遠藤百合子", "n": 24, "chosha_iin": true, "role": "", "audited": true, "quotes": ["そういう市長の決断を感じたことが今まで、庁舎に関しては一度もありませんでした。", "平成24年ベースに戻るということは、まさにゼロベースに戻ってしまうということを懸念します。"]}, {"name": "河野麻美", "n": 12, "chosha_iin": false, "role": "", "audited": false, "quotes": ["庁舎建設というのをどう前に進めるのか、具体的な道筋というのが一切示されることのなかった", "市民からすると単なるアリバイ作りと思われてもしょうがないような事態になってしまっているのではないでしょうか"]}, {"name": "吹春やすたか", "n": 6, "chosha_iin": true, "role": "庁舎特委委員長", "audited": false, "quotes": ["そういった流れをですね、市長が捉えられなかったのかなと思うんですよ。", "なぜこの原因がこうなったのか、ちゃんと究明していれば、今回このようなことにはならなかったのに、別の形を迎えたのではないのかなと思います。"]}], "cats": [["市長の公約・政治責任と庁内体制", 13], ["現設計の扱いと見直しの範囲", 8], ["方針転換の判断時期と意思決定過程", 8]], "types": [["指摘", 12], ["意見", 10], ["質問", 8]]}, {"name": "小金井市政を見える化する会", "n": 39, "size": 1, "per_capita": 39.0, "speakers": [{"name": "藤川賢治", "n": 39, "chosha_iin": true, "role": "", "audited": false, "quotes": ["進めたい時は低い見積もりを伝えて、いざ止めるとなったら高い方の見積もりを伝えてくると、こういうことだと受け止めざるを得ません。", "進める時は具体的な数字を出すと破綻していることがバレてしまうので数字を出さないけれども、やめると決めたら正直な数字を出すというようにしか捉えて"]}], "cats": [["設計・規模・整備手法の見直し内容", 8], ["財政見通し・比較試算資料の要求", 8], ["方針転換の判断時期と意思決定過程", 6]], "types": [["質問", 9], ["指摘", 9], ["意見", 8]]}, {"name": "小金井市議会公明党", "n": 38, "size": 3, "per_capita": 12.7, "speakers": [{"name": "小林正樹", "n": 32, "chosha_iin": true, "role": "副議長", "audited": false, "quotes": ["行政側が財政見通しの中にはまらないといったものを、それでも突っ込んでいけということは、少なくとも私は言えない", "やはり財政と時期と手法もセットだと思うけども、財政と時期を先に決めるんだということを言われました"]}, {"name": "太田宏徳", "n": 6, "chosha_iin": false, "role": "", "audited": false, "quotes": ["問題は、本市の財政がどこまでなら耐えられるのかっていうことが知りたいわけでありまして", "財政規律ガイドラインの指標は、指標というふうにおっしゃられました。本市での基準は何なのかっていうものを示していただきたいです。"]}, {"name": "中井れい子", "n": 0, "chosha_iin": true, "role": "", "audited": false, "quotes": []}], "cats": [["建設の必要性・優先順位と見直しへの賛否", 6], ["議会への報告形式と事前説明・議会運営", 6], ["個別公共施設のあり方と機能確保・推進体制", 6]], "types": [["質問", 10], ["意見", 6], ["指摘", 6]]}, {"name": "自民党・街の仲間たち", "n": 31, "size": 1, "per_capita": 31.0, "speakers": [{"name": "清水学", "n": 31, "chosha_iin": false, "role": "", "audited": false, "quotes": ["仮に今の現設計が満点でなくて60点であったとしても、この長年にわたる庁舎問題を早期に解決して", "根底に信頼がないと話はできないと思ってるので、その信頼感が失われつつある状況に私はいる"]}], "cats": [["市長の公約・政治責任と庁内体制", 6], ["建設の必要性・優先順位と見直しへの賛否", 5], ["立ち止まるコストと事業者の信用", 4]], "types": [["質問", 9], ["意見", 7], ["要望", 6]]}, {"name": "緑・つながる小金井", "n": 22, "size": 1, "per_capita": 22.0, "speakers": [{"name": "坂井えつ子", "n": 22, "chosha_iin": false, "role": "", "audited": false, "quotes": ["市長報告は議決事項でもないということについては、大変不本意であるということは申し上げておきます。", "見込みとして2年ということを示すこと自体も、私は誠実な見解だと思えないんですね。"]}], "cats": [["個別公共施設のあり方と機能確保・推進体制", 6], ["建設の必要性・優先順位と見直しへの賛否", 3], ["財政見通し・比較試算資料の要求", 3]], "types": [["質問", 7], ["意見", 6], ["指摘", 6]]}, {"name": "小金井をおもしろくする会", "n": 21, "size": 2, "per_capita": 10.5, "speakers": [{"name": "ながとり太郎", "n": 17, "chosha_iin": false, "role": "", "audited": false, "quotes": ["従来の方針を大きく見直す内容となっており、私ども小金井をおもしろくする会としましても、大変重く、そして影響の大きい判断であると受け止めております。", "今後何をどうするかという具体性が見えません。それが今、示されない理由はどのようなものでしょうか。"]}, {"name": "水谷たかこ", "n": 4, "chosha_iin": true, "role": "", "audited": false, "quotes": ["議会へのご相談をする時間がなかったことについては遺憾だったということを、始まる前の議会運営委員会でも発言をさせていただきました", "説明に十分な資料があったかと言われると、私自身も、これだったらいいですねというほどの材料があったとは思っていません"]}], "cats": [["議会への報告形式と事前説明・議会運営", 6], ["建設の必要性・優先順位と見直しへの賛否", 3], ["市民への説明と市民案・陳情の扱い", 3]], "types": [["意見", 7], ["質問", 6], ["指摘", 4]]}, {"name": "れいわ新選組小金井", "n": 14, "size": 1, "per_capita": 14.0, "speakers": [{"name": "村上ようすけ", "n": 14, "chosha_iin": true, "role": "", "audited": false, "quotes": ["大前提はこの庁舎建設に、どのぐらいの費用が投入できるかと、いったところがスタート地点というか、大前提になると思うんですけども", "これから重要なのは、具体的に設計を進める上でですね、費用削減をどこまでできるかと、それを設計に反映させるかということだと思いまして"]}], "cats": [["個別公共施設のあり方と機能確保・推進体制", 5], ["サウンディング調査と単価前提の見直し", 4], ["市民への説明と市民案・陳情の扱い", 2]], "types": [["提案", 4], ["質問", 3], ["意見", 3]]}, {"name": "生活者ネットワーク", "n": 0, "size": 1, "per_capita": 0.0, "speakers": [{"name": "安田けいこ", "n": 0, "chosha_iin": false, "role": "", "audited": false, "quotes": []}], "cats": [], "types": []}, {"name": "参政党小金井", "n": 0, "size": 1, "per_capita": 0.0, "speakers": [{"name": "斎藤康夫", "n": 0, "chosha_iin": false, "role": "議長", "audited": false, "quotes": []}], "cats": [], "types": []}], "members": [{"name": "森戸よう子", "faction": "日本共産党小金井市議団", "n": 103, "chosha_iin": true, "role": "", "venues": [["庁舎特別委員会", 50], ["本会議・市長報告質疑", 30], ["本会議・一般質問", 12]], "cats": [["判断時期・意思決定過程", 19], ["市民説明・市民案・陳情", 16], ["財政規律GL・公債費", 12]], "bycat": {"C01": 3, "C02": 4, "C03": 12, "C04": 10, "C05": 6, "C06": 12, "C07": 4, "C08": 1, "C09": 1, "C10": 1, "C11": 19, "C12": 1, "C13": 16, "C14": 5, "C15": 1, "C16": 5, "C17": 2, "C18": 0}}, {"name": "渡辺大三", "faction": "子どもの権利／情報公開", "n": 95, "chosha_iin": true, "role": "", "venues": [["庁舎特別委員会", 44], ["本会議・市長報告質疑", 29], ["予算特別委員会", 9]], "cats": [["現設計の扱い・見直し範囲", 17], ["事業費の上限・「目安」", 14], ["設計・規模・整備手法", 11]], "bycat": {"C01": 17, "C02": 14, "C03": 3, "C04": 3, "C05": 5, "C06": 11, "C07": 6, "C08": 2, "C09": 0, "C10": 2, "C11": 9, "C12": 3, "C13": 6, "C14": 6, "C15": 2, "C16": 0, "C17": 4, "C18": 2}}, {"name": "岸田正義", "faction": "みらいのこがねい", "n": 68, "chosha_iin": true, "role": "", "venues": [["庁舎特別委員会", 56], ["予算特別委員会", 6], ["本会議・市長報告質疑", 3]], "cats": [["基金・市債償還", 13], ["事業費の上限・「目安」", 13], ["議会への報告・事前説明", 9]], "bycat": {"C01": 1, "C02": 13, "C03": 1, "C04": 1, "C05": 13, "C06": 2, "C07": 1, "C08": 4, "C09": 6, "C10": 1, "C11": 1, "C12": 9, "C13": 0, "C14": 7, "C15": 4, "C16": 3, "C17": 0, "C18": 1}}, {"name": "鈴木成夫", "faction": "みらいのこがねい", "n": 61, "chosha_iin": false, "role": "", "venues": [["本会議・市長報告質疑", 39], ["決算特別委員会", 22]], "cats": [["公共施設全体の更新負担", 9], ["公約・政治責任", 8], ["判断時期・意思決定過程", 8]], "bycat": {"C01": 1, "C02": 0, "C03": 8, "C04": 5, "C05": 1, "C06": 1, "C07": 1, "C08": 0, "C09": 7, "C10": 1, "C11": 8, "C12": 4, "C13": 2, "C14": 8, "C15": 0, "C16": 4, "C17": 9, "C18": 1}}, {"name": "沖浦あつし", "faction": "みらいのこがねい", "n": 54, "chosha_iin": true, "role": "", "venues": [["本会議・一般質問", 34], ["庁舎特別委員会", 18], ["本会議・市長報告質疑", 2]], "cats": [["現庁舎の安全・維持", 12], ["公約・政治責任", 10], ["立ち止まるコスト・信用", 9]], "bycat": {"C01": 0, "C02": 1, "C03": 2, "C04": 3, "C05": 0, "C06": 1, "C07": 0, "C08": 2, "C09": 9, "C10": 12, "C11": 4, "C12": 4, "C13": 2, "C14": 10, "C15": 0, "C16": 4, "C17": 0, "C18": 0}}, {"name": "藤川賢治", "faction": "小金井市政を見える化する会", "n": 39, "chosha_iin": true, "role": "", "venues": [["本会議・一般質問", 23], ["庁舎特別委員会", 11], ["本会議・市長報告質疑", 5]], "cats": [["設計・規模・整備手法", 8], ["財政試算資料の要求", 8], ["判断時期・意思決定過程", 6]], "bycat": {"C01": 3, "C02": 0, "C03": 1, "C04": 8, "C05": 0, "C06": 8, "C07": 6, "C08": 0, "C09": 1, "C10": 0, "C11": 6, "C12": 0, "C13": 1, "C14": 1, "C15": 0, "C16": 3, "C17": 1, "C18": 0}}, {"name": "小林正樹", "faction": "小金井市議会公明党", "n": 32, "chosha_iin": true, "role": "副議長", "venues": [["本会議・市長報告質疑", 15], ["庁舎特別委員会", 11], ["決算特別委員会", 6]], "cats": [["必要性・賛否", 6], ["議会への報告・事前説明", 6], ["個別公共施設のあり方", 5]], "bycat": {"C01": 0, "C02": 4, "C03": 1, "C04": 1, "C05": 0, "C06": 2, "C07": 1, "C08": 1, "C09": 1, "C10": 0, "C11": 4, "C12": 6, "C13": 0, "C14": 0, "C15": 0, "C16": 6, "C17": 0, "C18": 5}}, {"name": "清水学", "faction": "自民党・街の仲間たち", "n": 31, "chosha_iin": false, "role": "", "venues": [["本会議・市長報告質疑", 29], ["決算特別委員会", 2]], "cats": [["公約・政治責任", 6], ["必要性・賛否", 5], ["立ち止まるコスト・信用", 4]], "bycat": {"C01": 4, "C02": 3, "C03": 0, "C04": 2, "C05": 0, "C06": 0, "C07": 0, "C08": 1, "C09": 4, "C10": 4, "C11": 0, "C12": 1, "C13": 0, "C14": 6, "C15": 0, "C16": 5, "C17": 1, "C18": 0}}, {"name": "遠藤百合子", "faction": "自由民主党小金井", "n": 24, "chosha_iin": true, "role": "", "venues": [["庁舎特別委員会", 12], ["本会議・市長報告質疑", 7], ["決算特別委員会", 5]], "cats": [["公約・政治責任", 9], ["現設計の扱い・見直し範囲", 5], ["市民説明・市民案・陳情", 3]], "bycat": {"C01": 5, "C02": 1, "C03": 0, "C04": 1, "C05": 0, "C06": 0, "C07": 0, "C08": 1, "C09": 2, "C10": 0, "C11": 2, "C12": 0, "C13": 3, "C14": 9, "C15": 0, "C16": 0, "C17": 0, "C18": 0}}, {"name": "天野かな", "faction": "みらいのこがねい", "n": 23, "chosha_iin": false, "role": "", "venues": [["決算特別委員会", 15], ["本会議・市長報告質疑", 8]], "cats": [["個別公共施設のあり方", 15], ["立ち止まるコスト・信用", 2], ["財政規律GL・公債費", 2]], "bycat": {"C01": 0, "C02": 0, "C03": 2, "C04": 2, "C05": 0, "C06": 0, "C07": 0, "C08": 2, "C09": 2, "C10": 0, "C11": 0, "C12": 0, "C13": 0, "C14": 0, "C15": 0, "C16": 0, "C17": 0, "C18": 15}}, {"name": "坂井えつ子", "faction": "緑・つながる小金井", "n": 22, "chosha_iin": false, "role": "", "venues": [["本会議・市長報告質疑", 12], ["本会議・一般質問", 9], ["建設環境委員会", 1]], "cats": [["個別公共施設のあり方", 6], ["必要性・賛否", 3], ["財政試算資料の要求", 3]], "bycat": {"C01": 1, "C02": 0, "C03": 1, "C04": 3, "C05": 0, "C06": 0, "C07": 0, "C08": 2, "C09": 0, "C10": 3, "C11": 0, "C12": 2, "C13": 0, "C14": 1, "C15": 0, "C16": 3, "C17": 0, "C18": 6}}, {"name": "ながとり太郎", "faction": "小金井をおもしろくする会", "n": 17, "chosha_iin": false, "role": "", "venues": [["本会議・市長報告質疑", 17]], "cats": [["議会への報告・事前説明", 3], ["市民説明・市民案・陳情", 3], ["必要性・賛否", 2]], "bycat": {"C01": 1, "C02": 0, "C03": 0, "C04": 0, "C05": 0, "C06": 0, "C07": 2, "C08": 1, "C09": 1, "C10": 0, "C11": 2, "C12": 3, "C13": 3, "C14": 1, "C15": 0, "C16": 2, "C17": 1, "C18": 0}}, {"name": "水上洋志", "faction": "日本共産党小金井市議団", "n": 16, "chosha_iin": false, "role": "", "venues": [["本会議・市長報告質疑", 11], ["決算特別委員会", 5]], "cats": [["判断時期・意思決定過程", 6], ["議会への報告・事前説明", 4], ["必要性・賛否", 2]], "bycat": {"C01": 1, "C02": 0, "C03": 0, "C04": 0, "C05": 0, "C06": 0, "C07": 1, "C08": 0, "C09": 0, "C10": 0, "C11": 6, "C12": 4, "C13": 0, "C14": 2, "C15": 0, "C16": 2, "C17": 0, "C18": 0}}, {"name": "村上ようすけ", "faction": "れいわ新選組小金井", "n": 14, "chosha_iin": true, "role": "", "venues": [["庁舎特別委員会", 7], ["決算特別委員会", 3], ["本会議・市長報告質疑", 2]], "cats": [["個別公共施設のあり方", 5], ["サウンディング・単価前提", 4], ["市民説明・市民案・陳情", 2]], "bycat": {"C01": 0, "C02": 2, "C03": 0, "C04": 0, "C05": 0, "C06": 1, "C07": 4, "C08": 0, "C09": 0, "C10": 0, "C11": 0, "C12": 0, "C13": 2, "C14": 0, "C15": 0, "C16": 0, "C17": 0, "C18": 5}}, {"name": "河野麻美", "faction": "自由民主党小金井", "n": 12, "chosha_iin": false, "role": "", "venues": [["本会議・市長報告質疑", 10], ["決算特別委員会", 2]], "cats": [["公約・政治責任", 3], ["現設計の扱い・見直し範囲", 3], ["判断時期・意思決定過程", 2]], "bycat": {"C01": 3, "C02": 0, "C03": 0, "C04": 0, "C05": 0, "C06": 0, "C07": 1, "C08": 0, "C09": 0, "C10": 0, "C11": 2, "C12": 0, "C13": 1, "C14": 3, "C15": 0, "C16": 0, "C17": 2, "C18": 0}}, {"name": "吉良のりこ", "faction": "みらいのこがねい", "n": 7, "chosha_iin": false, "role": "", "venues": [["本会議・市長報告質疑", 7]], "cats": [["必要性・賛否", 5], ["判断時期・意思決定過程", 1], ["立ち止まるコスト・信用", 1]], "bycat": {"C01": 0, "C02": 0, "C03": 0, "C04": 0, "C05": 0, "C06": 0, "C07": 0, "C08": 0, "C09": 1, "C10": 0, "C11": 1, "C12": 0, "C13": 0, "C14": 0, "C15": 0, "C16": 5, "C17": 0, "C18": 0}}, {"name": "太田宏徳", "faction": "小金井市議会公明党", "n": 6, "chosha_iin": false, "role": "", "venues": [["本会議・市長報告質疑", 5], ["議会運営委員会", 1]], "cats": [["財政規律GL・公債費", 3], ["事業費の上限・「目安」", 1], ["スケジュール・新方針工程", 1]], "bycat": {"C01": 0, "C02": 1, "C03": 3, "C04": 0, "C05": 0, "C06": 0, "C07": 0, "C08": 1, "C09": 0, "C10": 0, "C11": 0, "C12": 0, "C13": 0, "C14": 0, "C15": 0, "C16": 0, "C17": 0, "C18": 1}}, {"name": "吹春やすたか", "faction": "自由民主党小金井", "n": 6, "chosha_iin": true, "role": "庁舎特委委員長", "venues": [["本会議・市長報告質疑", 6]], "cats": [["判断時期・意思決定過程", 4], ["公約・政治責任", 1], ["市民説明・市民案・陳情", 1]], "bycat": {"C01": 0, "C02": 0, "C03": 0, "C04": 0, "C05": 0, "C06": 0, "C07": 0, "C08": 0, "C09": 0, "C10": 0, "C11": 4, "C12": 0, "C13": 1, "C14": 1, "C15": 0, "C16": 0, "C17": 0, "C18": 0}}, {"name": "水谷たかこ", "faction": "小金井をおもしろくする会", "n": 4, "chosha_iin": true, "role": "", "venues": [["庁舎特別委員会", 4]], "cats": [["議会への報告・事前説明", 3], ["必要性・賛否", 1]], "bycat": {"C01": 0, "C02": 0, "C03": 0, "C04": 0, "C05": 0, "C06": 0, "C07": 0, "C08": 0, "C09": 0, "C10": 0, "C11": 0, "C12": 3, "C13": 0, "C14": 0, "C15": 0, "C16": 1, "C17": 0, "C18": 0}}, {"name": "たゆ久貴", "faction": "日本共産党小金井市議団", "n": 3, "chosha_iin": true, "role": "", "venues": [["本会議・一般質問", 3]], "cats": [["設計・規模・整備手法", 1], ["個別公共施設のあり方", 1], ["公共施設全体の更新負担", 1]], "bycat": {"C01": 0, "C02": 0, "C03": 0, "C04": 0, "C05": 0, "C06": 1, "C07": 0, "C08": 0, "C09": 0, "C10": 0, "C11": 0, "C12": 0, "C13": 0, "C14": 0, "C15": 0, "C16": 0, "C17": 1, "C18": 1}}, {"name": "中井れい子", "faction": "小金井市議会公明党", "n": 0, "chosha_iin": true, "role": "", "venues": [], "cats": [], "bycat": {"C01": 0, "C02": 0, "C03": 0, "C04": 0, "C05": 0, "C06": 0, "C07": 0, "C08": 0, "C09": 0, "C10": 0, "C11": 0, "C12": 0, "C13": 0, "C14": 0, "C15": 0, "C16": 0, "C17": 0, "C18": 0}}, {"name": "安田けいこ", "faction": "生活者ネットワーク", "n": 0, "chosha_iin": false, "role": "", "venues": [], "cats": [], "bycat": {"C01": 0, "C02": 0, "C03": 0, "C04": 0, "C05": 0, "C06": 0, "C07": 0, "C08": 0, "C09": 0, "C10": 0, "C11": 0, "C12": 0, "C13": 0, "C14": 0, "C15": 0, "C16": 0, "C17": 0, "C18": 0}}, {"name": "斎藤康夫", "faction": "参政党小金井", "n": 0, "chosha_iin": false, "role": "議長", "venues": [], "cats": [], "bycat": {"C01": 0, "C02": 0, "C03": 0, "C04": 0, "C05": 0, "C06": 0, "C07": 0, "C08": 0, "C09": 0, "C10": 0, "C11": 0, "C12": 0, "C13": 0, "C14": 0, "C15": 0, "C16": 0, "C17": 0, "C18": 0}}, {"name": "片山かおる", "faction": "子どもの権利／情報公開", "n": 0, "chosha_iin": false, "role": "", "venues": [], "cats": [], "bycat": {"C01": 0, "C02": 0, "C03": 0, "C04": 0, "C05": 0, "C06": 0, "C07": 0, "C08": 0, "C09": 0, "C10": 0, "C11": 0, "C12": 0, "C13": 0, "C14": 0, "C15": 0, "C16": 0, "C17": 0, "C18": 0}}]};
+const tip = document.getElementById('tip');
+function showTip(ev, htmlStr){ tip.innerHTML = htmlStr; tip.style.opacity = 1; moveTip(ev); }
+function moveTip(ev){ const pad = 14; let x = ev.clientX + pad, y = ev.clientY + pad; const r = tip.getBoundingClientRect(); if (x + r.width > window.innerWidth - 8) x = ev.clientX - r.width - pad; if (y + r.height > window.innerHeight - 8) y = ev.clientY - r.height - pad; tip.style.left = x + 'px'; tip.style.top = y + 'px'; }
+function hideTip(){ tip.style.opacity = 0; }
+const NS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs, text){ const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; return e; }
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function roundedBarPath(x, y, w, h, r, horizontal){
+  // 4px rounded at the data end, square at the baseline
+  r = Math.min(r, horizontal ? w : h);
+  if (horizontal) return `M${x},${y} h${w - r} a${r},${r} 0 0 1 ${r},${r} v${h - 2*r} a${r},${r} 0 0 1 -${r},${r} h-${w - r} z`;
+  return `M${x},${y + h} v-${h - r} a${r},${r} 0 0 1 ${r},-${r} h${w - 2*r} a${r},${r} 0 0 1 ${r},${r} v${h - r} z`;
+}
+// ---- 横棒グラフ（単一系列）----
+function hbar(svgId, rows, opt){
+  const svg = document.getElementById(svgId); svg.innerHTML = '';
+  const W = Math.max(300, Math.round(svg.getBoundingClientRect().width) || 600);
+  const narrow = W < 520;
+  const labW = Math.min(opt.labW || 150, Math.round(W * (narrow ? 0.40 : 0.5))), rightW = Math.min(opt.rightW || 48, narrow ? 36 : 60), rowH = opt.rowH || 26, barH = Math.min(18, rowH - 8);
+  const top = 6, H = top + rows.length * rowH + 8;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('height', H);
+  const valW = 30;   // 棒の先の数値ラベル分の余白（最大値の棒でも数字が右端を越えないように）
+  const plotX = labW, plotW = Math.max(40, W - labW - rightW - valW);
+  const max = Math.max(...rows.map(r => r.v));
+  const sx = v => plotW * v / max;
+  // gridlines (hairline)
+  const ticks = niceTicks(max, 4);
+  ticks.forEach(t => { const tx = plotX + sx(t); svg.appendChild(el('line', {x1: tx, x2: tx, y1: top, y2: H - 8, class: 'grid'})); svg.appendChild(el('text', {x: Math.min(tx, W - 2), y: H - 0, 'text-anchor': tx > W - 16 ? 'end' : 'middle', class: 'mut'}, t)); });
+  svg.appendChild(el('line', {x1: plotX, x2: plotX, y1: top, y2: H - 8, class: 'axis'}));
+  rows.forEach((r, i) => {
+    const y = top + i * rowH + (rowH - barH) / 2;
+    const w = Math.max(0, sx(r.v));
+    const hit = el('rect', {x: 0, y: top + i * rowH, width: W, height: rowH, class: 'hit'});
+    hit.addEventListener('mousemove', ev => { showTip(ev, r.tip || `<b>${esc(r.label)}</b><br>${r.v}件`); });
+    hit.addEventListener('mouseleave', hideTip);
+    svg.appendChild(hit);
+    const t = el('text', {x: plotX - 8, y: y + barH / 2 + 4, 'text-anchor': 'end', class: 'lab'}, r.label);
+    svg.appendChild(t); fitText(t, labW - 10);
+    if (r.sub) { const s = el('text', {x: plotX - 8, y: y + barH / 2 + 4 + 11, 'text-anchor': 'end', class: 'mut', 'font-size': '10.5px'}, r.sub); svg.appendChild(s); fitText(s, labW - 10); }
+    if (w > 0) svg.appendChild(el('path', {d: roundedBarPath(plotX, y, w, barH, 4, true), class: 'bar' + (r.dim ? ' dim' : '')}));
+    svg.appendChild(el('text', {x: plotX + w + 6, y: y + barH / 2 + 4, class: 'val'}, r.v));
+    if (r.right != null) svg.appendChild(el('text', {x: W - 2, y: y + barH / 2 + 4, 'text-anchor': 'end', class: 'mut'}, r.right));
+  });
+}
+// ラベルが幅に収まらないときは末尾を「…」で省略する（切れたまま描かない。全文はツールチップと表で読める）
+function fitText(t, maxW){ if (t.getComputedTextLength() <= maxW) return; let s = t.textContent; while (s.length > 1 && t.getComputedTextLength() > maxW) { s = s.slice(0, -1); t.textContent = s + '…'; } }
+function niceTicks(max, n){ const raw = max / n; const p = Math.pow(10, Math.floor(Math.log10(raw))); const steps = [1, 2, 2.5, 5, 10]; let step = p; for (const s of steps){ if (raw <= s * p) { step = s * p; break; } } const out = []; for (let v = 0; v <= max + 1e-9; v += step) out.push(Math.round(v)); return out; }
+// ---- 縦棒（日付）----
+function vbar(svgId, rows){
+  const svg = document.getElementById(svgId); svg.innerHTML = '';
+  const W = Math.max(300, Math.round(svg.getBoundingClientRect().width) || 600), H = 230, top = 14, bottom = 48, left = 32, right = 8;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('height', H);
+  const plotW = W - left - right, plotH = H - top - bottom;
+  const max = Math.max(...rows.map(r => r.v));
+  const sy = v => plotH * v / max;
+  const ticks = niceTicks(max, 4);
+  ticks.forEach(t => { const y = top + plotH - sy(t); svg.appendChild(el('line', {x1: left, x2: W - right, y1: y, y2: y, class: 'grid'})); svg.appendChild(el('text', {x: left - 6, y: y + 4, 'text-anchor': 'end', class: 'mut'}, t)); });
+  svg.appendChild(el('line', {x1: left, x2: W - right, y1: top + plotH, y2: top + plotH, class: 'axis'}));
+  const slot = plotW / rows.length, bw = Math.min(24, slot * 0.6);
+  rows.forEach((r, i) => {
+    const x = left + i * slot + (slot - bw) / 2, h = sy(r.v), y = top + plotH - h;
+    const hit = el('rect', {x: left + i * slot, y: top, width: slot, height: plotH + bottom, class: 'hit'});
+    hit.addEventListener('mousemove', ev => showTip(ev, `<b>${esc(r.label)}</b><br>${r.v}件`)); hit.addEventListener('mouseleave', hideTip);
+    svg.appendChild(hit);
+    if (h > 0) svg.appendChild(el('path', {d: roundedBarPath(x, y, bw, h, 4, false), class: 'bar' + (r.hot ? '' : ' dim')}));
+    if (r.hot) svg.appendChild(el('text', {x: x + bw / 2, y: y - 6, 'text-anchor': 'middle', class: 'val'}, r.v));
+    // 狭い幅では日付ラベルが重なるので、強調の2本と端だけに絞る
+    const showLab = slot >= 24 || r.hot || i === 0 || i === rows.length - 1;
+    if (showLab) svg.appendChild(el('text', {x: x + bw / 2, y: top + plotH + 14, 'text-anchor': 'middle', class: 'mut', 'font-size': '10.5px'}, r.short));
+    if (r.hot) svg.appendChild(el('text', {x: x + bw / 2, y: top + plotH + 28, 'text-anchor': 'middle', class: 'lab', 'font-size': '10.5px'}, r.kind));
+  });
+}
+function tableHtml(head, rows){ return `<table><thead><tr>${head.map(h => `<th${h.num ? ' class="num"' : ''}>${esc(h.t)}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${r.map((c, i) => `<td${head[i].num ? ' class="num"' : ''}>${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`; }
+
+function render(){
+  // 図1
+  const dRows = DATA.dates.map(d => ({label: d.label, v: d.n, short: d.date.slice(5).replace(/^0/, '').replace('-0', '/').replace('-', '/'), hot: d.date === '2026-09-01' || d.date === '2026-09-15', kind: d.date === '2026-09-01' ? '市長報告質疑' : '庁舎特委'}));
+  vbar('c-dates', dRows);
+  document.getElementById('t-dates').innerHTML = tableHtml([{t: '日付・会議'}, {t: '件数', num: true}], DATA.dates.map(d => [esc(d.label), d.n]));
+  // 図2
+  hbar('c-cats', DATA.cat_rank.map(c => ({label: c.short, v: c.n, right: c.members + '人', tip: `<b>${esc(c.name)}</b><br>${c.n}件・${c.members}人が言及<br><span style="opacity:.85">${esc(c.definition)}</span><br>主に: ${c.top.map(t => esc(t[0]) + ' ' + t[1]).join('／')}`})), {labW: 170, rightW: 44, rowH: 27});
+  document.getElementById('t-cats').innerHTML = tableHtml([{t: '順'}, {t: '論点カテゴリ'}, {t: '件数', num: true}, {t: '議員数', num: true}, {t: '定義'}, {t: '主に'}], DATA.cat_rank.map((c, i) => [i + 1, `<b>${esc(c.name)}</b>`, c.n, c.members, `<span class="sub">${esc(c.definition)}</span>`, `<span class="sub">${c.top.map(t => esc(t[0]) + ' ' + t[1]).join('／')}</span>`]));
+  // 図3・図4
+  hbar('c-types', DATA.type_rank.map(t => ({label: t[0], v: t[1]})), {labW: 76, rightW: 10, rowH: 26});
+  document.getElementById('t-types').innerHTML = tableHtml([{t: '類型'}, {t: '件数', num: true}], DATA.type_rank.map(t => [esc(t[0]), t[1]]));
+  hbar('c-venues', DATA.venue_rank.map(v => ({label: v[0].replace('本会議・', '本会議 '), v: v[1]})), {labW: 128, rightW: 10, rowH: 26});
+  document.getElementById('t-venues').innerHTML = tableHtml([{t: '会議'}, {t: '件数', num: true}], DATA.venue_rank.map(v => [esc(v[0]), v[1]]));
+  // 図5
+  const spoke = DATA.members.filter(m => m.n > 0);
+  hbar('c-members', spoke.map(m => ({label: m.name + (m.chosha_iin ? '★' : ''), sub: m.faction.replace('小金井市議会', '').replace('小金井市議団', '').replace('小金井市政を', ''), v: m.n, tip: `<b>${esc(m.name)}</b>（${esc(m.faction)}）${m.role ? '・' + esc(m.role) : ''}<br>${m.n}件<br>主な会議: ${m.venues.map(v => esc(v[0]) + ' ' + v[1]).join('／')}<br>よく出た論点: ${m.cats.map(c => esc(c[0]) + ' ' + c[1]).join('／')}`})), {labW: 150, rightW: 10, rowH: 30});
+  document.getElementById('t-members').innerHTML = tableHtml([{t: '議員'}, {t: '会派'}, {t: '件数', num: true}, {t: '主な会議'}], DATA.members.map(m => [esc(m.name) + (m.chosha_iin ? '★' : '') + (m.role ? '・' + esc(m.role) : ''), esc(m.faction), m.n, m.venues.map(v => esc(v[0]) + ' ' + v[1]).join('／') || '—']));
+  // 図6 ヒートマップ
+  const top12 = spoke.slice(0, 12);
+  const cls = v => v === 0 ? 'c0' : v <= 2 ? 'c1' : v <= 4 ? 'c2' : v <= 7 ? 'c3' : v <= 11 ? 'c4' : v <= 16 ? 'c5' : 'c6';
+  let h = '<table class="heat"><thead><tr><th></th>' + DATA.cat_rank.map(c => `<th class="rot">${esc(c.short)}</th>`).join('') + '<th class="rot">計</th></tr></thead><tbody>';
+  top12.forEach(m => { h += `<tr><td class="rowlab">${esc(m.name)}</td>` + DATA.cat_rank.map(c => { const v = m.bycat[c.id] || 0; return `<td class="c ${cls(v)}" data-tip="${esc(m.name)}／${esc(c.name)}：${v}件">${v}</td>`; }).join('') + `<td class="rowlab" style="text-align:right;padding-left:8px"><b>${m.n}</b></td></tr>`; });
+  h += '</tbody></table>';
+  document.getElementById('heat').innerHTML = h;
+  document.querySelectorAll('.heat td.c').forEach(td => { td.addEventListener('mousemove', ev => showTip(ev, esc(td.dataset.tip))); td.addEventListener('mouseleave', hideTip); });
+  // 図7
+  hbar('c-factions', DATA.factions.map(f => ({label: f.name, sub: f.size + '人在籍', v: f.n, right: f.n ? ('1人' + f.per_capita) : '—', tip: `<b>${esc(f.name)}</b><br>${f.n}件／在籍${f.size}人・1人あたり${f.per_capita}<br>${f.speakers.map(s => esc(s.name) + ' ' + s.n).join('／')}<br>よく出た論点: ${f.cats.map(c => esc(c[0]) + ' ' + c[1]).join('／') || '—'}`})), {labW: 190, rightW: 56, rowH: 30});
+  document.getElementById('t-factions').innerHTML = tableHtml([{t: '会派'}, {t: '件数', num: true}, {t: '在籍', num: true}, {t: '1人あたり', num: true}, {t: '発言した議員'}], DATA.factions.map(f => [esc(f.name), f.n, f.size, f.per_capita.toFixed(1), f.speakers.filter(s => s.n > 0).map(s => esc(s.name) + ' ' + s.n).join('／') || '—']));
+}
+render();
+let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(render, 120); });
+</script>
+</body>
+</html>
