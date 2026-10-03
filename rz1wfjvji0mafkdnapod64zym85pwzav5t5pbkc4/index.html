@@ -93,7 +93,8 @@ tr.zero td b { color: var(--muted); font-weight: 400; }
 .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .heat { border-collapse: separate; border-spacing: 2px; font-size: 11.5px; }
 .heat th { background: none; font-weight: 400; color: var(--muted); padding: 2px 4px; white-space: nowrap; }
-.heat th.rot { writing-mode: vertical-rl; transform: rotate(180deg); text-align: left; height: 150px; padding: 4px 0; }
+/* 日本語の縦書きは writing-mode だけでよい。rotate(180deg) を重ねると上下逆になる（2026-10-03 本人指摘で修正） */
+.heat th.rot { writing-mode: vertical-rl; text-orientation: mixed; vertical-align: bottom; text-align: start; height: 150px; padding: 4px 0; line-height: 1.1; }
 .heat td { padding: 0; border: 0; width: 34px; height: 26px; text-align: center; font-variant-numeric: tabular-nums; }
 .heat td.rowlab { text-align: left; white-space: nowrap; color: var(--ink); padding-right: 8px; font-size: 12.5px; }
 .heat td.c { border-radius: 3px; color: var(--ink); }
