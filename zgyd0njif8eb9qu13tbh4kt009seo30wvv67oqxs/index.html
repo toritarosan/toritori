@@ -1,0 +1,354 @@
+<title>会議室前面 推定立面図</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* layout: one column of drawing sheets (elevation, plan, table, notes); dimension figures in mono, labels in Noto Sans JP */
+:root{--paper:#f3f5f7;--sheet:#ffffff;--ink:#1d2730;--muted:#5b6872;--dim:#0e6f9c;--mov:#6a4aa3;--unc:#c98a12;--panel:#d9dde2;--line:#c7ced6;--bb:#1c7c4a;
+ --font-body:"Noto Sans JP",system-ui,-apple-system,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif;--font-mono:"IBM Plex Mono","Noto Sans JP",ui-monospace,Menlo,Consolas,monospace;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#12161b;--sheet:#1a2027;--ink:#e7ebf0;--muted:#a3adb8;--dim:#72bfe6;--mov:#bda4e6;--unc:#e0b04e;--panel:#2d363f;--line:#3a444f;--bb:#5ccb8f;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#12161b;--sheet:#1a2027;--ink:#e7ebf0;--muted:#a3adb8;--dim:#72bfe6;--mov:#bda4e6;--unc:#e0b04e;--panel:#2d363f;--line:#3a444f;--bb:#5ccb8f;color-scheme:dark}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);line-height:1.6;margin:0;padding-block:24px;padding-inline:16px}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:22px}
+header h1{font-size:1.45rem;margin:0 0 4px;letter-spacing:.02em;text-wrap:balance}
+header p{margin:0;color:var(--muted);font-size:.92rem;max-width:68ch}
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:4px;padding:14px 14px 10px;min-width:0}
+.sheet h2{font-size:1rem;margin:0 0 6px;font-weight:700;letter-spacing:.04em}
+.sheet h2 small{font-weight:400;color:var(--muted);margin-left:.6em;font-size:.82rem}
+.dwg{width:100%;height:auto;display:block;font-family:var(--font-body)}
+.dwg text{fill:var(--ink);font-size:13px}
+.dwg .small{font-size:11px;fill:var(--muted)}
+.dwg .smallm{font-size:11px;fill:var(--mov)}
+.dwg .title2{font-size:13px;font-weight:700}
+.dwg .title2m{font-size:13px;font-weight:700;fill:var(--mov)}
+.dwg .dimt{font-family:var(--font-mono);font-size:12px;fill:var(--dim);font-variant-numeric:tabular-nums}
+.dwg .dim{stroke:var(--dim);stroke-width:1}
+.dwg .ext{stroke:var(--dim);stroke-width:.7;opacity:.6}
+.dwg .heavy{stroke:var(--ink);stroke-width:2.2}
+.dwg .wall{fill:var(--sheet);stroke:none}
+.dwg .base{fill:var(--panel);stroke:var(--ink);stroke-width:.6}
+.dwg .rail{stroke:var(--ink);stroke-width:1.4;stroke-dasharray:6 3}
+.dwg .house{fill:var(--panel);stroke:var(--ink);stroke-width:1.2}
+.dwg .fabric{fill:var(--sheet);stroke:var(--ink);stroke-width:1.2}
+.dwg .proj{fill:none;stroke:var(--ink);stroke-width:.9;stroke-dasharray:3 3}
+.dwg .graysurf{fill:url(#gray);stroke:var(--ink);stroke-width:.8}
+.dwg .beyond{fill:var(--paper);stroke:none;opacity:.85}
+.dwg .unc{fill:url(#hatch);stroke:none}
+.dwg .mov{fill:none;stroke:var(--mov);stroke-width:1.4;stroke-dasharray:7 4}
+.dwg .movfill{fill:var(--mov);opacity:.07}
+.dwg .movthick{stroke:var(--mov);stroke-width:5}
+.dwg .wallcut{fill:var(--ink);stroke:none}
+.dwg .acdash{fill:none;stroke:var(--mov);stroke-width:1;stroke-dasharray:3 3}
+.dwg .cam{fill:var(--dim)} .dwg .camray{stroke:var(--dim);stroke-width:1;stroke-dasharray:4 3;fill:none}
+.legend{display:flex;flex-wrap:wrap;gap:14px 22px;font-size:.84rem;color:var(--muted);margin-top:8px}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.sw{width:26px;height:0;border-top:2px solid var(--ink)} .sw.mov{border-top:2px dashed var(--mov)} .sw.dim{border-top:2px solid var(--dim)} .sw.unc{height:12px;border:1px solid var(--unc);background:repeating-linear-gradient(45deg,transparent 0 3px,var(--unc) 3px 4px)}
+table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:700;background:var(--panel)}
+td.n{font-family:var(--font-mono);white-space:nowrap}
+td:first-child,th:first-child{white-space:nowrap}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.cols>div{min-width:0}
+ul{margin:.3em 0 .3em 1.2em;padding:0} li{margin:.25em 0}
+figure{margin:0;min-width:0} figure img{width:100%;height:auto;border:1px solid var(--line);border-radius:3px} figcaption{font-size:.84rem;color:var(--muted);margin-top:6px}
+.tag{display:inline-block;font-size:.75rem;padding:1px 7px;border:1px solid var(--line);border-radius:3px;color:var(--muted);margin-right:6px}
+.tbl{overflow-x:auto}
+@media (max-width:600px){.sheet{padding:10px 8px}}
+.dwg .band{fill:url(#band);stroke:none}
+.dwg .zone{stroke:var(--unc);stroke-width:1.2}
+.dwg .smallz{font-size:11px;fill:var(--unc)}
+.dwg .fabricline{stroke:var(--ink);stroke-width:1.6}
+.dwg .bb{fill:none;stroke:var(--bb);stroke-width:1.6;stroke-dasharray:9 4}
+.dwg .title2b{font-size:13px;font-weight:700;fill:var(--bb)}
+.dwg .smallb{font-size:11px;fill:var(--bb)}
+
+.dwg .lead{stroke:var(--muted);stroke-width:.8;stroke-dasharray:2 2}
+.dwg.sec{max-width:560px}
+
+</style>
+
+<div class="wrap">
+<header>
+<meta name="robots" content="noindex,nofollow">
+<h1>会議室 前面壁(スクリーンの壁) 推定立面図・平面図・断面図</h1>
+<p>斜めから撮った写真1枚を透視幾何で正面に起こし、移動式ホワイトボード(1,800×900規格)を縮尺の基準にして推定した。単位mm。推定値の誤差は±5%前後(天井高 2,350〜2,580)。独立推定3系統と反証14件で検証済み。可動物は紫の破線。<span class="tag">推定 2026-10-04</span></p>
+</header>
+
+<section class="sheet"><h2>A. 立面図(前面壁を部屋の中央から見た図) <small>左端が左側壁との入隅。入隅から右へ測る</small></h2>
+<svg class="dwg" viewBox="0 0 1472 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="前面壁 立面図(推定)">
+<defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="var(--unc)" stroke-width="1.2" opacity=".7"/></pattern><pattern id="gray" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="var(--panel)"/><circle cx="3" cy="3" r=".9" fill="var(--ink)" opacity=".25"/></pattern><pattern id="band" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="var(--ink)" opacity=".45"/></pattern><marker id="tick" viewBox="0 0 6 6" refX="3" refY="3" markerWidth="6" markerHeight="6" orient="auto"><line x1="1" y1="5" x2="5" y2="1" stroke="var(--dim)" stroke-width="1.3"/></marker></defs>
+<rect class="wall" x="235.0" y="91.0" width="1087.5" height="369.0"/>
+<rect class="graysurf" x="946.0" y="91.0" width="376.5" height="369.0"/>
+<rect class="band" x="932.5" y="91.0" width="75.0" height="369.0"/>
+<rect class="beyond" x="1195.0" y="91.0" width="127.5" height="369.0"/>
+<text class="small" transform="translate(1209.0,392.5) rotate(-90)" text-anchor="middle">写真の端(壁は右へ続く)</text>
+<text class="lbl" x="964.0" y="124.0" text-anchor="start">灰色の面(壁と同一平面。塗装/黒板/掲示板かは未確認)</text>
+<text class="small" x="970.0" y="80.5" text-anchor="middle">↓暗い帯 幅300〜500(影か柱型か不明)</text>
+<rect class="unc" x="197.5" y="91.0" width="75.0" height="369.0"/>
+<text class="small" x="238.0" y="80.5" text-anchor="start">入隅(推定位置 ±250)</text>
+<line class="heavy" x1="175.0" y1="91.0" x2="1322.5" y2="91.0"/>
+<line class="heavy" x1="175.0" y1="460.0" x2="1322.5" y2="460.0"/>
+<line class="heavy" x1="235.0" y1="460.0" x2="235.0" y2="91.0"/>
+<rect class="base" x="235.0" y="449.5" width="1087.5" height="10.5"/>
+<line class="rail" x1="235.0" y1="106.0" x2="1322.5" y2="106.0"/>
+<text class="small" x="418.0" y="122.0" text-anchor="start">カーテンレール 2,360</text>
+<text class="small" x="418.0" y="140.0" text-anchor="start">(全幅に連続・ランナー有)</text>
+<rect class="mov" x="265.0" y="91.0" width="345.0" height="46.5"/>
+<text class="smallm" x="272.5" y="158.0" text-anchor="start">天井吊エアコン(壁から約0.8m張出し・横位置±700)</text>
+<text class="smallm" x="272.5" y="177.5" text-anchor="start">下面 約2,100〜2,200</text>
+<rect class="house" x="617.5" y="91.0" width="315.0" height="19.5"/>
+<rect class="fabric" x="617.5" y="110.5" width="315.0" height="330.0"/>
+<rect class="house" x="617.5" y="434.5" width="315.0" height="6.0"/>
+<rect class="proj" x="622.0" y="164.5" width="306.0" height="132.0"/>
+<text class="title2" x="775.0" y="143.5" text-anchor="middle">吊り下げスクリーン(ほぼ正方形。1:1規格 2,032角相当か)</text>
+<text class="small" x="775.0" y="233.5" text-anchor="middle">撮影時の投影映像</text>
+<text class="title2" x="775.0" y="341.5" text-anchor="middle">幅2,100×高2,330(ケース含む)</text>
+<text class="small" x="775.0" y="368.5" text-anchor="middle">ケース上端2,460=天井・下端バー床上130</text>
+<text class="small" x="626.5" y="109.2" text-anchor="start">ケース(高さ約130)</text>
+<rect class="mov" x="1019.5" y="194.5" width="252.0" height="135.0"/>
+<rect class="movfill" x="1019.5" y="194.5" width="252.0" height="135.0"/>
+<line class="mov" x1="1024.0" y1="460.0" x2="1024.0" y2="190.0"/>
+<line class="mov" x1="1267.0" y1="460.0" x2="1267.0" y2="190.0"/>
+<line class="mov" x1="982.0" y1="455.5" x2="1064.5" y2="455.5"/>
+<line class="mov" x1="1226.5" y1="455.5" x2="1309.0" y2="455.5"/>
+<text class="title2m" x="1145.5" y="227.5" text-anchor="middle">移動式ホワイトボード(可動)</text>
+<text class="smallm" x="1145.5" y="254.5" text-anchor="middle">板 1,800×900・下端870・上端1,770</text>
+<text class="smallm" x="1145.5" y="278.5" text-anchor="middle">壁の手前0.6〜1.2m・約20°斜め置き(正面投影幅1,680)</text>
+<rect class="mov" x="317.5" y="323.5" width="75.0" height="136.5"/>
+<rect class="mov" x="311.5" y="289.0" width="87.0" height="34.5"/>
+<rect class="movfill" x="317.5" y="289.0" width="75.0" height="171.0"/>
+<text class="title2m" x="322.0" y="367.0" text-anchor="start">演台(可動)</text>
+<text class="smallm" x="322.0" y="389.5" text-anchor="start">奥行約550・高さ</text>
+<text class="smallm" x="322.0" y="409.0" text-anchor="start">1,010〜1,140(傾斜天板)</text>
+<text class="smallm" x="322.0" y="428.5" text-anchor="start">正面幅は写真から不明</text>
+<text class="smallm" x="322.0" y="448.0" text-anchor="start">前面壁の約1.5m手前</text>
+<rect class="mov" x="272.5" y="314.5" width="138.0" height="145.5"/>
+<text class="smallm" x="419.5" y="269.5" text-anchor="start">木製の箱 W920×H970</text>
+<text class="smallm" x="419.5" y="289.0" text-anchor="start">(奥行490・機器箱か・</text>
+<text class="smallm" x="419.5" y="308.5" text-anchor="start">可動か要確認)</text>
+<line class="ext" x1="175.0" y1="91.0" x2="118.0" y2="91.0"/>
+<line class="ext" x1="175.0" y1="460.0" x2="118.0" y2="460.0"/>
+<line class="dim" x1="139.0" y1="460.0" x2="139.0" y2="91.0" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<text class="dimt" x="133.0" y="279.5" text-anchor="end">天井高 2,460</text>
+<text class="small" x="139.0" y="296.5" text-anchor="end">(2,350〜2,580)</text>
+<line class="ext" x1="617.5" y1="91.0" x2="589.0" y2="91.0"/>
+<line class="ext" x1="617.5" y1="110.5" x2="589.0" y2="110.5"/>
+<line class="ext" x1="617.5" y1="440.5" x2="589.0" y2="440.5"/>
+<line class="dim" x1="602.5" y1="440.5" x2="602.5" y2="110.5" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<text class="dimt" x="596.5" y="279.5" text-anchor="end">幕 2,200</text>
+<line class="dim" x1="602.5" y1="110.5" x2="602.5" y2="91.0" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<line class="dim" x1="602.5" y1="460.0" x2="602.5" y2="440.5" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<text class="dimt" x="596.5" y="454.2" text-anchor="end">130</text>
+<text class="small" x="1319.5" y="85.0" text-anchor="end">天井 FL+2,460</text>
+<text class="small" x="1319.5" y="456.0" text-anchor="end">床 FL±0</text>
+<line class="ext" x1="235.0" y1="460.0" x2="235.0" y2="547.0"/>
+<line class="ext" x1="617.5" y1="460.0" x2="617.5" y2="547.0"/>
+<line class="ext" x1="932.5" y1="460.0" x2="932.5" y2="511.0"/>
+<line class="ext" x1="946.0" y1="460.0" x2="946.0" y2="511.0"/>
+<line class="ext" x1="1195.0" y1="460.0" x2="1195.0" y2="547.0"/>
+<line class="ext" x1="1019.5" y1="460.0" x2="1019.5" y2="511.0"/>
+<line class="ext" x1="1271.5" y1="460.0" x2="1271.5" y2="511.0"/>
+<line class="ext" x1="410.5" y1="460.0" x2="410.5" y2="511.0"/>
+<line class="dim" x1="235.0" y1="496.0" x2="410.5" y2="496.0" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<text class="dimt" x="322.8" y="510.0" text-anchor="middle">1,170</text>
+<line class="dim" x1="410.5" y1="496.0" x2="617.5" y2="496.0" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<text class="dimt" x="514.0" y="510.0" text-anchor="middle">1,380</text>
+<line class="dim" x1="617.5" y1="496.0" x2="932.5" y2="496.0" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<text class="dimt" x="775.0" y="510.0" text-anchor="middle">スクリーン幅 2,100(±100)</text>
+<line class="dim" x1="1019.5" y1="496.0" x2="1271.5" y2="496.0" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<text class="dimt" x="1145.5" y="510.0" text-anchor="middle">WB投影幅 1,680</text>
+<line class="dim" x1="235.0" y1="532.0" x2="617.5" y2="532.0" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<text class="dimt" x="426.2" y="546.0" text-anchor="middle">入隅→スクリーン左端 2,550(2,300〜2,800)</text>
+<line class="dim" x1="617.5" y1="532.0" x2="1195.0" y2="532.0" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<text class="dimt" x="906.2" y="546.0" text-anchor="middle">写真に写っている範囲の右端まで 約3,850</text>
+<line class="ext" x1="1271.5" y1="194.5" x2="1316.5" y2="194.5"/>
+<line class="ext" x1="1271.5" y1="329.5" x2="1316.5" y2="329.5"/>
+<line class="dim" x1="1304.5" y1="329.5" x2="1304.5" y2="194.5" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<text class="dimt" x="1310.5" y="266.0" text-anchor="start">板高 900</text>
+<line class="dim" x1="1304.5" y1="460.0" x2="1304.5" y2="329.5" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<text class="dimt" x="1310.5" y="398.8" text-anchor="start">870</text>
+<line class="dim" x1="296.5" y1="460.0" x2="296.5" y2="289.0" marker-start="url(#tick)" marker-end="url(#tick)"/>
+<text class="dimt" x="290.5" y="378.5" text-anchor="end">1,140</text>
+<line class="heavy" x1="985.0" y1="583.0" x2="1135.0" y2="583.0"/>
+<line class="heavy" x1="985.0" y1="583.0" x2="985.0" y2="590.0"/>
+<line class="heavy" x1="1000.0" y1="583.0" x2="1000.0" y2="587.0"/>
+<line class="heavy" x1="1015.0" y1="583.0" x2="1015.0" y2="587.0"/>
+<line class="heavy" x1="1030.0" y1="583.0" x2="1030.0" y2="587.0"/>
+<line class="heavy" x1="1045.0" y1="583.0" x2="1045.0" y2="587.0"/>
+<line class="heavy" x1="1060.0" y1="583.0" x2="1060.0" y2="590.0"/>
+<line class="heavy" x1="1075.0" y1="583.0" x2="1075.0" y2="587.0"/>
+<line class="heavy" x1="1090.0" y1="583.0" x2="1090.0" y2="587.0"/>
+<line class="heavy" x1="1105.0" y1="583.0" x2="1105.0" y2="587.0"/>
+<line class="heavy" x1="1120.0" y1="583.0" x2="1120.0" y2="587.0"/>
+<line class="heavy" x1="1135.0" y1="583.0" x2="1135.0" y2="590.0"/>
+<text class="small" x="985.0" y="605.0">0</text><text class="small" x="1135.0" y="605.0" text-anchor="end">1 m</text>
+</svg>
+<div class="legend"><span><i class="sw"></i>壁・固定物</span><span><i class="sw mov"></i>可動物(手前に置かれているもの)</span><span><i class="sw dim"></i>寸法(推定)</span><span><i class="sw unc"></i>位置の不確かさ</span></div>
+</section>
+
+<section class="sheet"><h2>B. 平面図(上から) <small>壁からの奥行き、撮影位置、設置候補の区間</small></h2>
+<svg class="dwg" viewBox="0 0 1044 562" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="平面図(推定)"><defs><marker id="ptick" viewBox="0 0 6 6" refX="3" refY="3" markerWidth="6" markerHeight="6" orient="auto"><line x1="1" y1="5" x2="5" y2="1" stroke="var(--dim)" stroke-width="1.3"/></marker></defs>
+<rect class="wallcut" x="57.4" y="47.4" width="936.6" height="12.6" />
+<rect class="wallcut" x="57.4" y="60.0" width="12.6" height="451.5" />
+<rect class="beyond" x="742.0" y="47.4" width="252.0" height="12.6" />
+<text class="small" x="747.2" y="43.2" text-anchor="start">写真の端(壁は続く)</text>
+<line class="ext" x1="742.0" y1="60.0" x2="742.0" y2="511.5"/>
+<text class="title2" x="80.5" y="43.2" text-anchor="start">前面壁(スクリーンの壁)</text>
+<text class="title2" transform="translate(51.1,291.0) rotate(-90)" text-anchor="middle">左側壁</text>
+<rect class="house" x="337.8" y="60.0" width="220.5" height="7.3" />
+<text class="lbl" x="337.8" y="86.2" text-anchor="start">スクリーン 2,100</text>
+<rect class="band" x="558.2" y="60.0" width="52.5" height="4.2" />
+<line class="rail" x1="567.7" y1="60.0" x2="994.0" y2="60.0"/>
+<rect class="mov" x="96.2" y="60.0" width="96.6" height="51.4" />
+<text class="smallm" x="102.5" y="82.0" text-anchor="start">木製の箱</text>
+<text class="smallm" x="102.5" y="97.8" text-anchor="start">920×490</text>
+<rect class="acdash" x="91.0" y="60.0" width="241.5" height="84.0" />
+<text class="smallm" x="338.8" y="162.9" text-anchor="start">← エアコン(天井吊・下面約2,150)</text>
+<text class="smallm" x="338.8" y="178.6" text-anchor="start">横位置は±700の不確かさ</text>
+<rect class="mov" x="127.8" y="212.2" width="52.5" height="57.8" />
+<text class="smallm" x="186.6" y="233.2" text-anchor="start">演台(向き・正面幅は概略)</text>
+<circle class="mov" cx="146.6" cy="170.2" r="29.4"/>
+<text class="smallm" x="182.4" y="175.5" text-anchor="start">椅子</text>
+<line class="movthick" x1="619.2" y1="119.8" x2="795.6" y2="187.1"/>
+<rect class="mov" x="587.7" y="115.6" width="63.0" height="8.4" transform="rotate(110.9 619.2 119.8)"/>
+<rect class="mov" x="764.1" y="182.9" width="63.0" height="8.4" transform="rotate(110.9 795.6 187.1)"/>
+<text class="title2m" x="640.2" y="177.6" text-anchor="start">移動式ホワイトボード 1,800(約21°振れ)</text>
+<line class="dim" x1="603.4" y1="60.0" x2="603.4" y2="119.8" marker-start="url(#ptick)" marker-end="url(#ptick)"/>
+<text class="dimt" x="597.4" y="93.9" text-anchor="end">570</text>
+<line class="dim" x1="811.3" y1="60.0" x2="811.3" y2="187.1" marker-start="url(#ptick)" marker-end="url(#ptick)"/>
+<text class="dimt" x="817.3" y="127.5" text-anchor="start">1,210</text>
+<line class="zone" x1="574.0" y1="259.5" x2="742.0" y2="259.5"/>
+<line class="zone" x1="574.0" y1="251.1" x2="574.0" y2="267.9"/>
+<line class="zone" x1="742.0" y1="251.1" x2="742.0" y2="267.9"/>
+<text class="smallz" x="658.0" y="282.6" text-anchor="middle">案A: スクリーン右の壁面(灰色面の前)</text>
+<line class="zone" x1="337.8" y1="259.5" x2="558.2" y2="259.5"/>
+<line class="zone" x1="337.8" y1="251.1" x2="337.8" y2="267.9"/>
+<line class="zone" x1="558.2" y1="251.1" x2="558.2" y2="267.9"/>
+<text class="smallz" x="448.0" y="282.6" text-anchor="middle">案B/C: スクリーン前</text>
+<line class="zone" x1="192.8" y1="259.5" x2="337.8" y2="259.5"/>
+<line class="zone" x1="192.8" y1="251.1" x2="192.8" y2="267.9"/>
+<line class="zone" x1="337.8" y1="251.1" x2="337.8" y2="267.9"/>
+<text class="smallz" x="265.3" y="282.6" text-anchor="middle">案D: 左の空き(狭い・エアコン下)</text>
+<g transform="translate(915.3,434.8)"><circle r="7" class="cam"/><path d="M0,0 L-60,-40 M0,0 L-10,-70" class="camray"/></g>
+<text class="small" x="810.3" y="466.3" text-anchor="start">撮影位置(推定) 高さ1,650</text>
+<line class="dim" x1="70.0" y1="123.0" x2="337.8" y2="123.0" marker-start="url(#ptick)" marker-end="url(#ptick)"/>
+<text class="dimt" x="203.9" y="118.0" text-anchor="middle">2,550</text>
+<line class="dim" x1="337.8" y1="123.0" x2="558.2" y2="123.0" marker-start="url(#ptick)" marker-end="url(#ptick)"/>
+<text class="dimt" x="448.0" y="118.0" text-anchor="middle">2,100</text>
+<line class="dim" x1="70.0" y1="480.0" x2="915.3" y2="480.0" marker-start="url(#ptick)" marker-end="url(#ptick)"/>
+<text class="dimt" x="492.6" y="475.0" text-anchor="middle">入隅→撮影位置 約8,050</text>
+<line class="dim" x1="952.0" y1="60.0" x2="952.0" y2="434.8" marker-start="url(#ptick)" marker-end="url(#ptick)"/>
+<text class="dimt" x="946.0" y="251.4" text-anchor="end">前面壁→撮影位置 約3,570</text>
+<line class="dim" x1="253.8" y1="60.0" x2="253.8" y2="212.2" marker-start="url(#ptick)" marker-end="url(#ptick)"/>
+<text class="dimt" x="259.8" y="140.1" text-anchor="start">前面壁→演台 約1,450</text>
+</svg>
+</section>
+
+<section class="sheet cols">
+<div><h2>C. 断面図(壁に直角に切った図) <small>高さ方向の取り合い</small></h2>
+<svg class="dwg sec" viewBox="0 0 462 485" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="断面図(推定)"><defs><marker id="stick" viewBox="0 0 6 6" refX="3" refY="3" markerWidth="6" markerHeight="6" orient="auto"><line x1="1" y1="5" x2="5" y2="1" stroke="var(--dim)" stroke-width="1.3"/></marker></defs>
+<rect class="wallcut" x="42.0" y="40.0" width="18.0" height="420.0"/>
+<rect class="wallcut" x="42.0" y="58.0" width="408.0" height="18.0"/>
+<rect class="wallcut" x="42.0" y="445.0" width="408.0" height="15.0"/>
+<rect class="base" x="60.0" y="434.5" width="1.8" height="10.5"/>
+<rect class="house" x="63.0" y="88.0" width="7.5" height="6.0"/>
+<line class="lead" x1="70.5" y1="91.0" x2="193.5" y2="85.0"/>
+<text class="small" x="198.0" y="83.5" text-anchor="start">カーテンレール 2,360</text>
+<rect class="house" x="63.0" y="76.0" width="22.5" height="19.5"/>
+<line class="lead" x1="85.5" y1="91.0" x2="193.5" y2="100.0"/>
+<text class="small" x="198.0" y="98.5" text-anchor="start">スクリーンケース 2,330〜2,460</text>
+<text class="small" x="198.0" y="113.5" text-anchor="start">(奥行きは未測)</text>
+<rect class="acdash" x="75.0" y="76.0" width="105.0" height="46.5"/>
+<line class="lead" x1="180.0" y1="119.5" x2="193.5" y2="130.0"/>
+<text class="smallm" x="198.0" y="128.5" text-anchor="start">エアコン 下面約2,150</text>
+<text class="smallm" x="198.0" y="143.5" text-anchor="start">(入隅寄りの区間のみ・張出し約800)</text>
+<line class="fabricline" x1="78.0" y1="95.5" x2="78.0" y2="419.5"/>
+<rect class="house" x="75.0" y="419.5" width="6.0" height="6.0"/>
+<line class="lead" x1="79.5" y1="212.5" x2="193.5" y2="212.5"/>
+<text class="small" x="198.0" y="211.0" text-anchor="start">幕(壁から約100〜200)</text>
+<line class="lead" x1="79.5" y1="422.5" x2="193.5" y2="415.0"/>
+<text class="small" x="198.0" y="413.5" text-anchor="start">下端バー 床上130</text>
+<line class="movthick" x1="145.5" y1="314.5" x2="145.5" y2="179.5"/>
+<line class="mov" x1="145.5" y1="440.5" x2="145.5" y2="175.0"/>
+<line class="mov" x1="100.5" y1="440.5" x2="190.5" y2="440.5"/>
+<line class="lead" x1="147.0" y1="257.5" x2="193.5" y2="257.5"/>
+<text class="smallm" x="198.0" y="256.0" text-anchor="start">移動式WB(左端の位置・可動)</text>
+<rect class="bb" x="105.0" y="130.0" width="4.5" height="315.0"/>
+<line class="bb" x1="109.5" y1="440.5" x2="202.5" y2="440.5"/>
+<line class="bb" x1="109.5" y1="235.0" x2="195.0" y2="440.5"/>
+<line class="lead" x1="109.5" y1="167.5" x2="193.5" y2="167.5"/>
+<text class="title2b" x="198.0" y="163.0" text-anchor="start">バックボード案 H2,100</text>
+<text class="smallb" x="198.0" y="179.5" text-anchor="start">自立・控え脚付き。天端は</text>
+<text class="smallb" x="198.0" y="194.5" text-anchor="start">天井−350・ケース下端−230</text>
+<line class="dim" x1="352.5" y1="445.0" x2="352.5" y2="130.0" marker-start="url(#stick)" marker-end="url(#stick)"/>
+<text class="dimt" x="357.5" y="291.5">2,100</text>
+<line class="dim" x1="352.5" y1="130.0" x2="352.5" y2="76.0" marker-start="url(#stick)" marker-end="url(#stick)"/>
+<text class="dimt" x="357.5" y="107.0">360</text>
+<line class="dim" x1="387.0" y1="445.0" x2="387.0" y2="76.0" marker-start="url(#stick)" marker-end="url(#stick)"/>
+<text class="dimt" x="392.0" y="264.5">2,460</text>
+<line class="dim" x1="60.0" y1="352.0" x2="105.0" y2="352.0" marker-start="url(#stick)" marker-end="url(#stick)"/>
+<text class="dimt" x="82.5" y="347.0" text-anchor="middle">300</text>
+<line class="dim" x1="60.0" y1="328.0" x2="145.5" y2="328.0" marker-start="url(#stick)" marker-end="url(#stick)"/>
+<text class="dimt" x="102.8" y="323.0" text-anchor="middle">570</text>
+<text class="small" x="63.0" y="454.0" text-anchor="start">前面壁</text>
+<text class="small" x="210.0" y="454.0" text-anchor="start">← 壁からの距離 →</text>
+</svg>
+</div>
+<div><h2>D. バックボード設置の考え方</h2>
+<ul>
+<li><b>高さは2,300想定で安全側に。</b>天井は推定2,460だが下限2,350。スクリーンケース下端(約2,330)・カーテンレール(約2,360)・エアコン下面(約2,150、入隅寄りのみ)が頭上の制約。板の天端は<b>2,100以下</b>が無難。</li>
+<li><b>立て起こしの対角線。</b>1,820×910のパネル(対角2,030)は室内で起こせる。2,440×1,220(対角2,730)は天井に当たるので、縦材を立ててから面材を現場で留める構成にする。</li>
+<li><b>案A(スクリーン右・灰色面の前)が本命。</b>スクリーン右端から写真の端まで約1.7m、壁は撮影位置(入隅から8.0m)まで続くので幅3m超の余地が見込める。スクリーンと併用できる。灰色面と暗い帯の正体(出っ張りの有無)が条件。</li>
+<li><b>案B(スクリーンを巻き上げて前に)</b>: 幅2,100×高さ2,330の壁面が空く。スクリーンは使えない。<b>案C(下ろしたまま前に)</b>: 幕が壁から0.1〜0.2m浮いているので、板面は壁から0.3m前後に出る。</li>
+<li><b>案D(スクリーン左の空き)は不成立の見込み。</b>木製の箱の右端からスクリーン左端まで約1.4mしかなく、エアコンの直下になる。</li>
+<li><b>吊り下げ案。</b>前面壁の天井際にはランナー付きのカーテンレール(床上約2,360)が全幅に通っている。耐荷重を施設に確認できれば、布製バックボードを吊る選択肢がある。</li>
+<li><b>自立式の注意。</b>床は光沢のあるビニル床で滑る。控え脚の奥行0.5〜0.6mかウェイト(水タンク等)を用意。エアコンの吹き出しが壁沿いに流れると布が揺れる。公共施設では壁への固定は不可が通例。</li>
+<li><b>通路。</b>壁から第1列の机まで約2.7m(推定)。板0.3+演台0.6+人0.8+通路0.9=2.6mでぎりぎりなので、第1列を下げる前提にする。</li>
+</ul></div>
+</section>
+
+<section class="sheet"><h2>E. 主要寸法一覧</h2>
+<div class="tbl"><table>
+<tr><th>対象</th><th>寸法(推定)</th><th>位置(入隅から右へ／壁から手前へ)</th><th>根拠・備考</th></tr>
+<tr><td>前面壁 天井高</td><td class="n">2,460 (2,350〜2,580)</td><td>—</td><td>スクリーンケース上端が天井に接する前提。縮尺はホワイトボード規格から</td></tr>
+<tr><td>前面壁 幅</td><td class="n">≥ 8,000</td><td>写真内は入隅から約6,400まで</td><td>撮影位置(入隅から8.0m)まで壁が続く。右端は写真外</td></tr>
+<tr><td>スクリーン</td><td class="n">W 2,100(±100) × H 2,330(ケース含む)</td><td>左端 2,550(2,300〜2,800)／右端 4,650／下端バー 床上130／ケース 2,330〜2,460</td><td>ほぼ正方形。1:1規格の2,032角相当か。幕は壁から0.1〜0.2m浮く</td></tr>
+<tr><td>投影映像(撮影時)</td><td class="n">約2,040 × 880</td><td>床上1,090〜1,970</td><td>映像の規格は未確認</td></tr>
+<tr><td>暗い帯</td><td class="n">幅 300〜500</td><td>4,650〜5,150</td><td>影か黒い面か柱型か不明。出っ張りがあると案Aに影響</td></tr>
+<tr><td>灰色の面</td><td class="n">—</td><td>4,740〜写真外、床から天井まで</td><td>巾木が連続しており壁と同一平面。塗装/黒板/掲示板かは未確認</td></tr>
+<tr><td>カーテンレール</td><td class="n">床上 約2,360</td><td>前面壁の全幅(ランナー有)</td><td>吊り下げ式バックボードの候補。耐荷重は要確認</td></tr>
+<tr><td>天井吊エアコン</td><td class="n">下面 約2,150 (2,100〜2,200)</td><td>入隅寄り、横 約200〜2,500(±700)／壁から約800張出し</td><td>前面壁に平行。奥行きが不明なため横位置が決まらない</td></tr>
+<tr><td>木製の箱</td><td class="n">約 W 920 × D 490 × H 970</td><td>250〜1,170／壁に接する</td><td>天井から配線3本。音響・映像の機器箱なら動かせない可能性</td></tr>
+<tr><td>移動式ホワイトボード</td><td class="n">板 1,800 × 900(下端870・上端1,770・脚上端約1,800)</td><td>左端 5,230・壁から570／右端 6,910・壁から1,210。約20°振れ</td><td>規格寸法を仮定。可動</td></tr>
+<tr><td>演台</td><td class="n">奥行 約550・高さ 1,010〜1,140(傾斜天板)。正面幅は不明(≤800)</td><td>左側壁から約1,000／前面壁から約1,450〜1,900</td><td>壁に接していない。可動</td></tr>
+<tr><td>椅子(足置き付きハイスツール)</td><td class="n">座面 約760・背 約1,050</td><td>左側壁から約730／前面壁から約1,050</td><td>可動</td></tr>
+<tr><td>左側壁の腰レール</td><td class="n">床上 640〜750</td><td>左側壁のみ(前面壁には無い)</td><td>手すりではなく腰当てレールの高さ</td></tr>
+<tr><td>撮影位置</td><td class="n">前面壁から3,570・入隅から8,050・高さ1,650</td><td>—</td><td>焦点距離 約1,520px(画像幅2,000px換算)</td></tr>
+</table></div>
+</section>
+
+<section class="sheet cols">
+<div><h2>F. 推定の方法</h2>
+<ul>
+<li>写真の線分から前面壁方向・左側壁方向・鉛直の3消失点を求め、焦点距離とカメラの向きを決定。前面壁の巾木線と天井線で壁の平面を定め、壁上の各点を実寸に換算した。</li>
+<li>縮尺は移動式ホワイトボードの枠四隅に1,800×900を当てはめて決定(再投影誤差4px。1,200×900、1,800×1,200は不適合)。脚のキャスター接地点からカメラ高さ1.65m。</li>
+<li>独立チェック: 製図椅子の座面0.76m、演台天板1.0〜1.1m、ホワイトボード下端0.87m・上端1.77m、カーテンレールが天井の約10cm下、スクリーンがほぼ正方形で2,032角規格と整合。</li>
+<li>検証: 基準物の異なる3系統の独立推定(天井高 2.42〜2.60m、スクリーン幅 2.03〜2.10m、入隅〜スクリーン左端 2.3〜3.2m)と、主要な主張7件に対する反証14件。入隅位置と演台の位置、縮尺の2.5%はこの検証で修正済み。</li>
+</ul></div>
+<div><h2>G. 現地で測る項目(優先順)</h2>
+<ol>
+<li><b>天井高</b>(前面壁際の左・中・右の3点。梁や下がり天井の有無)。</li>
+<li><b>入隅からスクリーンケース左右端までの距離</b>と<b>前面壁の全長</b>(右端の出入口・窓・柱)。</li>
+<li><b>スクリーン</b>: ケースの出寸法と下端高さ、幕と壁の隙間、巻き上げの可否(手動/電動)。</li>
+<li><b>灰色の面と暗い帯の正体</b>(叩いて下地、出っ張り、磁石・テープ可否)。</li>
+<li><b>カーテンレール</b>の種類・フックの有無・施設側の耐荷重回答。</li>
+<li><b>エアコン</b>の平面位置(壁からの距離・入隅からの距離)と下端高さ、吹き出し方向。</li>
+<li><b>木製の箱</b>が動かせるか。<b>演台・ホワイトボード</b>の退避先。</li>
+<li>壁から第1列の机までの距離、通路幅、出入口、コンセント、搬入経路の内法(1,820×910が通るか)。</li>
+<li>(縮尺の確認用)ホワイトボードの外形寸法、巾木の高さ、照明器具の長辺。どれか1つ測れば全体の縮尺が確定する。</li>
+<li>可能なら前面壁を正対で撮り直す(A4紙や1mの棒を壁に当てて一緒に写す)。</li>
+</ol></div>
+</section>
+
+<section class="sheet"><p class="small" style="margin:0;color:var(--muted)">写真(元画像・正面化画像)は公開版では省略。</p></section>
+
+</div>
