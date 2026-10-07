@@ -1,0 +1,27 @@
+/* =================================================================
+   トップのヒーローに足す分だけ（zip外の手動追加）
+   いまのヒーローの見た目・配色・写真の大きさはそのまま。
+   足したのは「みんなでつくろう！」の1行と、写真の右上に重ねる縦書きの2つだけ。
+   campaign.css のあとに読み込む。
+   ================================================================= */
+
+/* キャッチの上の1行 */
+.hero-lead2026 {
+  font-family: var(--font-round); font-weight: 700;
+  font-size: clamp(1.05rem, 1.9vw, 1.4rem); letter-spacing: .04em;
+  color: #fff; margin: 0 0 10px; text-shadow: 0 1px 10px rgba(0, 60, 100, .18);
+}
+
+/* 冊子の表紙と同じ2行で見せる（折り返しは行の中で起きる） */
+.hero-sub span { display: block; }
+
+/* 「挑戦は、止めない。」= 冊子の表紙と同じ縦書き。写真の右上に重ねる。
+   画像を貼らずに文字にしてあるので、拡大してもぼやけず、読み上げ・検索・コピーができる。
+   人物は上から42%の範囲では右端90%までに収まっているので、ここには重ならない。 */
+.hero-vertical {
+  position: absolute; top: 3.5%; right: 2.5%; z-index: 4; margin: 0;
+  writing-mode: vertical-rl;
+  font-family: 'Shippori Mincho B1', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+  font-weight: 600; font-size: clamp(1.05rem, 1.75vw, 1.5rem);
+  letter-spacing: .14em; line-height: 1.5; color: var(--ink);
+}
