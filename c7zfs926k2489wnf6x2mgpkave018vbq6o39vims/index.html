@@ -245,6 +245,16 @@ h1 span:last-child{background:linear-gradient(transparent 72%,var(--yellow) 72%,
  .group summary{grid-template-columns:auto minmax(0,1fr) auto}
  .g-meta{flex-wrap:wrap;min-width:0;gap:4px 10px}
 }
+/* 2026-10-07 再検証の指摘: 0件は透明度でなく中抜きで弱める(4.5:1以上を保つ)/狭い画面で「達成」を別の行に/内訳の罫線/冒頭の2022 */
+.gt.zero{opacity:1}
+.gt.zero b{color:var(--ink-soft);font-weight:500}
+.gt.zero .badge{background:#fff;box-shadow:inset 0 0 0 1px var(--ink-faint)}
+.gt.zero .badge .b-v{color:var(--ink-soft)}
+@media (max-width:520px){.g-tassei{flex-basis:100%}}
+.tassei-detail .dt-label{word-break:auto-phrase}
+.tassei-detail li:not(.dt-total){border-bottom-color:#cfc8bb}
+.tassei-detail li:has(+ .dt-total){border-bottom:0;padding-bottom:0}
+.hero-label i{color:var(--magenta-deep)}
 
 </style>
 </head>
@@ -278,7 +288,7 @@ h1 span:last-child{background:linear-gradient(transparent 72%,var(--yellow) 72%,
     <span class="rate-label">達成率<small>（点数換算）</small></span>
     <span class="rate-num">64.1<small>%</small></span>
     <span class="rate-main"><span class="nw">195点満点中</span><span class="nw"><b>125</b>点</span></span>
-    <span class="rate-sub">各項目の達成を<span class="nw">◯3点</span>・<span class="nw">△1点</span>・<span class="nw">×0点</span>で点数化。満点は<span class="nw">65項目</span>×<span class="nw">3点</span>＝<span class="nw">195点</span></span>
+    <span class="rate-sub">各項目の達成を<span class="nw">◯3点</span>・<span class="nw">△1点</span>・<span class="nw">×0点</span><span class="nw">で点数化。</span><br><span class="nw">満点は65項目</span><span class="nw">×3点＝195点</span></span>
   </div>
 </div>
     </div>
