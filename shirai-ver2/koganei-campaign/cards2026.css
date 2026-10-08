@@ -47,3 +47,20 @@
   .cv-sticker + .cv-sticker{transform:rotate(5deg) translateY(0)}
   .shelf-hint{left:2px;bottom:0}
 }
+
+/* 1段組みになる幅(1000px以下)では、写真をカードより上に出す(2026-10-08 本人指示)。
+   カードは .hero-copy の中、写真は .hero-copy の外にあるので、order だけでは入れ替えられない。
+   .hero-copy を display:contents にして中身を .hero-inner の直接の子にし、順番を order で決める。
+   ・.hero-copy の箱が無くなるので、箱が持っていた position/z-index を中身に移す(アーチの上に出すため)
+   ・.hero-inner の gap(32px)が文字の各行の間にも入ってしまうので gap を0にし、
+     同じ32pxを写真の上余白として戻す(見た目の間隔は変えない) */
+@media (max-width:1000px){
+  .hero-inner{gap:0}
+  .hero-copy{display:contents}
+  .hero-lead2026,.hero-title,.hero-sub,.hero-cta{position:relative;z-index:3}
+  .hero-lead2026{order:1}
+  .hero-title{order:2}
+  .hero-sub{order:3}
+  .hero-visual{order:4;margin-top:32px}
+  .hero-cta{order:5}
+}
