@@ -1,0 +1,57 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>サポーターズマガジン Vol.3 ウェブ版 3案（検討用）</title><meta name="description" content="白井とおるサポーターズマガジン Vol.3　新庁舎等建設、建設費高騰により現設計による建設、見直しへ"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Outfit:wght@600;800&amp;family=Zen+Kaku+Gothic+New:wght@700;900&amp;display=swap"><style>
+:root{--blue:#00AEEF;--blue-deep:#0079bf;--blue-ink:#005a91;--blue-pale:#d3edfb;--blue-soft:#eaf7fe;--yellow:#fff100;--yellow-soft:#fffcd1;--ink:#221815;--ink-soft:#5d5650;--line:#e7e2d6;--paper:#fff;--paper-alt:#f3f8fc;
+--jp:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;--round:'Zen Kaku Gothic New','Noto Sans JP','Yu Gothic',Meiryo,sans-serif;--en:'Outfit',Arial,sans-serif}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.9 var(--jp);word-break:auto-phrase;line-break:strict}
+img{max-width:100%;height:auto;display:block}a{color:var(--blue-ink);text-underline-offset:4px}h1,h2,h3,p{margin:0}
+.wrap{width:min(1080px,calc(100% - 40px));margin-inline:auto}.narrow{width:min(780px,calc(100% - 40px));margin-inline:auto}
+.masthead{background:var(--blue-ink);color:#fff;font-size:13px;line-height:1.5}.masthead .wrap{display:flex;flex-wrap:wrap;gap:4px 16px;padding:8px 0;align-items:baseline}.masthead b{font-family:var(--round);font-size:15px;letter-spacing:.04em}.masthead .vol{font-family:var(--en);font-weight:800;background:#fff;color:var(--blue-ink);padding:0 6px}
+/* ヒーロー */
+.hero{position:relative;overflow:hidden;background:linear-gradient(115deg,var(--yellow) 0 34%,#fff 34% 100%)}
+.hero .wrap{display:grid;grid-template-columns:1fr;gap:0;align-items:end}
+.hero-copy{padding:36px 0 28px;position:relative;z-index:1}
+.kicker{display:inline-block;background:#3a3735;color:#fff;font-family:var(--round);font-weight:900;font-size:clamp(24px,4.4vw,36px);line-height:1.25;padding:2px 12px;margin-bottom:10px}
+.head{font-family:var(--round);font-weight:900;font-size:clamp(28px,5.6vw,52px);line-height:1.18;letter-spacing:-.01em}
+.head span{display:inline-block;background:var(--blue);color:#fff;padding:2px 12px;margin:0 0 6px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.lead{margin-top:16px;font-weight:700;font-size:clamp(16px,2vw,19px);line-height:1.8;max-width:34em}
+.hero-photo{justify-self:center;width:min(300px,70vw);margin-top:-8px}.hero-photo img{-webkit-mask-image:linear-gradient(to bottom,#000 85%,transparent);mask-image:linear-gradient(to bottom,#000 85%,transparent)}
+@media(min-width:860px){.hero .wrap{grid-template-columns:1.6fr 1fr;gap:24px}.hero-copy{padding:56px 0 48px}.hero-photo{width:100%;max-width:380px;margin:0;align-self:end}}
+.profile{background:var(--yellow);padding:16px 0}.profile .wrap{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}.profile .badge{font-family:var(--en);font-weight:800;font-size:13px;background:var(--blue);color:#fff;border-radius:999px;padding:1px 12px;letter-spacing:.06em}.profile h2{font-family:var(--round);font-weight:900;font-size:20px;color:var(--blue-deep)}.profile .kana{font-size:13px;color:var(--blue-deep);font-weight:700}.profile p{flex-basis:100%;font-size:14px;line-height:1.7}
+/* 見出し・本文 */
+.sec{padding:52px 0}.sec.alt{background:var(--yellow-soft)}.sec.soft{background:var(--paper-alt)}
+.sec-title{font-family:var(--round);font-weight:900;font-size:clamp(22px,3.4vw,30px);line-height:1.4;color:var(--blue-deep);margin-bottom:16px;padding-left:18px;border-left:7px solid var(--blue)}
+.sec-title.center{text-align:center;border:0;padding:0;color:#fff;background:var(--blue);padding:16px 12px}
+.sec p+p{margin-top:12px}.note{font-size:13px;color:var(--ink-soft);line-height:1.7;margin-top:10px}
+.figure{margin:22px 0 0;background:#fff;border:1px solid var(--line);padding:10px}.figure.bare{border:0;padding:0;background:transparent}
+.zoom{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;font-size:14px}
+.judge{margin-top:20px;font-weight:700;font-size:clamp(17px,2.2vw,20px);line-height:1.9;background:#fff;border-left:7px solid var(--blue);padding:16px 20px}.judge .em{color:var(--blue-deep)}
+.report{margin-top:30px;background:#fff;border:3px solid var(--blue);border-radius:28px;padding:22px 22px 24px;display:grid;gap:18px}
+.report-head{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.report-badge{flex:none;width:76px;height:76px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--round);font-weight:900;font-size:18px;line-height:1.15;display:grid;place-items:center;text-align:center}
+.report-date{font-family:var(--en);font-weight:800;color:var(--blue-deep);font-size:18px}.report-title{font-family:var(--round);font-weight:900;color:var(--blue-deep);font-size:clamp(19px,2.6vw,24px);line-height:1.45}.report-title small{font-size:.65em}
+.report-body{display:grid;gap:18px}@media(min-width:760px){.report-body{grid-template-columns:1fr 220px;align-items:start}}
+.btn{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:8px 18px;border:2px solid var(--blue-ink);background:#fff;font-weight:700;text-decoration:none;color:var(--blue-ink)}.btn:hover{background:var(--blue-soft)}
+.btn.solid{background:var(--blue-ink);color:#fff}.btn.solid:hover{background:var(--blue-deep)}
+.two{display:grid;gap:28px}.two>*{min-width:0}@media(min-width:860px){.two{grid-template-columns:1fr 1fr;align-items:start}}
+.sub{font-family:var(--round);font-weight:900;font-size:clamp(20px,2.8vw,25px);line-height:1.45;color:var(--blue-deep);margin-bottom:12px}
+table.cmp{width:100%;border-collapse:collapse;margin-top:10px;font-size:15px;background:#fff}table.cmp caption{text-align:left;font-weight:700;font-size:15px;margin-bottom:6px}
+table.cmp th,table.cmp td{border:1px solid #bdb8b2;padding:7px 8px;text-align:center;white-space:nowrap}table.cmp thead th{background:#e9e8e6;font-weight:500}table.cmp thead th:last-child{background:#2b2725;color:#fff}table.cmp td:last-child{font-weight:700}
+.tbl-wrap{overflow-x:auto}
+.concl{background:var(--blue);color:#fff;font-family:var(--round);font-weight:900;font-size:clamp(18px,2.6vw,24px);line-height:1.7;text-align:center;padding:22px 18px;border-radius:6px}
+/* フッター */
+.sup{background:var(--yellow-soft);padding:36px 0 44px;border-top:6px solid var(--yellow)}.sup .wrap{display:grid;gap:18px}
+.sup-name{font-family:var(--round);font-weight:900;color:var(--blue);font-size:28px;line-height:1.2}.sup-about{color:var(--blue-deep);font-weight:700;line-height:1.7}
+.sup-row{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}.donate{display:inline-block;background:var(--blue);color:#fff;font-weight:700;padding:4px 14px}.bank{font-size:15px}
+.sns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.sns a{min-height:44px;display:inline-flex;align-items:center;padding:4px 12px;border:1px solid var(--line);background:#fff;text-decoration:none;font-weight:700;font-size:14px}
+.foot-note{font-size:12px;color:var(--ink-soft)}
+/* 案B: 3つの問い */
+.qnav{display:grid;gap:10px;margin-top:22px}@media(min-width:760px){.qnav{grid-template-columns:repeat(3,1fr)}}
+.qnav a{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid var(--blue);padding:12px 16px;text-decoration:none;color:var(--ink);font-weight:900;font-family:var(--round);font-size:19px}.qnav .n{font-family:var(--en);font-weight:800;color:#fff;background:var(--blue);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex:none}
+.q-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}.q-head .n{font-family:var(--en);font-weight:800;font-size:22px;color:#fff;background:var(--blue-deep);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;flex:none}.q-head h2{font-family:var(--round);font-weight:900;font-size:clamp(24px,3.6vw,32px);color:var(--blue-deep)}
+.block+.block{margin-top:36px;padding-top:30px;border-top:1px dashed var(--line)}
+/* 案C: 3つの数字 */
+.keys{display:grid;gap:14px}@media(min-width:860px){.keys{grid-template-columns:repeat(3,1fr)}}
+.key{background:#fff;border-top:6px solid var(--blue);padding:16px 18px 18px;box-shadow:0 1px 0 var(--line)}.key h3{font-size:15px;color:var(--ink-soft);font-weight:700}
+.key .num{font-family:var(--en);font-weight:800;color:var(--blue-deep);font-size:clamp(30px,4vw,40px);line-height:1.25;margin:6px 0}.key .num small{font-family:var(--jp);font-size:.45em;font-weight:700;color:var(--ink)}.key .num .arrow{color:var(--ink-soft);font-size:.6em;padding:0 2px}.key p{font-size:14px;line-height:1.7}
+details.more{background:#fff;border:1px solid var(--line);margin-top:14px}details.more summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;min-height:56px;font-family:var(--round);font-weight:900;font-size:clamp(18px,2.4vw,21px);color:var(--blue-deep)}
+details.more summary::-webkit-details-marker{display:none}details.more summary:after{content:"＋";font-family:var(--en);color:var(--blue)}details.more[open] summary:after{content:"－"}details.more .in{padding:0 18px 22px}
+@media print{.masthead,.qnav{display:none}details.more{border:0}details.more .in{display:block}}
+</style></head><body><div class="masthead"><div class="wrap"><b>白井とおるサポーターズマガジン</b><span class="vol">Vol.3</span><span>2026年10月12日発行　発行：白井とおるサポーターズ</span></div></div><main class="sec"><div class="narrow"><h1 class="sec-title">ウェブ版サンプル 3案（検討用）</h1><p>紙面の文字と図はそのままです。並べ方と見せ方だけが違います。</p><ul style="list-style:none;padding:0;margin:22px 0 0"><li style="margin:0 0 14px"><a class="btn" href="a.html" style="width:100%;justify-content:space-between"><span>案A　紙面の順に読む</span><span aria-hidden="true">→</span></a><p class="note" style="margin:6px 2px 0">チラシのおもて→うらの順に、ひと続きで読む。いちばんチラシに近い。</p></li><li style="margin:0 0 14px"><a class="btn" href="b.html" style="width:100%;justify-content:space-between"><span>案B　3つの問いで読む</span><span aria-hidden="true">→</span></a><p class="note" style="margin:6px 2px 0">「何が起きた？」「なぜ見直す？」「これからどうする？」の3つに分け、最初に行き先を示す。</p></li><li style="margin:0 0 14px"><a class="btn" href="c.html" style="width:100%;justify-content:space-between"><span>案C　要点の数字から入る</span><span aria-hidden="true">→</span></a><p class="note" style="margin:6px 2px 0">最初に3つの数字（建設費・償還額・公債費）と結論。くわしい説明は開いて読む。</p></li></ul></div></main></body></html>
