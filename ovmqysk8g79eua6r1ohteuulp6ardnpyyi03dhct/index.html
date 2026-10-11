@@ -4,322 +4,316 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>後藤・白井・田中 政策比較図</title>
+<title>小金井市長選2026 政策文書の比較</title>
+<meta name="description" content="後藤秀典氏・白井とおる氏・田中真一氏が公式サイトで公表している政策文書の項目を、原文のまま分野と話題ごとに並べた比較表">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDPMincho:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
 <style>
-/* Layout: どの図も「後藤氏・白井氏・田中氏」の順(50音順)。色は識別用で、陣営カラーではない(色覚検証済み) */
+/* 配色・書体・余白はデジタル庁デザインシステム(DADS)の原則とトークンを参考にした(書体 Noto Sans JP、本文16px以上、行高1.7、
+   コントラスト4.5:1以上、フォーカスは Yellow-300 #ffd43d + 黒の二重線、余白は8pxの倍数)。
+   キーカラーはニュートラル(黒〜グレー)のみ。候補の識別は色ではなく「後・白・田」の文字の印と並び順で行う(候補ごとの色は使わない)。 */
 :root{
-  --bg:#eef1f4; --surface:#fcfcfb; --ink:#14171b; --ink-2:#474e58; --muted:#687079;
-  --line:#dce0e5; --line-2:#c3c9d0;
-  --g:#0f9e74; --g-wash:rgba(15,158,116,.11);
-  --s:#2a78d6; --s-wash:rgba(42,120,214,.10);
-  --t:#eb6834; --t-wash:rgba(235,104,52,.11);
-  --both:#565e69; --both-wash:rgba(86,94,105,.08);
-  --note-bg:#fff4d4; --note-ink:#4a3700; --note-line:#e3c779;
-  --focus:#14171b;
-  --f-disp:"BIZ UDPMincho","Yu Mincho","Hiragino Mincho ProN",serif;
-  --f-body:"BIZ UDPGothic","Hiragino Sans","Yu Gothic UI","Meiryo",system-ui,sans-serif;
-  --r:6px;
+  --bg:#ffffff; --band:#f2f2f2; --card:#ffffff;
+  --ink:#1a1a1a; --ink-2:#4d4d4d; --muted:#767676;
+  --line:#949494; --rule:#e6e6e6; --rule-2:#cccccc;
+  --fill:#1a1a1a; --bar:#4d4d4d; --bar-soft:#cccccc;
+  --focus:#ffd43d;
+  --font:"Noto Sans JP","Hiragino Sans","Yu Gothic UI","Meiryo",system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0f1113; --surface:#1a1b1d; --ink:#f1f2f3; --ink-2:#c3c7cd; --muted:#9aa1a9;
-    --line:#2b2e32; --line-2:#3c4046;
-    --g:#14a37b; --g-wash:rgba(20,163,123,.18);
-    --s:#3987e5; --s-wash:rgba(57,135,229,.18);
-    --t:#d95926; --t-wash:rgba(217,89,38,.20);
-    --both:#a7aeb8; --both-wash:rgba(167,174,184,.10);
-    --note-bg:#2d250f; --note-ink:#f0dca0; --note-line:#5b4a1b;
-    --focus:#f1f2f3; color-scheme:dark;
+    --bg:#1a1a1a; --band:#262626; --card:#1f1f1f;
+    --ink:#f2f2f2; --ink-2:#cccccc; --muted:#a6a6a6;
+    --line:#8c8c8c; --rule:#3a3a3a; --rule-2:#4d4d4d;
+    --fill:#f2f2f2; --bar:#cccccc; --bar-soft:#5a5a5a;
+    color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0f1113; --surface:#1a1b1d; --ink:#f1f2f3; --ink-2:#c3c7cd; --muted:#9aa1a9;
-  --line:#2b2e32; --line-2:#3c4046;
-  --g:#14a37b; --g-wash:rgba(20,163,123,.18);
-  --s:#3987e5; --s-wash:rgba(57,135,229,.18);
-  --t:#d95926; --t-wash:rgba(217,89,38,.20);
-  --both:#a7aeb8; --both-wash:rgba(167,174,184,.10);
-  --note-bg:#2d250f; --note-ink:#f0dca0; --note-line:#5b4a1b;
-  --focus:#f1f2f3; color-scheme:dark;
+  --bg:#1a1a1a; --band:#262626; --card:#1f1f1f;
+  --ink:#f2f2f2; --ink-2:#cccccc; --muted:#a6a6a6;
+  --line:#8c8c8c; --rule:#3a3a3a; --rule-2:#4d4d4d;
+  --fill:#f2f2f2; --bar:#cccccc; --bar-soft:#5a5a5a;
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.75;
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.7;letter-spacing:.02em;
   padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-.wrap{max-width:1160px;margin:0 auto;padding-inline:16px;padding-block:0 64px}
-h1,h2,h3{font-family:var(--f-disp);font-weight:700;text-wrap:balance;line-height:1.4;margin:0}
-h1{font-size:clamp(1.45rem,1.05rem + 2vw,2.2rem)}
-h2{font-size:clamp(1.2rem,1.05rem + .8vw,1.55rem)}
-h3{font-size:1.05rem}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:24px}
+h1,h2,h3,h4{font-weight:700;margin:0;line-height:1.5;letter-spacing:.01em;text-wrap:balance}
+h1{font-size:clamp(26px,22px + 1vw,32px);line-height:1.4}
+h2{font-size:24px}
+h3{font-size:18px;line-height:1.6}
+h4{font-size:16px}
 p{margin:0}
-a{color:inherit;text-underline-offset:3px}
-:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:3px}
+a{color:inherit;text-decoration:underline;text-underline-offset:.2em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;box-shadow:0 0 0 4px #1a1a1a;border-radius:2px}
 .muted{color:var(--muted)}
 .num{font-variant-numeric:tabular-nums}
-.sw{display:inline-block;width:.8em;height:.8em;border-radius:2px;vertical-align:-.05em;flex:none}
-.sw.g{background:var(--g)} .sw.s{background:var(--s)} .sw.t{background:var(--t)} .sw.b{background:var(--both)}
-/* 3人のうち誰が触れているかの印(●=触れている ○=触れていない) */
-.dots{display:inline-flex;gap:3px;align-items:center;flex:none}
-.dots i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--line-2);display:block}
-.dots i.g.on{background:var(--g);border-color:var(--g)} .dots i.s.on{background:var(--s);border-color:var(--s)} .dots i.t.on{background:var(--t);border-color:var(--t)}
+.small{font-size:14px;line-height:1.6}
+ul{margin:0;padding-left:1.4em}
 
-.rail{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);
-  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.rail-in{max-width:1160px;margin:0 auto;padding:7px 16px;display:flex;gap:18px;align-items:center;font-size:.86rem;font-weight:700;flex-wrap:wrap}
-.rail-in span{display:inline-flex;gap:6px;align-items:center}
-.rail-in .note{font-weight:400;color:var(--muted);margin-left:auto;font-size:.78rem}
+/* 候補の印(文字の印。塗り=該当、枠=非該当) */
+.cb{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border:1.5px solid var(--ink);border-radius:3px;
+  font-size:14px;font-weight:700;line-height:1;flex:none;color:var(--ink);background:var(--bg);letter-spacing:0}
+.cb.on{background:var(--fill);color:var(--bg);border-color:var(--fill)}
+.cb.off{border-color:var(--line);color:var(--muted);background:transparent}
+.trio{display:inline-flex;gap:2px;flex:none;vertical-align:middle}
+.trio .cb{width:21px;height:21px;font-size:14px;border-radius:2px}
+.name{display:inline-flex;gap:8px;align-items:center;font-weight:700}
 
-.mast{padding-block:36px 8px;display:grid;gap:18px}
-.eyebrow{font-size:.8rem;letter-spacing:.08em;color:var(--muted)}
-.lede{max-width:46em;color:var(--ink-2)}
-.who{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.who-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:grid;gap:6px;min-width:0;align-content:start}
-.who-card.g{border-top:4px solid var(--g)} .who-card.s{border-top:4px solid var(--s)} .who-card.t{border-top:4px solid var(--t)}
-.who-name{font-family:var(--f-disp);font-size:1.25rem;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
-.who-name small{font-family:var(--f-body);font-size:.78rem;color:var(--muted);font-weight:400}
-.slogan{font-family:var(--f-disp);font-size:1rem}
-.who-meta{font-size:.8rem;color:var(--muted);line-height:1.6}
-.notice{background:var(--note-bg);color:var(--note-ink);border:1px solid var(--note-line);border-radius:var(--r);padding:10px 14px;font-size:.84rem;line-height:1.65}
-.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.86rem;padding-block:6px 0}
-.toc a{color:var(--ink-2)}
+/* ヘッダー */
+.top{border-bottom:1px solid var(--rule-2);padding:16px 0}
+.top .wrap{display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap}
+.top .site{font-weight:700;letter-spacing:.02em}
+.top .st{font-size:14px;color:var(--muted)}
+.mast{padding:48px 0 8px;display:grid;gap:24px}
+.eyebrow{font-size:14px;color:var(--muted);letter-spacing:.04em}
+.lede{max-width:44em;color:var(--ink-2)}
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.who-card{border:1px solid var(--rule-2);border-top:3px solid var(--ink);background:var(--card);padding:20px;display:grid;gap:8px;align-content:start;min-width:0}
+.who-name{font-size:20px;font-weight:700;display:flex;gap:10px;align-items:center;line-height:1.4}
+.who-frame{font-size:14px;color:var(--muted)}
+.who-slogan{color:var(--ink-2)}
+.who-meta{font-size:14px;color:var(--muted);line-height:1.6;word-break:break-all}
+.who-n{display:flex;gap:16px;font-size:14px;color:var(--ink-2);padding-top:4px;border-top:1px solid var(--rule)}
+.who-n b{font-size:20px;font-weight:700;line-height:1}
+.notice{border:1px solid var(--line);padding:16px 20px;display:grid;gap:4px;font-size:15px;line-height:1.7;color:var(--ink-2)}
+.notice b{color:var(--ink)}
+.toc{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:15px;padding-top:8px}
 
-section{padding-top:52px;display:grid;gap:14px;scroll-margin-top:48px}
-.sec-head{display:grid;gap:6px;max-width:48em}
-.sec-head .k{font-size:.76rem;letter-spacing:.1em;color:var(--muted)}
-.sec-head p{color:var(--ink-2);font-size:.92rem}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px}
-.key{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.8rem;color:var(--ink-2);align-items:center}
-.key span{display:inline-flex;gap:6px;align-items:center}
+/* セクション */
+section{padding-top:64px;display:grid;gap:24px;scroll-margin-top:16px}
+.sec-head{display:grid;gap:8px;max-width:46em}
+.sec-head .k{font-size:14px;color:var(--muted);letter-spacing:.06em}
+.sec-head p.d{color:var(--ink-2);font-size:15px}
+.panel{background:var(--card);border:1px solid var(--rule-2);padding:24px}
+.key{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;color:var(--ink-2);align-items:center}
+.key span{display:inline-flex;gap:8px;align-items:center}
 
-/* §1 ひと目で: 項目 × 3人の表 */
-.score{display:grid;grid-template-columns:minmax(8em,13em) repeat(3,1fr);background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
-.score>div{padding:11px 14px;border-top:1px solid var(--line);min-width:0}
-.score>div:nth-child(-n+4){border-top:0}
-.sc-h{font-size:.82rem;font-weight:700;display:flex;gap:6px;align-items:center}
-.sc-l{font-size:.84rem;color:var(--ink-2);display:flex;align-items:center;line-height:1.45;background:var(--both-wash)}
-.sc-v{display:flex;flex-direction:column;gap:5px}
-.sc-v b{font-size:1.45rem;line-height:1.15;font-weight:700}
-.sc-v b.txt{font-size:.92rem;line-height:1.5}
-.sc-v .sub{font-size:.74rem;color:var(--muted);line-height:1.5}
-.sc-bar{height:6px;border-radius:3px;max-width:100%;display:block}
-.sc-v.g .sc-bar{background:var(--g)} .sc-v.s .sc-bar{background:var(--s)} .sc-v.t .sc-bar{background:var(--t)}
+/* §1 数で見る */
+.score{display:grid;grid-template-columns:minmax(9em,14em) repeat(3,1fr);border:1px solid var(--rule-2);background:var(--card)}
+.score>div{padding:12px 16px;border-top:1px solid var(--rule);min-width:0}
+.score>div:nth-child(-n+4){border-top:0;background:var(--band)}
+.sc-h{font-size:15px;font-weight:700;display:flex;gap:8px;align-items:center}
+.sc-l{font-size:15px;color:var(--ink-2);display:flex;align-items:center;line-height:1.5}
+.sc-v{display:grid;gap:6px;align-content:start}
+.sc-v b{font-size:24px;line-height:1.2;font-weight:700}
+.sc-v b.txt{font-size:15px;line-height:1.6}
+.sc-v .sub{font-size:14px;color:var(--muted);line-height:1.5}
+.sc-bar{height:8px;background:var(--bar);display:block;max-width:100%}
 
-/* §2 重なり(組み合わせごとの話題数) */
-.ov{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);display:grid}
-.ov-row{display:grid;grid-template-columns:11.5em 9em 1fr;gap:6px 14px;padding:12px 16px;border-top:1px solid var(--line);align-items:start}
-.ov-row:first-child{border-top:0}
-.ov-who{display:flex;gap:8px;align-items:center;font-size:.86rem;font-weight:700;line-height:1.4}
-.ov-n{display:flex;gap:8px;align-items:center}
-.ov-n b{font-size:1.35rem;line-height:1;min-width:1.4em;text-align:right}
-.ov-n small{font-size:.76rem;color:var(--muted)}
-.ov-bar{height:10px;border-radius:0 4px 4px 0;background:var(--both);display:block}
-.ov-chips{display:flex;flex-wrap:wrap;gap:5px;min-width:0}
-.ov-sub{grid-column:1/-1;padding:10px 16px 4px;font-size:.76rem;letter-spacing:.06em;color:var(--muted);font-weight:700;border-top:1px solid var(--line-2);background:var(--both-wash)}
+/* §2 重なり */
+.ov{border:1px solid var(--rule-2);background:var(--card);display:grid}
+.ov-sub{padding:8px 16px;font-size:14px;font-weight:700;color:var(--ink-2);background:var(--band);border-top:1px solid var(--rule-2)}
+.ov-sub:first-child{border-top:0}
+.ov-row{display:grid;grid-template-columns:12.5em 8.5em 1fr;gap:8px 16px;padding:16px;border-top:1px solid var(--rule);align-items:start}
+.ov-who{display:flex;gap:10px;align-items:center;font-size:15px;font-weight:700;line-height:1.4}
+.ov-n{display:grid;grid-template-columns:auto auto;gap:4px 8px;align-items:baseline;justify-content:start}
+.ov-n b{font-size:22px;line-height:1;min-width:1.4em;text-align:right}
+.ov-n small{font-size:14px;color:var(--muted);white-space:nowrap}
+.ov-bar{height:10px;background:var(--bar);display:block;grid-column:1/-1;max-width:7em}
+.ov-chips{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
 
-/* §3 組み立て(ユニット図) */
-.units{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.ucol{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:4px;align-content:start;min-width:0}
-.ucol-h{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:6px}
-.ucol-h b{font-family:var(--f-disp);font-size:1.08rem}
-.ucol-h span{font-size:.8rem;color:var(--muted)}
-.tier{font-size:.72rem;letter-spacing:.08em;color:var(--muted);padding-top:8px}
-.urow{display:grid;grid-template-columns:2.6em 1fr;gap:4px 8px;padding:6px 0;border-top:1px dashed var(--line);align-items:start}
-.uno{font-weight:700;font-size:.8rem;text-align:center;border-radius:4px;padding:2px 0;line-height:1.5}
-.ucol.g .uno{background:var(--g-wash)} .ucol.s .uno{background:var(--s-wash)} .ucol.t .uno{background:var(--t-wash)}
-.utitle{font-size:.85rem;line-height:1.5;min-width:0}
+/* チップ(項目・話題) */
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);border-radius:2px;padding:3px 10px 3px 6px;
+  font-size:14px;line-height:1.5;cursor:pointer;max-width:100%;text-align:left;color:var(--ink);font-family:inherit}
+.chip:hover{border-color:var(--ink);background:var(--band)}
+.chip.both{border-style:solid}
+.empty{font-size:14px;color:var(--muted)}
+
+/* §3 組み立て */
+.units{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ucol{border:1px solid var(--rule-2);background:var(--card);padding:20px;display:grid;gap:4px;align-content:start;min-width:0}
+.ucol-h{display:grid;gap:4px;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.ucol-h .f{font-size:14px;color:var(--muted)}
+.tier{font-size:14px;letter-spacing:.06em;color:var(--muted);padding-top:12px;font-weight:700}
+.urow{display:grid;grid-template-columns:3em 1fr;gap:4px 10px;padding:8px 0;border-top:1px solid var(--rule);align-items:start}
+.uno{font-weight:700;font-size:14px;text-align:center;border:1px solid var(--line);padding:2px 0;line-height:1.5;border-radius:2px}
+.utitle{font-size:15px;line-height:1.55;min-width:0}
 .usq{grid-column:2;display:flex;flex-wrap:wrap;gap:4px}
-.sq{width:16px;height:16px;border-radius:3px;border:2px solid;padding:0;cursor:pointer;background:transparent}
-.ucol.g .sq{border-color:var(--g)} .ucol.s .sq{border-color:var(--s)} .ucol.t .sq{border-color:var(--t)}
-.ucol.g .sq.on{background:var(--g)} .ucol.s .sq.on{background:var(--s)} .ucol.t .sq.on{background:var(--t)}
-.sq.dup{border-style:dashed;opacity:.7}
-.sq:hover{transform:scale(1.2)}
-@media (prefers-reduced-motion: reduce){.sq:hover{transform:none}}
-.lg-sq{display:inline-block;width:13px;height:13px;border-radius:3px;border:2px solid var(--ink-2)}
-.lg-sq.on{background:var(--ink-2)} .lg-sq.dup{border-style:dashed}
+.sq{width:16px;height:16px;border-radius:2px;border:1.5px solid var(--ink);padding:0;cursor:pointer;background:transparent}
+.sq.on{background:var(--fill)}
+.sq:hover{outline:2px solid var(--line);outline-offset:1px}
+.lg-sq{display:inline-block;width:14px;height:14px;border-radius:2px;border:1.5px solid var(--ink)}
+.lg-sq.on{background:var(--fill)}
 
 /* 3本並びの横棒(分野・言葉) */
-.gb-head{display:grid;grid-template-columns:minmax(8em,12em) 1fr;gap:12px;font-size:.8rem;padding-bottom:8px;border-bottom:1px solid var(--line-2)}
-.gb-head .lg{display:flex;gap:14px;flex-wrap:wrap;font-weight:700}
-.gb-head .lg span{display:inline-flex;gap:6px;align-items:center}
-.gb-row{display:grid;grid-template-columns:minmax(8em,12em) 1fr;gap:12px;padding:6px 0;border-bottom:1px solid var(--line);align-items:center}
+.gb-head{display:grid;grid-template-columns:minmax(9em,13em) 1fr;gap:16px;font-size:14px;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--line)}
+.gb-row{display:grid;grid-template-columns:minmax(9em,13em) 1fr;gap:16px;padding:8px 0;border-bottom:1px solid var(--rule);align-items:center}
 .gb-row[data-theme]{cursor:pointer}
-.gb-row:hover{background:var(--both-wash)}
-.gb-lab{font-size:.84rem;line-height:1.35}
-.gb-bars{display:grid;gap:2px;min-width:0}
-.gb-bar{display:grid;grid-template-columns:1.5em 1fr;gap:6px;align-items:center;height:12px}
-.gb-bar .v{font-size:.74rem;font-weight:700;text-align:right;font-variant-numeric:tabular-nums;line-height:1}
+.gb-row:hover{background:var(--band)}
+.gb-lab{font-size:15px;line-height:1.4}
+.gb-bars{display:grid;gap:3px;min-width:0}
+.gb-bar{display:grid;grid-template-columns:1.5em 2em 1fr;gap:6px;align-items:center;height:16px}
+.gb-bar .v{font-size:14px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums;line-height:1}
 .gb-bar .v.zero{color:var(--muted);font-weight:400}
-.gb-bar i{display:block;height:10px;border-radius:0 4px 4px 0}
-.gb-bar.g i{background:var(--g)} .gb-bar.s i{background:var(--s)} .gb-bar.t i{background:var(--t)}
+.gb-bar i{display:block;height:10px;background:var(--bar)}
 
-/* §5 分野ごとの共通と1人だけ */
-.mx{display:grid;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-.mx-theme{padding:10px 14px 4px;font-size:.8rem;letter-spacing:.06em;color:var(--ink-2);border-top:1px solid var(--line-2);font-weight:700}
+/* §5 分野ごと */
+.mx{border:1px solid var(--rule-2);background:var(--card);display:grid}
+.mx-theme{padding:12px 16px 4px;font-size:15px;font-weight:700;border-top:1px solid var(--line)}
 .mx-theme:first-child{border-top:0}
-.mx-common{padding:4px 14px 8px;display:flex;flex-wrap:wrap;gap:5px;align-items:center;background:var(--both-wash)}
-.mx-only{display:grid;grid-template-columns:repeat(3,1fr)}
-.mx-only>div{padding:6px 14px 10px;display:flex;flex-wrap:wrap;gap:5px;align-content:flex-start;min-width:0}
-.mx-only>div+div{border-left:1px dashed var(--line)}
-.mini{display:flex;width:100%;font-size:.72rem;color:var(--muted);gap:5px;align-items:center}
-.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:2px 10px 2px 8px;font-size:.8rem;line-height:1.45;cursor:pointer;max-width:100%;text-align:left;color:var(--ink);font-family:inherit}
-.chip .sw{width:.65em;height:.65em;border-radius:50%}
-.chip.both{border-radius:5px;padding-left:6px}
-.chip:hover{border-color:var(--ink-2)}
-.empty{font-size:.76rem;color:var(--muted)}
+.mx-common{padding:4px 16px 10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mx-only{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule);background:var(--band)}
+.mx-only>div{padding:8px 16px 12px;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start;min-width:0}
+.mx-only>div+div{border-left:1px solid var(--rule)}
+.mini{display:flex;width:100%;font-size:14px;color:var(--muted);gap:6px;align-items:center;font-weight:700}
 
 /* §6 同じ話題・違う書き方 */
-.cards{display:grid;gap:12px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);display:grid}
-.card-h{display:flex;gap:10px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.card-h h3{flex:1 1 auto}
+.cards{display:grid;gap:16px}
+.card{border:1px solid var(--rule-2);background:var(--card);display:grid}
+.card-h{display:flex;gap:12px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line)}
 .qs{display:grid;grid-template-columns:repeat(3,1fr)}
-.q{padding:12px 16px;display:grid;gap:8px;align-content:start;min-width:0}
-.q+.q{border-left:1px solid var(--line)}
-.q.g{background:linear-gradient(180deg,var(--g-wash),transparent 60%)}
-.q.s{background:linear-gradient(180deg,var(--s-wash),transparent 60%)}
-.q.t{background:linear-gradient(180deg,var(--t-wash),transparent 60%)}
-.q.none{background:none}
-.q-who{font-size:.78rem;font-weight:700;display:flex;gap:6px;align-items:center}
-blockquote{margin:0;font-size:.9rem;line-height:1.7}
-blockquote .ref{font-size:.72rem;color:var(--muted);margin-left:4px;white-space:nowrap}
-blockquote+blockquote{padding-top:6px;border-top:1px dashed var(--line)}
-.q .nothing{font-size:.82rem;color:var(--muted)}
-.card-f{padding:10px 16px 14px;border-top:1px solid var(--line);display:grid;gap:4px;font-size:.88rem;background:var(--both-wash)}
-.card-f p{display:grid;grid-template-columns:3.2em 1fr;gap:8px}
-.card-f b{font-size:.78rem;color:var(--ink-2);padding-top:.15em}
+.q{padding:16px 20px;display:grid;gap:10px;align-content:start;min-width:0}
+.q+.q{border-left:1px solid var(--rule)}
+.q-who{font-size:14px;font-weight:700;display:flex;gap:8px;align-items:center}
+blockquote{margin:0;font-size:15px;line-height:1.7}
+blockquote .ref{font-size:14px;color:var(--muted);margin-left:6px;white-space:nowrap}
+blockquote+blockquote{padding-top:8px;border-top:1px dashed var(--rule-2)}
+.q .nothing{font-size:14px;color:var(--muted)}
+.card-f{padding:12px 20px 16px;border-top:1px solid var(--rule);display:grid;gap:6px;font-size:15px;background:var(--band)}
+.card-f p{display:grid;grid-template-columns:3.4em 1fr;gap:8px}
+.card-f b{font-size:14px;color:var(--ink-2);padding-top:.1em}
 
 /* §8 全項目 */
 .filters{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
-.seg{display:inline-flex;border:1px solid var(--line-2);border-radius:6px;overflow:hidden;flex-wrap:wrap}
-.seg button{font:inherit;font-size:.84rem;border:0;background:var(--surface);color:var(--ink);padding:6px 12px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
-.seg button+button{border-left:1px solid var(--line-2)}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
-select,input[type="search"]{font:inherit;font-size:.86rem;padding:6px 10px;border:1px solid var(--line-2);border-radius:6px;background:var(--surface);color:var(--ink);min-width:0}
-input[type="search"]{flex:1 1 12em}
-.count{font-size:.84rem;color:var(--muted)}
-.list{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
-.li{display:grid;grid-template-columns:5.2em 1fr 13em;gap:4px 16px;padding:10px 14px;border-top:1px solid var(--line);align-items:start}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:2px;overflow:hidden;flex-wrap:wrap}
+.seg button{font:inherit;font-size:15px;border:0;background:var(--card);color:var(--ink);padding:8px 14px;cursor:pointer;display:inline-flex;gap:6px;align-items:center;min-height:44px}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--fill);color:var(--bg)}
+.seg button[aria-pressed="true"] .cb{border-color:var(--bg);color:var(--bg);background:transparent}
+select,input[type="search"]{font:inherit;font-size:15px;padding:8px 12px;border:1px solid var(--line);border-radius:2px;background:var(--card);color:var(--ink);min-width:0;min-height:44px}
+input[type="search"]{flex:1 1 14em}
+.count{font-size:15px;color:var(--muted)}
+.list{border:1px solid var(--rule-2);background:var(--card)}
+.li{display:grid;grid-template-columns:5.6em 1fr 14em;gap:4px 16px;padding:12px 16px;border-top:1px solid var(--rule);align-items:start}
 .li:first-child{border-top:0}
-.li-who{display:grid;grid-template-columns:auto 1fr;gap:0 6px;align-items:center;font-size:.84rem;font-weight:700;white-space:nowrap}
-.li-who .id{grid-column:2;font-weight:400;color:var(--muted);font-size:.74rem}
-.li-g{display:block;font-size:.76rem;color:var(--muted);line-height:1.5;margin-bottom:2px}
-.li-text{font-size:.92rem;line-height:1.7;min-width:0}
+.li-who{display:grid;grid-template-columns:auto 1fr;gap:0 8px;align-items:center;font-size:15px;font-weight:700;white-space:nowrap}
+.li-who .id{grid-column:2;font-weight:400;color:var(--muted);font-size:14px}
+.li-g{display:block;font-size:14px;color:var(--muted);line-height:1.5;margin-bottom:2px}
+.li-text{font-size:15px;line-height:1.7;min-width:0}
 .li-text .head{display:block;font-weight:700}
-.li-tag{display:grid;gap:4px;font-size:.76rem;color:var(--ink-2);line-height:1.45}
+.tag{display:inline-block;font-size:14px;line-height:1.4;border:1px solid var(--line);border-radius:2px;padding:0 6px;color:var(--ink-2);margin-right:6px;vertical-align:.1em}
+.li-note{display:block;font-size:14px;color:var(--muted)}
+.li-tag{display:grid;gap:4px;font-size:14px;color:var(--ink-2);line-height:1.5}
 .li-tag .th{color:var(--muted)}
 .li-rel{display:flex;gap:6px;align-items:center}
 
-.method{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.method .panel{display:grid;gap:8px;align-content:start;font-size:.88rem;min-width:0}
-.method ul{margin:0;padding-left:1.2em;display:grid;gap:4px}
-.method code{font-size:.8em;word-break:break-all}
-footer{padding-top:40px;font-size:.78rem;color:var(--muted)}
+/* 出典と方法 */
+.method{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.method .panel{display:grid;gap:12px;align-content:start;font-size:15px;min-width:0}
+.method ul{display:grid;gap:6px}
+.src{display:grid;gap:4px}
+.src .u{font-size:14px;word-break:break-all}
+footer{padding:48px 0 64px;font-size:14px;color:var(--muted);display:grid;gap:4px;border-top:1px solid var(--rule-2);margin-top:64px}
 
-#tip{position:fixed;z-index:50;max-width:min(380px,calc(100vw - 24px));background:var(--ink);color:var(--surface);border-radius:6px;padding:9px 12px;font-size:.82rem;line-height:1.6;pointer-events:none;box-shadow:0 6px 20px rgba(0,0,0,.25)}
-#tip b{display:block;font-size:.74rem;opacity:.8;font-weight:700;margin-bottom:2px}
-#tip ul{margin:4px 0 0;padding-left:1.1em}
+/* ツールチップ */
+#tip{position:fixed;z-index:50;max-width:min(400px,calc(100vw - 32px));background:var(--ink);color:var(--bg);border-radius:2px;padding:10px 14px;font-size:14px;line-height:1.6;pointer-events:none;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+#tip b{display:block;font-size:14px;opacity:.85;font-weight:700;margin-bottom:2px}
+#tip ul{margin:4px 0 0;padding-left:1.2em}
 
-@media (max-width: 860px){
+@media (max-width: 880px){
+  .wrap{padding-inline:16px}
   .who,.units,.method{grid-template-columns:1fr}
   .qs{grid-template-columns:1fr}
-  .q+.q{border-left:0;border-top:1px solid var(--line)}
+  .q+.q{border-left:0;border-top:1px solid var(--rule)}
   .mx-only{grid-template-columns:1fr}
-  .mx-only>div+div{border-left:0;border-top:1px dashed var(--line)}
-  .li{grid-template-columns:1fr;gap:4px}
-  .li-who{display:flex;gap:6px}
+  .mx-only>div+div{border-left:0;border-top:1px solid var(--rule)}
+  .li{grid-template-columns:1fr;gap:6px}
+  .li-who{display:flex;gap:8px}
   .ov-row{grid-template-columns:1fr auto}
   .ov-chips{grid-column:1/-1}
-  .rail-in .note{display:none}
+  h2{font-size:22px}
 }
 @media (max-width: 560px){
   .score{grid-template-columns:repeat(3,1fr)}
-  .score .sc-l{grid-column:1/-1;background:var(--both-wash);padding:6px 10px;font-weight:700;font-size:.78rem}
+  .score .sc-l{grid-column:1/-1;background:var(--band);padding:6px 12px;font-weight:700;font-size:14px}
   .score>div{padding:8px 10px}
   .score>div:nth-child(-n+4){border-top:0}
-  .score .sc-h.corner{display:none}
-  .sc-v b{font-size:1.2rem}
-  .sc-v b.txt{font-size:.78rem}
-  .gb-head,.gb-row{grid-template-columns:6.5em 1fr;gap:8px}
-  .gb-lab{font-size:.76rem}
-  .rail-in{font-size:.78rem;gap:10px}
+  .score .corner{display:none}
+  .sc-v b{font-size:20px}
+  .sc-v b.txt{font-size:14px}
+  .gb-head,.gb-row{grid-template-columns:7em 1fr;gap:8px}
+  .gb-lab{font-size:14px}
+  .mast{padding-top:32px}
 }
 </style>
 </head>
 <body>
-<div class="rail" aria-hidden="true"><div class="rail-in">
-  <span><span class="sw g"></span>後藤秀典氏</span>
-  <span><span class="sw s"></span>白井とおる氏</span>
-  <span><span class="sw t"></span>田中真一氏</span>
-  <span class="note">並びは50音順</span>
+<div class="top"><div class="wrap">
+  <span class="site">小金井市長選2026 ・ 政策文書の比較</span>
+  <span class="st" id="st"></span>
 </div></div>
 
 <div class="wrap">
 <header class="mast">
-  <p class="eyebrow">2026年 小金井市長選挙 ・ 政策文書の見える化(3人版)</p>
-  <h1>後藤秀典氏・白井とおる氏・田中真一氏の政策を、並べて見る</h1>
-  <p class="lede">3氏の政策文書に書かれている項目を1件ずつ拾い、分野と話題ごとに並べました。よしあしの評価ではなく、「何が、どう書かれているか」の比較です。どの図も、後藤氏・白井氏・田中氏の順です(50音順)。資料の種類と分量が3氏で違う点(チラシ1枚/12ページの冊子/ウェブページ)に注意してください。</p>
+  <p class="eyebrow">公式サイトに公表されている政策文書の記載を、そのまま並べる</p>
+  <h1>後藤秀典氏・白井とおる氏・田中真一氏の政策文書を、同じ物差しで並べて見る</h1>
+  <p class="lede">3氏がそれぞれの公式サイトで公表している政策文書から項目を1件ずつ拾い、原文のまま、分野と話題ごとに並べました。よしあしの評価や優劣の判定はしていません。どの図も並びは50音順(後藤氏・白井氏・田中氏)で、候補ごとの色分けはせず、文字の印(後・白・田)で区別します。</p>
   <div class="who" id="who"></div>
   <div class="notice" id="notice"></div>
   <nav class="toc" aria-label="目次">
-    <a href="#glance">ひと目で</a><a href="#overlap">誰と誰が重なるか</a><a href="#frame">政策の組み立て</a><a href="#themes">分野ごとの項目数</a><a href="#matrix">分野ごとの共通と1人だけ</a><a href="#contrast">同じ話題・違う書き方</a><a href="#words">よく使う言葉</a><a href="#all">全項目</a><a href="#method">出典と方法</a>
+    <a href="#glance">数で見る</a><a href="#overlap">誰と誰が重なるか</a><a href="#frame">政策の組み立て</a><a href="#themes">分野ごとの項目数</a><a href="#matrix">分野ごとの共通と1人だけ</a><a href="#contrast">同じ話題・違う書き方</a><a href="#words">よく使う言葉</a><a href="#all">全項目(原文)</a><a href="#method">出典と方法</a>
   </nav>
 </header>
 
 <section id="glance" aria-labelledby="h-glance">
-  <div class="sec-head"><p class="k">ひと目で</p><h2 id="h-glance">数で見る3つの政策文書</h2></div>
+  <div class="sec-head"><p class="k">1. 数で見る</p><h2 id="h-glance">3つの政策文書を数で見る</h2>
+    <p class="d">資料の形が違う(トップページ内の箇条書き／専用ページ／専用ページ)ので、項目数や文字数の差は、資料の形の差でもあります。</p></div>
   <div class="score" id="score"></div>
 </section>
 
 <section id="overlap" aria-labelledby="h-overlap">
-  <div class="sec-head"><p class="k">誰と誰が重なるか</p><h2 id="h-overlap">共通する話題を、組み合わせごとに数える</h2>
-    <p id="ov-note"></p></div>
-  <div class="key"><span><span class="dots" aria-hidden="true"><i class="g on"></i><i class="s"></i><i class="t on"></i></span>= 後藤氏・白井氏・田中氏の順に、●が触れている候補</span></div>
+  <div class="sec-head"><p class="k">2. 誰と誰が重なるか</p><h2 id="h-overlap">2人以上が触れている話題を、組み合わせごとに数える</h2>
+    <p class="d" id="ov-note"></p></div>
+  <div class="key"><span><span class="trio" aria-hidden="true"><span class="cb on">後</span><span class="cb off">白</span><span class="cb on">田</span></span>塗りの印がその話題に触れている候補(左から後藤氏・白井氏・田中氏)</span></div>
   <div class="ov" id="ov"></div>
 </section>
 
 <section id="frame" aria-labelledby="h-frame">
-  <div class="sec-head"><p class="k">政策の組み立て</p><h2 id="h-frame">柱の立て方と、柱ごとの項目数</h2>
-    <p>1マスが1項目です。塗りつぶしのマスは、ほかの候補の政策にも同じ話題がある項目、枠だけのマスはその候補だけが書いている項目です。マスに触れると本文が出ます。</p></div>
-  <div class="key"><span><i class="lg-sq on"></i>ほかの候補にも同じ話題がある</span><span><i class="lg-sq"></i>この候補だけ</span><span><i class="lg-sq dup"></i>再掲(同じ文が2か所)</span></div>
+  <div class="sec-head"><p class="k">3. 政策の組み立て</p><h2 id="h-frame">柱の立て方と、柱ごとの項目数</h2>
+    <p class="d">1マスが1項目です。塗りのマスは、ほかの候補の政策文書にも同じ話題がある項目、枠だけのマスはその候補だけが書いている項目です。マスに触れると原文が出ます。</p></div>
+  <div class="key"><span><i class="lg-sq on"></i>ほかの候補にも同じ話題がある</span><span><i class="lg-sq"></i>この候補だけ</span></div>
   <div class="units" id="units"></div>
 </section>
 
 <section id="themes" aria-labelledby="h-themes">
-  <div class="sec-head"><p class="k">分野ごとの項目数</p><h2 id="h-themes">どの分野に、いくつ書いているか</h2>
-    <p>14の分野に分けて項目を数えました。行を押すと、下の「全項目」がその分野だけに絞られます。後藤氏は全体の項目数が少ない(19項目)ため、どの分野でも棒が短くなります。</p></div>
+  <div class="sec-head"><p class="k">4. 分野ごとの項目数</p><h2 id="h-themes">どの分野に、いくつ書いているか</h2>
+    <p class="d">14の分野に分けて項目を数えました(分け方はこの比較のために付けたもので、付録の全項目一覧で確かめられます)。行を押すと、下の「全項目」がその分野だけに絞られます。</p></div>
   <div class="panel"><div id="gb-themes"></div></div>
 </section>
 
 <section id="matrix" aria-labelledby="h-matrix">
-  <div class="sec-head"><p class="k">分野ごとの共通と1人だけ</p><h2 id="h-matrix">分野ごとに、共通する話題と1人だけの項目</h2>
-    <p>灰色の帯は、2人以上が触れている話題です(印で誰が触れているかを示します)。その下の3列は、ほかの2人の政策文書に同じ話題が見当たらなかった項目です。</p></div>
+  <div class="sec-head"><p class="k">5. 分野ごとの共通と1人だけ</p><h2 id="h-matrix">分野ごとに、共通する話題と1人だけの項目</h2>
+    <p class="d">上の段は2人以上が触れている話題(印で誰が触れているかを示します)。下の段は、ほかの2人の政策文書に同じ話題が見当たらなかった項目です。</p></div>
   <div class="mx" id="mx"></div>
 </section>
 
 <section id="contrast" aria-labelledby="h-contrast">
-  <div class="sec-head"><p class="k">同じ話題・違う書き方</p><h2 id="h-contrast">同じ話題で、書いていることが違うところ</h2>
-    <p>共通する話題のうち、書き方の違いが大きいものを原文で並べました。引用は政策文書の文言そのままです。「違い」の文はこの比較のためにまとめたものです。</p></div>
+  <div class="sec-head"><p class="k">6. 同じ話題・違う書き方</p><h2 id="h-contrast">同じ話題で、書いていることが違うところ</h2>
+    <p class="d">共通する話題のうち、書き方の違いが大きいものを原文で並べました。引用は政策文書の文言そのままです。「共通」「違い」の文は、書かれていることの要約で、評価ではありません。</p></div>
   <div class="cards" id="cards"></div>
 </section>
 
 <section id="words" aria-labelledby="h-words">
-  <div class="sec-head"><p class="k">よく使う言葉</p><h2 id="h-words">政策文書に出てくる回数</h2>
-    <p id="words-note"></p></div>
+  <div class="sec-head"><p class="k">7. よく使う言葉</p><h2 id="h-words">政策文書に出てくる回数</h2>
+    <p class="d" id="words-note"></p></div>
   <div class="panel"><div id="gb-words"></div></div>
 </section>
 
 <section id="all" aria-labelledby="h-all">
-  <div class="sec-head"><p class="k">付録</p><h2 id="h-all">全項目(原文)</h2>
-    <p>図のもとになった全項目です。分野と「共通する話題」は、この比較のために付けた分類です。</p></div>
+  <div class="sec-head"><p class="k">8. 付録</p><h2 id="h-all">全項目(原文)</h2>
+    <p class="d">図のもとになった全項目です。「分野」と「共通する話題」は、この比較のために付けた分類です。白井氏の項目に付いている「取り組みます」「検討します」「みんなでつくる」などの印は、サイトに書かれているものをそのまま載せています。</p></div>
   <div class="filters">
     <div class="seg" role="group" aria-label="候補で絞る" id="f-cand">
       <button type="button" data-v="all" aria-pressed="true">すべて</button>
-      <button type="button" data-v="goto" aria-pressed="false"><span class="sw g"></span>後藤</button>
-      <button type="button" data-v="shirai" aria-pressed="false"><span class="sw s"></span>白井</button>
-      <button type="button" data-v="tanaka" aria-pressed="false"><span class="sw t"></span>田中</button>
+      <button type="button" data-v="goto" aria-pressed="false"><span class="cb">後</span>後藤</button>
+      <button type="button" data-v="shirai" aria-pressed="false"><span class="cb">白</span>白井</button>
+      <button type="button" data-v="tanaka" aria-pressed="false"><span class="cb">田</span>田中</button>
     </div>
     <select id="f-theme" aria-label="分野で絞る"></select>
     <select id="f-rel" aria-label="ほかの候補との関係で絞る">
@@ -334,7 +328,7 @@ footer{padding-top:40px;font-size:.78rem;color:var(--muted)}
 </section>
 
 <section id="method" aria-labelledby="h-method">
-  <div class="sec-head"><p class="k">出典と方法</p><h2 id="h-method">どの資料を、どう数えたか</h2></div>
+  <div class="sec-head"><p class="k">9. 出典と方法</p><h2 id="h-method">どの資料を、どう数えたか</h2></div>
   <div class="method" id="methodbox"></div>
 </section>
 
@@ -344,7 +338,7 @@ footer{padding-top:40px;font-size:.78rem;color:var(--muted)}
 <div id="tip" role="tooltip" hidden></div>
 
 <script>
-const DATA = {"meta": {"asof": "2026-10-06", "shirai": {"name": "白井とおる", "source": "政策2026 VOL.05 0926−2(政策部分)", "source_path": "Dropbox/kogaomo/市長選2026/ウェブ/政策/政策2026-vol.05-0926-2.pdf", "source_sha256": "75887e16e6b25143e100186180e567bed19929d9568796aec21e774f838a445f", "slogan": "みんなでつくろう！ 動き彩るまち、小金井。", "subslogan": "人が育ち、動き、つながる。にぎわいと挑戦が生まれ、まちの未来を創る", "frame": "包括的な取組み1＋重要課題2＋7つの基本政策"}, "tanaka": {"name": "田中真一", "source": "田中真一 公式サイト「政策・ターゲット9」", "source_url": "https://tanashin0914.com/policy/", "retrieved": "2026-09-29", "slogan": "光り輝く黄金井 魅力ある、選ばれるまち小金井へ", "subslogan": "決める、動かす、小金井を前へ！！", "frame": "ターゲット9(9つの政策)"}, "goto": {"name": "後藤秀典", "source": "チラシ「市政を良くしたい！ 後藤秀典の6つの政策」(画像)", "source_path": "一次資料_後藤秀典チラシ_2026-10-06/goto_6seisaku.webp", "source_sha256": "3b688479474e05b8b4cf4a622da6a2656c538a20cf7763515e2cfbb8b6af2419", "retrieved": "2026-10-06", "slogan": "市政を良くしたい！", "subslogan": "市民と行政が対等に話し合い、信頼関係を築く。", "frame": "6つの政策"}}, "cands": ["goto", "shirai", "tanaka"], "themes": [{"id": "kyoiku", "name": "教育・子育て", "G": 4, "G_only": ["G2-1"], "S": 8, "S_only": ["S1-6", "S1-7"], "T": 6, "T_only": ["T4-1", "T4-4"], "topics": ["gakudo", "bukatsu", "kenshin", "sho1", "gakko", "hoiku", "manabi"]}, {"id": "wakamono", "name": "若者", "G": 0, "G_only": [], "S": 2, "S_only": ["SH-4", "S1-9"], "T": 0, "T_only": [], "topics": []}, {"id": "fukushi", "name": "健康・福祉・高齢者", "G": 1, "G_only": [], "S": 2, "S_only": ["S2-5"], "T": 3, "T_only": [], "topics": ["korei"]}, {"id": "tayosei", "name": "障がい・多様性・人権", "G": 0, "G_only": [], "S": 5, "S_only": ["S5-3", "S5-4", "S5-5"], "T": 1, "T_only": [], "topics": ["shogai"]}, {"id": "sports", "name": "スポーツ・文化・生涯学習", "G": 0, "G_only": [], "S": 1, "S_only": [], "T": 6, "T_only": ["T3-3", "T4-7", "T4-8"], "topics": ["sports", "bunka", "asobiba"]}, {"id": "bosai", "name": "防災", "G": 2, "G_only": ["G5-1"], "S": 2, "S_only": ["S3-2"], "T": 2, "T_only": [], "topics": ["bosai", "hinan"]}, {"id": "bohan", "name": "防犯・交通安全", "G": 0, "G_only": [], "S": 2, "S_only": ["S3-4"], "T": 1, "T_only": [], "topics": ["bohan"]}, {"id": "machi", "name": "道路・駅周辺・交通", "G": 0, "G_only": [], "S": 3, "S_only": ["S2-4"], "T": 5, "T_only": ["T2-3"], "topics": ["bench", "road3411", "higashi"]}, {"id": "nigiwai", "name": "商工・にぎわい・交流", "G": 2, "G_only": [], "S": 4, "S_only": ["S4-4"], "T": 3, "T_only": [], "topics": ["daigaku", "kigyo", "tsudou", "matsuri", "shotengai"]}, {"id": "bukka", "name": "物価高対策", "G": 1, "G_only": [], "S": 1, "S_only": [], "T": 2, "T_only": [], "topics": ["bukka"]}, {"id": "kankyo", "name": "環境・農・みどり", "G": 5, "G_only": ["G3-3", "G3-5"], "S": 5, "S_only": [], "T": 3, "T_only": [], "topics": ["nogyo", "gomi", "shizen", "atsusa", "kiko"]}, {"id": "chosha", "name": "庁舎・公共施設", "G": 2, "G_only": [], "S": 2, "S_only": ["S7-6"], "T": 1, "T_only": [], "topics": ["chosha"]}, {"id": "shiyakusho", "name": "市役所改革・行財政", "G": 0, "G_only": [], "S": 6, "S_only": ["S7-3", "S7-4", "S7-5"], "T": 2, "T_only": [], "topics": ["soshiki", "shunyu"]}, {"id": "sanka", "name": "市民参加・協働", "G": 2, "G_only": [], "S": 3, "S_only": ["SH-3"], "T": 0, "T_only": [], "topics": ["sanka"]}], "groups": [{"id": "G1", "cand": "goto", "no": "1", "title": "誰もが安心して暮らせるまち", "kind": "政策", "items": ["G1-1", "G1-2", "G1-3"]}, {"id": "G2", "cand": "goto", "no": "2", "title": "子どもの権利を保障し、子どもをまちの真ん中に", "kind": "政策", "items": ["G2-1", "G2-2", "G2-3", "G2-4"]}, {"id": "G3", "cand": "goto", "no": "3", "title": "緑の中で豊かに暮らし続けられるまち", "kind": "政策", "items": ["G3-1", "G3-2", "G3-3", "G3-4", "G3-5"]}, {"id": "G4", "cand": "goto", "no": "4", "title": "人が賑わい、活気あふれるまち", "kind": "政策", "items": ["G4-1", "G4-2", "G4-3"]}, {"id": "G5", "cand": "goto", "no": "5", "title": "災害関連死を一人も出さない…災害時も安心して暮らせるまち", "kind": "政策", "items": ["G5-1", "G5-2"]}, {"id": "G6", "cand": "goto", "no": "6", "title": "徹底した情報公開と市民参加", "kind": "政策", "items": ["G6-1", "G6-2"]}, {"id": "SH", "cand": "shirai", "no": "包括", "title": "「みんなでつくるまち」実現に向けて", "kind": "包括的な取組み", "items": ["SH-1", "SH-2", "SH-3", "SH-4"]}, {"id": "SK", "cand": "shirai", "no": "重要", "title": "重要課題", "kind": "重要課題", "items": ["SK-1", "SK-2"]}, {"id": "S1", "cand": "shirai", "no": "01", "title": "子どもと若者の未来をひらくまち、小金井", "area": "教育・子育て・若者", "kind": "基本政策", "items": ["S1-1", "S1-2", "S1-3", "S1-4", "S1-5", "S1-6", "S1-7", "S1-8", "S1-9", "S1-10"]}, {"id": "S2", "cand": "shirai", "no": "02", "title": "健康でつながって暮らせるまち、小金井", "area": "健康・福祉・地域交流", "tagline": "「いつまでも、自分らしく。」", "kind": "基本政策", "items": ["S2-1", "S2-2", "S2-3", "S2-4", "S2-5", "S2-6"]}, {"id": "S3", "cand": "shirai", "no": "03", "title": "安心して暮らせるまち、小金井", "area": "防災・防犯・事故防止", "tagline": "もしもの時も、普段の暮らしも安心に。", "kind": "基本政策", "items": ["S3-1", "S3-2", "S3-3", "S3-4"]}, {"id": "S4", "cand": "shirai", "no": "04", "title": "人と人がつながり、新しいことが生まれるまち、小金井", "area": "商工振興・文化交流・起業・市民協働", "tagline": "何か始めたい人を応援し、まちのにぎわいをつくる", "kind": "基本政策", "items": ["S4-1", "S4-2", "S4-3", "S4-4"]}, {"id": "S5", "cand": "shirai", "no": "05", "title": "ちがいを力に換えるインクルーシブなまち、小金井", "area": "多様性・人権・平和", "tagline": "誰もが、自分らしく。", "kind": "基本政策", "items": ["S5-1", "S5-2", "S5-3", "S5-4", "S5-5"]}, {"id": "S6", "cand": "shirai", "no": "06", "title": "豊かな自然を、未来へつなぐまち、小金井", "area": "環境・気候変動", "tagline": "「緑と水を、未来へ。」", "kind": "基本政策", "items": ["S6-1", "S6-2", "S6-3", "S6-4", "S6-5"]}, {"id": "S7", "cand": "shirai", "no": "7", "title": "変革を続ける市役所。人材育成の強化、外部人材・DX＆AI徹底活用、稼ぐ自治体へ", "kind": "基本政策", "items": ["S7-1", "S7-2", "S7-3", "S7-4", "S7-5", "S7-6", "S7-7"]}, {"id": "T1", "cand": "tanaka", "no": "1", "title": "都・国と連携。あらゆる物価高対策で市民生活を守る、支える", "kind": "政策", "items": ["T1-1", "T1-2", "T1-3", "T1-4"]}, {"id": "T2", "cand": "tanaka", "no": "2", "title": "防災拠点・災害司令塔の新庁舎の早期建設と安全安心のまちへのインフラの整備", "kind": "政策", "items": ["T2-1", "T2-2", "T2-3"]}, {"id": "T3", "cand": "tanaka", "no": "3", "title": "スポーツの力で「人」・「まち」を元気に！！", "kind": "政策", "items": ["T3-1", "T3-2", "T3-3"]}, {"id": "T4", "cand": "tanaka", "no": "4", "title": "子どもから大人まで「教育立市」小金井へ", "kind": "政策", "items": ["T4-1", "T4-2", "T4-3", "T4-4", "T4-5", "T4-6", "T4-7", "T4-8", "T4-9"]}, {"id": "T5", "cand": "tanaka", "no": "5", "title": "「市民の相談役　市役所」活力ある市役所をワンチームでつくる", "kind": "政策", "items": ["T5-1", "T5-2"]}, {"id": "T6", "cand": "tanaka", "no": "6", "title": "「さあ、外に出よう！」と思える憩いの場の創造", "kind": "政策", "items": ["T6-1", "T6-2", "T6-3", "T6-4"]}, {"id": "T7", "cand": "tanaka", "no": "7", "title": "いつまでも元気に、楽しい人生を！！健康で長生きできるまちへ", "kind": "政策", "items": ["T7-1", "T7-2", "T7-3", "T7-4", "T7-5"]}, {"id": "T8", "cand": "tanaka", "no": "8", "title": "地域と共にすすめる住民防犯、住民防災", "kind": "政策", "items": ["T8-1", "T8-2", "T8-3"]}, {"id": "T9", "cand": "tanaka", "no": "9", "title": "「次の世代に確かな未来を残す」環境保全の積極的推進", "kind": "政策", "items": ["T9-1", "T9-2"]}], "items": [{"id": "G1-1", "group": "G1", "theme": "bukka", "label": "物価高から暮らしを守る・寄り添うサポート", "text": "物価高から暮らしを守る～生活に困らない寄り添うサポート", "cand": "goto", "topics": ["bukka"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G1-2", "group": "G1", "theme": "sanka", "label": "地域コミュニティーと市役所をつなぐ", "text": "誰ひとり見捨てない～地域コミュニティーと市役所をつなぐ", "cand": "goto", "topics": ["sanka"], "shared": true, "with": ["shirai"]}, {"id": "G1-3", "group": "G1", "theme": "fukushi", "label": "健康の維持・向上、介護の充実", "text": "市民の健康を維持・向上し、介護を充実する", "cand": "goto", "topics": ["korei"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G2-1", "group": "G2", "theme": "kyoiku", "label": "希望する子どもすべてが保育園に", "text": "入園を希望するすべての子どもが保育園に通えるまち", "cand": "goto", "topics": [], "shared": false, "with": []}, {"id": "G2-2", "group": "G2", "theme": "kyoiku", "label": "公立・民間保育園の協働で保育の質", "text": "公立、民間保育園の協働で保育の質を高める", "cand": "goto", "topics": ["hoiku"], "shared": true, "with": ["shirai"]}, {"id": "G2-3", "group": "G2", "theme": "kyoiku", "label": "放課後の居場所の拡充", "text": "子ども達がのびのびと安心して過ごせる放課後の居場所の拡充", "cand": "goto", "topics": ["sho1"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G2-4", "group": "G2", "theme": "kyoiku", "label": "学びの多様化の実現", "text": "どの子も安心して通える学びの多様化の実現", "cand": "goto", "topics": ["manabi"], "shared": true, "with": ["shirai"]}, {"id": "G3-1", "group": "G3", "theme": "kankyo", "label": "都道3・4・11の建設計画は中止", "text": "自然を破壊する、はけ、野川、武蔵野公園のど真ん中を通る都道3・4・11建設計画は中止を", "cand": "goto", "topics": ["road3411", "shizen"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G3-2", "group": "G3", "theme": "kankyo", "label": "暑さから守る街路樹・緑", "text": "暑さから人を守る街路樹に囲まれた緑あふれるまち", "cand": "goto", "topics": ["shizen", "atsusa"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G3-3", "group": "G3", "theme": "kankyo", "label": "地下水のPFAS汚染対策", "text": "地下水のPFAS汚染対策", "cand": "goto", "topics": [], "shared": false, "with": []}, {"id": "G3-4", "group": "G3", "theme": "kankyo", "label": "自然再生エネルギーの活用", "text": "気候変動を抑える自然再生エネルギーを活用し、エネルギーに困らないまちを築く", "cand": "goto", "topics": ["kiko"], "shared": true, "with": ["shirai"]}, {"id": "G3-5", "group": "G3", "theme": "kankyo", "label": "原発に頼らないエネルギー", "text": "原発に頼らなくても、エネルギーに困らないまちへ", "cand": "goto", "topics": [], "shared": false, "with": []}, {"id": "G4-1", "group": "G4", "theme": "nigiwai", "label": "中小・零細企業・個人事業主", "text": "中小・零細企業・個人事業主を元気にする", "cand": "goto", "topics": ["shotengai"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G4-2", "group": "G4", "theme": "nigiwai", "label": "地域内循環型経済", "text": "地域内循環型経済の実現", "cand": "goto", "topics": ["shotengai"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G4-3", "group": "G4", "theme": "chosha", "label": "誰でも使える公民館", "text": "誰でも使える公民館", "cand": "goto", "topics": ["tsudou"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G5-1", "group": "G5", "theme": "bosai", "label": "無電柱化・木造住宅の耐震化", "text": "道路の無電柱化、木造住宅の耐震化など被害を最小限に抑える", "cand": "goto", "topics": [], "shared": false, "with": []}, {"id": "G5-2", "group": "G5", "theme": "bosai", "label": "プライバシー・健康に配慮した避難生活", "text": "プライバシーが守られ健康に配慮された避難生活を保障する", "cand": "goto", "topics": ["hinan"], "shared": true, "with": ["shirai"]}, {"id": "G6-1", "group": "G6", "theme": "sanka", "label": "情報公開・「市民の砦」を築く", "text": "情報を包み隠さず明らかにし、市民のみなさんと共有し、新しい「市民の砦(住民自治・防災の拠点)」を築く", "cand": "goto", "topics": ["sanka"], "shared": true, "with": ["shirai"]}, {"id": "G6-2", "group": "G6", "theme": "chosha", "label": "新庁舎は財政状況を公開しコンパクトに", "text": "市役所新庁舎建設は、財政状況を公開し、コンパクトで利用しやすい庁舎を", "cand": "goto", "topics": ["chosha"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "SH-1", "group": "SH", "theme": "sanka", "label": "市民協働支援センター・新しい交流の場イベント", "text": "市民協働支援センターの本設置・稼働と、市民まつりに代わる「新しい交流の場」イベント開催", "page": 4, "cand": "shirai", "topics": ["matsuri", "sanka"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "SH-2", "group": "SH", "theme": "sanka", "label": "市民参加型予算(検討)", "text": "市民提案と投票による「市民参加型予算」の実施検討", "page": 4, "cand": "shirai", "topics": ["sanka"], "shared": true, "with": ["goto"]}, {"id": "SH-3", "group": "SH", "theme": "sanka", "label": "クラウドファンディングの活用", "text": "クラウドファンディングを積極的に活用し、みんなで市民サービスの向上をはかる", "page": 4, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "SH-4", "group": "SH", "theme": "wakamono", "label": "ティーンズ会議", "text": "ティーンズ会議の開催等、若者の声を市政に活かすとともに地域交流を促す", "page": 4, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "SK-1", "group": "SK", "theme": "chosha", "label": "新庁舎等の見直しと早期整備", "head": "市役所新庁舎等の早期整備！", "text": "これまでの新庁舎・（仮称）新福祉会館複合施設については、建設費上昇により将来負担が過大なため規模や機能、設計を見直します。防災拠点の市役所、まちの未来を育む福祉の拠点の整理＆早期整備に向け取り組みます。", "page": 5, "cand": "shirai", "topics": ["chosha"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "SK-2", "group": "SK", "theme": "bukka", "label": "家計の負担軽減・事業継続支援", "head": "物価高から暮らしと仕事を守る！", "text": "国や都とも連携し、家計への負担軽減とともに、地域事業者の事業継続支援を実施", "page": 5, "cand": "shirai", "topics": ["bukka", "shotengai"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S1-1", "group": "S1", "sub": "安心して、子育てできる環境を", "theme": "kyoiku", "label": "学童保育所の大規模化の解消", "text": "学童保育所の大規模化の解消", "page": 6, "cand": "shirai", "topics": ["gakudo"], "shared": true, "with": ["tanaka"]}, {"id": "S1-2", "group": "S1", "sub": "安心して、子育てできる環境を", "theme": "kyoiku", "label": "5歳児健診の開始・切れ目ない支援", "text": "5歳児健診の開始、妊娠以降の切れ目ない支援", "page": 6, "cand": "shirai", "topics": ["kenshin"], "shared": true, "with": ["tanaka"]}, {"id": "S1-3", "group": "S1", "sub": "安心して、子育てできる環境を", "theme": "kyoiku", "label": "保育施設の質の維持・向上", "text": "保育施設の質の維持・向上のための取組みを推進", "page": 6, "cand": "shirai", "topics": ["hoiku"], "shared": true, "with": ["goto"]}, {"id": "S1-4", "group": "S1", "sub": "安心して、子育てできる環境を", "theme": "kyoiku", "label": "ベビーシッター補助・朝の小学生の居場所(検討)", "text": "ベビーシッター補助や朝の小学生の居場所づくりを検討", "page": 6, "cand": "shirai", "topics": ["sho1"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S1-5", "group": "S1", "sub": "安心して、子育てできる環境を", "theme": "kyoiku", "label": "部活動の地域展開・大学等との連携・学校トイレ", "text": "部活動の地域展開、大学・専門学校等との連携強化、学校トイレの質的改善を進める", "page": 6, "cand": "shirai", "topics": ["bukatsu", "gakko", "daigaku"], "shared": true, "with": ["tanaka"]}, {"id": "S1-6", "group": "S1", "sub": "個性を尊重、一人ひとりに合った学びを", "theme": "kyoiku", "label": "ディスレクシア等への支援", "text": "ディスレクシア等学びの困難への支援", "page": 6, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S1-7", "group": "S1", "sub": "個性を尊重、一人ひとりに合った学びを", "theme": "kyoiku", "label": "不登校の子ども・家庭への支援", "text": "不登校の子ども・家庭への包括的支援", "page": 6, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S1-8", "group": "S1", "sub": "個性を尊重、一人ひとりに合った学びを", "theme": "kyoiku", "label": "教育・就学相談、学びの多様化学校(検討)", "text": "教育相談や就学相談の充実、「学びの多様化学校」の設置検討", "page": 6, "cand": "shirai", "topics": ["manabi"], "shared": true, "with": ["goto"]}, {"id": "S1-9", "group": "S1", "sub": "若者が活躍、その声をまちづくりに", "theme": "wakamono", "label": "若者の居場所・自習スペース", "text": "若者の居場所・自習スペースの拡充", "page": 6, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S1-10", "group": "S1", "sub": "若者が活躍、その声をまちづくりに", "theme": "wakamono", "label": "ティーンズ会議(再掲)", "text": "ティーンズ会議の開催等、若者の声を市政に活かすとともに地域交流を促す", "page": 6, "dup_of": "SH-4", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S2-1", "group": "S2", "theme": "fukushi", "label": "在宅医療・介護連携・認知症予防", "text": "在宅医療・介護連携の充実、認知症予防と地域での見守り体制の構築", "page": 7, "cand": "shirai", "topics": ["korei"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S2-2", "group": "S2", "theme": "machi", "label": "ベンチを増やし歩いて楽しめるまちへ", "text": "ベンチを増やし、歩いて楽しめるまちへ", "page": 7, "cand": "shirai", "topics": ["bench"], "shared": true, "with": ["tanaka"]}, {"id": "S2-3", "group": "S2", "theme": "nigiwai", "label": "公園・公共施設を交流の場に", "text": "公園・公共施設を交流の場としてフル活用", "page": 7, "cand": "shirai", "topics": ["tsudou"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S2-4", "group": "S2", "theme": "machi", "label": "コミュニティバス・移動手段の確保", "text": "コミュニティバスの利用促進とあらゆる世代の移動手段の確保", "page": 7, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S2-5", "group": "S2", "theme": "fukushi", "label": "東小金井駅にも公衆喫煙所", "text": "受動喫煙防止として東小金井駅にも公衆喫煙所を設置", "page": 7, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S2-6", "group": "S2", "theme": "sports", "label": "スポーツ推進・芸術文化振興", "text": "スポーツ推進と芸術文化振興による心の豊かさとつながりづくり", "page": 7, "cand": "shirai", "topics": ["sports", "bunka"], "shared": true, "with": ["tanaka"]}, {"id": "S3-1", "group": "S3", "theme": "bosai", "label": "自主防災組織のカバー率・災害時トイレ", "text": "自主防災組織の市内カバー率向上と活動支援、災害時のトイレ対策の充実", "page": 8, "cand": "shirai", "topics": ["bosai", "hinan"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S3-2", "group": "S3", "theme": "bosai", "label": "災害時支援の外部連携", "text": "市民を守る災害時支援の外部連携をさらに進める", "page": 8, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S3-3", "group": "S3", "theme": "bohan", "label": "地域ぐるみの見守り(防犯)", "text": "地域防犯力を高めるため、地域ぐるみの見守り連携強化", "page": 8, "cand": "shirai", "topics": ["bohan"], "shared": true, "with": ["tanaka"]}, {"id": "S3-4", "group": "S3", "theme": "bohan", "label": "自転車の利活用計画・事故防止", "text": "自転車の利活用計画の策定とともに、自転車関与の事故を減らすため啓発活動を強化", "page": 8, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S4-1", "group": "S4", "theme": "nigiwai", "label": "ビジネスアイデアコンテスト(東小金井)", "text": "ビジネスアイデアコンテストの開催等、東小金井を「チャレンジを応援するまち」へ", "page": 9, "cand": "shirai", "topics": ["kigyo"], "shared": true, "with": ["tanaka"]}, {"id": "S4-2", "group": "S4", "theme": "nigiwai", "label": "商店街活性の支援", "text": "まちの元気をうむ商店街活性の取り組みの支援", "page": 9, "cand": "shirai", "topics": ["shotengai"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S4-3", "group": "S4", "theme": "machi", "label": "東小金井駅北口の事業用地の活用", "text": "東小金井駅北口まちづくり事業用地の有効活用に着手", "page": 9, "cand": "shirai", "topics": ["higashi"], "shared": true, "with": ["tanaka"]}, {"id": "S4-4", "group": "S4", "theme": "nigiwai", "label": "転入者ウェルカムイベント", "text": "新規転入者向けウェルカムイベントの実施", "page": 9, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S5-1", "group": "S5", "theme": "tayosei", "label": "障害への理解促進・就労支援", "text": "障害とは社会が作り出していることへの理解促進・就労支援の充実", "page": 10, "cand": "shirai", "topics": ["shogai"], "shared": true, "with": ["tanaka"]}, {"id": "S5-2", "group": "S5", "theme": "tayosei", "label": "公園づくり「play here」", "text": "みんなの公園づくりプロジェクト「play here」の推進", "page": 10, "cand": "shirai", "topics": ["asobiba"], "shared": true, "with": ["tanaka"]}, {"id": "S5-3", "group": "S5", "theme": "tayosei", "label": "多文化共生の体制", "text": "多文化共生に取り組む体制の強化", "page": 10, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S5-4", "group": "S5", "theme": "tayosei", "label": "ジェンダーアンバランスをなくす", "text": "市組織や会議体のジェンダーアンバランスをなくす", "page": 10, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S5-5", "group": "S5", "theme": "tayosei", "label": "ペットとの共生", "text": "ペットとの共生社会に向けた取組みを推進", "page": 10, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S6-1", "group": "S6", "theme": "kankyo", "label": "3・4・11号線の自然への影響低減を都へ", "text": "都市計画道路3.4.11号線整備で課題となる、はけ・野川・武蔵野公園の自然環境に対する影響を可能な限り低減するよう都へ求めていく", "page": 11, "cand": "shirai", "topics": ["road3411", "shizen"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S6-2", "group": "S6", "theme": "kankyo", "label": "水・みどりを守り活かす", "text": "小金井市の豊かな水・みどりを守り活かす", "page": 11, "cand": "shirai", "topics": ["shizen"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S6-3", "group": "S6", "theme": "kankyo", "label": "都市農業(国・都と連携)", "text": "都市農業を守るため、国や都との連携を強化する", "page": 11, "cand": "shirai", "topics": ["nogyo"], "shared": true, "with": ["tanaka"]}, {"id": "S6-4", "group": "S6", "theme": "kankyo", "label": "ごみ分別・生ごみ資源化・リユース", "text": "ごみ分別をわかりやすく。生ごみ資源化、リサイクル・リユースを推進", "page": 11, "cand": "shirai", "topics": ["gomi"], "shared": true, "with": ["tanaka"]}, {"id": "S6-5", "group": "S6", "theme": "kankyo", "label": "わかもの気候市民会議(継続)", "text": "気候変動問題に対する「わかもの気候市民会議」の継続実施", "page": 11, "cand": "shirai", "topics": ["kiko"], "shared": true, "with": ["goto"]}, {"id": "S7-1", "group": "S7", "sub": "仕事を変え人が育つ仕組みづくり", "theme": "shiyakusho", "label": "人材育成＆確保戦略・人的資本経営", "text": "新たな人材育成＆確保戦略の策定をはじめ、人的資本経営へ", "page": 12, "cand": "shirai", "topics": ["soshiki"], "shared": true, "with": ["tanaka"]}, {"id": "S7-2", "group": "S7", "sub": "仕事を変え人が育つ仕組みづくり", "theme": "shiyakusho", "label": "民間・外部・副業人材の活用", "text": "民間や外部人材、副業人材の活用", "page": 12, "cand": "shirai", "topics": ["soshiki"], "shared": true, "with": ["tanaka"]}, {"id": "S7-3", "group": "S7", "sub": "仕事を変え人が育つ仕組みづくり", "theme": "shiyakusho", "label": "職員の地域活動を応援", "text": "職員がボランティア等地域へ飛び出すことを応援", "page": 12, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S7-4", "group": "S7", "sub": "仕事を変え人が育つ仕組みづくり", "theme": "shiyakusho", "label": "DX・AIの徹底活用", "text": "DX・AIの徹底活用で市民利用の向上と働き方を変える", "page": 12, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S7-5", "group": "S7", "sub": "将来負担を軽減する財政運営改革", "theme": "shiyakusho", "label": "補助金・独自事業の見直し", "text": "補助金や独自事業の見直しで財政の硬直化をふせぐ", "page": 12, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S7-6", "group": "S7", "sub": "将来負担を軽減する財政運営改革", "theme": "chosha", "label": "公共施設の再配置・統廃合の検討", "text": "公共施設の再配置を具体的に検討。将来的な統廃合や施設の見直し・廃止の検討に着手", "page": 12, "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S7-7", "group": "S7", "sub": "将来負担を軽減する財政運営改革", "theme": "shiyakusho", "label": "「稼ぐ」自治体(債権運用・広告収入等)", "text": "債権運用や行政財政の有効活用、広告収入等を増やす「稼ぐ」自治体への転換", "page": 12, "cand": "shirai", "topics": ["shunyu"], "shared": true, "with": ["tanaka"]}, {"id": "T1-1", "group": "T1", "theme": "bukka", "label": "スピーディな物価高対策", "text": "物価高騰対策はスピーディな実行と先を見据えた準備", "cand": "tanaka", "topics": ["bukka"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T1-2", "group": "T1", "theme": "bukka", "label": "物価高対策と商工振興・地元生産者の連携", "text": "物価高騰対策と商工振興、地元生産者との連携を推進", "cand": "tanaka", "topics": ["bukka"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T1-3", "group": "T1", "theme": "nigiwai", "label": "商店街等の地域経済活性化", "text": "商店街等地域経済活性化の推進", "cand": "tanaka", "topics": ["shotengai"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T1-4", "group": "T1", "theme": "kankyo", "label": "都市農業・「農」に親しむ環境", "text": "持続可能な都市農業の推進。「農」に親しむ環境の整備。", "cand": "tanaka", "topics": ["nogyo"], "shared": true, "with": ["shirai"]}, {"id": "T2-1", "group": "T2", "theme": "chosha", "label": "新庁舎の早期建設", "text": "災害時の司令塔となる防災の拠点である新庁舎早期建設に向けあらゆる方策を検討推進", "cand": "tanaka", "topics": ["chosha"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T2-2", "group": "T2", "theme": "machi", "label": "都道3・4・11号線の早期整備", "text": "災害時「命の道路」となる東八通りと東大通りの間（都道３・４・11号線）の早期整備", "cand": "tanaka", "topics": ["road3411"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T2-3", "group": "T2", "theme": "machi", "label": "都道3・4・12号線(北大通り以北)の整備", "text": "緑中央通り（都道３・４・12号線）の北大通り以北の道路整備の推進", "cand": "tanaka", "topics": [], "shared": false, "with": []}, {"id": "T3-1", "group": "T3", "theme": "sports", "label": "スポーツ施設の整備・健康増進", "text": "市民が気軽にスポーツを講じ楽しみながら健康増進。各種スポーツ施設の整備を進め、元気な市民、活力ある「健康長寿小金井」へ", "cand": "tanaka", "topics": ["sports"], "shared": true, "with": ["shirai"]}, {"id": "T3-2", "group": "T3", "theme": "sports", "label": "子どものボール遊びの場所", "text": "キャッチボール等、こどもたちが外でボール遊びができる場所の確保", "cand": "tanaka", "topics": ["asobiba"], "shared": true, "with": ["shirai"]}, {"id": "T3-3", "group": "T3", "theme": "sports", "label": "子どもの競技力向上", "text": "子供たちが安全に安心して競技力を向上できる為の各種施策の実施", "cand": "tanaka", "topics": [], "shared": false, "with": []}, {"id": "T4-1", "group": "T4", "theme": "kyoiku", "label": "「教育立市小金井」の推進", "text": "恵まれた教育環境を活かし「教育立市小金井」を推進", "cand": "tanaka", "topics": [], "shared": false, "with": []}, {"id": "T4-2", "group": "T4", "theme": "kyoiku", "label": "定員オーバーの学童保育所の改善", "text": "定員オーバーの学童保育所の早期改善", "cand": "tanaka", "topics": ["gakudo"], "shared": true, "with": ["shirai"]}, {"id": "T4-3", "group": "T4", "theme": "kyoiku", "label": "小1の壁・小4の壁", "text": "「小１の壁・小４の壁」と言われる子育て環境の課題解決", "cand": "tanaka", "topics": ["sho1"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T4-4", "group": "T4", "theme": "kyoiku", "label": "デジタル教材とリアル体験", "text": "デジタル教材の適正な活用と、AIが普及の今日だからこそ人間力を育むリアル体験等の教育の充実", "cand": "tanaka", "topics": [], "shared": false, "with": []}, {"id": "T4-5", "group": "T4", "theme": "kyoiku", "label": "部活動の地域展開・学校の長寿命化", "text": "中学の部活動の地域展開。学校の長寿命化を計画的に推進", "cand": "tanaka", "topics": ["bukatsu", "gakko"], "shared": true, "with": ["shirai"]}, {"id": "T4-6", "group": "T4", "theme": "nigiwai", "label": "大学×市民×行政で「生業」の創出", "text": "市内大学等教育機関の「知のネットワーク」と「市民」と「行政」が三位一体でMADE　IN　小金井の「生業」の創出の推進", "cand": "tanaka", "topics": ["daigaku", "kigyo"], "shared": true, "with": ["shirai"]}, {"id": "T4-7", "group": "T4", "theme": "sports", "label": "生涯学習の環境・設備", "text": "生涯学習ができる環境、設備の整備。", "cand": "tanaka", "topics": [], "shared": false, "with": []}, {"id": "T4-8", "group": "T4", "theme": "sports", "label": "中央図書館の建設検討", "text": "「知の館」中央図書館の建設検討", "cand": "tanaka", "topics": [], "shared": false, "with": []}, {"id": "T4-9", "group": "T4", "theme": "sports", "label": "文化・芸術の振興", "text": "文化・芸術の振興", "cand": "tanaka", "topics": ["bunka"], "shared": true, "with": ["shirai"]}, {"id": "T5-1", "group": "T5", "theme": "shiyakusho", "label": "ワンチームの市役所・適材適所", "text": "市民のため、ワンチームで働く市役所づくり推進。（適材適所の配置に心がけ理事者が一体となって市民のために連携ができる市役所づくり）", "cand": "tanaka", "topics": ["soshiki"], "shared": true, "with": ["shirai"]}, {"id": "T5-2", "group": "T5", "theme": "shiyakusho", "label": "市民営業企画会議・ふるさと納税", "text": "まちの収入増に向けあらゆる方策を模索。市民営業企画会議（仮称）を設置し、官民一体となりふるさと納税等増加に向け取り組む", "cand": "tanaka", "topics": ["shunyu"], "shared": true, "with": ["shirai"]}, {"id": "T6-1", "group": "T6", "theme": "machi", "label": "ほこみち制度で道路をにぎわいの場に", "text": "道路を「通る場所」から「人が集う場所」へ ほこみち制度を活用し、駅周辺などの道路空間を市民の賑わいの場所として活用", "cand": "tanaka", "topics": ["tsudou"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T6-2", "group": "T6", "theme": "machi", "label": "駅前広場・公園にベンチ", "text": "駅前広場、各種公園に憩いのベンチを設置", "cand": "tanaka", "topics": ["bench"], "shared": true, "with": ["shirai"]}, {"id": "T6-3", "group": "T6", "theme": "nigiwai", "label": "なかよし市民まつりの復活", "text": "なかよし市民まつりの復活", "cand": "tanaka", "topics": ["matsuri"], "shared": true, "with": ["shirai"]}, {"id": "T6-4", "group": "T6", "theme": "machi", "label": "武蔵小金井駅北口再開発・東小金井駅北口区画整理の完成", "text": "武蔵小金井駅北口の再開発事業と東小金井駅北口区画整理事業の完成", "cand": "tanaka", "topics": ["higashi"], "shared": true, "with": ["shirai"]}, {"id": "T7-1", "group": "T7", "theme": "tayosei", "label": "共に暮らすまちづくり・障がい者施設の早期整備", "text": "障がい有無に関わらず誰もが共に暮らすまちづくり推進、障がい者施設の早期整備", "cand": "tanaka", "topics": ["shogai"], "shared": true, "with": ["shirai"]}, {"id": "T7-2", "group": "T7", "theme": "kyoiku", "label": "就学前検診の充実", "text": "就学前検診の充実", "cand": "tanaka", "topics": ["kenshin"], "shared": true, "with": ["shirai"]}, {"id": "T7-3", "group": "T7", "theme": "fukushi", "label": "各種健診・予防医療", "text": "各種健診事業を充実し予防医療を推進", "cand": "tanaka", "topics": ["korei"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T7-4", "group": "T7", "theme": "fukushi", "label": "高齢者が過ごせる環境", "text": "日々、高齢者が楽しく、健やかに、安心して、過ごせる環境の整備", "cand": "tanaka", "topics": ["korei"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T7-5", "group": "T7", "theme": "fukushi", "label": "ミストシャワー(猛暑対策)", "text": "夏の猛暑対策としてのミストシャワーの設置", "cand": "tanaka", "topics": ["atsusa"], "shared": true, "with": ["goto"]}, {"id": "T8-1", "group": "T8", "theme": "bohan", "label": "地域の見守り・トクリュウ詐欺被害ゼロ", "text": "地域の声掛け、地域の見守りが若者が加害者にならないようトクリュウの詐欺被害をゼロへ", "cand": "tanaka", "topics": ["bohan"], "shared": true, "with": ["shirai"]}, {"id": "T8-2", "group": "T8", "theme": "bosai", "label": "防災士を増やす", "text": "「防災士」の資格取得者を増やし、地域に根ざした地域防災の推進", "cand": "tanaka", "topics": ["bosai"], "shared": true, "with": ["shirai"]}, {"id": "T8-3", "group": "T8", "theme": "bosai", "label": "自治会・消防団・商店街の連携", "text": "自治会、消防団、商店街等が連携し地域特性を活かした防災・防犯対策の推進", "cand": "tanaka", "topics": ["bosai"], "shared": true, "with": ["shirai"]}, {"id": "T9-1", "group": "T9", "theme": "kankyo", "label": "ごみ減量・リサイクル", "text": "地球環境問題への関心を広げ、身近な環境問題への積極的取組みの推進（ごみの減量とリサイクルの推進）", "cand": "tanaka", "topics": ["gomi"], "shared": true, "with": ["shirai"]}, {"id": "T9-2", "group": "T9", "theme": "kankyo", "label": "小金井桜・キンヒバリの里・野川", "text": "名勝小金井桜復活への持続的取り組み、キンヒバリの里や野川の自然保全の推進", "cand": "tanaka", "topics": ["shizen"], "shared": true, "with": ["goto", "shirai"]}], "topics": [{"id": "bukka", "theme": "bukka", "label": "物価高対策", "G": ["G1-1"], "S": ["SK-2"], "T": ["T1-1", "T1-2"], "members": ["goto", "shirai", "tanaka"], "items": ["G1-1", "SK-2", "T1-1", "T1-2"]}, {"id": "chosha", "theme": "chosha", "label": "新庁舎の建設・整備", "G": ["G6-2"], "S": ["SK-1"], "T": ["T2-1"], "members": ["goto", "shirai", "tanaka"], "items": ["G6-2", "SK-1", "T2-1"]}, {"id": "gakudo", "theme": "kyoiku", "label": "学童保育所の過密", "G": [], "S": ["S1-1"], "T": ["T4-2"], "members": ["shirai", "tanaka"], "items": ["S1-1", "T4-2"]}, {"id": "bukatsu", "theme": "kyoiku", "label": "部活動の地域展開", "G": [], "S": ["S1-5"], "T": ["T4-5"], "members": ["shirai", "tanaka"], "items": ["S1-5", "T4-5"]}, {"id": "kenshin", "theme": "kyoiku", "label": "就学前の健診", "G": [], "S": ["S1-2"], "T": ["T7-2"], "members": ["shirai", "tanaka"], "items": ["S1-2", "T7-2"]}, {"id": "sho1", "theme": "kyoiku", "label": "小学生の放課後・朝の居場所(小1の壁)", "G": ["G2-3"], "S": ["S1-4"], "T": ["T4-3"], "members": ["goto", "shirai", "tanaka"], "items": ["G2-3", "S1-4", "T4-3"]}, {"id": "gakko", "theme": "kyoiku", "label": "学校施設", "G": [], "S": ["S1-5"], "T": ["T4-5"], "members": ["shirai", "tanaka"], "items": ["S1-5", "T4-5"]}, {"id": "daigaku", "theme": "nigiwai", "label": "大学との連携", "G": [], "S": ["S1-5"], "T": ["T4-6"], "members": ["shirai", "tanaka"], "items": ["S1-5", "T4-6"]}, {"id": "kigyo", "theme": "nigiwai", "label": "新しい仕事・起業", "G": [], "S": ["S4-1"], "T": ["T4-6"], "members": ["shirai", "tanaka"], "items": ["S4-1", "T4-6"]}, {"id": "korei", "theme": "fukushi", "label": "高齢者・健康・介護", "G": ["G1-3"], "S": ["S2-1"], "T": ["T7-3", "T7-4"], "members": ["goto", "shirai", "tanaka"], "items": ["G1-3", "S2-1", "T7-3", "T7-4"]}, {"id": "shogai", "theme": "tayosei", "label": "障がいのある人", "G": [], "S": ["S5-1"], "T": ["T7-1"], "members": ["shirai", "tanaka"], "items": ["S5-1", "T7-1"]}, {"id": "sports", "theme": "sports", "label": "スポーツ振興", "G": [], "S": ["S2-6"], "T": ["T3-1"], "members": ["shirai", "tanaka"], "items": ["S2-6", "T3-1"]}, {"id": "bunka", "theme": "sports", "label": "文化・芸術の振興", "G": [], "S": ["S2-6"], "T": ["T4-9"], "members": ["shirai", "tanaka"], "items": ["S2-6", "T4-9"]}, {"id": "asobiba", "theme": "sports", "label": "子どもの遊び場・公園", "G": [], "S": ["S5-2"], "T": ["T3-2"], "members": ["shirai", "tanaka"], "items": ["S5-2", "T3-2"]}, {"id": "bosai", "theme": "bosai", "label": "地域の防災の担い手", "G": [], "S": ["S3-1"], "T": ["T8-2", "T8-3"], "members": ["shirai", "tanaka"], "items": ["S3-1", "T8-2", "T8-3"]}, {"id": "bohan", "theme": "bohan", "label": "地域の見守りで防犯", "G": [], "S": ["S3-3"], "T": ["T8-1"], "members": ["shirai", "tanaka"], "items": ["S3-3", "T8-1"]}, {"id": "bench", "theme": "machi", "label": "ベンチを増やす", "G": [], "S": ["S2-2"], "T": ["T6-2"], "members": ["shirai", "tanaka"], "items": ["S2-2", "T6-2"]}, {"id": "road3411", "theme": "machi", "label": "都道3・4・11号線", "G": ["G3-1"], "S": ["S6-1"], "T": ["T2-2"], "members": ["goto", "shirai", "tanaka"], "items": ["G3-1", "S6-1", "T2-2"]}, {"id": "higashi", "theme": "machi", "label": "東小金井駅北口", "G": [], "S": ["S4-3"], "T": ["T6-4"], "members": ["shirai", "tanaka"], "items": ["S4-3", "T6-4"]}, {"id": "tsudou", "theme": "nigiwai", "label": "人が集う公共空間・公共施設", "G": ["G4-3"], "S": ["S2-3"], "T": ["T6-1"], "members": ["goto", "shirai", "tanaka"], "items": ["G4-3", "S2-3", "T6-1"]}, {"id": "matsuri", "theme": "nigiwai", "label": "市民まつり", "G": [], "S": ["SH-1"], "T": ["T6-3"], "members": ["shirai", "tanaka"], "items": ["SH-1", "T6-3"]}, {"id": "shotengai", "theme": "nigiwai", "label": "商店街・地元の事業者・地域経済", "G": ["G4-1", "G4-2"], "S": ["S4-2", "SK-2"], "T": ["T1-3"], "members": ["goto", "shirai", "tanaka"], "items": ["G4-1", "G4-2", "S4-2", "SK-2", "T1-3"]}, {"id": "nogyo", "theme": "kankyo", "label": "都市農業", "G": [], "S": ["S6-3"], "T": ["T1-4"], "members": ["shirai", "tanaka"], "items": ["S6-3", "T1-4"]}, {"id": "gomi", "theme": "kankyo", "label": "ごみ減量・リサイクル", "G": [], "S": ["S6-4"], "T": ["T9-1"], "members": ["shirai", "tanaka"], "items": ["S6-4", "T9-1"]}, {"id": "shizen", "theme": "kankyo", "label": "はけ・野川・みどりなどの自然", "G": ["G3-1", "G3-2"], "S": ["S6-1", "S6-2"], "T": ["T9-2"], "members": ["goto", "shirai", "tanaka"], "items": ["G3-1", "G3-2", "S6-1", "S6-2", "T9-2"]}, {"id": "soshiki", "theme": "shiyakusho", "label": "市役所の組織と人", "G": [], "S": ["S7-1", "S7-2"], "T": ["T5-1"], "members": ["shirai", "tanaka"], "items": ["S7-1", "S7-2", "T5-1"]}, {"id": "shunyu", "theme": "shiyakusho", "label": "市の収入を増やす", "G": [], "S": ["S7-7"], "T": ["T5-2"], "members": ["shirai", "tanaka"], "items": ["S7-7", "T5-2"]}, {"id": "hoiku", "theme": "kyoiku", "label": "保育の質", "G": ["G2-2"], "S": ["S1-3"], "T": [], "members": ["goto", "shirai"], "items": ["G2-2", "S1-3"]}, {"id": "manabi", "theme": "kyoiku", "label": "学びの多様化", "G": ["G2-4"], "S": ["S1-8"], "T": [], "members": ["goto", "shirai"], "items": ["G2-4", "S1-8"]}, {"id": "atsusa", "theme": "kankyo", "label": "暑さ対策", "G": ["G3-2"], "S": [], "T": ["T7-5"], "members": ["goto", "tanaka"], "items": ["G3-2", "T7-5"]}, {"id": "kiko", "theme": "kankyo", "label": "気候変動への取り組み", "G": ["G3-4"], "S": ["S6-5"], "T": [], "members": ["goto", "shirai"], "items": ["G3-4", "S6-5"]}, {"id": "hinan", "theme": "bosai", "label": "災害時の避難生活", "G": ["G5-2"], "S": ["S3-1"], "T": [], "members": ["goto", "shirai"], "items": ["G5-2", "S3-1"]}, {"id": "sanka", "theme": "sanka", "label": "市民参加・市民と市役所をつなぐ", "G": ["G1-2", "G6-1"], "S": ["SH-1", "SH-2"], "T": [], "members": ["goto", "shirai"], "items": ["G1-2", "G6-1", "SH-1", "SH-2"]}], "overlap": [{"members": ["goto", "shirai", "tanaka"], "topics": ["bukka", "chosha", "sho1", "korei", "road3411", "tsudou", "shotengai", "shizen"]}, {"members": ["goto", "shirai"], "topics": ["hoiku", "manabi", "kiko", "hinan", "sanka"]}, {"members": ["goto", "tanaka"], "topics": ["atsusa"]}, {"members": ["shirai", "tanaka"], "topics": ["gakudo", "bukatsu", "kenshin", "gakko", "daigaku", "kigyo", "shogai", "sports", "bunka", "asobiba", "bosai", "bohan", "bench", "higashi", "matsuri", "nogyo", "gomi", "soshiki", "shunyu"]}], "cards": [{"topic": "road3411", "q": {"goto": ["G3-1"], "shirai": ["S6-1"], "tanaka": ["T2-2"]}, "diff": "後藤氏は建設計画の中止を求める。白井氏は整備の是非には触れず、はけ・野川・武蔵野公園の自然への影響を減らすよう都に求める。田中氏は「命の道路」として早期整備を掲げる。"}, {"topic": "chosha", "q": {"goto": ["G6-2"], "shirai": ["SK-1"], "tanaka": ["T2-1"]}, "common": "3人とも新庁舎の建設・整備そのものは前提にしている。", "diff": "白井氏は建設費上昇を理由に規模・機能・設計の見直しと早期整備。田中氏は防災拠点としての早期建設(見直しには触れない)。後藤氏は財政状況の公開と「コンパクトで利用しやすい庁舎」で、時期(早期かどうか)には触れない。"}, {"topic": "bukka", "q": {"goto": ["G1-1"], "shirai": ["SK-2"], "tanaka": ["T1-1", "T1-2"]}, "common": "3人とも物価高から暮らしを守る項目を置く。", "diff": "白井氏と田中氏は国・都との連携を明記(白井氏は家計と地域事業者の事業継続、田中氏はスピーディな実行と商工振興・地元生産者との連携)。後藤氏は「生活に困らない寄り添うサポート」で、手段や連携先は書いていない。"}, {"topic": "sanka", "q": {"goto": ["G6-1", "G1-2"], "shirai": ["SH-1", "SH-2"], "tanaka": []}, "diff": "後藤氏は情報を包み隠さず明らかにすることと、市役所を「市民の砦(住民自治・防災の拠点)」にすることを柱の一つに置く。白井氏は市民協働支援センター・市民参加型予算(検討)など、参加の仕組みを挙げる。田中氏の政策には、この話題の項目が見当たらない。"}, {"topic": "shotengai", "q": {"goto": ["G4-1", "G4-2"], "shirai": ["S4-2", "SK-2"], "tanaka": ["T1-3"]}, "common": "3人とも地域の商業・事業者を元気にする方向。", "diff": "白井氏・田中氏は商店街を名指しする。後藤氏は対象を中小・零細企業・個人事業主とし、「地域内循環型経済」を掲げる。"}, {"topic": "hinan", "q": {"goto": ["G5-2"], "shirai": ["S3-1"], "tanaka": []}, "diff": "後藤氏はプライバシーと健康に配慮した避難生活の保障を掲げる(柱の見出しは「災害関連死を一人も出さない」)。白井氏は災害時のトイレ対策の充実。田中氏の防災の項目は担い手づくり(防災士・地域の連携)で、避難生活には触れていない。"}, {"topic": "matsuri", "q": {"goto": [], "shirai": ["SH-1"], "tanaka": ["T6-3"]}, "diff": "田中氏は「なかよし市民まつり」の復活。白井氏は市民まつりに代わる「新しい交流の場」のイベント。後藤氏の政策には、まつりの項目はない。"}, {"topic": "shogai", "q": {"goto": [], "shirai": ["S5-1"], "tanaka": ["T7-1"]}, "diff": "田中氏は共生のまちづくりと障がい者施設の早期整備。白井氏は「障害は社会が作り出している」という考え方の理解促進と就労支援。後藤氏の政策には、障がいを名指しした項目はない。"}, {"topic": "shunyu", "q": {"goto": [], "shirai": ["S7-7", "S7-5", "S7-6"], "tanaka": ["T5-2"]}, "common": "白井氏と田中氏は、どちらも市の収入を増やすと書く。", "diff": "手段は、田中氏が市民営業企画会議(仮称)とふるさと納税等、白井氏が債権運用・広告収入等。支出側の見直し(補助金・独自事業、公共施設の統廃合)を書いているのは白井氏だけ。後藤氏は財政について、新庁舎の項目で「財政状況を公開」と書く。"}], "keywords": [{"kw": "推進", "label": "推進", "hits": {"G": {}, "S": {"S1-3": 1, "S2-6": 1, "S5-2": 1, "S5-5": 1, "S6-4": 1}, "T": {"G:T9": 1, "T1-2": 1, "T1-3": 1, "T1-4": 1, "T2-1": 1, "T2-3": 1, "T4-1": 1, "T4-5": 1, "T4-6": 1, "T5-1": 1, "T7-1": 1, "T7-3": 1, "T8-2": 1, "T8-3": 1, "T9-1": 2, "T9-2": 1}}, "G": 0, "S": 5, "T": 17}, {"kw": "整備", "label": "整備", "hits": {"G": {}, "S": {"SK-1": 2, "S6-1": 1}, "T": {"G:T2": 1, "T1-4": 1, "T2-2": 1, "T2-3": 1, "T3-1": 1, "T4-7": 1, "T7-1": 1, "T7-4": 1}}, "G": 0, "S": 3, "T": 8}, {"kw": "早期", "label": "早期", "hits": {"G": {}, "S": {"SK-1": 2}, "T": {"G:T2": 1, "T2-1": 1, "T2-2": 1, "T4-2": 1, "T7-1": 1}}, "G": 0, "S": 2, "T": 5}, {"kw": "連携", "label": "連携", "hits": {"G": {}, "S": {"SK-2": 1, "S1-5": 1, "S2-1": 1, "S3-2": 1, "S3-3": 1, "S6-3": 1}, "T": {"G:T1": 1, "T1-2": 1, "T5-1": 1, "T8-3": 1}}, "G": 0, "S": 6, "T": 4}, {"kw": "検討", "label": "検討", "hits": {"G": {}, "S": {"SH-2": 1, "S1-4": 1, "S1-8": 1, "S7-6": 2}, "T": {"T2-1": 1, "T4-8": 1}}, "G": 0, "S": 5, "T": 2}, {"kw": "支援", "label": "支援", "hits": {"G": {}, "S": {"SH-1": 1, "SK-2": 1, "S1-2": 1, "S1-6": 1, "S1-7": 1, "S3-1": 1, "S3-2": 1, "S4-2": 1, "S5-1": 1}, "T": {}}, "G": 0, "S": 9, "T": 0}, {"kw": "強化", "label": "強化", "hits": {"G": {}, "S": {"G:S7": 1, "S1-5": 1, "S3-3": 1, "S3-4": 1, "S5-3": 1, "S6-3": 1}, "T": {}}, "G": 0, "S": 6, "T": 0}, {"kw": "活用", "label": "活用", "hits": {"G": {"G3-4": 1}, "S": {"G:S7": 1, "SH-3": 1, "S2-3": 1, "S3-4": 1, "S4-3": 1, "S7-2": 1, "S7-4": 1, "S7-7": 1}, "T": {"T4-4": 1, "T6-1": 2}}, "G": 1, "S": 8, "T": 3}, {"kw": "見直", "label": "見直し", "hits": {"G": {}, "S": {"SK-1": 1, "S7-5": 1, "S7-6": 1}, "T": {}}, "G": 0, "S": 3, "T": 0}, {"kw": "市民", "label": "市民", "hits": {"G": {"G:G6": 1, "G1-3": 1, "G6-1": 2}, "S": {"G:S4": 1, "SH-1": 2, "SH-2": 2, "SH-3": 1, "S3-2": 1, "S6-5": 1, "S7-4": 1}, "T": {"G:T1": 1, "G:T5": 1, "T3-1": 2, "T4-6": 1, "T5-1": 2, "T5-2": 1, "T6-1": 1, "T6-3": 1}}, "G": 4, "S": 9, "T": 10}, {"kw": "地域", "label": "地域", "hits": {"G": {"G1-2": 1, "G4-2": 1}, "S": {"G:S2": 1, "SH-4": 1, "SK-2": 1, "S1-5": 1, "S2-1": 1, "S3-3": 2, "S7-3": 1}, "T": {"G:T8": 1, "T1-3": 1, "T4-5": 1, "T8-1": 2, "T8-2": 2, "T8-3": 1}}, "G": 2, "S": 8, "T": 8}, {"kw": "若者", "label": "若者", "hits": {"G": {}, "S": {"G:S1": 3, "SH-4": 1, "S1-9": 1}, "T": {"T8-1": 1}}, "G": 0, "S": 5, "T": 1}, {"kw": "交流", "label": "交流", "hits": {"G": {}, "S": {"G:S2": 1, "G:S4": 1, "SH-1": 1, "SH-4": 1, "S2-3": 1}, "T": {}}, "G": 0, "S": 5, "T": 0}, {"kw": "健康", "label": "健康", "hits": {"G": {"G1-3": 1, "G5-2": 1}, "S": {"G:S2": 2}, "T": {"G:T7": 1, "T3-1": 2}}, "G": 2, "S": 2, "T": 3}, {"kw": "安心", "label": "安心", "hits": {"G": {"G:G1": 1, "G:G5": 1, "G2-3": 1, "G2-4": 1}, "S": {"G:S3": 2, "G:S1": 1}, "T": {"G:T2": 1, "T3-3": 1, "T7-4": 1}}, "G": 4, "S": 3, "T": 3}, {"kw": "こども|子ども|子供", "label": "子ども(こども・子供)", "hits": {"G": {"G:G2": 2, "G2-1": 1, "G2-3": 1}, "S": {"G:S1": 1, "S1-7": 1}, "T": {"G:T4": 1, "T3-2": 1, "T3-3": 1}}, "G": 4, "S": 2, "T": 3}, {"kw": "公開", "label": "公開", "hits": {"G": {"G:G6": 1, "G6-2": 1}, "S": {}, "T": {}}, "G": 2, "S": 0, "T": 0}, {"kw": "保障", "label": "保障", "hits": {"G": {"G:G2": 1, "G5-2": 1}, "S": {}, "T": {}}, "G": 2, "S": 0, "T": 0}, {"kw": "暮らし", "label": "暮らし", "hits": {"G": {"G:G3": 1, "G1-1": 1}, "S": {"G:S3": 1, "SK-2": 1}, "T": {}}, "G": 2, "S": 2, "T": 0}], "stats": {"goto": {"items": 19, "items_all": 19, "shared_items": 15, "only_items": 4, "kentou": 0, "kentou_ids": [], "chars": 591, "themes_covered": 8, "topics_in": 14, "with": {"shirai": 15, "tanaka": 9}}, "shirai": {"items": 46, "items_all": 47, "shared_items": 29, "only_items": 17, "kentou": 4, "kentou_ids": ["SH-2", "S1-4", "S1-8", "S7-6"], "chars": 1730, "themes_covered": 14, "topics_in": 32, "with": {"goto": 14, "tanaka": 25}}, "tanaka": {"items": 35, "items_all": 35, "shared_items": 29, "only_items": 6, "kentou": 2, "kentou_ids": ["T2-1", "T4-8"], "chars": 1322, "themes_covered": 12, "topics_in": 28, "with": {"goto": 11, "shirai": 28}}, "topics": 33}, "verify": {"checked": 156, "misses": 0, "count_checks": {"tanaka_source": 35, "tanaka_items": 35, "shirai_source_plus_2": 47, "shirai_items": 47, "goto_source_gpt_read": 19, "goto_items": 19}, "goto_read": {"lines": 32, "diff": 0}}};
+const DATA = {"meta": {"asof": "2026-10-11", "goto": {"name": "後藤秀典", "source": "「ずーっと安心」小金井(公式サイト)", "source_url": "https://ansinkoganei.org/", "retrieved": "2026-10-11", "slogan": "安心してずーっと暮らせる小金井にしたい", "subslogan": "いつも現場主義！市民派ジャーナリスト", "frame": "6つの政策", "source_note": "トップページ内の「6つの政策」の箇条書き(リーフレットPDFも同サイトにあるが、比較はページ本文を使用)"}, "shirai": {"name": "白井とおる", "source": "白井とおるサポーターズ「政策2026」", "source_url": "https://shiraisupporters.tokyo/seisaku2026/", "retrieved": "2026-10-11", "slogan": "新しい小金井へ、第2章", "subslogan": "市民協働・若者の参加・多世代の交流を、すべての分野で", "frame": "基本姿勢＋重要課題2＋7つの基本政策", "source_note": "「これからの4年」の欄のみ。「これまでの4年」(実績)の欄は政策ではないので数えていない"}, "tanaka": {"name": "田中真一", "source": "田中真一 公式サイト「政策・ターゲット9」", "source_url": "https://tanashin0914.com/policy/", "retrieved": "2026-10-11", "slogan": "光り輝く黄金井 魅力ある、選ばれるまち小金井へ", "subslogan": "決める、動かす、小金井を前へ！！", "frame": "ターゲット9(9つの政策)", "source_note": "各政策の「具体的な取り組み」の箇条書き"}}, "cands": ["goto", "shirai", "tanaka"], "themes": [{"id": "kyoiku", "name": "教育・子育て", "G": 4, "G_only": ["G2-1"], "S": 9, "S_only": ["S1-8"], "T": 6, "T_only": ["T4-1", "T4-4"], "topics": ["gakudo", "bukatsu", "kenshin", "sho1", "gakko", "hoiku", "manabi"]}, {"id": "wakamono", "name": "若者", "G": 0, "G_only": [], "S": 3, "S_only": ["SH-4", "S1-10", "S1-11"], "T": 0, "T_only": [], "topics": []}, {"id": "fukushi", "name": "健康・福祉・高齢者", "G": 1, "G_only": [], "S": 2, "S_only": ["S2-5"], "T": 3, "T_only": [], "topics": ["korei"]}, {"id": "tayosei", "name": "障がい・多様性・人権", "G": 0, "G_only": [], "S": 5, "S_only": ["S5-3", "S5-4", "S5-5"], "T": 1, "T_only": [], "topics": ["shogai"]}, {"id": "sports", "name": "スポーツ・文化・生涯学習", "G": 0, "G_only": [], "S": 2, "S_only": [], "T": 6, "T_only": ["T3-3", "T4-8"], "topics": ["sports", "bunka", "shogai_g", "asobiba"]}, {"id": "bosai", "name": "防災", "G": 2, "G_only": ["G5-1"], "S": 3, "S_only": ["S3-4"], "T": 2, "T_only": [], "topics": ["bosai", "hinan"]}, {"id": "bohan", "name": "防犯・交通安全", "G": 0, "G_only": [], "S": 2, "S_only": ["S3-5"], "T": 1, "T_only": [], "topics": ["bohan"]}, {"id": "machi", "name": "道路・駅周辺・交通", "G": 0, "G_only": [], "S": 4, "S_only": ["S2-4"], "T": 5, "T_only": ["T2-3"], "topics": ["bench", "road3411", "ekikita"]}, {"id": "nigiwai", "name": "商工・にぎわい・交流", "G": 2, "G_only": [], "S": 4, "S_only": ["S4-5"], "T": 3, "T_only": [], "topics": ["daigaku", "kigyo", "tsudou", "matsuri", "shotengai"]}, {"id": "bukka", "name": "物価高対策", "G": 1, "G_only": [], "S": 1, "S_only": [], "T": 2, "T_only": [], "topics": ["bukka"]}, {"id": "kankyo", "name": "環境・農・みどり", "G": 5, "G_only": ["G3-3", "G3-5"], "S": 5, "S_only": [], "T": 3, "T_only": [], "topics": ["nogyo", "gomi", "shizen", "atsusa", "kiko"]}, {"id": "chosha", "name": "庁舎・公共施設", "G": 2, "G_only": [], "S": 2, "S_only": ["S7-6"], "T": 1, "T_only": [], "topics": ["chosha"]}, {"id": "shiyakusho", "name": "市役所改革・行財政", "G": 0, "G_only": [], "S": 6, "S_only": ["S7-1", "S7-4", "S7-5"], "T": 2, "T_only": [], "topics": ["soshiki", "shunyu"]}, {"id": "sanka", "name": "市民参加・情報公開", "G": 2, "G_only": [], "S": 3, "S_only": ["SH-3"], "T": 0, "T_only": [], "topics": ["sanka"]}], "groups": [{"id": "G1", "no": "1", "title": "誰もが安心して暮らせるまち", "cand": "goto", "items": ["G1-1", "G1-2", "G1-3"]}, {"id": "G2", "no": "2", "title": "子どもの権利を保障し、子どもをまちの真ん中に", "cand": "goto", "items": ["G2-1", "G2-2", "G2-3", "G2-4"]}, {"id": "G3", "no": "3", "title": "緑の中で豊かに暮らし続けられるまち", "cand": "goto", "items": ["G3-1", "G3-2", "G3-3", "G3-4", "G3-5"]}, {"id": "G4", "no": "4", "title": "人が賑わい、活気あふれるまち", "cand": "goto", "items": ["G4-1", "G4-2", "G4-3"]}, {"id": "G5", "no": "5", "title": "災害関連死を一人も出さない…災害時も安心して暮らせるまち", "cand": "goto", "items": ["G5-1", "G5-2"]}, {"id": "G6", "no": "6", "title": "徹底した情報公開と市民参加", "cand": "goto", "items": ["G6-1", "G6-2"]}, {"id": "SH", "no": "基本姿勢", "title": "みんなでつくる", "tagline": "市民協働・若者の参加・多世代の交流を、すべての分野で", "kind": "基本姿勢", "cand": "shirai", "items": ["SH-1", "SH-2", "SH-3", "SH-4"]}, {"id": "SK", "no": "重要課題", "title": "これからの4年：2つの重要課題", "kind": "重要課題", "cand": "shirai", "items": ["SK-1", "SK-2"]}, {"id": "S1", "no": "01", "title": "子どもと若者の未来をひらくまち、小金井", "area": "教育・子育て・若者", "kind": "基本政策", "cand": "shirai", "items": ["S1-1", "S1-2", "S1-3", "S1-4", "S1-5", "S1-6", "S1-7", "S1-8", "S1-9", "S1-10", "S1-11"]}, {"id": "S2", "no": "02", "title": "健康でつながって暮らせるまち、小金井", "area": "健康・福祉・地域交流", "kind": "基本政策", "cand": "shirai", "items": ["S2-1", "S2-2", "S2-3", "S2-4", "S2-5", "S2-6", "S2-7"]}, {"id": "S3", "no": "03", "title": "安心して暮らせるまち、小金井", "area": "防災・防犯・事故防止", "kind": "基本政策", "cand": "shirai", "items": ["S3-1", "S3-2", "S3-3", "S3-4", "S3-5"]}, {"id": "S4", "no": "04", "title": "人と人がつながり、新しいことが生まれるまち、小金井", "area": "商工振興・文化交流・起業・市民協働", "kind": "基本政策", "cand": "shirai", "items": ["S4-1", "S4-2", "S4-3", "S4-4", "S4-5"]}, {"id": "S5", "no": "05", "title": "ちがいを力に換えるインクルーシブなまち、小金井", "area": "多様性・人権・平和", "kind": "基本政策", "cand": "shirai", "items": ["S5-1", "S5-2", "S5-3", "S5-4", "S5-5"]}, {"id": "S6", "no": "06", "title": "豊かな自然を、未来へつなぐまち、小金井", "area": "環境・気候変動", "kind": "基本政策", "cand": "shirai", "items": ["S6-1", "S6-2", "S6-3", "S6-4", "S6-5"]}, {"id": "S7", "no": "07", "title": "人材育成の強化、外部人材・DX＆AI徹底活用、稼ぐ自治体へ", "area": "変革を続ける市役所", "kind": "基本政策", "cand": "shirai", "items": ["S7-1", "S7-2", "S7-3", "S7-4", "S7-5", "S7-6", "S7-7"]}, {"id": "T1", "no": "1", "title": "都・国と連携。あらゆる物価高対策で市民生活を守る、支える", "kind": "政策", "cand": "tanaka", "items": ["T1-1", "T1-2", "T1-3", "T1-4"]}, {"id": "T2", "no": "2", "title": "防災拠点・災害司令塔の新庁舎の早期建設と安全安心のまちへのインフラの整備", "kind": "政策", "cand": "tanaka", "items": ["T2-1", "T2-2", "T2-3"]}, {"id": "T3", "no": "3", "title": "スポーツの力で「人」・「まち」を元気に！！", "kind": "政策", "cand": "tanaka", "items": ["T3-1", "T3-2", "T3-3"]}, {"id": "T4", "no": "4", "title": "子どもから大人まで「教育立市」小金井へ", "kind": "政策", "cand": "tanaka", "items": ["T4-1", "T4-2", "T4-3", "T4-4", "T4-5", "T4-6", "T4-7", "T4-8", "T4-9"]}, {"id": "T5", "no": "5", "title": "「市民の相談役　市役所」 活力ある市役所をワンチームでつくる", "kind": "政策", "cand": "tanaka", "items": ["T5-1", "T5-2"]}, {"id": "T6", "no": "6", "title": "「さあ、外に出よう！」と思える憩いの場の創造", "kind": "政策", "cand": "tanaka", "items": ["T6-1", "T6-2", "T6-3", "T6-4"]}, {"id": "T7", "no": "7", "title": "いつまでも元気に、楽しい人生を！！ 健康で長生きできるまちへ", "kind": "政策", "cand": "tanaka", "items": ["T7-1", "T7-2", "T7-3", "T7-4", "T7-5"]}, {"id": "T8", "no": "8", "title": "地域と共にすすめる住民防犯、住民防災", "kind": "政策", "cand": "tanaka", "items": ["T8-1", "T8-2", "T8-3"]}, {"id": "T9", "no": "9", "title": "「次の世代に確かな未来を残す」環境保全の積極的推進", "kind": "政策", "cand": "tanaka", "items": ["T9-1", "T9-2"]}], "items": [{"id": "G1-1", "group": "G1", "theme": "bukka", "label": "物価高から暮らしを守る・寄り添うサポート", "text": "物価高から暮らしを守る〜生活に困らない寄り添うサポート", "cand": "goto", "topics": ["bukka"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G1-2", "group": "G1", "theme": "sanka", "label": "地域コミュニティーと市役所をつなぐ", "text": "誰ひとり見捨てない〜地域コミュニティーと市役所をつなぐ", "cand": "goto", "topics": ["sanka"], "shared": true, "with": ["shirai"]}, {"id": "G1-3", "group": "G1", "theme": "fukushi", "label": "健康の維持・向上、介護の充実", "text": "市民の健康を維持・向上し、介護を充実する", "cand": "goto", "topics": ["korei"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G2-1", "group": "G2", "theme": "kyoiku", "label": "希望する子どもすべてが保育園に", "text": "入園を希望するすべての子どもが保育園に通えるまち", "cand": "goto", "topics": [], "shared": false, "with": []}, {"id": "G2-2", "group": "G2", "theme": "kyoiku", "label": "公立・民間保育園の協働で保育の質", "text": "公立、民間保育園の協働で保育の質を高める", "cand": "goto", "topics": ["hoiku"], "shared": true, "with": ["shirai"]}, {"id": "G2-3", "group": "G2", "theme": "kyoiku", "label": "放課後の居場所の拡充", "text": "子どもたちがのびのびと安心して過ごせる放課後の居場所の拡充", "cand": "goto", "topics": ["sho1"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G2-4", "group": "G2", "theme": "kyoiku", "label": "学びの多様化の実現", "text": "どの子も安心して通える学びの多様化の実現", "cand": "goto", "topics": ["manabi"], "shared": true, "with": ["shirai"]}, {"id": "G3-1", "group": "G3", "theme": "kankyo", "label": "都道3・4・11の建設計画は中止", "text": "自然を破壊する、はけ、野川、武蔵野公園のど真ん中を通る都道3・4・11建設計画は中止を", "cand": "goto", "topics": ["road3411", "shizen"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G3-2", "group": "G3", "theme": "kankyo", "label": "暑さから守る街路樹・緑", "text": "暑さから人を守る街路樹に囲まれた緑あふれるまち", "cand": "goto", "topics": ["shizen", "atsusa"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G3-3", "group": "G3", "theme": "kankyo", "label": "地下水のPFAS汚染対策", "text": "地下水のPFAS汚染対策", "cand": "goto", "topics": [], "shared": false, "with": []}, {"id": "G3-4", "group": "G3", "theme": "kankyo", "label": "自然再生エネルギーの活用", "text": "気候変動を抑える自然再生エネルギーを活用し、エネルギーに困らないまちを築く", "cand": "goto", "topics": ["kiko"], "shared": true, "with": ["shirai"]}, {"id": "G3-5", "group": "G3", "theme": "kankyo", "label": "原発に頼らないエネルギー", "text": "原発に頼らなくても、エネルギーに困らないまちへ", "cand": "goto", "topics": [], "shared": false, "with": []}, {"id": "G4-1", "group": "G4", "theme": "nigiwai", "label": "中小・零細企業・個人事業主", "text": "中小・零細企業・個人事業主を元気にする", "cand": "goto", "topics": ["shotengai"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G4-2", "group": "G4", "theme": "nigiwai", "label": "地域内循環型経済", "text": "地域内循環型経済の実現", "cand": "goto", "topics": ["shotengai"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G4-3", "group": "G4", "theme": "chosha", "label": "誰でも使える公民館", "text": "誰でも使える公民館", "cand": "goto", "topics": ["tsudou"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "G5-1", "group": "G5", "theme": "bosai", "label": "無電柱化・木造住宅の耐震化", "text": "道路の無電柱化、木造住宅の耐震化など被害を最小限に抑える", "cand": "goto", "topics": [], "shared": false, "with": []}, {"id": "G5-2", "group": "G5", "theme": "bosai", "label": "プライバシー・健康に配慮した避難生活", "text": "プライバシーが守られ健康に配慮された避難生活を保障する", "cand": "goto", "topics": ["hinan"], "shared": true, "with": ["shirai"]}, {"id": "G6-1", "group": "G6", "theme": "sanka", "label": "情報公開・「市民の砦」を築く", "text": "情報を包み隠さず明らかにし、市民のみなさんと共有し、新しい「市民の砦（住民自治・防災の拠点）」を築く", "cand": "goto", "topics": ["sanka"], "shared": true, "with": ["shirai"]}, {"id": "G6-2", "group": "G6", "theme": "chosha", "label": "新庁舎は財政状況を公開しコンパクトに", "text": "市役所新庁舎建設は、財政状況を公開し、コンパクトで利用しやすい庁舎を", "cand": "goto", "topics": ["chosha"], "shared": true, "with": ["shirai", "tanaka"]}, {"id": "SH-1", "group": "SH", "theme": "sanka", "label": "市民協働支援センター・新しい交流の催し", "text": "市民協働支援センターを設置します。市民まつりに代わる新しい交流の催しを開催します", "verb": "取り組みます", "cand": "shirai", "topics": ["matsuri", "sanka"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "SH-2", "group": "SH", "theme": "sanka", "label": "市民参加型予算(検討)", "text": "市民が使いみちを提案し、投票で選ぶ「市民参加型予算」の実施を検討します", "verb": "検討します", "cand": "shirai", "topics": ["sanka"], "shared": true, "with": ["goto"]}, {"id": "SH-3", "group": "SH", "theme": "sanka", "label": "クラウドファンディングの活用", "text": "インターネットで広く寄付を募る「クラウドファンディング」を積極的に使い、みんなで市民サービスを良くします", "verb": "取り組みます", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "SH-4", "group": "SH", "theme": "wakamono", "label": "若者の声を市政に", "text": "若者の声を市政に活かし、地域の交流が進むようにします", "verb": "取り組みます", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "SK-1", "group": "SK", "theme": "chosha", "label": "新庁舎等の見直しと早期実現", "text": "新庁舎及び（仮称）新福祉会館は、規模・機能・手法等の見直しに向け検討をはじめており、防災・まちづくりの重要拠点を早期に実現できるよう取り組みます", "head": "市役所新庁舎等事業の見直しを進め、早期実現をめざす！", "cand": "shirai", "topics": ["chosha"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "SK-2", "group": "SK", "theme": "bukka", "label": "家計の負担軽減・事業継続支援", "text": "国や都とも連携し、家計への負担軽減とともに、地域事業者の事業継続支援を実施します。", "head": "物価高騰から暮らしと仕事を守る！", "cand": "shirai", "topics": ["bukka", "shotengai"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S1-1", "group": "S1", "theme": "kyoiku", "label": "学童保育所の大規模化の解消", "text": "学童保育所の入所児童増（大規模化）の解消に向け、取り組みます", "sub": "安心して、子育てできる環境を", "verb": "取り組みます", "src_id": "P1-1", "cand": "shirai", "topics": ["gakudo"], "shared": true, "with": ["tanaka"]}, {"id": "S1-2", "group": "S1", "theme": "kyoiku", "label": "5歳児健診・切れ目ない支援", "text": "5歳児健診を始めます。妊娠がわかったときから、切れ目なく支援します", "sub": "安心して、子育てできる環境を", "verb": "始めます", "src_id": "P1-2", "cand": "shirai", "topics": ["kenshin"], "shared": true, "with": ["tanaka"]}, {"id": "S1-3", "group": "S1", "theme": "kyoiku", "label": "保育の質を保ち高める", "text": "保育施設で保育の質を保ち、高めるための取り組みを進めます", "sub": "安心して、子育てできる環境を", "verb": "取り組みます", "src_id": "P1-3", "cand": "shirai", "topics": ["hoiku"], "shared": true, "with": ["goto"]}, {"id": "S1-4", "group": "S1", "theme": "kyoiku", "label": "ベビーシッター補助・朝の小学生の居場所(検討)", "text": "ベビーシッター利用への補助や、朝の時間帯の小学生の居場所づくりを検討します", "sub": "安心して、子育てできる環境を", "verb": "検討します", "src_id": "P1-4", "cand": "shirai", "topics": ["sho1"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S1-5", "group": "S1", "theme": "kyoiku", "label": "部活動の地域展開・大学等との連携", "text": "部活動を地域に広げます。大学・専門学校などとの連携を強めます", "sub": "地域みんながつどう、つながる学校へ（教育環境の充実とともに地域のコミュニティ拠点へ）", "verb": "取り組みます", "together": true, "src_id": "P1-5", "cand": "shirai", "topics": ["bukatsu", "daigaku"], "shared": true, "with": ["tanaka"]}, {"id": "S1-6", "group": "S1", "theme": "kyoiku", "label": "学校のトイレの改善", "text": "学校のトイレの改善を進めます", "sub": "地域みんながつどう、つながる学校へ（教育環境の充実とともに地域のコミュニティ拠点へ）", "verb": "取り組みます", "src_id": "P1-5T", "cand": "shirai", "topics": ["gakko"], "shared": true, "with": ["tanaka"]}, {"id": "S1-7", "group": "S1", "theme": "kyoiku", "label": "学校を地域の交流・防災・子育ての場に", "text": "子どもたちが学ぶ場所である学校の教育環境を充実させるとともに、地域の交流、防災、子育てなどにも活かせる場所にします", "sub": "地域みんながつどう、つながる学校へ（教育環境の充実とともに地域のコミュニティ拠点へ）", "verb": "取り組みます", "together": true, "src_id": "P1-6", "cand": "shirai", "topics": ["gakko"], "shared": true, "with": ["tanaka"]}, {"id": "S1-8", "group": "S1", "theme": "kyoiku", "label": "不登校・読み書き困難への学びの支援", "text": "不登校の子どもとその家庭、文字の読み書きに困難がある子どもなどに、学びの支援をします", "sub": "個性を尊重、一人ひとりに合った学びを", "verb": "取り組みます", "src_id": "P1-7", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S1-9", "group": "S1", "theme": "kyoiku", "label": "教育・就学相談、学びの多様化学校(検討)", "text": "教育相談や就学相談を充実させます。学校に行きづらい子どもが、自分に合った学び方で通える学校（学びの多様化学校）の設置を検討します", "sub": "個性を尊重、一人ひとりに合った学びを", "verb": "検討します", "src_id": "P1-8", "cand": "shirai", "topics": ["manabi"], "shared": true, "with": ["goto"]}, {"id": "S1-10", "group": "S1", "theme": "wakamono", "label": "若者の居場所・自習スペース", "text": "若者の居場所や自習スペースを増やします", "sub": "若者が活躍、その声をまちづくりに", "verb": "広げます", "src_id": "P1-9", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S1-11", "group": "S1", "theme": "wakamono", "label": "ティーンズ会議・若者の声を市政に", "text": "ティーンズ会議を開くなど、若者の声を市政に活かし、地域の交流が進むようにします", "sub": "若者が活躍、その声をまちづくりに", "verb": "取り組みます", "together": true, "src_id": "P1-10", "note": "SH-4(基本姿勢)とほぼ同じ内容(ティーンズ会議の例示あり)。サイトに2か所あるので2件と数えている", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S2-1", "group": "S2", "theme": "fukushi", "label": "在宅医療・介護連携・認知症予防", "text": "自宅で受ける医療と介護の連携を充実させます。認知症の予防と、地域での見守りの体制をつくります", "sub": "「いつまでも、自分らしく。」", "verb": "取り組みます", "src_id": "P2-1", "cand": "shirai", "topics": ["korei"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S2-2", "group": "S2", "theme": "nigiwai", "label": "公園・公共施設を交流の場に", "text": "公園や公共施設を、交流の場として活用します", "sub": "「いつまでも、自分らしく。」", "verb": "取り組みます", "together": true, "src_id": "P2-2", "cand": "shirai", "topics": ["tsudou"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S2-3", "group": "S2", "theme": "machi", "label": "ベンチを増やし歩いて楽しめるまちへ", "text": "市内各所にベンチを増やし、歩いて楽しめるまちにします", "sub": "「いつまでも、自分らしく。」", "verb": "広げます", "src_id": "P2-3", "cand": "shirai", "topics": ["bench"], "shared": true, "with": ["tanaka"]}, {"id": "S2-4", "group": "S2", "theme": "machi", "label": "CoCoバスの路線維持・利用促進", "text": "コミュニティバス（CoCoバス）の路線を維持し、利用を促します", "sub": "「いつまでも、自分らしく。」", "verb": "取り組みます", "src_id": "P2-4", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S2-5", "group": "S2", "theme": "fukushi", "label": "東小金井駅にも公衆喫煙所", "text": "東小金井駅にも公衆喫煙所を設け、たばこを吸う場所を分けて、吸わない人が煙を吸わずに済むようにします（受動喫煙の防止）", "sub": "「いつまでも、自分らしく。」", "verb": "取り組みます", "src_id": "P2-5", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S2-6", "group": "S2", "theme": "sports", "label": "世代をこえた生涯教育の機会", "text": "大人も子どもも、世代をこえていっしょに学び、交流できる、年齢を問わず学び続けられる教育（生涯教育）の機会を充実させます", "sub": "「いつまでも、自分らしく。」", "verb": "取り組みます", "together": true, "src_id": "P2-6", "cand": "shirai", "topics": ["shogai_g"], "shared": true, "with": ["tanaka"]}, {"id": "S2-7", "group": "S2", "theme": "sports", "label": "スポーツ・芸術文化の振興", "text": "スポーツと芸術文化を盛んにし、心の豊かさと人のつながりをつくります", "sub": "「いつまでも、自分らしく。」", "verb": "取り組みます", "src_id": "P2-7", "cand": "shirai", "topics": ["sports", "bunka"], "shared": true, "with": ["tanaka"]}, {"id": "S3-1", "group": "S3", "theme": "bohan", "label": "地域ぐるみの見守り(防犯)", "text": "地域の防犯力を高めるため、地域ぐるみの見守りの連携を強めます", "sub": "もしもの時も、普段の暮らしも安心に。", "verb": "取り組みます", "together": true, "src_id": "P3-1", "cand": "shirai", "topics": ["bohan"], "shared": true, "with": ["tanaka"]}, {"id": "S3-2", "group": "S3", "theme": "bosai", "label": "自主防災組織を増やし支援", "text": "住民が自分たちで防災に取り組む組織（自主防災組織）を増やし活動を支援します", "sub": "もしもの時も、普段の暮らしも安心に。", "verb": "広げます", "together": true, "src_id": "P3-2", "cand": "shirai", "topics": ["bosai"], "shared": true, "with": ["tanaka"]}, {"id": "S3-3", "group": "S3", "theme": "bosai", "label": "実践的な災害訓練・トイレ対策", "text": "実践的な災害訓練の実施、トイレ対策を充実させます", "sub": "もしもの時も、普段の暮らしも安心に。", "verb": "取り組みます", "src_id": "P3-3", "cand": "shirai", "topics": ["hinan"], "shared": true, "with": ["goto"]}, {"id": "S3-4", "group": "S3", "theme": "bosai", "label": "災害時の連携協定を増やす", "text": "災害のときの支援について、民間や自治体との間で協力を約束する取り決め（連携協定）を増やします", "sub": "もしもの時も、普段の暮らしも安心に。", "verb": "取り組みます", "src_id": "P3-4", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S3-5", "group": "S3", "theme": "bohan", "label": "自転車の活用計画・事故防止", "text": "自転車の活用計画をつくります。自転車がかかわる事故を減らすため、啓発活動を強めます", "sub": "もしもの時も、普段の暮らしも安心に。", "verb": "取り組みます", "src_id": "P3-5", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S4-1", "group": "S4", "theme": "nigiwai", "label": "ビジネスアイデアコンテスト(東小金井)", "text": "事業のアイデアを競うコンテスト（ビジネスアイデアコンテスト）を開くなど、東小金井を「チャレンジを応援するまち」にします", "sub": "何か始めたい人を応援し、まちのにぎわいをつくる", "verb": "取り組みます", "together": true, "src_id": "P4-1", "cand": "shirai", "topics": ["kigyo"], "shared": true, "with": ["tanaka"]}, {"id": "S4-2", "group": "S4", "theme": "machi", "label": "武蔵小金井駅北口東側地区の再開発", "text": "武蔵小金井駅北口東側地区市街地再開発事業を推進します", "sub": "何か始めたい人を応援し、まちのにぎわいをつくる", "verb": "取り組みます", "src_id": "P4-2", "cand": "shirai", "topics": ["ekikita"], "shared": true, "with": ["tanaka"]}, {"id": "S4-3", "group": "S4", "theme": "nigiwai", "label": "商店街活性化の支援", "text": "まちの元気を生む、商店街活性化の取り組みを支援します", "sub": "何か始めたい人を応援し、まちのにぎわいをつくる", "verb": "取り組みます", "src_id": "P4-3", "cand": "shirai", "topics": ["shotengai"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S4-4", "group": "S4", "theme": "machi", "label": "東小金井駅北口の事業用地の活用を再検討", "text": "いま暫定で駐車場にしている「東小金井駅北口まちづくり事業用地」の活用を再検討します", "sub": "何か始めたい人を応援し、まちのにぎわいをつくる", "verb": "検討します", "src_id": "P4-4", "cand": "shirai", "topics": ["ekikita"], "shared": true, "with": ["tanaka"]}, {"id": "S4-5", "group": "S4", "theme": "nigiwai", "label": "転入者への交流の情報提供", "text": "新しく小金井に転入した方が、地域で交流できる情報提供を充実します", "sub": "何か始めたい人を応援し、まちのにぎわいをつくる", "verb": "取り組みます", "src_id": "P4-5", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S5-1", "group": "S5", "theme": "tayosei", "label": "障害への理解・就労支援", "text": "障害は社会の側がつくり出している、という考え方への理解を広げます。就労支援を充実させます", "sub": "誰もが、自分らしく。", "verb": "取り組みます", "src_id": "P5-1", "cand": "shirai", "topics": ["shogai"], "shared": true, "with": ["tanaka"]}, {"id": "S5-2", "group": "S5", "theme": "tayosei", "label": "公園づくり「play here」", "text": "障害のある子も一緒に遊べる公園づくり（みんなの公園づくりプロジェクト「play here」）を進めます", "sub": "誰もが、自分らしく。", "verb": "取り組みます", "together": true, "src_id": "P5-2", "cand": "shirai", "topics": ["asobiba"], "shared": true, "with": ["tanaka"]}, {"id": "S5-3", "group": "S5", "theme": "tayosei", "label": "多文化共生の体制", "text": "地域や関係機関と連携して多文化共生に取り組み、市の体制を整えます", "sub": "誰もが、自分らしく。", "verb": "取り組みます", "src_id": "P5-3", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S5-4", "group": "S5", "theme": "tayosei", "label": "組織・会議の男女のかたよりを改善", "text": "市の組織や会議で、男女の人数のかたよりを改善します", "sub": "誰もが、自分らしく。", "verb": "取り組みます", "src_id": "P5-4", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S5-5", "group": "S5", "theme": "tayosei", "label": "ペットとの共生", "text": "ペットとともに暮らせる社会（共生社会）に向けた取り組みを進めます", "sub": "誰もが、自分らしく。", "verb": "取り組みます", "src_id": "P5-5", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S6-1", "group": "S6", "theme": "kankyo", "label": "3・4・11号線の自然への影響を小さくするよう都へ", "text": "東京都が計画する都市計画道路（3・4・11号線）整備で課題となる、国分寺崖線や野川の自然環境への影響を、できるだけ小さくするよう都に求めていきます", "sub": "「緑と水を、未来へ。」", "verb": "都に求めます", "src_id": "P6-1", "cand": "shirai", "topics": ["road3411", "shizen"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S6-2", "group": "S6", "theme": "kankyo", "label": "水・みどりを守り活かす", "text": "小金井市の豊かな水・みどりを守り、活かします", "sub": "「緑と水を、未来へ。」", "verb": "取り組みます", "src_id": "P6-2", "cand": "shirai", "topics": ["shizen"], "shared": true, "with": ["goto", "tanaka"]}, {"id": "S6-3", "group": "S6", "theme": "kankyo", "label": "都市農業(国・都と連携)", "text": "まちの中の農業（都市農業）を守るため、国や都との連携を強めます", "sub": "「緑と水を、未来へ。」", "verb": "取り組みます", "src_id": "P6-3", "cand": "shirai", "topics": ["nogyo"], "shared": true, "with": ["tanaka"]}, {"id": "S6-4", "group": "S6", "theme": "kankyo", "label": "ごみ分別・生ごみ資源化・リユース", "text": "ごみの分別をわかりやすくします。生ごみの資源化、リサイクル・リユースを進めます", "sub": "「緑と水を、未来へ。」", "verb": "取り組みます", "src_id": "P6-4", "cand": "shirai", "topics": ["gomi"], "shared": true, "with": ["tanaka"]}, {"id": "S6-5", "group": "S6", "theme": "kankyo", "label": "わかもの気候市民会議(継続)", "text": "気候変動の問題について若者が話し合う「わかもの気候市民会議」を続けます", "sub": "「緑と水を、未来へ。」", "verb": "続けます", "together": true, "src_id": "P6-5", "cand": "shirai", "topics": ["kiko"], "shared": true, "with": ["goto"]}, {"id": "S7-1", "group": "S7", "theme": "shiyakusho", "label": "DX・AIの徹底活用", "text": "デジタル技術やAIを使いこなして、オンライン申請をさらに広げ、市民がサービスを使いやすくし、職員の働き方を変えます（DX・AIの徹底活用）", "sub": "仕事を変え人が育つ仕組みづくり", "verb": "広げます", "src_id": "P7-1", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S7-2", "group": "S7", "theme": "shiyakusho", "label": "職員の育成・確保の戦略", "text": "職員を育て、確保するための新たな戦略をつくります", "sub": "仕事を変え人が育つ仕組みづくり", "verb": "取り組みます", "together": true, "src_id": "P7-2", "cand": "shirai", "topics": ["soshiki"], "shared": true, "with": ["tanaka"]}, {"id": "S7-3", "group": "S7", "theme": "shiyakusho", "label": "人事交流・副業人材(検討)", "text": "人事交流を増やし、副業として働く人材（副業人材）の活用を検討します", "sub": "仕事を変え人が育つ仕組みづくり", "verb": "検討します", "src_id": "P7-3", "cand": "shirai", "topics": ["soshiki"], "shared": true, "with": ["tanaka"]}, {"id": "S7-4", "group": "S7", "theme": "shiyakusho", "label": "職員の地域活動を応援", "text": "職員が地域で活躍することを応援します", "sub": "仕事を変え人が育つ仕組みづくり", "verb": "取り組みます", "src_id": "P7-4", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S7-5", "group": "S7", "theme": "shiyakusho", "label": "補助金・独自事業の見直し", "text": "補助金や市独自の事業を見直し、毎年決まって出ていくお金が増えて自由に使えるお金がなくなる状態（財政の硬直化）を防ぎます", "sub": "将来負担を軽減する財政運営改革", "verb": "取り組みます", "src_id": "P7-5", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S7-6", "group": "S7", "theme": "chosha", "label": "公共施設の再配置・あり方の検討", "text": "まちづくりと施設の活用という視点から、様々な公共施設の再配置や施設の機能・あり方について、具体的な検討を進めます", "sub": "将来負担を軽減する財政運営改革", "verb": "検討します", "src_id": "P7-6", "cand": "shirai", "topics": [], "shared": false, "with": []}, {"id": "S7-7", "group": "S7", "theme": "shiyakusho", "label": "「稼ぐ」自治体(有価証券運用・広告収入等)", "text": "有価証券運用や、行政財政資源の有効活用、広告収入などで、市が自ら収入を増やす「稼ぐ」自治体に変えます", "sub": "将来負担を軽減する財政運営改革", "verb": "取り組みます", "src_id": "P7-7", "cand": "shirai", "topics": ["shunyu"], "shared": true, "with": ["tanaka"]}, {"id": "T1-1", "group": "T1", "theme": "bukka", "label": "スピーディな物価高対策", "text": "物価高騰対策はスピーディな実行と先を見据えた準備", "cand": "tanaka", "topics": ["bukka"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T1-2", "group": "T1", "theme": "bukka", "label": "物価高対策と商工振興・地元生産者の連携", "text": "物価高騰対策と商工振興、地元生産者との連携を推進", "cand": "tanaka", "topics": ["bukka"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T1-3", "group": "T1", "theme": "nigiwai", "label": "商店街等の地域経済活性化", "text": "商店街等地域経済活性化の推進", "cand": "tanaka", "topics": ["shotengai"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T1-4", "group": "T1", "theme": "kankyo", "label": "都市農業・「農」に親しむ環境", "text": "持続可能な都市農業の推進。「農」に親しむ環境の整備。", "cand": "tanaka", "topics": ["nogyo"], "shared": true, "with": ["shirai"]}, {"id": "T2-1", "group": "T2", "theme": "chosha", "label": "新庁舎の早期建設", "text": "災害時の司令塔となる防災の拠点である新庁舎早期建設に向けあらゆる方策を検討推進", "cand": "tanaka", "topics": ["chosha"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T2-2", "group": "T2", "theme": "machi", "label": "都道3・4・11号線の早期整備", "text": "災害時「命の道路」となる東八通りと東大通りの間（都道３・４・11号線）の早期整備", "cand": "tanaka", "topics": ["road3411"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T2-3", "group": "T2", "theme": "machi", "label": "都道3・4・12号線(北大通り以北)の整備", "text": "緑中央通り（都道３・４・12号線）の北大通り以北の道路整備の推進", "cand": "tanaka", "topics": [], "shared": false, "with": []}, {"id": "T3-1", "group": "T3", "theme": "sports", "label": "スポーツ施設の整備・健康増進", "text": "市民が気軽にスポーツを講じ楽しみながら健康増進。各種スポーツ施設の整備を進め、元気な市民、活力ある「健康長寿小金井」へ", "cand": "tanaka", "topics": ["sports"], "shared": true, "with": ["shirai"]}, {"id": "T3-2", "group": "T3", "theme": "sports", "label": "子どものボール遊びの場所", "text": "キャッチボール等、こどもたちが外でボール遊びができる場所の確保", "cand": "tanaka", "topics": ["asobiba"], "shared": true, "with": ["shirai"]}, {"id": "T3-3", "group": "T3", "theme": "sports", "label": "子どもの競技力向上", "text": "子供たちが安全に安心して競技力を向上できる為の各種施策の実施", "cand": "tanaka", "topics": [], "shared": false, "with": []}, {"id": "T4-1", "group": "T4", "theme": "kyoiku", "label": "「教育立市小金井」の推進", "text": "恵まれた教育環境を活かし「教育立市小金井」を推進", "cand": "tanaka", "topics": [], "shared": false, "with": []}, {"id": "T4-2", "group": "T4", "theme": "kyoiku", "label": "定員オーバーの学童保育所の改善", "text": "定員オーバーの学童保育所の早期改善", "cand": "tanaka", "topics": ["gakudo"], "shared": true, "with": ["shirai"]}, {"id": "T4-3", "group": "T4", "theme": "kyoiku", "label": "小1の壁・小4の壁", "text": "「小１の壁・小４の壁」と言われる子育て環境の課題解決", "cand": "tanaka", "topics": ["sho1"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T4-4", "group": "T4", "theme": "kyoiku", "label": "デジタル教材とリアル体験", "text": "デジタル教材の適正な活用と、AIが普及の今日だからこそ人間力を育むリアル体験等の教育の充実", "cand": "tanaka", "topics": [], "shared": false, "with": []}, {"id": "T4-5", "group": "T4", "theme": "kyoiku", "label": "部活動の地域展開・学校の長寿命化", "text": "中学の部活動の地域展開。学校の長寿命化を計画的に推進", "cand": "tanaka", "topics": ["bukatsu", "gakko"], "shared": true, "with": ["shirai"]}, {"id": "T4-6", "group": "T4", "theme": "nigiwai", "label": "大学×市民×行政で「生業」の創出", "text": "市内大学等教育機関の「知のネットワーク」と「市民」と「行政」が三位一体でMADE　IN　小金井の「生業」の創出の推進", "cand": "tanaka", "topics": ["daigaku", "kigyo"], "shared": true, "with": ["shirai"]}, {"id": "T4-7", "group": "T4", "theme": "sports", "label": "生涯学習の環境・設備", "text": "生涯学習ができる環境、設備の整備。", "cand": "tanaka", "topics": ["shogai_g"], "shared": true, "with": ["shirai"]}, {"id": "T4-8", "group": "T4", "theme": "sports", "label": "中央図書館の建設検討", "text": "「知の館」中央図書館の建設検討、", "cand": "tanaka", "topics": [], "shared": false, "with": []}, {"id": "T4-9", "group": "T4", "theme": "sports", "label": "文化・芸術の振興", "text": "文化・芸術の振興", "cand": "tanaka", "topics": ["bunka"], "shared": true, "with": ["shirai"]}, {"id": "T5-1", "group": "T5", "theme": "shiyakusho", "label": "ワンチームの市役所・適材適所", "text": "市民のため、ワンチームで働く市役所づくり推進。（適材適所の配置に心がけ理事者が一体となって市民のために連携ができる市役所づくり）", "cand": "tanaka", "topics": ["soshiki"], "shared": true, "with": ["shirai"]}, {"id": "T5-2", "group": "T5", "theme": "shiyakusho", "label": "市民営業企画会議・ふるさと納税", "text": "まちの収入増に向けあらゆる方策を模索。市民営業企画会議（仮称）を設置し、官民一体となりふるさと納税等増加に向け取り組む", "cand": "tanaka", "topics": ["shunyu"], "shared": true, "with": ["shirai"]}, {"id": "T6-1", "group": "T6", "theme": "machi", "label": "ほこみち制度で道路をにぎわいの場に", "text": "道路を「通る場所」から「人が集う場所」へ ほこみち制度を活用し、駅周辺などの道路空間を市民の賑わいの場所として活用", "cand": "tanaka", "topics": ["tsudou"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T6-2", "group": "T6", "theme": "machi", "label": "駅前広場・公園にベンチ", "text": "駅前広場、各種公園に憩いのベンチを設置", "cand": "tanaka", "topics": ["bench"], "shared": true, "with": ["shirai"]}, {"id": "T6-3", "group": "T6", "theme": "nigiwai", "label": "なかよし市民まつりの復活", "text": "なかよし市民まつりの復活", "cand": "tanaka", "topics": ["matsuri"], "shared": true, "with": ["shirai"]}, {"id": "T6-4", "group": "T6", "theme": "machi", "label": "武蔵小金井駅北口再開発・東小金井駅北口区画整理の完成", "text": "武蔵小金井駅北口の再開発事業と東小金井駅北口区画整理事業の完成", "cand": "tanaka", "topics": ["ekikita"], "shared": true, "with": ["shirai"]}, {"id": "T7-1", "group": "T7", "theme": "tayosei", "label": "共に暮らすまちづくり・障がい者施設の早期整備", "text": "障がい有無に関わらず誰もが共に暮らすまちづくり推進、障がい者施設の早期整備", "cand": "tanaka", "topics": ["shogai"], "shared": true, "with": ["shirai"]}, {"id": "T7-2", "group": "T7", "theme": "kyoiku", "label": "就学前検診の充実", "text": "就学前検診の充実", "cand": "tanaka", "topics": ["kenshin"], "shared": true, "with": ["shirai"]}, {"id": "T7-3", "group": "T7", "theme": "fukushi", "label": "各種健診・予防医療", "text": "各種健診事業を充実し予防医療を推進", "cand": "tanaka", "topics": ["korei"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T7-4", "group": "T7", "theme": "fukushi", "label": "高齢者が過ごせる環境", "text": "日々、高齢者が楽しく、健やかに、安心して、過ごせる環境の整備", "cand": "tanaka", "topics": ["korei"], "shared": true, "with": ["goto", "shirai"]}, {"id": "T7-5", "group": "T7", "theme": "fukushi", "label": "ミストシャワー(猛暑対策)", "text": "夏の猛暑対策としてのミストシャワーの設置", "cand": "tanaka", "topics": ["atsusa"], "shared": true, "with": ["goto"]}, {"id": "T8-1", "group": "T8", "theme": "bohan", "label": "地域の見守り・トクリュウ詐欺被害ゼロ", "text": "地域の声掛け、地域の見守りが若者が加害者にならないようトクリュウの詐欺被害をゼロへ", "cand": "tanaka", "topics": ["bohan"], "shared": true, "with": ["shirai"]}, {"id": "T8-2", "group": "T8", "theme": "bosai", "label": "防災士を増やす", "text": "「防災士」の資格取得者を増やし、地域に根ざした地域防災の推進", "cand": "tanaka", "topics": ["bosai"], "shared": true, "with": ["shirai"]}, {"id": "T8-3", "group": "T8", "theme": "bosai", "label": "自治会・消防団・商店街の連携", "text": "自治会、消防団、商店街等が連携し地域特性を活かした防災・防犯対策の推進", "cand": "tanaka", "topics": ["bosai"], "shared": true, "with": ["shirai"]}, {"id": "T9-1", "group": "T9", "theme": "kankyo", "label": "ごみ減量・リサイクル", "text": "地球環境問題への関心を広げ、身近な環境問題への積極的取組みの推進（ごみの減量とリサイクルの推進）", "cand": "tanaka", "topics": ["gomi"], "shared": true, "with": ["shirai"]}, {"id": "T9-2", "group": "T9", "theme": "kankyo", "label": "小金井桜・キンヒバリの里・野川", "text": "名勝小金井桜復活への持続的取り組み、キンヒバリの里や野川の自然保全の推進", "cand": "tanaka", "topics": ["shizen"], "shared": true, "with": ["goto", "shirai"]}], "topics": [{"id": "bukka", "theme": "bukka", "label": "物価高対策", "G": ["G1-1"], "S": ["SK-2"], "T": ["T1-1", "T1-2"], "members": ["goto", "shirai", "tanaka"], "items": ["G1-1", "SK-2", "T1-1", "T1-2"]}, {"id": "chosha", "theme": "chosha", "label": "新庁舎の建設・整備", "G": ["G6-2"], "S": ["SK-1"], "T": ["T2-1"], "members": ["goto", "shirai", "tanaka"], "items": ["G6-2", "SK-1", "T2-1"]}, {"id": "gakudo", "theme": "kyoiku", "label": "学童保育所の過密", "G": [], "S": ["S1-1"], "T": ["T4-2"], "members": ["shirai", "tanaka"], "items": ["S1-1", "T4-2"]}, {"id": "bukatsu", "theme": "kyoiku", "label": "部活動の地域展開", "G": [], "S": ["S1-5"], "T": ["T4-5"], "members": ["shirai", "tanaka"], "items": ["S1-5", "T4-5"]}, {"id": "kenshin", "theme": "kyoiku", "label": "就学前の健診", "G": [], "S": ["S1-2"], "T": ["T7-2"], "members": ["shirai", "tanaka"], "items": ["S1-2", "T7-2"]}, {"id": "sho1", "theme": "kyoiku", "label": "小学生の放課後・朝の居場所(小1の壁)", "G": ["G2-3"], "S": ["S1-4"], "T": ["T4-3"], "members": ["goto", "shirai", "tanaka"], "items": ["G2-3", "S1-4", "T4-3"]}, {"id": "gakko", "theme": "kyoiku", "label": "学校施設", "G": [], "S": ["S1-6", "S1-7"], "T": ["T4-5"], "members": ["shirai", "tanaka"], "items": ["S1-6", "S1-7", "T4-5"]}, {"id": "hoiku", "theme": "kyoiku", "label": "保育の質", "G": ["G2-2"], "S": ["S1-3"], "T": [], "members": ["goto", "shirai"], "items": ["G2-2", "S1-3"]}, {"id": "manabi", "theme": "kyoiku", "label": "学びの多様化", "G": ["G2-4"], "S": ["S1-9"], "T": [], "members": ["goto", "shirai"], "items": ["G2-4", "S1-9"]}, {"id": "daigaku", "theme": "nigiwai", "label": "大学との連携", "G": [], "S": ["S1-5"], "T": ["T4-6"], "members": ["shirai", "tanaka"], "items": ["S1-5", "T4-6"]}, {"id": "kigyo", "theme": "nigiwai", "label": "新しい仕事・起業", "G": [], "S": ["S4-1"], "T": ["T4-6"], "members": ["shirai", "tanaka"], "items": ["S4-1", "T4-6"]}, {"id": "korei", "theme": "fukushi", "label": "高齢者・健康・介護", "G": ["G1-3"], "S": ["S2-1"], "T": ["T7-3", "T7-4"], "members": ["goto", "shirai", "tanaka"], "items": ["G1-3", "S2-1", "T7-3", "T7-4"]}, {"id": "shogai", "theme": "tayosei", "label": "障がいのある人", "G": [], "S": ["S5-1"], "T": ["T7-1"], "members": ["shirai", "tanaka"], "items": ["S5-1", "T7-1"]}, {"id": "sports", "theme": "sports", "label": "スポーツ振興", "G": [], "S": ["S2-7"], "T": ["T3-1"], "members": ["shirai", "tanaka"], "items": ["S2-7", "T3-1"]}, {"id": "bunka", "theme": "sports", "label": "文化・芸術の振興", "G": [], "S": ["S2-7"], "T": ["T4-9"], "members": ["shirai", "tanaka"], "items": ["S2-7", "T4-9"]}, {"id": "shogai_g", "theme": "sports", "label": "生涯学習・生涯教育", "G": [], "S": ["S2-6"], "T": ["T4-7"], "members": ["shirai", "tanaka"], "items": ["S2-6", "T4-7"]}, {"id": "asobiba", "theme": "sports", "label": "子どもの遊び場・公園", "G": [], "S": ["S5-2"], "T": ["T3-2"], "members": ["shirai", "tanaka"], "items": ["S5-2", "T3-2"]}, {"id": "bosai", "theme": "bosai", "label": "地域の防災の担い手", "G": [], "S": ["S3-2"], "T": ["T8-2", "T8-3"], "members": ["shirai", "tanaka"], "items": ["S3-2", "T8-2", "T8-3"]}, {"id": "hinan", "theme": "bosai", "label": "災害時の避難生活", "G": ["G5-2"], "S": ["S3-3"], "T": [], "members": ["goto", "shirai"], "items": ["G5-2", "S3-3"]}, {"id": "bohan", "theme": "bohan", "label": "地域の見守りで防犯", "G": [], "S": ["S3-1"], "T": ["T8-1"], "members": ["shirai", "tanaka"], "items": ["S3-1", "T8-1"]}, {"id": "bench", "theme": "machi", "label": "ベンチを増やす", "G": [], "S": ["S2-3"], "T": ["T6-2"], "members": ["shirai", "tanaka"], "items": ["S2-3", "T6-2"]}, {"id": "road3411", "theme": "machi", "label": "都道3・4・11号線", "G": ["G3-1"], "S": ["S6-1"], "T": ["T2-2"], "members": ["goto", "shirai", "tanaka"], "items": ["G3-1", "S6-1", "T2-2"]}, {"id": "ekikita", "theme": "machi", "label": "駅北口の再開発・区画整理・事業用地", "G": [], "S": ["S4-2", "S4-4"], "T": ["T6-4"], "members": ["shirai", "tanaka"], "items": ["S4-2", "S4-4", "T6-4"]}, {"id": "tsudou", "theme": "nigiwai", "label": "人が集う公共空間・公共施設", "G": ["G4-3"], "S": ["S2-2"], "T": ["T6-1"], "members": ["goto", "shirai", "tanaka"], "items": ["G4-3", "S2-2", "T6-1"]}, {"id": "matsuri", "theme": "nigiwai", "label": "市民まつり", "G": [], "S": ["SH-1"], "T": ["T6-3"], "members": ["shirai", "tanaka"], "items": ["SH-1", "T6-3"]}, {"id": "shotengai", "theme": "nigiwai", "label": "商店街・地元の事業者・地域経済", "G": ["G4-1", "G4-2"], "S": ["S4-3", "SK-2"], "T": ["T1-3"], "members": ["goto", "shirai", "tanaka"], "items": ["G4-1", "G4-2", "S4-3", "SK-2", "T1-3"]}, {"id": "nogyo", "theme": "kankyo", "label": "都市農業", "G": [], "S": ["S6-3"], "T": ["T1-4"], "members": ["shirai", "tanaka"], "items": ["S6-3", "T1-4"]}, {"id": "gomi", "theme": "kankyo", "label": "ごみ減量・リサイクル", "G": [], "S": ["S6-4"], "T": ["T9-1"], "members": ["shirai", "tanaka"], "items": ["S6-4", "T9-1"]}, {"id": "shizen", "theme": "kankyo", "label": "はけ・野川・みどりなどの自然", "G": ["G3-1", "G3-2"], "S": ["S6-1", "S6-2"], "T": ["T9-2"], "members": ["goto", "shirai", "tanaka"], "items": ["G3-1", "G3-2", "S6-1", "S6-2", "T9-2"]}, {"id": "atsusa", "theme": "kankyo", "label": "暑さ対策", "G": ["G3-2"], "S": [], "T": ["T7-5"], "members": ["goto", "tanaka"], "items": ["G3-2", "T7-5"]}, {"id": "kiko", "theme": "kankyo", "label": "気候変動への取り組み", "G": ["G3-4"], "S": ["S6-5"], "T": [], "members": ["goto", "shirai"], "items": ["G3-4", "S6-5"]}, {"id": "soshiki", "theme": "shiyakusho", "label": "市役所の組織と人", "G": [], "S": ["S7-2", "S7-3"], "T": ["T5-1"], "members": ["shirai", "tanaka"], "items": ["S7-2", "S7-3", "T5-1"]}, {"id": "shunyu", "theme": "shiyakusho", "label": "市の収入を増やす", "G": [], "S": ["S7-7"], "T": ["T5-2"], "members": ["shirai", "tanaka"], "items": ["S7-7", "T5-2"]}, {"id": "sanka", "theme": "sanka", "label": "市民参加・市民と市役所をつなぐ", "G": ["G1-2", "G6-1"], "S": ["SH-1", "SH-2"], "T": [], "members": ["goto", "shirai"], "items": ["G1-2", "G6-1", "SH-1", "SH-2"]}], "overlap": [{"members": ["goto", "shirai", "tanaka"], "topics": ["bukka", "chosha", "sho1", "korei", "road3411", "tsudou", "shotengai", "shizen"]}, {"members": ["goto", "shirai"], "topics": ["hoiku", "manabi", "hinan", "kiko", "sanka"]}, {"members": ["goto", "tanaka"], "topics": ["atsusa"]}, {"members": ["shirai", "tanaka"], "topics": ["gakudo", "bukatsu", "kenshin", "gakko", "daigaku", "kigyo", "shogai", "sports", "bunka", "shogai_g", "asobiba", "bosai", "bohan", "bench", "ekikita", "matsuri", "nogyo", "gomi", "soshiki", "shunyu"]}], "cards": [{"topic": "road3411", "q": {"goto": ["G3-1"], "shirai": ["S6-1"], "tanaka": ["T2-2"]}, "diff": "後藤氏は建設計画の中止を求める。白井氏は整備の是非には触れず、国分寺崖線や野川の自然環境への影響をできるだけ小さくするよう都に求める。田中氏は「命の道路」として早期整備を掲げる。"}, {"topic": "chosha", "q": {"goto": ["G6-2"], "shirai": ["SK-1"], "tanaka": ["T2-1"]}, "common": "3人とも新庁舎を建てること自体は前提にしている。", "diff": "白井氏は規模・機能・手法等の見直しに向けた検討を始めていることと、早期実現。田中氏は防災拠点としての早期建設(見直しには触れない)。後藤氏は財政状況の公開と「コンパクトで利用しやすい庁舎」で、時期(早期かどうか)には触れない。"}, {"topic": "bukka", "q": {"goto": ["G1-1"], "shirai": ["SK-2"], "tanaka": ["T1-1", "T1-2"]}, "common": "3人とも物価高から暮らしを守る項目を置く。", "diff": "白井氏と田中氏は国・都との連携を明記(白井氏は家計の負担軽減と地域事業者の事業継続支援、田中氏はスピーディな実行と商工振興・地元生産者との連携)。後藤氏は「生活に困らない寄り添うサポート」で、手段や連携先は書いていない。"}, {"topic": "sanka", "q": {"goto": ["G6-1", "G1-2"], "shirai": ["SH-1", "SH-2"], "tanaka": []}, "diff": "後藤氏は情報を包み隠さず明らかにすることと、市役所を「市民の砦(住民自治・防災の拠点)」にすることを柱の一つに置く。白井氏は市民協働支援センターの設置や市民参加型予算(検討)など、参加の仕組みを挙げる。田中氏の政策には、この話題の項目が見当たらない。"}, {"topic": "shotengai", "q": {"goto": ["G4-1", "G4-2"], "shirai": ["S4-3", "SK-2"], "tanaka": ["T1-3"]}, "common": "3人とも地域の商業・事業者を元気にする方向。", "diff": "白井氏・田中氏は商店街を名指しする。後藤氏は対象を中小・零細企業・個人事業主とし、「地域内循環型経済」を掲げる。"}, {"topic": "hinan", "q": {"goto": ["G5-2"], "shirai": ["S3-3"], "tanaka": []}, "diff": "後藤氏はプライバシーと健康に配慮した避難生活の保障を掲げる(柱の見出しは「災害関連死を一人も出さない」)。白井氏は実践的な災害訓練とトイレ対策の充実。田中氏の防災の項目は担い手づくり(防災士・地域の連携)で、避難生活には触れていない。"}, {"topic": "matsuri", "q": {"goto": [], "shirai": ["SH-1"], "tanaka": ["T6-3"]}, "diff": "田中氏は「なかよし市民まつり」の復活。白井氏は市民まつりに代わる「新しい交流の催し」。後藤氏の政策には、まつりの項目はない。"}, {"topic": "shogai", "q": {"goto": [], "shirai": ["S5-1"], "tanaka": ["T7-1"]}, "diff": "田中氏は共生のまちづくりと障がい者施設の早期整備。白井氏は「障害は社会の側がつくり出している」という考え方への理解と就労支援。後藤氏の政策には、障がいを名指しした項目はない。"}, {"topic": "shunyu", "q": {"goto": [], "shirai": ["S7-7", "S7-5", "S7-6"], "tanaka": ["T5-2"]}, "common": "白井氏と田中氏は、どちらも市の収入を増やすと書く。", "diff": "手段は、田中氏が市民営業企画会議(仮称)とふるさと納税等、白井氏が有価証券運用・広告収入等。支出側の見直し(補助金・独自事業、公共施設の再配置)を書いているのは白井氏だけ。後藤氏は財政について、新庁舎の項目で「財政状況を公開」と書く。"}], "keywords": [{"kw": "推進", "label": "推進", "hits": {"G": {}, "S": {"S4-2": 1}, "T": {"G:T9": 1, "T1-2": 1, "T1-3": 1, "T1-4": 1, "T2-1": 1, "T2-3": 1, "T4-1": 1, "T4-5": 1, "T4-6": 1, "T5-1": 1, "T7-1": 1, "T7-3": 1, "T8-2": 1, "T8-3": 1, "T9-1": 2, "T9-2": 1}}, "G": 0, "S": 1, "T": 17}, {"kw": "整備", "label": "整備", "hits": {"G": {}, "S": {"S6-1": 1}, "T": {"G:T2": 1, "T1-4": 1, "T2-2": 1, "T2-3": 1, "T3-1": 1, "T4-7": 1, "T7-1": 1, "T7-4": 1}}, "G": 0, "S": 1, "T": 8}, {"kw": "早期", "label": "早期", "hits": {"G": {}, "S": {"SK-1": 2}, "T": {"G:T2": 1, "T2-1": 1, "T2-2": 1, "T4-2": 1, "T7-1": 1}}, "G": 0, "S": 2, "T": 5}, {"kw": "連携", "label": "連携", "hits": {"G": {}, "S": {"SK-2": 1, "S1-5": 1, "S2-1": 1, "S3-1": 1, "S3-4": 1, "S5-3": 1, "S6-3": 1}, "T": {"G:T1": 1, "T1-2": 1, "T5-1": 1, "T8-3": 1}}, "G": 0, "S": 7, "T": 4}, {"kw": "検討", "label": "検討", "hits": {"G": {}, "S": {"SH-2": 1, "SK-1": 1, "S1-4": 1, "S1-9": 1, "S4-4": 1, "S7-3": 1, "S7-6": 1}, "T": {"T2-1": 1, "T4-8": 1}}, "G": 0, "S": 7, "T": 2}, {"kw": "支援", "label": "支援", "hits": {"G": {}, "S": {"SH-1": 1, "SK-2": 1, "S1-2": 1, "S1-8": 1, "S3-2": 1, "S3-4": 1, "S4-3": 1, "S5-1": 1}, "T": {}}, "G": 0, "S": 8, "T": 0}, {"kw": "強化", "label": "強化", "hits": {"G": {}, "S": {"G:S7": 1}, "T": {}}, "G": 0, "S": 1, "T": 0}, {"kw": "活用", "label": "活用", "hits": {"G": {"G3-4": 1}, "S": {"G:S7": 1, "S2-2": 1, "S3-5": 1, "S4-4": 1, "S7-1": 1, "S7-3": 1, "S7-6": 1, "S7-7": 1}, "T": {"T4-4": 1, "T6-1": 2}}, "G": 1, "S": 8, "T": 3}, {"kw": "見直", "label": "見直し", "hits": {"G": {}, "S": {"SK-1": 2, "S7-5": 1}, "T": {}}, "G": 0, "S": 3, "T": 0}, {"kw": "市民", "label": "市民", "hits": {"G": {"G:G6": 1, "G1-3": 1, "G6-1": 2}, "S": {"G:SH": 1, "G:S4": 1, "SH-1": 2, "SH-2": 2, "SH-3": 1, "S6-5": 1, "S7-1": 1}, "T": {"G:T1": 1, "G:T5": 1, "T3-1": 2, "T4-6": 1, "T5-1": 2, "T5-2": 1, "T6-1": 1, "T6-3": 1}}, "G": 4, "S": 9, "T": 10}, {"kw": "地域", "label": "地域", "hits": {"G": {"G1-2": 1, "G4-2": 1}, "S": {"G:S2": 1, "SH-4": 1, "SK-2": 1, "S1-5": 1, "G:S1": 2, "S1-7": 1, "S1-11": 1, "S2-1": 1, "S3-1": 2, "S4-5": 1, "S5-3": 1, "S7-4": 1}, "T": {"G:T8": 1, "T1-3": 1, "T4-5": 1, "T8-1": 2, "T8-2": 2, "T8-3": 1}}, "G": 2, "S": 14, "T": 8}, {"kw": "若者", "label": "若者", "hits": {"G": {}, "S": {"G:SH": 1, "G:S1": 3, "SH-4": 1, "S1-10": 1, "S1-11": 1, "S6-5": 1}, "T": {"T8-1": 1}}, "G": 0, "S": 8, "T": 1}, {"kw": "交流", "label": "交流", "hits": {"G": {}, "S": {"G:SH": 1, "G:S2": 1, "G:S4": 1, "SH-1": 1, "SH-4": 1, "S1-7": 1, "S1-11": 1, "S2-2": 1, "S2-6": 1, "S4-5": 1, "S7-3": 1}, "T": {}}, "G": 0, "S": 11, "T": 0}, {"kw": "健康", "label": "健康", "hits": {"G": {"G1-3": 1, "G5-2": 1}, "S": {"G:S2": 2}, "T": {"G:T7": 1, "T3-1": 2}}, "G": 2, "S": 2, "T": 3}, {"kw": "安心", "label": "安心", "hits": {"G": {"G:G1": 1, "G:G5": 1, "G2-3": 1, "G2-4": 1}, "S": {"G:S3": 2, "G:S1": 1}, "T": {"G:T2": 1, "T3-3": 1, "T7-4": 1}}, "G": 4, "S": 3, "T": 3}, {"kw": "こども|子ども|子供", "label": "子ども(こども・子供)", "hits": {"G": {"G:G2": 2, "G2-1": 1, "G2-3": 1}, "S": {"G:S1": 1, "S1-7": 1, "S1-8": 2, "S1-9": 1, "S2-6": 1}, "T": {"G:T4": 1, "T3-2": 1, "T3-3": 1}}, "G": 4, "S": 6, "T": 3}, {"kw": "公開", "label": "公開", "hits": {"G": {"G:G6": 1, "G6-2": 1}, "S": {}, "T": {}}, "G": 2, "S": 0, "T": 0}, {"kw": "保障", "label": "保障", "hits": {"G": {"G:G2": 1, "G5-2": 1}, "S": {}, "T": {}}, "G": 2, "S": 0, "T": 0}, {"kw": "暮らし", "label": "暮らし", "hits": {"G": {"G:G3": 1, "G1-1": 1}, "S": {"SK-2": 1, "G:S3": 1}, "T": {}}, "G": 2, "S": 2, "T": 0}], "stats": {"goto": {"items": 19, "shared_items": 15, "only_items": 4, "kentou": 0, "kentou_ids": [], "chars": 592, "themes_covered": 8, "topics_in": 14, "with": {"shirai": 15, "tanaka": 9}, "digits": ["G3-1"]}, "shirai": {"items": 51, "shared_items": 34, "only_items": 17, "kentou": 7, "kentou_ids": ["SH-2", "SK-1", "S1-4", "S1-9", "S4-4", "S7-3", "S7-6"], "chars": 2491, "themes_covered": 14, "topics_in": 33, "with": {"goto": 14, "tanaka": 29}, "digits": ["S1-2", "S6-1"]}, "tanaka": {"items": 35, "shared_items": 30, "only_items": 5, "kentou": 2, "kentou_ids": ["T2-1", "T4-8"], "chars": 1323, "themes_covered": 12, "topics_in": 29, "with": {"goto": 11, "shirai": 29}, "digits": ["T2-2", "T2-3", "T4-3"]}, "topics": 34, "shirai_verbs": {"取り組みます": 36, "検討します": 6, "始めます": 1, "広げます": 4, "都に求めます": 1, "続けます": 1}, "shirai_together": 11}, "verify": {"checked": 239, "misses": 0, "count_checks": {"goto": {"source": 19, "items": 19}, "shirai": {"source": 51, "items": 51}, "tanaka": {"source": 35, "items": 35}}, "sync_bad": 0}};
 (function(){
   const D = DATA;
   const $ = s => document.querySelector(s);
@@ -354,56 +348,57 @@ const DATA = {"meta": {"asof": "2026-10-06", "shirai": {"name": "白井とおる
   const grp = Object.fromEntries(D.groups.map(g => [g.id, g]));
   const theme = Object.fromEntries(D.themes.map(t => [t.id, t]));
   const topic = Object.fromEntries(D.topics.map(t => [t.id, t]));
-  const C = D.cands;                                   // ['goto','shirai','tanaka']
+  const C = D.cands;                                   // ['goto','shirai','tanaka'] 50音順
   const CN = {goto:'後藤', shirai:'白井', tanaka:'田中'};
-  const CK = {goto:'g', shirai:'s', tanaka:'t'};
+  const CL = {goto:'後', shirai:'白', tanaka:'田'};
   const K = {goto:'G', shirai:'S', tanaka:'T'};
   const S = D.stats, M = D.meta;
 
+  const cb = (c, on) => `<span class="cb${on === undefined ? '' : on ? ' on' : ' off'}" aria-hidden="true">${CL[c]}</span>`;
+  const trio = members => `<span class="trio" role="img" aria-label="${esc(members.map(c => CN[c] + '氏').join('・'))}が触れている">${C.map(c => cb(c, members.includes(c))).join('')}</span>`;
+  const who = c => `<span class="name">${cb(c)}${esc(M[c].name)}氏</span>`;
   function gLabel(g){
-    if (g.kind === '包括的な取組み') return '包括的な取組み';
+    if (g.kind === '基本姿勢') return '基本姿勢';
     if (g.kind === '重要課題') return '重要課題';
     if (g.cand === 'shirai') return '基本政策' + g.no;
     return '政策' + g.no;
   }
-  const dots = members => `<span class="dots" role="img" aria-label="${esc(members.map(c => CN[c]).join('・'))}が触れている">${C.map(c => `<i class="${CK[c]}${members.includes(c) ? ' on' : ''}"></i>`).join('')}</span>`;
   function itemTip(id){
     const it = item[id], g = grp[it.group];
-    return `<b>${CN[it.cand]}氏 ・ ${esc(gLabel(g))}${it.sub ? ' ・ ' + esc(it.sub) : ''}(${esc(id)})</b>${esc((it.head ? it.head + ' ' : '') + it.text)}`;
+    return `<b>${CN[it.cand]}氏 ・ ${esc(gLabel(g))}${it.sub ? ' ・ ' + esc(it.sub) : ''}(${esc(id)})</b>${it.verb ? '[' + esc(it.verb) + '] ' : ''}${esc((it.head ? it.head + ' ' : '') + it.text)}`;
   }
-  const chipT = id => `<button type="button" class="chip both" data-topic="${id}">${dots(topic[id].members)}${esc(topic[id].label)}</button>`;
-  const chipI = id => `<button type="button" class="chip" data-id="${id}"><span class="sw ${CK[item[id].cand]}"></span>${esc(item[id].label)}</button>`;
+  const chipT = id => `<button type="button" class="chip both" data-topic="${id}">${trio(topic[id].members)}${esc(topic[id].label)}</button>`;
+  const chipI = id => `<button type="button" class="chip" data-id="${id}">${cb(item[id].cand)}${esc(item[id].label)}</button>`;
+  const FORM = {goto:'トップページ内の箇条書き', shirai:'専用ページ', tanaka:'専用ページ'};
 
   /* ---------- 冒頭 ---------- */
-  const srcLine = c => {
-    const m = M[c];
-    if (c === 'shirai') return `出典: ${esc(m.source)}(PDF 12ページ)`;
-    if (c === 'tanaka') return `出典: <a href="${esc(m.source_url)}" target="_blank" rel="noopener">${esc(m.source)}</a>(${esc(m.retrieved)}取得)`;
-    return `出典: ${esc(m.source)}(${esc(m.retrieved)}に入手した画像を書き起こし)`;
-  };
+  $('#st').textContent = `各サイト ${M.goto.retrieved} 取得時点`;
   $('#who').innerHTML = C.map(c => {
     const m = M[c];
-    return `<div class="who-card ${CK[c]}">
-      <div class="who-name"><span class="sw ${CK[c]}"></span>${esc(m.name)}氏<small>${esc(m.frame)} ・ ${S[c].items}項目</small></div>
-      <p class="slogan">${esc(m.slogan)}</p>
+    return `<div class="who-card">
+      <div class="who-name">${cb(c)}${esc(m.name)}氏</div>
+      <p class="who-frame">${esc(m.frame)} ・ ${FORM[c]}</p>
+      <p class="who-slogan">${esc(m.slogan)}</p>
       <p class="who-meta">${esc(m.subslogan)}</p>
-      <p class="who-meta">${srcLine(c)}</p></div>`;
+      <p class="who-meta">出典: <a href="${esc(m.source_url)}" target="_blank" rel="noopener">${esc(m.source)}</a><br>${esc(m.retrieved)} 取得</p>
+      <div class="who-n"><span><b class="num">${S[c].items}</b> 項目</span><span><b class="num">${S[c].themes_covered}</b>/14 分野</span><span><b class="num">${fmt(S[c].chars)}</b> 字</span></div></div>`;
   }).join('');
-  $('#notice').innerHTML = `<b>内部検討用です。</b>資料の種類が3氏で違います。後藤氏はチラシ1枚(画像)の書き起こし、白井氏は陣営内部の版(${esc(M.shirai.source)})、田中氏は公式サイトの${esc(M.tanaka.retrieved)}時点の内容で、その後の更新は反映していません。書いている量の差は資料の形の差でもあるので、項目数の多い少ないで政策の厚みを判断しないでください。配布・公開する場合は、先に選挙管理委員会への確認と本人確認を済ませてください。`;
+  $('#notice').innerHTML = `<b>このページの立場</b><span>公表されている政策文書の記載を並べたもので、特定の候補を推薦・支持するものではありません。政策のよしあし・実現性・優先順位は評価していません。各サイトに書かれていないことは書いていません。</span>
+    <span>各サイトは ${esc(M.goto.retrieved)} 時点の内容で、その後の更新は反映していません。「分野」「同じ話題」の分け方はこの比較のための判断で、付録の全項目一覧で原文と突き合わせて確かめられます。</span>`;
 
-  /* ---------- §1 ひと目で ---------- */
+  /* ---------- §1 数で見る ---------- */
   const rows = [
-    {l:'政策の項目数', v:C.map(c => S[c].items), bar:true, sub:{shirai:`再掲1件を除く(載っているのは${S.shirai.items_all}件)`}},
-    {l:'政策の柱', v:['6つの政策', '7つの基本政策＋重要課題2＋包括的な取組み', 'ターゲット9(9つの政策)'], txt:true},
-    {l:'資料', v:['チラシ1枚(画像)', '冊子PDF 12ページ', 'ウェブページ'], txt:true},
+    {l:'政策の項目数', v:C.map(c => S[c].items), bar:true},
+    {l:'政策の柱', v:C.map(c => M[c].frame), txt:true},
+    {l:'資料の形', v:C.map(c => FORM[c]), txt:true},
     {l:'項目がある分野(14分野のうち)', v:C.map(c => S[c].themes_covered), bar:true},
     {l:'ほかの候補にも同じ話題がある項目', v:C.map(c => S[c].shared_items), bar:true, sub:Object.fromEntries(C.map(c => [c, Object.entries(S[c].with).map(([o, n]) => `${CN[o]}氏と${n}`).join('・')]))},
     {l:'この候補だけの項目', v:C.map(c => S[c].only_items), bar:true},
     {l:'「検討」と書いた項目', v:C.map(c => S[c].kentou), bar:true, ids:C.map(c => S[c].kentou_ids)},
-    {l:'数値目標・期限・財源額', v:['記載なし','記載なし','記載なし'], txt:true, sub:{goto:'数字は道路番号のみ', shirai:'数字は年齢・道路番号のみ', tanaka:'数字は道路番号・学年のみ'}},
-    {l:'文字数(見出し＋本文)', v:C.map(c => fmt(S[c].chars)), raw:C.map(c => S[c].chars), bar:true},
+    {l:'数値目標・期限・財源額', v:['記載なし','記載なし','記載なし'], txt:true, sub:{goto:'数字は道路番号のみ', shirai:'数字は年齢・道路番号のみ', tanaka:'数字は道路番号・学年のみ'}, ids:C.map(c => S[c].digits)},
+    {l:'文字数(柱の見出し＋本文)', v:C.map(c => fmt(S[c].chars)), raw:C.map(c => S[c].chars), bar:true},
   ];
-  let h = `<div class="sc-l sc-h corner" style="background:transparent">項目</div>` + C.map(c => `<div class="sc-h"><span class="sw ${CK[c]}"></span>${esc(M[c].name)}氏</div>`).join('');
+  let h = `<div class="sc-l corner">項目</div>` + C.map(c => `<div class="sc-h">${who(c)}</div>`).join('');
   for (const r of rows){
     const vals = r.raw || r.v;
     const mx = r.bar ? Math.max(...vals, 1) : 0;
@@ -411,7 +406,7 @@ const DATA = {"meta": {"asof": "2026-10-06", "shirai": {"name": "白井とおる
       const bar = r.bar ? `<i class="sc-bar" style="width:${(vals[i] / mx * 100).toFixed(1)}%"></i>` : '';
       const tip = r.ids && r.ids[i].length ? ` data-ids="${r.ids[i].join(',')}" tabindex="0"` : '';
       const sub = r.sub && r.sub[c] ? `<span class="sub">${esc(r.sub[c])}</span>` : '';
-      return `<div class="sc-v ${CK[c]}"${tip} aria-label="${esc(CN[c] + '氏 ' + r.l + ' ' + r.v[i])}"><b class="${r.txt ? 'txt' : ''} num">${esc(r.v[i])}</b>${bar}${sub}</div>`;
+      return `<div class="sc-v"${tip} aria-label="${esc(CN[c] + '氏 ' + r.l + ' ' + r.v[i])}"><b class="${r.txt ? 'txt' : ''} num">${esc(r.v[i])}</b>${bar}${sub}</div>`;
     }).join('');
   }
   $('#score').innerHTML = h;
@@ -419,34 +414,34 @@ const DATA = {"meta": {"asof": "2026-10-06", "shirai": {"name": "白井とおる
   /* ---------- §2 重なり ---------- */
   const ovMax = Math.max(...D.overlap.map(o => o.topics.length), ...C.map(c => S[c].only_items), 1);
   const ovRow = (whoHTML, n, unit, chips) => `<div class="ov-row"><div class="ov-who">${whoHTML}</div>
-      <div class="ov-n"><b class="num">${n}</b><small>${unit}</small><i class="ov-bar" style="width:${(n / ovMax * 7).toFixed(2)}em"></i></div>
+      <div class="ov-n"><b class="num">${n}</b><small>${unit}</small><i class="ov-bar" style="width:${(n / ovMax * 6).toFixed(2)}em"></i></div>
       <div class="ov-chips">${chips || '<span class="empty">なし</span>'}</div></div>`;
   let oh = `<div class="ov-sub">2人以上が触れている話題(数は「話題」)</div>`;
   for (const o of D.overlap){
     const label = o.members.length === 3 ? '3人とも' : o.members.map(c => CN[c] + '氏').join('と');
-    oh += ovRow(`${dots(o.members)}${esc(label)}`, o.topics.length, '話題', o.topics.map(chipT).join(''));
+    oh += ovRow(`${trio(o.members)}${esc(label)}`, o.topics.length, '話題', o.topics.map(chipT).join(''));
   }
   oh += `<div class="ov-sub">1人だけが書いている項目(数は「項目」)</div>`;
   for (const c of C){
-    const ids = D.items.filter(i => i.cand === c && !i.shared && !i.dup_of).map(i => i.id);
-    oh += ovRow(`${dots([c])}${CN[c]}氏だけ`, ids.length, '項目', ids.map(chipI).join(''));
+    const ids = D.items.filter(i => i.cand === c && !i.shared).map(i => i.id);
+    oh += ovRow(`${trio([c])}${CN[c]}氏だけ`, ids.length, '項目', ids.map(chipI).join(''));
   }
   $('#ov').innerHTML = oh;
   const ovn = Object.fromEntries(D.overlap.map(o => [o.members.join('-'), o.topics.length]));
-  $('#ov-note').textContent = `2人以上が触れている話題は${S.topics}。そのうち3人とも触れているのは${ovn['goto-shirai-tanaka']}話題です。2人の組み合わせでは白井氏と田中氏が${ovn['shirai-tanaka']}話題と最も多く、後藤氏と白井氏が${ovn['goto-shirai']}、後藤氏と田中氏が${ovn['goto-tanaka']}です。どの話題を「同じ」とみるかはこの比較のための判断で、チップに触れると各氏の原文が出ます。`;
+  $('#ov-note').textContent = `2人以上が触れている話題は${S.topics}。そのうち3人とも触れているのは${ovn['goto-shirai-tanaka']}話題。2人の組み合わせでは、白井氏と田中氏が${ovn['shirai-tanaka']}話題、後藤氏と白井氏が${ovn['goto-shirai']}話題、後藤氏と田中氏が${ovn['goto-tanaka']}話題です。どの話題を「同じ」とみるかはこの比較のための判断で、チップに触れると各氏の原文が出ます。`;
 
   /* ---------- §3 組み立て ---------- */
   function unitCol(c){
     const gs = D.groups.filter(g => g.cand === c);
-    let out = `<div class="ucol ${CK[c]}"><div class="ucol-h"><span class="sw ${CK[c]}"></span><b>${esc(M[c].name)}氏</b><span>${esc(M[c].frame)} ・ ${S[c].items}項目</span></div>`;
+    let out = `<div class="ucol"><div class="ucol-h">${who(c)}<span class="f">${esc(M[c].frame)} ・ ${S[c].items}項目</span></div>`;
     let lastKind = '';
     for (const g of gs){
       if (c === 'shirai' && g.kind !== lastKind){
-        out += `<p class="tier">${g.kind === '包括的な取組み' ? 'すべての分野に共通する取組み' : g.kind === '重要課題' ? '重要課題' : '7つの基本政策'}</p>`;
+        out += `<p class="tier">${g.kind === '基本姿勢' ? 'すべての分野に共通する基本姿勢' : g.kind === '重要課題' ? '2つの重要課題' : '7つの基本政策'}</p>`;
         lastKind = g.kind;
       }
-      const no = g.kind === '包括的な取組み' ? '包括' : g.kind === '重要課題' ? '重要' : g.no;
-      const sq = g.items.map(id => `<button type="button" class="sq${item[id].shared ? ' on' : ''}${item[id].dup_of ? ' dup' : ''}" data-id="${id}" aria-label="${esc(id + ' ' + item[id].text)}"></button>`).join('');
+      const no = g.kind === '基本姿勢' ? '姿勢' : g.kind === '重要課題' ? '重要' : g.no;
+      const sq = g.items.map(id => `<button type="button" class="sq${item[id].shared ? ' on' : ''}" data-id="${id}" aria-label="${esc(id + ' ' + item[id].text)}"></button>`).join('');
       const ttl = g.kind === '重要課題' ? g.items.map(id => item[id].head).join(' ／ ') : g.title;
       out += `<div class="urow"><span class="uno">${esc(no)}</span><span class="utitle">${esc(ttl)}${g.area ? ` <span class="muted">＜${esc(g.area)}＞</span>` : ''}</span><div class="usq">${sq}</div></div>`;
     }
@@ -457,11 +452,11 @@ const DATA = {"meta": {"asof": "2026-10-06", "shirai": {"name": "白井とおる
   /* ---------- 3本並びの横棒(共通部品) ---------- */
   function groupedBars(el, rows, opt){
     const mx = Math.max(...rows.flatMap(r => C.map(c => r[K[c]])), 1);
-    let h = `<div class="gb-head"><span class="muted">${esc(opt.mid)}</span><span class="lg">${C.map(c => `<span><span class="sw ${CK[c]}"></span>${CN[c]}氏</span>`).join('')}</span></div>`;
+    let h = `<div class="gb-head"><span>${esc(opt.mid)}</span><span>各行は上から後藤氏・白井氏・田中氏の順(印は候補の頭文字)</span></div>`;
     for (const r of rows){
       const bars = C.map(c => {
         const v = r[K[c]];
-        return `<div class="gb-bar ${CK[c]}" aria-label="${CN[c]}氏 ${v}"><span class="v${v ? '' : ' zero'}">${v}</span>${v ? `<i style="width:${(v / mx * 100).toFixed(1)}%"></i>` : ''}</div>`;
+        return `<div class="gb-bar" aria-label="${CN[c]}氏 ${v}">${cb(c)}<span class="v${v ? '' : ' zero'}">${v}</span>${v ? `<i style="width:${(v / mx * 100).toFixed(1)}%"></i>` : '<span></span>'}</div>`;
       }).join('');
       h += `<div class="gb-row" ${opt.attr(r)} tabindex="0"><div class="gb-lab">${esc(r.name)}</div><div class="gb-bars">${bars}</div></div>`;
     }
@@ -469,25 +464,25 @@ const DATA = {"meta": {"asof": "2026-10-06", "shirai": {"name": "白井とおる
   }
   const total = r => C.reduce((a, c) => a + r[K[c]], 0);
   const themeRows = [...D.themes].sort((a, b) => total(b) - total(a) || b.G - a.G);
-  groupedBars($('#gb-themes'), themeRows, {mid:'分野', attr: r => `data-theme="${r.id}"`});
+  groupedBars($('#gb-themes'), themeRows, {mid:'分野(項目の多い順)', attr: r => `data-theme="${r.id}"`});
   const kwRows = D.keywords.map(k => ({...k, name:k.label})).sort((a, b) => total(b) - total(a));
-  groupedBars($('#gb-words'), kwRows, {mid:'言葉', attr: r => `data-kw="${esc(r.kw)}"`});
-  $('#words-note').innerHTML = `政策の見出し・小見出し・本文で、それぞれの言葉が何回出てくるかを数えました(スローガン・リード文・表紙は除く)。文字数は後藤氏${fmt(S.goto.chars)}字、白井氏${fmt(S.shirai.chars)}字、田中氏${fmt(S.tanaka.chars)}字と差が大きいので、回数は書いた量にも左右されます。行に触れると、どの項目に出てくるかが出ます。`;
+  groupedBars($('#gb-words'), kwRows, {mid:'言葉(回数の多い順)', attr: r => `data-kw="${esc(r.kw)}"`});
+  $('#words-note').textContent = `柱の見出し・小見出し・本文で、それぞれの言葉が何回出てくるかを数えました(スローガンとリード文は除く)。文字数は後藤氏${fmt(S.goto.chars)}字、白井氏${fmt(S.shirai.chars)}字、田中氏${fmt(S.tanaka.chars)}字と差が大きいので、回数は書いた量にも左右されます。行に触れると、どの項目に出てくるかが出ます。`;
 
-  /* ---------- §5 分野ごとの共通と1人だけ ---------- */
+  /* ---------- §5 分野ごと ---------- */
   $('#mx').innerHTML = themeRows.map(t => `<div class="mx-theme">${esc(t.name)}</div>
     <div class="mx-common"><span class="mini">2人以上が触れている話題</span>${t.topics.length ? t.topics.map(chipT).join('') : '<span class="empty">なし</span>'}</div>
-    <div class="mx-only">${C.map(c => { const ids = t[K[c] + '_only']; return `<div><span class="mini"><span class="sw ${CK[c]}"></span>${CN[c]}氏だけ</span>${ids.length ? ids.map(chipI).join('') : '<span class="empty">なし</span>'}</div>`; }).join('')}</div>`).join('');
+    <div class="mx-only">${C.map(c => { const ids = t[K[c] + '_only']; return `<div><span class="mini">${cb(c)}${CN[c]}氏だけ</span>${ids.length ? ids.map(chipI).join('') : '<span class="empty">なし</span>'}</div>`; }).join('')}</div>`).join('');
 
   /* ---------- §6 同じ話題・違う書き方 ---------- */
-  const quote = id => { const it = item[id]; return `<blockquote>${it.head ? `<b>${esc(it.head)}</b> ` : ''}${esc(it.text)}<span class="ref">${esc(gLabel(grp[it.group]))}・${esc(id)}</span></blockquote>`; };
+  const quote = id => { const it = item[id]; return `<blockquote>${it.verb ? `<span class="tag">${esc(it.verb)}</span>` : ''}${it.head ? `<b>${esc(it.head)}</b> ` : ''}${esc(it.text)}<span class="ref">${esc(gLabel(grp[it.group]))}・${esc(id)}</span></blockquote>`; };
   $('#cards').innerHTML = D.cards.map(cd => {
     const tp = topic[cd.topic];
     const cols = C.map(c => {
       const q = cd.q[c] || [];
-      return `<div class="q ${q.length ? CK[c] : 'none'}"><p class="q-who"><span class="sw ${CK[c]}"></span>${CN[c]}氏</p>${q.length ? q.map(quote).join('') : '<p class="nothing">この話題の項目はない</p>'}</div>`;
+      return `<div class="q"><p class="q-who">${cb(c, q.length > 0)}${CN[c]}氏</p>${q.length ? q.map(quote).join('') : '<p class="nothing">この話題の項目は見当たらない</p>'}</div>`;
     }).join('');
-    return `<article class="card" data-card="${esc(cd.topic)}"><div class="card-h">${dots(tp.members)}<h3>${esc(tp.label)}</h3></div>
+    return `<article class="card" data-card="${esc(cd.topic)}"><div class="card-h">${trio(tp.members)}<h3>${esc(tp.label)}</h3></div>
       <div class="qs">${cols}</div>
       <div class="card-f">${cd.common ? `<p><b>共通</b><span>${esc(cd.common)}</span></p>` : ''}<p><b>違い</b><span>${esc(cd.diff)}</span></p></div></article>`;
   }).join('');
@@ -507,11 +502,12 @@ const DATA = {"meta": {"asof": "2026-10-06", "shirai": {"name": "白井とおる
     $('#list').innerHTML = rows.length ? rows.map(it => {
       const g = grp[it.group];
       const rel = it.topics.length
-        ? it.topics.map(id => `<span class="li-rel">${dots(topic[id].members)}<span>${esc(topic[id].label)}</span></span>`).join('')
+        ? it.topics.map(id => `<span class="li-rel">${trio(topic[id].members)}<span>${esc(topic[id].label)}</span></span>`).join('')
         : `<span class="muted">この候補だけ</span>`;
       const gl = g.kind === '重要課題' ? '重要課題' : `${gLabel(g)} ${g.title}${it.sub ? ' ／ ' + it.sub : ''}`;
-      return `<div class="li"><div class="li-who"><span class="sw ${CK[it.cand]}"></span>${CN[it.cand]}<span class="id">${esc(it.id)}</span></div>
-        <div class="li-text"><span class="li-g">${esc(gl)}</span>${it.head ? `<span class="head">${esc(it.head)}</span>` : ''}${esc(it.text)}${it.dup_of ? ` <span class="muted">(${esc(it.dup_of)}と同じ文の再掲)</span>` : ''}</div>
+      const tags = (it.verb ? `<span class="tag">${esc(it.verb)}</span>` : '') + (it.together ? `<span class="tag">みんなでつくる</span>` : '');
+      return `<div class="li"><div class="li-who">${cb(it.cand)}${CN[it.cand]}<span class="id">${esc(it.id)}</span></div>
+        <div class="li-text"><span class="li-g">${esc(gl)}</span>${tags}${it.head ? `<span class="head">${esc(it.head)}</span>` : ''}${esc(it.text)}${it.note ? `<span class="li-note">※ ${esc(it.note)}</span>` : ''}</div>
         <div class="li-tag"><span class="th">${esc(theme[it.theme].name)}</span>${rel}</div></div>`;
     }).join('') : `<p style="padding:16px" class="muted">条件に合う項目はありません。絞り込みを外してください。</p>`;
   }
@@ -534,38 +530,38 @@ const DATA = {"meta": {"asof": "2026-10-06", "shirai": {"name": "白井とおる
 
   /* ---------- 出典と方法 ---------- */
   const V = D.verify, cc = V.count_checks;
+  const vb = S.shirai_verbs;
   $('#methodbox').innerHTML = `
-    <div class="panel"><h3>出典</h3><ul>
-      <li><span class="sw g"></span> 後藤秀典氏: ${esc(M.goto.source)}。${esc(M.goto.retrieved)}に入手した画像1枚(右側の推薦文と下部の応援者名は比較の対象外)。<br><code>${esc(M.goto.source_path)}</code><br><span class="muted">SHA-256 ${esc(M.goto.source_sha256.slice(0, 16))}…</span><br>ウェブ検索ではテキスト版の政策は見つからなかったため、画像を書き起こして使用。</li>
-      <li><span class="sw s"></span> 白井とおる氏: ${esc(M.shirai.source)}。PDF 12ページ(表紙・理念・全体構成・包括的な取組み・重要課題・7つの基本政策)。陣営内部の版で、実績のページは含まない。<br><code>${esc(M.shirai.source_path)}</code><br><span class="muted">SHA-256 ${esc(M.shirai.source_sha256.slice(0, 16))}…</span></li>
-      <li><span class="sw t"></span> 田中真一氏: <a href="${esc(M.tanaka.source_url)}" target="_blank" rel="noopener">${esc(M.tanaka.source)}</a>(${esc(M.tanaka.retrieved)}取得。政策の記載は「政策・ターゲット9」のページのみ)</li>
-    </ul></div>
+    <div class="panel"><h3>出典(いずれも公式サイト)</h3>
+      ${C.map(c => `<div class="src">${who(c)}<span>${esc(M[c].source)} ・ ${esc(M[c].retrieved)} 取得</span><span class="u"><a href="${esc(M[c].source_url)}" target="_blank" rel="noopener">${esc(M[c].source_url)}</a></span><span class="small muted">${esc(M[c].source_note)}</span></div>`).join('')}
+    </div>
     <div class="panel"><h3>数え方と確かめたこと</h3><ul>
-      <li>1項目 = 政策文書の箇条書き1つ(白井氏の重要課題2件は段落1つを1項目)。1項目に複数の施策が入っているものもそのまま1件。</li>
-      <li>後藤氏のチラシは、Claudeと別のAI(GPT)がそれぞれ独立に書き起こし、<b>${V.goto_read.lines}行すべてが一致</b>(不一致${V.goto_read.diff}行)。</li>
-      <li>原文照合: 本文・見出し${V.checked}か所をコードで出典と突き合わせ、<b>${V.checked - V.misses}/${V.checked}が一致</b>。</li>
-      <li>件数照合: 出典側の箇条を別に数えて一致を確認(後藤氏${cc.goto_source_gpt_read}件、白井氏${cc.shirai_source_plus_2}件、田中氏${cc.tanaka_source}件)。</li>
-      <li>分野と「共通する話題」は、この比較のために1件ずつ付けた分類です(機械的に決まるものではありません)。件数や回数はその分類からコードで数えています。</li>
-      <li>2人版(白井・田中)で使った「＝≒≠⇄」の記号は2者間の比較用なので、3人版では使わず、違いの大きい話題は原文を並べたカードで示しました。</li>
-      <li>白井氏は現職のため実績の資料が別にありますが、この比較は3氏の「これからの政策」の記載だけを対象にしています。</li>
+      <li>1項目 = 政策文書の箇条書き1つ(白井氏の重要課題2件は段落1つを1項目)。1項目に複数の施策が入っているものもそのまま1件。本文は一字も変えていません。</li>
+      <li>項目の抜き出しはコードで行い、保存したページ本文と突き合わせて<b>${V.checked}か所すべて一致</b>(本文・見出し・スローガン)。</li>
+      <li>件数は、ページ側の箇条の数を別の方法で数えて一致を確認(後藤氏${cc.goto.source}件、白井氏${cc.shirai.source}件、田中氏${cc.tanaka.source}件)。</li>
+      <li>白井氏のページにある印は、取り組みます${vb['取り組みます'] || 0}・検討します${vb['検討します'] || 0}・広げます${vb['広げます'] || 0}・始めます${vb['始めます'] || 0}・続けます${vb['続けます'] || 0}・都に求めます${vb['都に求めます'] || 0}、「みんなでつくる」${S.shirai_together}件。「これまでの4年」(実績)の欄は政策ではないので数えていません。</li>
+      <li>「分野」と「2人以上が触れている話題」は、この比較のために1件ずつ付けた分類で、機械的に決まるものではありません。件数や回数はその分類からコードで数えています。</li>
+      <li>「同じ話題」とみる幅は広めにとっています(例: 暑さ対策=街路樹とミストシャワー、気候変動=再生エネルギーとわかもの気候市民会議)。狭くとると「1人だけ」の項目が増えます。</li>
+      <li>3氏の立候補の届出状況や、現職としての実績は扱っていません。候補ごとの色分けもしていません(並びは50音順)。</li>
     </ul></div>`;
-  $('#foot').innerHTML = `作成 ${esc(M.asof)} ・ items.json(原文と分類)から build.py で生成 ・ 並びは50音順(後藤・白井・田中)`;
+  $('#foot').innerHTML = `<span>作成 ${esc(M.asof)} ・ 各サイトの ${esc(M.goto.retrieved)} 取得分から生成(items.json → build.py) ・ 検討用</span>
+    <span>デザイン: デジタル庁デザインシステムの資料(書体・色のコントラスト・余白の考え方と公開トークン)をもとに作成。同システムの公式テンプレートではありません。</span>`;
 
   /* ---------- ツールチップ ---------- */
   const tip = $('#tip');
   let pinned = null;
   function tipHTML(el){
     if (el.dataset.id) return itemTip(el.dataset.id);
-    if (el.dataset.ids) return el.dataset.ids.split(',').map(itemTip).join('<hr style="border:0;border-top:1px solid rgba(127,127,127,.4);margin:6px 0">');
+    if (el.dataset.ids) return el.dataset.ids.split(',').map(itemTip).join('<hr style="border:0;border-top:1px solid rgba(127,127,127,.5);margin:6px 0">');
     if (el.dataset.topic){
       const t = topic[el.dataset.topic];
       const li = C.map(c => t[K[c]].map(id => `<li>${CN[c]}: ${esc(item[id].text)}</li>`).join('')).join('');
       const none = C.filter(c => !t.members.includes(c)).map(c => CN[c] + '氏').join('・');
-      return `<b>${esc(t.label)}(${esc(t.members.map(c => CN[c]).join('・'))})</b><ul>${li}</ul>${none ? `<span style="opacity:.8">${esc(none)}の政策には、この話題の項目なし</span>` : ''}`;
+      return `<b>${esc(t.label)}(${esc(t.members.map(c => CN[c]).join('・'))})</b><ul>${li}</ul>${none ? `<span style="opacity:.85">${esc(none)}の政策には、この話題の項目なし</span>` : ''}`;
     }
     if (el.dataset.theme){
       const t = theme[el.dataset.theme];
-      const li = c => D.items.filter(i => i.cand === c && i.theme === t.id && !i.dup_of).map(i => `<li>${esc(i.label)}</li>`).join('') || '<li>なし</li>';
+      const li = c => D.items.filter(i => i.cand === c && i.theme === t.id).map(i => `<li>${esc(i.label)}</li>`).join('') || '<li>なし</li>';
       return `<b>${esc(t.name)}(押すと一覧を絞り込み)</b>` + C.map(c => `${CN[c]}氏 ${t[K[c]]}項目<ul>${li(c)}</ul>`).join('');
     }
     if (el.dataset.kw){
