@@ -1,0 +1,148 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>サポーターズマガジン Vol.4 中面の助言</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Zen+Kaku+Gothic+New:wght@700;900&amp;family=Outfit:wght@700;800&amp;display=swap"><style>
+:root{--y:#fff100;--ys:#fffbe0;--b:#00AEEF;--bd:#0079bf;--bi:#005a91;--ink:#221815;--soft:#5d5650;--line:#e3dfd3;--m:#e4007f;
+--jp:'Noto Sans JP','Yu Gothic',Meiryo,sans-serif;--rd:'Zen Kaku Gothic New','Noto Sans JP',sans-serif;--en:'Outfit',Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:#f1f1ee;color:var(--ink);font:400 15px/1.8 var(--jp)}h1,h2,h3,h4,p,ul{margin:0}ul{padding:0;list-style:none}
+.doc{width:min(1100px,calc(100% - 40px));margin:28px auto}.doc h1{font-family:var(--rd);font-size:28px;line-height:1.4;color:var(--bi)}.doc h2{font-family:var(--rd);font-size:21px;color:var(--bi);border-left:7px solid var(--b);padding-left:12px;margin:34px 0 12px}
+.doc h3{font-size:17px;margin:18px 0 6px;color:var(--bd)}.doc p+p{margin-top:8px}.doc table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}.doc th,.doc td{border:1px solid #cfcac0;padding:6px 10px;vertical-align:top;text-align:left}.doc th{background:#eef5fb}
+.doc .box{background:#fff;border:1px solid var(--line);padding:16px 20px;margin:10px 0}.doc .warn{background:#fff6f9;border-left:6px solid var(--m)}.doc .num{font-family:var(--en);font-weight:800;color:var(--bd);font-size:30px}
+.doc .pill{display:inline-block;background:var(--bi);color:#fff;font-size:12px;padding:1px 8px;border-radius:999px;margin-right:6px;vertical-align:middle}.doc .q{background:#eef5fb;padding:10px 14px;border-radius:6px;margin:8px 0}
+.doc .btn{display:inline-block;background:var(--bi);color:#fff;padding:8px 16px;text-decoration:none;font-weight:700;margin:4px 6px 4px 0}
+/* ---- 紙面 ---- */
+.sheet-wrap{overflow:auto;background:#555;padding:20px 0}.spread{width:1588px;height:1123px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;background:var(--ys);position:relative;box-shadow:0 2px 14px rgba(0,0,0,.4)}
+.spread:after{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(0,0,0,.18)}
+.page{padding:44px 40px 36px;position:relative;overflow:hidden;display:flex;flex-direction:column}.page.l{padding-right:30px}.page.r{padding-left:30px}
+.ph{position:absolute;right:40px;top:12px;font-size:11px;color:#999;font-family:var(--en)}
+.ttl{font-family:var(--rd);font-weight:900;color:var(--bi);font-size:30px;line-height:1.25;text-align:center}.ttl.bar{background:var(--b);color:#fff;padding:6px 14px}
+.band{background:var(--y);text-align:center;font-family:var(--rd);font-weight:900;font-size:22px;padding:5px;border-radius:30px;margin:12px 0 10px}
+.hl{font-family:var(--rd);font-weight:900;font-size:34px;color:var(--b);background:linear-gradient(transparent 55%,var(--y) 55%);display:inline;line-height:1.3}
+.fields{columns:2;column-gap:28px;flex:1}.field{break-inside:avoid;margin-bottom:14px}.fh{display:flex;align-items:center;gap:8px;margin-bottom:4px}.no{font-family:var(--en);font-weight:800;background:var(--b);color:#fff;font-size:13px;padding:1px 8px;clip-path:polygon(0 0,100% 0,88% 100%,0 100%)}
+.ft{font-family:var(--rd);font-weight:900;font-size:17px;color:var(--bi);line-height:1.3}.items li{position:relative;padding-left:14px;font-size:13.2px;line-height:1.55;margin:2px 0}.items li:before{content:"●";position:absolute;left:0;top:0;color:var(--b);font-size:9px;line-height:2.4}
+.items li.k{font-weight:700}.items.big li{font-size:16px;line-height:1.5;margin:6px 0;font-weight:700;padding-left:16px}.items.big li:before{font-size:10px;line-height:2.4}
+.tag{display:inline-block;font-size:10px;border:1px solid var(--bi);color:var(--bi);padding:0 5px;margin-left:6px;vertical-align:middle;line-height:1.5}.tag.c{border-style:dashed;color:var(--soft);border-color:var(--soft)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1;align-content:start}.card{background:#fff;border-radius:12px;padding:8px 12px 8px;position:relative}.card.wide{grid-column:1/-1}
+.cat{display:inline-block;background:var(--b);color:#fff;font-family:var(--rd);font-weight:700;font-size:14px;padding:1px 12px;border-radius:6px}.numpill{position:absolute;right:12px;top:8px;text-align:right;line-height:1.1}.numpill b{font-family:var(--en);font-size:26px;color:var(--bd)}.numpill small{display:block;font-size:10px;color:var(--soft);max-width:150px}
+.lead{font-family:var(--rd);font-weight:900;font-size:15px;color:var(--bd);margin:5px 0 2px;line-height:1.3}.body{font-size:11px;line-height:1.55}.oth{font-size:10.5px;color:var(--bi);margin-top:3px}.ol li{font-size:11px;line-height:1.45;padding-left:11px;position:relative}.ol li:before{content:"●";position:absolute;left:0;color:var(--b);font-size:8px;line-height:2.2}
+.card:has(.numpill) .lead{padding-right:160px}.card:has(.numpill) .cat{margin-bottom:0}.numpill small{line-height:1.15}.card.big .lead{font-size:16px}.card.big .body{font-size:12px}.card.big .ol li{font-size:12px}
+.img{background:#dde6ee;border:1px dashed #9ab;color:#567;font-size:10px;display:flex;align-items:center;justify-content:center;border-radius:6px}
+.issues{margin-top:6px;background:#fff;border-radius:12px;padding:8px 12px;display:grid;grid-template-columns:120px 1fr 1fr 1fr 1fr;gap:10px;align-items:start}.issues .lab{background:var(--b);color:#fff;font-family:var(--rd);font-weight:900;font-size:15px;line-height:1.3;text-align:center;padding:14px 6px;border-radius:8px;height:100%;display:flex;align-items:center;justify-content:center}
+.issues h4{font-size:12px;color:var(--bd);font-family:var(--rd);line-height:1.3;margin-bottom:3px}.issues p{font-size:10.5px;line-height:1.42}.cand{color:var(--m);font-size:9.5px}
+.nums{display:flex;gap:10px;margin:8px 0 0}.nums div{flex:1;background:#fff;border-top:5px solid var(--b);border-radius:8px;padding:6px 10px}.nums b{font-family:var(--en);font-size:26px;color:var(--bd);line-height:1.1;display:block}.nums span{font-size:10.5px;line-height:1.4;display:block}
+.more{margin-top:auto;background:var(--bi);color:#fff;border-radius:10px;padding:8px 14px;display:flex;align-items:center;gap:12px;font-size:12.5px;font-weight:700}.more .qr{width:52px;height:52px;background:#fff;color:#999;font-size:9px;display:grid;place-items:center;flex:none}
+.foot{font-size:9.5px;color:var(--soft);margin-top:3px}
+@media print{body{background:#fff}.doc,.ctrl{display:none}.sheet-wrap{padding:0;background:#fff}.spread{box-shadow:none}@page{size:420mm 297mm;margin:0}}
+</style></head><body><div class="doc">
+<h1>サポーターズマガジン Vol.4 中面の助言<br><span style="font-size:16px;font-weight:400;color:var(--soft)">「字が多すぎて読む気にならない」をどう直すか／現職・白井とおるをどう表現するか（2026-10-12）</span></h1>
+<p style="margin-top:10px"><a class="btn" href="plan1.html">案① 言い換えで字数減（全項目）</a><a class="btn" href="plan2.html">案② 項目を絞る（原文のまま）</a></p>
+<p class="box warn">この助言は、チラシの画像（2026-10-12）・冊子「政策2026」vol.09・公式サイトの成果一覧・3候補の政策比較（公式サイト版）・東京新聞の立候補表明記事をもとに、ClaudeとGPTが整理したものです。本人・陣営の判断を代わるものではなく、公選法上の最終判断は選挙管理委員会への確認が要ります（<b>tasks.md に【選管確認】として登録済み</b>）。</p>
+
+<h2>1. 診断：何が「読む気にならない」のか</h2>
+<div class="box">
+<p><span class="num">2,766</span> 字 ＝ 中面見開きの文字量（政策面 1283字・44項目、実績面 1483字・見出し7＋箇条書き40）。A4見開きの読み物として多すぎる上に、次の3点が重なっています。</p>
+<ul style="list-style:disc;padding-left:22px">
+<li><b>政策が「●でつないだ流し込み」</b>になっていて、1項目が1行になっていない。目が止まる場所がなく、44項目が1つの灰色の塊に見える。</li>
+<li><b>実績が「9つの箱×（見出し＋本文＋5〜9行）」</b>で、箱ごとの差がない。読者が最初の3秒で得るもの（数字・一言）がない。</li>
+<li><b>見出しが「市政、着実に前進。」「7つの基本政策」の2つだけ</b>で、見出しを拾い読みしても中身が分からない。読み手は見出し→太字→本文の順にしか読まない。</li>
+</ul>
+</div>
+
+<h2>2. 現職・白井とおるを、どう表現するか（事実から）</h2>
+<p>相手候補の打ち出しは、田中氏＝「停滞した小金井を前に進める」（新庁舎の早期建設・道路整備、自民に推薦要請）、後藤氏＝公立保育園5園に戻す・都道計画の中止・財政公開（東京新聞 8/29・10/8、各公式サイト）。これに対して、白井氏にしか言えないこと（材料で裏が取れること）は次の4つです。</p>
+<table><tr><th style="width:26%">特徴</th><th>裏づけになる事実（紙面・サイト・比較から）</th><th style="width:30%">紙面でどう出すか</th></tr>
+<tr><td><b>① 逃げずに決めた</b>（「火中の栗」から庁舎の見直しまで）</td><td>前市長の突然の辞任後に立候補（表紙の本人の言葉）。新庁舎は2度の入札中止→240億円の試算→9/1に見直しを報告（Vol.3）。立候補表明の理由も「課題が山積、引き続き担わせてほしい」（東京新聞8/27）。</td><td>「停滞」と言われる前に、<b>決めたこと</b>として語る。中面下の「重要課題への取組み状況」4欄を、空欄のままにせず<b>1行ずつの「決断」</b>で埋める（候補文は冊子vol.03にある）。</td></tr>
+<tr><td><b>② 市民と決める仕組みを作った</b></td><td>タウンミーティング44回、わかもの気候市民会議、中学生サミット・意見表明の場、子どもの権利の日、play here（当事者と3年）、市民協働提案制度。3候補のうち参加の仕組みを政策に書くのは白井氏と後藤氏だけ。陣営の横串「みんなでつくる」と一致。</td><td>実績面の「みんなでつくるまち」を<b>端ではなく上</b>に。「44回」を数字の札に。政策面では「みんなでつくる」の印が付く項目を太字に。</td></tr>
+<tr><td><b>③ 数字で言える実績がある</b></td><td>給食無償化、学校トイレ洋便器化80%前倒し、第一小7月着工、学童3カ所、2022年公約の着手率89.2%・達成率64.1%（陣営集計10/6）。新人2人には無い材料。</td><td>実績面の上に<b>3つの数字</b>（80%・44回・3カ所など）。本文は数字の説明に徹する。</td></tr>
+<tr><td><b>④ 財政の現実を正直に書く</b></td><td>3候補で支出側の見直し（補助金・独自事業、公共施設の再配置）を書くのは白井氏だけ。「検討します」の札を7項目に付けて約束の強さを分けている（他候補は0〜2）。</td><td>「検討」を隠さず<b>札で見せる</b>（案①で実装）。できることと検討中を分けて書く候補、として差を出す。</td></tr></table>
+<p style="margin-top:10px">まとめると、紙面の軸は<b>「逃げずに決めて、みんなで進める」</b>（表紙の「挑戦を、止めない。」の言い換え）。これはVol.3（苦渋の決断）→Vol.4（実績と政策）の流れとも合います。ただし<b>スローガンの文言は本人が決める</b>ところです。</p>
+
+<h2>3. 読む気になる紙面の原則（中面）</h2>
+<ol style="padding-left:22px">
+<li><b>1項目1行。</b>●でつながない。行頭に小さな●、1行に収まらない項目だけ2行。</li>
+<li><b>見出しだけで全部読める。</b>分野名（01〜07）と実績の分類名のほかに、<b>数字の札</b>（80%・44回・3カ所・220箇所）を置く。</li>
+<li><b>太字は1分野に2〜3項目まで。</b>全部太字＝太字なし。</li>
+<li><b>「検討」「都に求める」は札で正直に。</b>読み手の信頼につながり、公選法上も「約束の誇張」を避けられる。</li>
+<li><b>空欄を残さない。</b>「重要課題への取組み状況」の4欄がダミーのままなら、見直し・道路・保育園・物価高の<b>決断を1行ずつ</b>（候補文あり）。</li>
+<li><b>写真は1面に2枚まで。</b>いまの実績面は写真7点＋イラスト。文字を減らしても写真で埋めると同じ密度になる。</li>
+</ol>
+
+<h2>4. 2案の比較</h2>
+<table><tr><th></th><th>案① 言い換えで字数減（全項目）</th><th>案② 項目を絞る（原文のまま）</th></tr>
+<tr><th>政策面</th><td>44項目すべて。1283字→994字（77%）。1項目1行、「検討」札つき</td><td>16項目を原文で大きく。1283字→572字。残りはQRで政策2026（ウェブ）へ</td></tr>
+<tr><th>実績面</th><td>9分類すべて、箇条書き40件すべて。1483字→1016字（68%）。数字の札4つ</td><td>6分類・箇条書き12件。1483字→876字。上に数字3つ</td></tr>
+<tr><th>向いている考え方</th><td>「全部載せたい」を守る。読みやすさは1行化と数字で稼ぐ</td><td>読み手に「3つ覚えて帰ってもらう」。全部はウェブに、と割り切る</td></tr>
+<tr><th>要る作業</th><td>言い換え草案92件の本人確認（<a href="plan1.html#一覧">一覧</a>）</td><td>残す項目の判断（基準は案②のページに）</td></tr>
+<tr><th>私の推奨</th><td colspan="2"><b>案②を軸に、案①の「1項目1行」「数字の札」「検討の札」を持ち込む。</b>紙は入口、全文はウェブ、という役割分担がいちばん読まれます。「削りたくない」気持ちは分かりますが、44項目を全部読む読者はウェブに来る人です。</td></tr></table>
+
+<h2>5. 公職選挙法の観点（告示前の政治活動用文書として）</h2>
+<ul style="list-style:disc;padding-left:22px">
+<li>いまの紙面に「投票」「立候補」「次の4年」「2期目」の語は<b>ありません</b>（確認済み）。このまま使わないこと。表紙の「挑戦を、止めない。」「今もその想いです」は意思表明の範囲。</li>
+<li>実績は事実だけを書き、見込みは見込みと分かる書き方に（「来春納車予定」「2026年度中に設置完了予定」は紙面どおり残す）。</li>
+<li>「達成」「実現」の語は実績面に限る。政策面では「検討」「求める」をそのまま（案①の検査で機械的に確認）。</li>
+<li>発行者（白井とおるサポーターズ）・発行日の表示は紙面にあり。配布の時期・方法は【選管確認】（tasks.md）。</li>
+</ul>
+
+<h2>6. GPT（gpt-6-astra）の助言</h2>
+<p>同じ材料を渡して独立に答えてもらったもの（原文のまま）。Claudeの整理と食い違う点は、下の「読み方」で触れます。</p>
+<pre style='white-space:pre-wrap;font:14px/1.7 var(--jp);background:#fff;border:1px solid var(--line);padding:16px'>1. 現職としての特徴
+・「難題への対応と、残る課題を説明する現職」
+根拠：第一小学校は着工。新庁舎は入札中止を経て見直しを報告。完了と未解決を併記する。
+
+・「市民の声を継続して聞く現職」
+根拠：「みんなのタウンミーティング」を毎月開催し、就任後合計44回。中学生の意見表明の場も設置。
+
+・「サービス拡充と支出の見直しを掲げる現職」
+根拠：給食無償化を実現。今後の政策には補助金・独自事業の見直しを明記。後者は実績と混同しない。
+
+2. 読む気になる紙面への助言
+・左右に「これから取り組むこと」「4年間で進めたこと」と大見出しを置き、未来と実績を区別する。
+・左は7分野の番号と見出しを目立たせ、各項目を独立した箇条書きにする。長い文章の連結を避ける。
+・右は分類ごとに代表項目を太字にし、説明はその下へ。全項目を同じ強さで見せない。
+・数字は「タウンミーティング44回」など、何の数字か一体で表示。着手率89.2％・達成率64.1％には「陣営集計2026-10-06」を添え、着手と達成を分ける。
+・「実現」「着工」「予定」「実証実験」「見直し」を文字で明示。重要課題の未記入欄は、成果扱いせず現状と残る課題を記す。文字を小さくする前に、重複説明と装飾を整理する。
+
+3. 案①で守るルール
+・約束の強さを保存する。「検討」を「実施」に、「推進」を「実現」に変えない。「都へ求める」を市自身の実施に変えない。
+・対象・手段・条件を残す。「子ども・家庭」「読み書き困難等」などを、短縮のために脱落させない。一項目に複数の施策があれば、それぞれ残す。
+・原文44項目と短縮文の対応表を作り、抜けと意味の変化を点検する。半減は紙面全体の目標とし、各文の機械的な半減は求めない。
+
+4. 案②の選定基準と候補
+基準は、①暮らしへの具体的な関わりが読める、②白井の特徴や「みんなでつくる」が伝わる、③分野の偏りを抑え、未解決の重要課題も説明できる、の3つ。以下は政策の各分野から1項目ずつの候補。引用部分は原文どおり。
+
+・01：「不登校の子ども・家庭、読み書き困難等への学びの支援」
+・02：「コミュニティバスの路線維持、利用促進をはかる」
+・03：「災害時のトイレ対策の充実」
+・04：「新規転入者向けウェルカムイベントの実施」
+・05：「みんなの公園づくりプロジェクト「play here」の推進」
+・06：「都市計画道路3.4.11号線整備で課題となる、国分寺崖線や野川の自然環境に対する影響を可能な限り低減するよう都へ求めていく」
+・07：「補助金や独自事業の見直しで財政の硬直化をふせぐ」
+
+実績で残す分類は次の5つ。
+・学校教育・学びの環境
+・防災・防犯・安全
+・福祉・障がい・多様性
+・みんなでつくるまち
+・重要課題への取組み状況
+
+最後の分類は本文未記入のため、そのままでは掲載できない。材料にある新庁舎の見直し等を用い、説明を完成させる。案②では、残す項目の本文を短縮・合成しない。
+
+5. 告示前の表現について
+材料に法令・判断基準がないため、公職選挙法上の適否は断定できない。以下は発行前に確認すべき表現上の論点。
+
+・「一票を」「投票してください」などの直接的な投票依頼や、選挙日程と支持依頼を結び付ける表現は、掲載前に選管等へ確認する。
+・「後援会の政治活動用」と表示すれば足りる、と判断しない。再選への訴え、候補者名、日程等を含めた紙面全体を示して確認する。</pre>
+<h3>読み方</h3>
+<div id="gpt-note" class="box">
+<p><b>一致した点</b>: 「完了と未解決を併記する現職」「市民の声を聞き続ける（44回）」「サービス拡充と支出の見直し」の3つは、上の①〜④と同じ材料から同じ結論。紙面の助言（左右の大見出しで未来と実績を分ける／1項目1行／数字は何の数字か一体で／「実現」「予定」「実証実験」「見直し」を文字で明示）も、第3節の原則と一致。</p>
+<p><b>GPTの指摘で取り入れたこと</b>: 案①の言い換えで「対象・手段・条件を落とさない」。この指摘で3件を直した（不登校の「子ども・家庭」、DXの「市民利便性向上」、稼ぐ自治体の「行政財政資源の有効活用」を復元）。「重要課題の未記入欄は成果扱いせず、現状と残る課題を記す」も、4欄の候補文（見直しを決めた・都に求めていく・2園は廃園としつつ仕組みをつくった・給付等を実施）の性格と合う。</p>
+<p><b>分かれた点</b>: 案②で残す政策をGPTは各分野1項目（計7）、こちらは16項目。実績の分類はGPTが「学校教育・防災・福祉・みんなでつくるまち」＋重要課題の5つで、こちらは福祉を外し子育て・市民サービス・環境を残した。GPTは「分野の偏りを抑える」、こちらは「数字と差別化」を重く見た違い。<b>どちらを取るかは本人判断</b>（案②のページで項目の入れ替えはすぐできる）。</p>
+<p><b>公選法</b>: GPTには法令の材料を渡していないので「断定できない」が正しい答え。第5節は、10-08に別途行った調査（条文・総務省見解・判例・小金井市選管の手引）にもとづく。</p>
+</div>
+
+<h2>7. 次の一手（本人判断が要ること）</h2>
+<ol style="padding-left:22px">
+<li>案①か案②か（または案②＋案①の要素）。</li>
+<li>案①なら、言い換え草案の採否を1件ずつ（plan1.html の一覧）。案②なら、残す項目の確定。</li>
+<li>「重要課題への取組み状況」4欄の本文（候補文は冊子vol.03の文。そのまま使うか本人が書くか）。</li>
+<li>実績面の「XXXXXX」の吹き出し（数字を入れる欄と見ました。入れるなら80%・44回・3カ所・220箇所が紙面の文にある数）。</li>
+<li>公式サイトの成果一覧（57件）と紙面の実績の食い違い: 紙面「市立保育園の在り方検討&新方針策定」はサイトでは「新条例可決」まで進んでいる、「らくらく申請」はサイトの題に「等」が無い。どちらに合わせるか。</li>
+</ol>
+</div></body></html>
