@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="https://shiraisupporters.tokyo/uploads/supporterslogo.png">
+<title>寄付のお願い｜白井とおるサポーターズ</title>
+<meta name="description" content="白井とおるサポーターズへのご寄付のお願いと、法律で定められた寄付の制限について。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&amp;family=Outfit:wght@700;800&amp;family=Zen+Kaku+Gothic+New:wght@500;700;900&amp;display=swap">
+<style>
+:root {
+ --blue:#00AEEF; --blue-deep:#0079bf; --blue-ink:#005a91; --blue-pale:#d3edfb; --blue-soft:#eaf7fe;
+ --magenta:#e4007f; --magenta-deep:#b80067; --magenta-pale:#fde3f0; --yellow:#fff100; --yellow-soft:#fffcd1;
+ --ink:#221815; --ink-soft:#5d5650; --ink-faint:#948d86; --paper:#ffffff; --paper-alt:#f3f8fc; --line:#e7e2d6;
+ --font-jp:'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans','Yu Gothic',Meiryo,sans-serif;
+ --font-round:'Zen Kaku Gothic New','Noto Sans JP','Yu Gothic',Meiryo,sans-serif;
+ --font-en:'Outfit','Arial',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--ink);background:var(--paper);font:400 16px/1.85 var(--font-jp)}
+h1,h2,h3,p,ol,ul{margin:0}
+h1,h2,h3{font-family:var(--font-round);font-weight:900;line-height:1.5;word-break:auto-phrase;text-wrap:balance}
+p,li{overflow-wrap:anywhere;text-wrap:pretty}
+a{color:var(--blue-ink);text-underline-offset:4px}
+a:focus-visible{outline:3px solid var(--magenta-deep);outline-offset:4px}
+.wrap{width:min(860px,calc(100% - 32px));margin-inline:auto}
+.sample-bar{background:var(--yellow-soft);border-bottom:1px solid var(--line);font-size:14px;line-height:1.6;padding-block:10px}
+.sample-bar strong{color:var(--magenta-deep)}
+.site-head{border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
+.brand{font:800 18px/1 var(--font-round);color:var(--ink);text-decoration:none}
+.brand span{font-family:var(--font-en);color:var(--blue)}
+.back{font-size:14px;font-weight:700}
+.hero{padding-block:56px 40px;text-align:center;background:linear-gradient(180deg,var(--blue-soft),var(--paper))}
+.kicker{font:800 14px/1 var(--font-en);letter-spacing:.16em;color:var(--magenta)}
+.hero h1{margin-top:14px;font-size:clamp(28px,5vw,42px)}
+.hero p.lead{margin:18px auto 0;max-width:36em;color:var(--ink-soft);text-align:left}
+.section{padding-block:48px}
+.section+.section{border-top:1px solid var(--line)}
+.section h2{font-size:clamp(22px,3.4vw,30px);padding-top:18px;position:relative}
+.section h2::before{content:'';position:absolute;top:0;left:0;width:44px;height:5px;background:var(--magenta)}
+.section .sub{margin-top:12px;color:var(--ink-soft)}
+.steps{list-style:none;padding:0;margin-top:28px;display:grid;gap:16px}
+.steps li{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;padding:20px;border:1px solid var(--line);border-radius:18px;background:var(--paper)}
+.step-no{grid-row:span 2;font:800 13px/1 var(--font-en);letter-spacing:.08em;color:#fff;background:var(--blue-deep);border-radius:999px;padding:8px 12px;align-self:start}
+.steps h3{font-size:18px}
+.steps p{color:var(--ink-soft);font-size:15px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:12px 28px;margin-top:12px;border-radius:999px;background:var(--magenta);color:#fff;font-weight:700;text-decoration:none}
+.btn:hover{background:var(--magenta-deep)}
+.todo{display:inline-block;background:var(--yellow);color:var(--ink);font-size:13px;font-weight:700;padding:0 6px;border-radius:4px}
+.rules{list-style:none;padding:0;margin-top:24px;display:grid;gap:12px;counter-reset:rule}
+.rules li{counter-increment:rule;position:relative;padding:18px 20px 18px 60px;background:var(--paper-alt);border-radius:14px}
+.rules li::before{content:counter(rule);position:absolute;left:18px;top:18px;width:28px;height:28px;border-radius:50%;background:var(--blue-ink);color:#fff;font:700 14px/28px var(--font-en);text-align:center}
+.rules strong{display:block;font-size:17px;line-height:1.6}
+.rules p{margin-top:6px;font-size:15px;color:var(--ink-soft)}
+.law{display:block;margin-top:6px;font-size:13px;color:var(--ink-faint)}
+.law a{color:inherit}
+.box{margin-top:24px;padding:20px;border:2px solid var(--blue-pale);border-radius:14px}
+.box h3{font-size:18px}
+.box p{margin-top:8px;font-size:15px}
+.box p+p{margin-top:6px}
+.plain{margin-top:20px;padding-left:1.3em;display:grid;gap:8px;font-size:15px}
+.contact{margin-top:16px;font-size:15px}
+footer{background:var(--paper-alt);border-top:1px solid var(--line);padding-block:28px;font-size:14px;color:var(--ink-soft)}
+footer p+p{margin-top:4px}
+@media (min-width:700px){.steps{grid-template-columns:repeat(3,1fr)}.steps li{grid-template-columns:1fr;grid-template-rows:auto auto 1fr}.step-no{grid-row:auto;justify-self:start}}
+</style>
+</head>
+<body>
+
+<div class="sample-bar"><div class="wrap"><strong>サンプル</strong>（未公開）— 黄色の<span class="todo">要記入</span>は、フォームURL・連絡先など実際の情報が決まってから入れる箇所です。</div></div>
+
+<header class="site-head"><div class="wrap">
+ <a class="brand" href="https://shiraisupporters.tokyo/">白井とおる <span>2026</span></a>
+ <a class="back" href="https://shiraisupporters.tokyo/#support">← 応援するへ戻る</a>
+</div></header>
+
+<main>
+<section class="hero">
+ <div class="wrap">
+  <p class="kicker">DONATION</p>
+  <h1>ご寄付のお願い</h1>
+  <p class="lead">白井とおるサポーターズの活動は、会員のみなさまの会費とご寄付によって支えられています。会報の発行、講演会・報告会の開催など、白井とおるの政治活動を後援する活動にあてさせていただきます。お力添えをお願いいたします。</p>
+ </div>
+</section>
+
+<section class="section" id="how">
+ <div class="wrap">
+  <h2>ご寄付の方法</h2>
+  <p class="sub">お振込みでお受けしています。法律で寄付者の確認が必要なため、先にお申込みをお願いしています。</p>
+  <ol class="steps">
+   <li><span class="step-no">STEP 1</span><h3>注意事項を確認</h3><p>下の「法律で定められていること」をお読みください。</p></li>
+   <li><span class="step-no">STEP 2</span><h3>フォームでお申込み</h3><p>お名前・ご住所・ご職業・金額などをご記入ください。</p></li>
+   <li><span class="step-no">STEP 3</span><h3>お振込み</h3><p>事務局から振込先をメールでお知らせします。<strong>ご本人の名義</strong>でお振込みください。</p></li>
+  </ol>
+  <p style="text-align:center"><a class="btn" href="#" aria-disabled="true">寄付のお申込みフォーム →</a><br><span class="todo">要記入：フォームURL</span></p>
+ </div>
+</section>
+
+<section class="section" id="law">
+ <div class="wrap">
+  <h2>法律で定められていること</h2>
+  <p class="sub">政治団体への寄付には、政治資金規正法などによる制限があります。お申込みの前に必ずご確認ください。</p>
+  <ol class="rules">
+   <li><strong>個人の方からのご寄付に限ります</strong>
+    <p>会社・労働組合・その他の団体からのご寄付は、法律でお受けできません。</p>
+    <span class="law">政治資金規正法 第21条第1項</span></li>
+   <li><strong>日本国籍をお持ちでない方からはお受けできません</strong>
+    <p>外国人・外国法人などからの寄付を受けることは、法律で禁止されています。</p>
+    <span class="law">政治資金規正法 第22条の5</span></li>
+   <li><strong>匿名や、ほかの方の名義でのご寄付はできません</strong>
+    <p>ご家族など、ご本人以外の名義を使ったご寄付もできません。お振込みもご本人名義でお願いします。</p>
+    <span class="law">政治資金規正法 第22条の6</span></li>
+   <li><strong>当会へのご寄付は、お一人あたり年間150万円までです</strong>
+    <p>1月1日〜12月31日の合計です。また、政党・政治資金団体以外の政治団体などへの寄付は、すべての寄付先を合わせて年間1,000万円までです。</p>
+    <span class="law">政治資金規正法 第22条第2項・第21条の3第3項</span></li>
+   <li><strong>小金井市と契約を結んでいる方の、市長選挙に関するご寄付はできません</strong>
+    <p>小金井市と請負その他特別の利益を伴う契約を結んでいる方は、小金井市長選挙に関して寄付をすることが禁止されています。</p>
+    <span class="law">公職選挙法 第199条第1項</span></li>
+   <li><strong>白井とおる本人あてには、お金のご寄付はできません</strong>
+    <p>公職の候補者本人への政治活動に関する金銭の寄付は禁止されているため、ご寄付はすべて政治団体である白井とおるサポーターズでお受けします。</p>
+    <span class="law">政治資金規正法 第21条の2</span></li>
+  </ol>
+
+  <div class="box">
+   <h3>年間5万円を超えるご寄付は、お名前などが公表されます</h3>
+   <p>同じ方からのご寄付が年間で合計5万円を超えた場合、<strong>お名前・ご住所・ご職業・金額・寄付の年月日</strong>を、選挙管理委員会に提出する収支報告書に記載します。収支報告書は公表されます。</p>
+   <span class="law">政治資金規正法 第12条第1項第1号ロ</span>
+  </div>
+
+  <div class="box">
+   <h3>税金の控除（寄附金控除）の対象にはなりません</h3>
+   <p>後援団体への寄付が寄附金控除の対象になるのは、国会議員・都道府県知事・都道府県議会議員・政令指定都市の市長と議員の後援団体などに限られます。小金井市長はこれに含まれないため、当会へのご寄付は控除の対象になりません。</p>
+   <span class="law">租税特別措置法 第41条の18／<a href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1154.htm" target="_blank" rel="noopener">国税庁タックスアンサー No.1154</a></span>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="notes">
+ <div class="wrap">
+  <h2>当会からのお願い</h2>
+  <ul class="plain">
+   <li>お振込み手数料は、ご負担をお願いいたします。</li>
+   <li>年会費（1,000円）を上回ってお振込みいただいた分は、ご寄付としてお受けします。</li>
+   <li>小金井市外にお住まいの方からのご寄付もお受けしています。</li>
+   <li>お預かりした個人情報は、ご寄付の受付・確認、法律にもとづく収支報告書の作成、当会からのご連絡のためにのみ使います。</li>  </ul>
+  <p class="contact">お問い合わせ：白井とおるサポーターズ事務局　<span class="todo">要記入：メールアドレス</span></p>
+ </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+ <p>白井とおるサポーターズ（政治団体）　事務所：東京都小金井市</p>
+ <p>© 白井とおるサポーターズ</p>
+</div></footer>
+
+</body>
+</html>
