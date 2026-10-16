@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小金井市議会 案内板</title>
+<meta name="description" content="小金井市議会の公式サイトのページを、目的別に探しやすく並べ直した案内板です。リンク先はすべて市議会公式サイトです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+<style>
+/* v4(2026-10-16): 「駅の案内サイン」型。分類ごとに色と絵記号を1つずつ持たせ、
+   色は飾りでなく「どの分類か」の目印として同じ色を 入口タイル→分類見出し→行の番号 に通す。
+   色はすべてデジタル庁デザインシステム(DADS) design-tokens v2.0.1 のプリミティブ。
+   白文字との比は最低 4.99:1(blue600)で、すべてWCAG AA。影・pill・浮くカードは使わない。 */
+:root{
+  --bg:#FFFFFF; --surface:#F2F2F2; --ink:#1A1A1A; --muted:#4D4D4D;
+  --line:#949494; --line-soft:#E6E6E6;
+  --link:#0017C1; --link-visited:#5C10BE;
+  --band:#00118F; --band-ink:#FFFFFF; --band-sub:#D9E6FF;
+  --c-blue900:#0017C1; --c-green800:#197A4B; --c-purple800:#5C10BE; --c-orange900:#AC3E00;
+  --c-red900:#CE0000; --c-yellow1000:#806300; --c-blue600:#3460FB; --c-gray700:#4D4D4D;
+  --focus:#1A1A1A;
+  --ff:"Noto Sans JP","Noto Sans CJK JP","Yu Gothic","Meiryo","Hiragino Sans",sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#17181A; --surface:#202225; --ink:#F2F2F2; --muted:#B3B3B3;
+    --line:#70757C; --line-soft:#2C2F33;
+    --link:#9DB4FF; --link-visited:#D2B3F5;
+    --band:#0B1450; --band-sub:#C5D3FF;
+    --focus:#F2F2F2; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#17181A; --surface:#202225; --ink:#F2F2F2; --muted:#B3B3B3;
+  --line:#70757C; --line-soft:#2C2F33;
+  --link:#9DB4FF; --link-visited:#D2B3F5;
+  --band:#0B1450; --band-sub:#C5D3FF;
+  --focus:#F2F2F2; color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ff);font-size:17px;line-height:1.7}
+a{color:var(--link)}
+a:visited{color:var(--link-visited)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--ff);margin:0}
+button,input{font:inherit}
+
+/* ===== 上部の帯(濃紺) ===== */
+.band{background:var(--band);color:var(--band-ink)}
+.band :focus-visible{outline-color:#FFFFFF}
+.topbar{display:flex;align-items:center;gap:12px;padding:12px 0;flex-wrap:wrap;font-size:14px}
+.topbar .logo{font-weight:700;letter-spacing:.04em}
+.topbar .actions{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.btn{font-size:13px;font-weight:700;color:#FFFFFF;text-decoration:none;border:1px solid rgba(255,255,255,.7);background:transparent;padding:6px 12px;border-radius:4px;cursor:pointer}
+.btn:visited{color:#FFFFFF}
+.btn:hover{background:rgba(255,255,255,.12)}
+.hero{padding:28px 0 36px}
+.hero .kicker{font-size:14px;font-weight:700;color:var(--band-sub);letter-spacing:.08em}
+.hero h1{font-size:40px;line-height:1.35;font-weight:700;margin-top:6px}
+.hero p.sub{margin:12px 0 0;color:var(--band-sub);font-size:16px;max-width:40em}
+.searchbox{display:flex;align-items:center;gap:10px;background:#FFFFFF;color:#1A1A1A;border-radius:4px;padding:12px 14px;max-width:560px;margin-top:24px}
+.searchbox:focus-within{outline:3px solid #FFFFFF;outline-offset:2px}
+.searchbox svg{flex:none;color:#4D4D4D}
+.searchbox input{flex:1;border:0;background:transparent;color:#1A1A1A;font-size:17px;outline:none;min-width:0}
+.searchbox input::placeholder{color:#666666}
+.cnt{margin:8px 0 0;font-size:13px;color:var(--band-sub)}
+
+/* ===== よく使われる入口(大きな4枚) ===== */
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-20px;position:relative}
+.qk{display:flex;flex-direction:column;gap:6px;text-decoration:none;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-top:6px solid var(--c);border-radius:4px;padding:14px 14px 16px;min-height:132px}
+.qk:visited{color:var(--ink)}
+.qk:hover{border-color:var(--c);border-top-color:var(--c)}
+.qk:hover .qt{text-decoration:underline}
+.qk .ic{width:36px;height:36px;color:var(--c)}
+.qk .qt{font-weight:700;font-size:16px;line-height:1.45}
+.qk .qs{font-size:13px;color:var(--muted);line-height:1.55}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .qk .ic{color:var(--ink)} }
+:root[data-theme="dark"] .qk .ic{color:var(--ink)}
+
+/* ===== 目的からさがす(8色のサイン) ===== */
+.sec-title{display:flex;align-items:baseline;gap:12px;margin:44px 0 14px}
+.sec-title h2{font-size:22px}
+.sec-title span{font-size:14px;color:var(--muted)}
+.signs{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.sign{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;text-decoration:none;background:var(--c);color:#FFFFFF;border-radius:4px;padding:14px 14px 12px;min-height:104px}
+.sign:visited{color:#FFFFFF}
+.sign:hover{filter:brightness(1.12)}
+.sign:hover .st{text-decoration:underline}
+.sign .num{grid-row:1/3;display:flex;flex-direction:column;align-items:center;gap:4px}
+.sign .num b{display:block;width:30px;height:30px;line-height:28px;text-align:center;border:2px solid #FFFFFF;border-radius:50%;font-size:15px}
+.sign .ic{width:30px;height:30px}
+.sign .st{font-weight:700;font-size:16px;line-height:1.4;align-self:end}
+.sign .sc{font-size:12.5px;opacity:.95;align-self:start;margin-top:2px}
+
+/* ===== 分類ごとの一覧 ===== */
+section.grp{margin-top:44px;scroll-margin-top:12px}
+.grp-head{display:flex;align-items:center;gap:12px;background:var(--c);color:#FFFFFF;padding:10px 14px;border-radius:4px 4px 0 0}
+.grp-head .ic{width:28px;height:28px;flex:none}
+.grp-head .n{font-weight:700;font-size:14px;border:2px solid #FFFFFF;border-radius:50%;width:28px;height:28px;line-height:24px;text-align:center;flex:none}
+.grp-head h2{font-size:19px;line-height:1.4}
+.grp-head p{margin:0 0 0 auto;font-size:13.5px;opacity:.95;text-align:right}
+.rows{border:1px solid var(--line);border-top:0;border-radius:0 0 4px 4px}
+.row{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start;text-decoration:none;color:var(--ink);padding:14px 14px;border-top:1px solid var(--line-soft)}
+.row:first-child{border-top:0}
+.row:nth-child(even){background:var(--surface)}
+.row:hover .rt{text-decoration:underline}
+.row .bul{width:10px;height:10px;margin-top:9px;background:var(--c);border-radius:2px}
+.row .rt{font-weight:700;font-size:16px;color:var(--link)}
+.row:visited .rt{color:var(--link-visited)}
+.row .rd{font-size:14.5px;color:var(--muted);margin-top:2px;line-height:1.6}
+.row .go{font-size:12.5px;color:var(--muted);white-space:nowrap;margin-top:4px;display:flex;align-items:center;gap:4px}
+.row.hide,section.grp.hide{display:none}
+.noresult{display:none;margin:28px 0 0;padding:16px;border:1px solid var(--line);border-radius:4px;color:var(--muted);font-size:15px}
+.top-link{display:inline-block;margin-top:8px;font-size:13px}
+
+/* ===== footer ===== */
+footer{margin:56px 0 30px;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+footer .disc{background:var(--surface);border-left:4px solid var(--line);padding:14px 16px;margin-bottom:16px;color:var(--ink);line-height:1.7}
+footer details summary{cursor:pointer;font-weight:700;color:var(--ink);font-size:13.5px}
+footer .srclist{margin:10px 0 0;padding-left:1.3em}
+footer .srclist li{margin:4px 0;overflow-wrap:anywhere}
+
+@media (max-width:820px){
+  .quick{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:32px}
+}
+@media (max-width:480px){
+  .hero h1{font-size:27px}
+  .signs{grid-template-columns:repeat(2,1fr);gap:8px}
+  .sign{grid-template-columns:1fr;min-height:0;padding:10px 10px 10px}
+  .sign .num{grid-row:auto;flex-direction:row;gap:8px;margin-bottom:4px}
+  .sign .num b{width:24px;height:24px;line-height:21px;font-size:13px}
+  .sign .ic{width:26px;height:26px}
+  .sign .st{font-size:14.5px}
+  .qk{min-height:0}
+  .grp-head{flex-wrap:wrap}
+  .grp-head p{margin:0;flex-basis:100%;text-align:left}
+  .row{grid-template-columns:auto 1fr}
+  .row .go{display:none}
+}
+@media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
+</head>
+<body>
+
+<div class="band">
+  <div class="wrap">
+    <div class="topbar">
+      <span class="logo">小金井市議会 案内板</span>
+      <div class="actions">
+        <button class="btn" id="themebtn" type="button">ダーク表示にする</button>
+        <a class="btn" id="officialTop" href="#" target="_blank" rel="noopener">市議会公式サイト</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="kicker">KOGANEI CITY COUNCIL GUIDE</div>
+      <h1>小金井市議会を、<br>目的からさがす。</h1>
+      <p class="sub" id="pageSub"></p>
+      <div class="searchbox">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="q" type="search" placeholder="ことばで探す(例: 傍聴、陳情、だより)" aria-label="この案内板から探す">
+      </div>
+      <p class="cnt" id="cnt"></p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <nav class="quick" id="quick" aria-label="よく使われる入口"></nav>
+
+  <div class="sec-title"><h2>目的からさがす</h2><span>色の札を押すと、その分類のページ一覧へ移動します</span></div>
+  <nav class="signs" id="signs" aria-label="目的別の分類"></nav>
+
+  <p class="noresult" id="noresult">一致するページが見つかりません。別の言葉で試してください。</p>
+  <div id="groups"></div>
+
+  <footer>
+    <div class="disc">
+      <b>このページについて。</b> この案内板は小金井市議会が作ったものではありません。市議会公式サイトのページを目的別に並べ直したリンク集で(作成・運営：ながとり太郎)、<b>リンク先はすべて市議会公式サイト</b>です。本文・画像の複製はしていません。最新の内容は必ずリンク先でご確認ください。
+    </div>
+    <details>
+      <summary>出典・取得日を見る</summary>
+      <ol class="srclist" id="srclist"></ol>
+    </details>
+  </footer>
+</div>
+
+<script>
+/* 小金井市議会 案内板 — リンクデータ(ファイルが正・distは派生物)
+   すべてのURLは 2026-09-17 に小金井市議会サイト(https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/)を
+   実際に巡回し、ページ内のリンク(href)から機械抽出して確認したもの。本文・画像の複製はしていない
+   (説明文はこのページの作成者が書いた要約で、原文の引き写しではない)。
+   修正はこのファイルに行う。src/index.html の埋め込みは build.py が行う。 */
+const DATA = {
+  fetched: "2026-09-17",
+  checked: "2026-10-16",   // verify_links.py で全リンク200を確認した日
+  title: "小金井市議会 案内板",
+  subtitle: "市議会公式サイトのページを、目的別に探しやすく並べ直した案内板です(リンク先はすべて公式)",
+  cityTop: "https://www.city.koganei.lg.jp/",
+  officialTop: {
+    label: "市議会トップページ(公式)",
+    url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/index.html"
+  },
+  groups: [
+    {
+      key: "now", color: "blue900",
+      mark: "今",
+      title: "いま何が起きているか",
+      desc: "今の会期(定例会・臨時会)で、今どこまで進んでいるか",
+      items: [
+        { title: "新着情報一覧", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/allNewsList.html",
+          desc: "市議会サイトに掲載された最新のお知らせの一覧", host: "city.koganei.lg.jp" },
+        { title: "一般質問・会議日割表・閉会中の委員会日程など(今期)", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8yotei_gikai/index.html",
+          desc: "一般質問の通告一覧や本会議・委員会の日程(予定)", host: "city.koganei.lg.jp" },
+        { title: "委員会審査予定表(今期)", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8_sinsa/index.html",
+          desc: "各委員会がいつ何を審査するかの予定", host: "city.koganei.lg.jp" },
+        { title: "議案一覧(今期)", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8_gian/index.html",
+          desc: "今の定例会に提出されている議案の一覧", host: "city.koganei.lg.jp" },
+        { title: "審議結果一覧(今期)", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/reiwa8_shing/index.html",
+          desc: "議案が可決・否決されたかなどの結果", host: "city.koganei.lg.jp" },
+        { title: "請願・陳情一覧(今期)", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/seigantinzyou/index.html",
+          desc: "市民から出された請願・陳情と審議の状況", host: "city.koganei.lg.jp" },
+        { title: "委員会資料(今期)", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teireirinji/reiwa8_gikai/iinkaisiryou.html",
+          desc: "各委員会の審査で使われている資料", host: "city.koganei.lg.jp" }
+      ]
+    },
+    {
+      key: "watch", color: "green800",
+      mark: "見",
+      title: "傍聴する・中継を見る",
+      desc: "議場に行く、または映像で見る",
+      items: [
+        { title: "市議会の傍聴について", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teianhoho/shigikaibocho.html",
+          desc: "傍聴の申込み方法・場所(本庁舎4階)・注意事項", host: "city.koganei.lg.jp" },
+        { title: "インターネット中継・録画配信", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teianhoho/shigikai_chukei.html",
+          desc: "本会議のライブ中継・録画(YouTube)への案内", host: "city.koganei.lg.jp" },
+        { title: "日曜議会", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/kaikakutorikumi/nitiyougikai.html",
+          desc: "平日の傍聴が難しい人向けの、日曜開催の取組み", host: "city.koganei.lg.jp" }
+      ]
+    },
+    {
+      key: "search", color: "purple800",
+      mark: "録",
+      title: "会議録を探す・読む",
+      desc: "過去の発言や答弁を検索する",
+      items: [
+        { title: "会議録の検索と閲覧(公式)", url: "http://www.city.koganei.tokyo.dbsr.jp/",
+          desc: "2000年〜現在の会議録を全文検索できる公式システム。注意: スマートフォン表示には最適化されていません",
+          host: "city.koganei.tokyo.dbsr.jp" }
+      ]
+    },
+    {
+      key: "members", color: "orange900",
+      mark: "人",
+      title: "議員を知る",
+      desc: "誰がどの会派か、どんな人か",
+      items: [
+        { title: "議員名簿", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/youkoso_sigikaihe/giinmeibo.html",
+          desc: "24人の議員の一覧", host: "city.koganei.lg.jp" },
+        { title: "会派別所属議員名簿", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/youkoso_sigikaihe/202104kaihameibo.html",
+          desc: "どの議員がどの会派に属しているか", host: "city.koganei.lg.jp" },
+        { title: "議員の紹介", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/youkoso_sigikaihe/giinshokai/index.html",
+          desc: "議員ごとのプロフィールページへの入口", host: "city.koganei.lg.jp" },
+        { title: "各種議員・委員等一覧表", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/youkoso_sigikaihe/iinkaimeibo.html",
+          desc: "常任委員会・特別委員会など、どの議員がどの委員会に属しているか", host: "city.koganei.lg.jp" },
+        { title: "議長挨拶", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/youkoso_sigikaihe/gichou.html",
+          desc: "議長からの挨拶文", host: "city.koganei.lg.jp" },
+        { title: "副議長挨拶", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/youkoso_sigikaihe/hukugicho.html",
+          desc: "副議長からの挨拶文", host: "city.koganei.lg.jp" }
+      ]
+    },
+    {
+      key: "voice", color: "red900",
+      mark: "声",
+      title: "意見を届ける・関わる",
+      desc: "傍聴以外で議会に関わる方法",
+      items: [
+        { title: "請願・陳情", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teianhoho/seigan_chinzyo.html",
+          desc: "市議会に意見・要望を出す正式な制度と手続き", host: "city.koganei.lg.jp" },
+        { title: "市民と議会の懇談会", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/koutyou_koho/shimintogikaikondan.html",
+          desc: "議会と市民が直接話す場", host: "city.koganei.lg.jp" },
+        { title: "公聴会", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/koutyou_koho/D090102020221125185.html",
+          desc: "議案等について市民から意見を聴く会", host: "city.koganei.lg.jp" },
+        { title: "議会報告会", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/koutyou_koho/D090101514584.html",
+          desc: "議会からの活動報告の場", host: "city.koganei.lg.jp" },
+        { title: "小金井市議会ガイドブック", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teianhoho/shigikaiguidebook.html",
+          desc: "議会の仕組みをまとめた冊子", host: "city.koganei.lg.jp" }
+      ]
+    },
+    {
+      key: "structure", color: "yellow1000",
+      mark: "仕",
+      title: "仕組み・委員会を知る",
+      desc: "議会がどう動いているか",
+      items: [
+        { title: "議会のしくみ", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/teianhoho/gikainosikumi.html",
+          desc: "本会議の流れ(上程・質疑・委員会付託・採決など)の説明", host: "city.koganei.lg.jp" },
+        { title: "小金井市議会の特徴", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/youkoso_sigikaihe/sigikainotokutyo.html",
+          desc: "小金井市議会の特徴の紹介", host: "city.koganei.lg.jp" },
+        { title: "議会改革の取組", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/kaikakutorikumi/index.html",
+          desc: "議会基本条例・大学連携など、議会改革の取組み一覧", host: "city.koganei.lg.jp" },
+        { title: "小金井市議会基本条例", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/kaikakutorikumi/D090101020160335.html",
+          desc: "議会運営の基本ルールを定めた条例", host: "city.koganei.lg.jp" }
+      ]
+    },
+    {
+      key: "dayori", color: "blue600",
+      mark: "報",
+      title: "議会だより・広報を読む",
+      desc: "定例会ごとの活動をまとめた広報紙など",
+      items: [
+        { title: "市議会だより(PDF版)", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/koutyou_koho/sigikaidayoripdf/index.html",
+          desc: "定例会ごとに発行される議会広報紙のPDF", host: "city.koganei.lg.jp" },
+        { title: "市議会だより(音声版)", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/koutyou_koho/gikaionsei/index.html",
+          desc: "視覚に障がいのある方向けの音声版", host: "city.koganei.lg.jp" },
+        { title: "市議会公式X", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/koutyou_koho/ShigikaiTwitter.html",
+          desc: "お知らせをX(旧Twitter)で発信", host: "city.koganei.lg.jp" },
+        { title: "キッズページ「ようこそ市議会へ！」", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/koutyou_koho/kidspage/index.html",
+          desc: "子ども向けに議会の仕組みを説明するページ", host: "city.koganei.lg.jp" }
+      ]
+    },
+    {
+      key: "disclosure", color: "gray700",
+      mark: "開",
+      title: "もっと詳しく調べる(情報公開)",
+      desc: "お金の使いみちや活動実績",
+      items: [
+        { title: "事務報告書", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/kakushuhouoku/jimuhoukokusho.html",
+          desc: "議会事務局の年間活動のまとめ", host: "city.koganei.lg.jp" },
+        { title: "政務活動費支出状況", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/kakushuhouoku/seimukatudouhi/index.html",
+          desc: "議員に交付される政務活動費の使いみち", host: "city.koganei.lg.jp" },
+        { title: "議長交際費支出状況", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/kakushuhouoku/gityoukousaihi/index.html",
+          desc: "議長交際費の支出内訳", host: "city.koganei.lg.jp" },
+        { title: "行政視察報告書", url: "https://www.city.koganei.lg.jp/shisei/gikaijimukyoku/kakushuhouoku/gyouseisisatuhoukoku.html",
+          desc: "委員会等が行った行政視察の報告", host: "city.koganei.lg.jp" }
+      ]
+    }
+  ]
+};
+
+</script>
+<script>
+(function(){
+  function esc(s){ return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+  var EXT = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function svg(p){ return '<svg class="ic" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + p + '</svg>'; }
+  /* 分類ごとの絵記号(線画・同じ太さで統一) */
+  var ICON = {
+    now: svg('<rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6"/><circle cx="16" cy="20" r="3" fill="currentColor" stroke="none"/>'),
+    watch: svg('<rect x="4" y="8" width="18" height="16" rx="2"/><path d="M22 14l6-4v12l-6-4z"/>'),
+    search: svg('<path d="M8 4h11l5 5v19H8z"/><path d="M19 4v5h5"/><circle cx="15" cy="17" r="3.5"/><path d="M17.6 19.6L21 23"/>'),
+    members: svg('<circle cx="12" cy="11" r="4"/><path d="M4 26c0-4.4 3.6-8 8-8s8 3.6 8 8"/><circle cx="23" cy="12" r="3"/><path d="M22 18c3.5 0 6 2.7 6 6.5"/>'),
+    voice: svg('<path d="M5 7h22v14H14l-6 5v-5H5z"/><path d="M11 13h10M11 17h6"/>'),
+    structure: svg('<path d="M4 13L16 5l12 8"/><path d="M7 13v11M12 13v11M20 13v11M25 13v11M4 27h24"/>'),
+    dayori: svg('<path d="M5 6h18v20H8a3 3 0 0 1-3-3z"/><path d="M23 11h4v12a3 3 0 0 1-3 3"/><path d="M9 11h10M9 15h10M9 19h6"/>'),
+    seat: svg('<path d="M9 5v13h14"/><path d="M9 18l-2 9M23 18l2 9"/><path d="M13 12h10v6"/>'),
+    disclosure: svg('<circle cx="14" cy="14" r="8"/><path d="M20 20l7 7"/><path d="M11 11l3 3 3-3M14 14v5M11.5 16h5"/>')
+  };
+  function cvar(g){ return 'var(--c-' + g.color + ')'; }
+
+  document.getElementById("pageSub").textContent = "市議会公式サイトのページを、目的別に並べ直しました。リンク先はすべて公式サイトです。(リンク確認日 " + DATA.checked.replace(/-/g,"/") + ")";
+  document.getElementById("officialTop").href = DATA.officialTop.url;
+
+  /* よく使われる入口 */
+  var QUICK = [
+    ["一般質問・会議日割表・閉会中の委員会日程など(今期)", "いつ何がある?", "会議の日程と一般質問の通告一覧"],
+    ["市議会の傍聴について", "傍聴したい", "申込み方法・場所・注意事項", "seat"],
+    ["インターネット中継・録画配信", "映像で見たい", "本会議のライブ中継と録画"],
+    ["会議録の検索と閲覧(公式)", "過去の発言を探したい", "2000年〜現在の会議録を全文検索"]
+  ];
+  var all = [];
+  DATA.groups.forEach(function(g){ g.items.forEach(function(it){ all.push({it:it, g:g}); }); });
+  function find(t){ for (var i=0;i<all.length;i++) if (all[i].it.title === t) return all[i]; throw new Error("入口の項目が見つからない: " + t); }
+  document.getElementById("quick").innerHTML = QUICK.map(function(q){
+    var f = find(q[0]);
+    return '<a class="qk" style="--c:' + cvar(f.g) + '" href="' + esc(f.it.url) + '" target="_blank" rel="noopener">' +
+      ICON[q[3] || f.g.key] + '<span class="qt">' + esc(q[1]) + '</span><span class="qs">' + esc(q[2]) + '</span></a>';
+  }).join("");
+
+  /* 8色のサイン */
+  document.getElementById("signs").innerHTML = DATA.groups.map(function(g, i){
+    return '<a class="sign" style="--c:' + cvar(g) + '" href="#g-' + g.key + '">' +
+      '<span class="num">' + ICON[g.key] + '<b>' + (i+1) + '</b></span>' +
+      '<span class="st">' + esc(g.title) + '</span><span class="sc">' + g.items.length + 'ページ</span></a>';
+  }).join("");
+
+  /* 分類ごとの一覧 */
+  document.getElementById("groups").innerHTML = DATA.groups.map(function(g, i){
+    return '<section class="grp" id="g-' + g.key + '" style="--c:' + cvar(g) + '">' +
+      '<div class="grp-head">' + ICON[g.key] + '<span class="n">' + (i+1) + '</span><h2>' + esc(g.title) + '</h2><p>' + esc(g.desc) + '</p></div>' +
+      '<div class="rows">' + g.items.map(function(it){
+        return '<a class="row" href="' + esc(it.url) + '" target="_blank" rel="noopener" data-t="' + esc((it.title + " " + it.desc + " " + g.title).toLowerCase()) + '">' +
+          '<span class="bul" aria-hidden="true"></span>' +
+          '<span><span class="rt">' + esc(it.title) + '</span><span class="rd" style="display:block">' + esc(it.desc) + '</span></span>' +
+          '<span class="go">' + EXT + ' 公式サイト</span></a>';
+      }).join("") + '</div>' +
+      '<a class="top-link" href="#signs">↑ 分類一覧にもどる</a></section>';
+  }).join("");
+
+  var totalCount = all.length;
+  var cntEl = document.getElementById("cnt");
+  cntEl.textContent = DATA.groups.length + "分類・" + totalCount + "ページを掲載";
+
+  document.getElementById("srclist").innerHTML = all.map(function(a){
+    return '<li>' + esc(a.it.title) + ' — <a href="' + esc(a.it.url) + '" target="_blank" rel="noopener">' + esc(a.it.url) + '</a></li>';
+  }).join("") + '<li>リンクの抽出日: ' + esc(DATA.fetched) + '(小金井市議会サイトを実地で巡回)/ 全リンクの動作確認日: ' + esc(DATA.checked) + '</li>';
+
+  /* 検索(その場で絞り込み・外部通信なし) */
+  var qEl = document.getElementById("q"), noresult = document.getElementById("noresult");
+  qEl.addEventListener("input", function(){
+    var q = qEl.value.trim().toLowerCase(), total = 0;
+    document.querySelectorAll("section.grp").forEach(function(sec){
+      var vis = 0;
+      sec.querySelectorAll(".row").forEach(function(r){
+        var hit = !q || r.dataset.t.indexOf(q) !== -1;
+        r.classList.toggle("hide", !hit);
+        if (hit) vis++;
+      });
+      sec.classList.toggle("hide", vis === 0);
+      total += vis;
+    });
+    cntEl.textContent = q ? (total + "ページが見つかりました(下に表示)") : (DATA.groups.length + "分類・" + totalCount + "ページを掲載");
+    noresult.style.display = (q && total === 0) ? "block" : "none";
+  });
+  qEl.addEventListener("keydown", function(e){
+    if (e.key === "Enter") { var s = document.querySelector("section.grp:not(.hide)"); if (s) s.scrollIntoView({behavior:"smooth"}); }
+  });
+
+  /* 表示の切替(ライト/ダーク) */
+  var root = document.documentElement, themebtn = document.getElementById("themebtn");
+  function label(t){
+    var dark = t ? t === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+    themebtn.textContent = dark ? "ライト表示にする" : "ダーク表示にする";
+  }
+  function applyTheme(t){ if (t) root.setAttribute("data-theme", t); else root.removeAttribute("data-theme"); label(t); }
+  try { var saved = localStorage.getItem("gikai-portal-theme"); if (saved) applyTheme(saved); else label(null); } catch (e) { label(null); }
+  themebtn.addEventListener("click", function(){
+    var cur = root.getAttribute("data-theme"), mql = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    var next = !cur ? (mql ? "light" : "dark") : (cur === "dark" ? "light" : "dark");
+    applyTheme(next);
+    try { localStorage.setItem("gikai-portal-theme", next); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
