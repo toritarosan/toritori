@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>白井とおる ― 小学生・中学生のみなさんへ（見本）</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fffaf0;--ink:#2b2b2b;--sub:#5a5a5a;--blue:#1f6fb2;--navy:#334e68;--yellow:#fff3c4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic","BIZ UDPGothic",sans-serif;font-size:18px;line-height:1.8;font-weight:500}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.draftbar{background:#333;color:#fff;font-size:14px;line-height:1.6;padding:8px 16px;text-align:center}
+.maker{margin:14px 0 0;background:#fff;border:2px solid #eadfcb;border-radius:12px;padding:6px 12px;font-size:15px;line-height:1.7;text-align:center}
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:24px 0 8px}
+.hero img{width:200px;height:200px;border-radius:50%;object-fit:cover;border:6px solid #fff;box-shadow:0 4px 0 rgba(0,0,0,.08);background:#eee}
+.hero h1{font-size:clamp(26px,6.5vw,38px);line-height:1.5;margin:14px 0 4px;font-weight:900}
+.hero p{margin:0;color:var(--sub)}
+.q{text-align:center;font-weight:900;font-size:clamp(21px,5vw,26px);margin:28px 0 14px}
+.choices{display:grid;gap:16px;margin-bottom:40px}
+a.choice{display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;background:#fff;border:4px solid transparent;border-radius:24px;padding:18px 20px;box-shadow:0 4px 0 rgba(0,0,0,.08);min-height:44px}
+a.choice:hover,a.choice:focus-visible{outline:none;border-color:var(--blue)}
+.choice .big{flex:none;width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px}
+.e .big{background:var(--yellow)} .j .big{background:#e3ebf3}
+.choice b{display:block;font-size:24px;line-height:1.5}
+.choice span.d{display:block;font-size:16px;color:var(--sub);line-height:1.6}
+.choice .arrow{margin-left:auto;font-size:28px;color:var(--blue);font-weight:900}
+.play{display:grid;gap:12px;margin-bottom:40px}
+.play a{display:flex;align-items:center;gap:12px;background:#fff;border:3px solid #f5ab30;border-radius:20px;padding:10px 16px;color:inherit;text-decoration:none;min-height:44px}
+.play a:hover,.play a:focus-visible{outline:none;border-color:var(--blue)}
+.play img{width:48px;height:auto}.big2{font-size:34px;width:48px;text-align:center}
+.play b{display:block;font-size:19px}.play .d{display:block;font-size:15px;color:var(--sub)}
+@media(min-width:640px){.play{grid-template-columns:repeat(3,1fr)}}
+footer{padding:20px 0 40px;border-top:2px solid #eadfcb;font-size:14px;color:var(--sub);line-height:1.8}
+footer a{color:var(--blue)}
+@media(min-width:640px){.choices{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="draftbar">見本（草案）。公開前に本人確認・選管確認が必要です。</div>
+<main class="wrap">
+  <p class="maker">このページは <b>【発行者名：要確認】</b> がつくりました。市役所のページではありません。</p>
+  <header class="hero">
+    <picture><source srcset="assets/shirai_face.webp" type="image/webp"><img src="assets/shirai_face.jpg" alt="白井とおるの顔写真" width="200" height="200"></picture>
+    <h1>小金井市長の<br>白井とおるです</h1>
+    <p>これからの小金井のことを、わかりやすくまとめました。</p>
+  </header>
+  <p class="q">どちらで読む？</p>
+  <div class="choices">
+    <a class="choice e" href="kodomo.html"><span class="big" aria-hidden="true">🎒</span><span><b>小学生のきみへ</b><span class="d">やさしいことばで読む。ふりがなつき。場所ごとに見られるよ</span></span><span class="arrow" aria-hidden="true">›</span></a>
+    <a class="choice j" href="chugaku.html"><span class="big" aria-hidden="true">📘</span><span><b>中学生のみなさんへ</b><span class="d">政策のもとの文で読む。市長と市議会のしくみ、2つの重要課題、10代に関係する18の政策</span></span><span class="arrow" aria-hidden="true">›</span></a>
+  </div>
+  <p class="q">あそんで 知る</p>
+  <div class="play"><a href="map.html"><img src="assets/hamuta/hamuta_joy.png" alt="" width="48"><span><b>ハム太と 小金井さんぽ</b><span class="d">地図を タッチして、着いたら クイズ</span></span></a>
+    <a href="quiz.html"><span class="big2" aria-hidden="true">❓</span><span><b>ハム太の クイズ</b><span class="d">ぜんぶで 9もん</span></span></a>
+    <a href="puzzle.html"><span class="big2" aria-hidden="true">🚌</span><span><b>バスの パズル</b><span class="d">9まいの 絵を もとに もどそう</span></span></a></div>
+</main>
+<footer><div class="wrap">
+  <b>高校生・おうちの方へ</b><br>すべての政策は <a href="https://shiraisupporters.tokyo/seisaku2026/">政策2026（ウェブ版）</a> をご覧ください。<br>【発行者表示：要確認】
+</div></footer>
+<script src="kodomo_ruby.js?v=20261021"></script>
+<script>addRuby(document.querySelector('main'));</script>
+</body>
+</html>

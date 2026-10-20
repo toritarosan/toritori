@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <!-- パズル用の自作イラスト。実在のバスの車体デザイン・ロゴは使っていない -->
+  <rect width="600" height="600" fill="#cfeaf8"/>
+  <circle cx="500" cy="95" r="48" fill="#ffd25e"/>
+  <g fill="#fff"><ellipse cx="120" cy="90" rx="62" ry="26"/><ellipse cx="170" cy="78" rx="44" ry="24"/><ellipse cx="330" cy="130" rx="54" ry="20"/></g>
+  <g fill="#7cbf6a"><circle cx="40" cy="330" r="52"/><circle cx="100" cy="350" r="40"/><circle cx="560" cy="330" r="50"/><circle cx="510" cy="352" r="38"/></g>
+  <rect y="380" width="600" height="220" fill="#b9dfa3"/>
+  <rect y="430" width="600" height="110" fill="#8f8f8f"/>
+  <path d="M0,485 H600" stroke="#fff" stroke-width="6" stroke-dasharray="40 26"/>
+  <!-- バス本体 -->
+  <rect x="80" y="210" width="440" height="230" rx="44" fill="#f2f2ee"/>
+  <rect x="80" y="330" width="440" height="56" fill="#f5ab30"/>
+  <rect x="80" y="386" width="440" height="20" fill="#3a8fd4"/>
+  <rect x="80" y="210" width="440" height="230" rx="44" fill="none" stroke="#5b5b5b" stroke-width="6"/>
+  <!-- 窓 -->
+  <g fill="#9fd3f0" stroke="#5b5b5b" stroke-width="4">
+    <rect x="112" y="238" width="86" height="72" rx="12"/><rect x="214" y="238" width="86" height="72" rx="12"/><rect x="316" y="238" width="86" height="72" rx="12"/>
+    <rect x="420" y="238" width="70" height="118" rx="12"/>
+  </g>
+  <!-- 窓の中の乗客(まるい顔) -->
+  <g fill="#f5ab30"><circle cx="155" cy="290" r="20"/><circle cx="257" cy="292" r="18"/><circle cx="359" cy="290" r="20"/></g>
+  <g fill="#f0b3b3"><circle cx="141" cy="273" r="7"/><circle cx="169" cy="273" r="7"/><circle cx="345" cy="273" r="7"/><circle cx="373" cy="273" r="7"/></g>
+  <!-- ライト・行き先 -->
+  <rect x="440" y="200" width="60" height="26" rx="8" fill="#3a3a3a"/>
+  <text x="470" y="219" font-size="16" fill="#ffd25e" font-family="sans-serif" font-weight="700" text-anchor="middle">こがねい</text>
+  <circle cx="500" cy="405" r="12" fill="#ffd25e" stroke="#5b5b5b" stroke-width="3"/>
+  <!-- タイヤ -->
+  <g fill="#3a3a3a"><circle cx="175" cy="445" r="40"/><circle cx="425" cy="445" r="40"/></g>
+  <g fill="#cfcfcf"><circle cx="175" cy="445" r="16"/><circle cx="425" cy="445" r="16"/></g>
+</svg>
