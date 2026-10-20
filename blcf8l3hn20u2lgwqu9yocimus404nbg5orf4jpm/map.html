@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>こがハムくんと小金井さんぽ（試作）</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fffaf0;--ink:#2b2b2b;--sub:#5a5a5a;--card:#fff;--line:#eadfcb;--blue:#1f6fb2;--green:#2f7d4f;--orange:#b85300;--purple:#7a4fb5;--yellow:#fff3c4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic","BIZ UDPGothic",sans-serif;font-size:18px;line-height:1.85;font-weight:500}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.draftbar{background:#333;color:#fff;font-size:14px;line-height:1.6;padding:8px 16px;text-align:center}
+.tools{position:sticky;top:0;z-index:20;background:rgba(255,250,240,.95);border-bottom:2px solid var(--line)}
+.tools .wrap{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 16px}
+.tools a{color:var(--blue);font-weight:700;font-size:15px}
+.tools button{font:inherit;font-size:15px;font-weight:700;border:2px solid var(--blue);background:#fff;color:var(--blue);border-radius:999px;padding:2px 14px;cursor:pointer;min-height:44px}
+.tools button[aria-pressed="true"]{background:var(--blue);color:#fff}
+body.no-ruby rt{display:none}
+rt{font-size:.5em;font-weight:500;color:var(--sub)}
+.maker{margin:12px 0 0;background:#fff;border:2px solid var(--line);border-radius:12px;padding:6px 12px;font-size:14px;line-height:1.7;text-align:center}
+h1{font-size:clamp(26px,6.5vw,36px);line-height:1.4;margin:16px 0 4px;text-align:center;font-weight:900}
+.lead{text-align:center;margin:0 0 10px;color:var(--sub);font-size:16px}
+
+/* ---- マップ ---- */
+.mapbox{position:relative;width:100%;max-width:560px;margin:0 auto;aspect-ratio:600/720;border-radius:24px;overflow:hidden;box-shadow:0 4px 0 rgba(0,0,0,.08);background:#e9f5df}
+.mapbox svg{position:absolute;inset:0;width:100%;height:100%}
+.spot{position:absolute;transform:translate(-50%,-50%);font:inherit;font-weight:900;font-size:clamp(13px,3.4vw,16px);line-height:1.3;color:var(--ink);background:#fff;border:3px solid #fff;border-radius:16px;padding:4px 8px 4px;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.12);min-width:44px;white-space:nowrap;min-height:44px;display:flex;flex-direction:column;align-items:center;z-index:3}
+.spot .ic{font-size:clamp(24px,6.5vw,32px);line-height:1.1}
+.spot:hover,.spot:focus-visible{border-color:var(--blue);outline:none}
+.spot[aria-pressed="true"]{border-color:var(--green);background:#f3fbf3}
+.spot .pulse{position:absolute;inset:-6px;border-radius:20px;border:3px solid rgba(47,125,79,.0);animation:none;pointer-events:none}
+.spot:not(.visited) .pulse{animation:pulse 2s infinite}
+@keyframes pulse{0%{border-color:rgba(255,170,0,.8);transform:scale(.95)}70%{border-color:rgba(255,170,0,0);transform:scale(1.15)}100%{border-color:rgba(255,170,0,0)}}
+.spot.visited::after{content:"✓";position:absolute;top:-10px;right:-10px;width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;font-size:14px;line-height:24px;text-align:center}
+#hamuta{position:absolute;width:15%;transform:translate(-50%,-88%);transition:left 1.1s ease-in-out,top 1.1s ease-in-out;z-index:5;pointer-events:none}
+#hamuta img{display:block;width:100%;height:auto;filter:drop-shadow(0 4px 2px rgba(0,0,0,.18))}
+#hamuta.walking img{animation:hop .28s ease-in-out infinite alternate}
+#hamuta.left img{transform:scaleX(-1)}
+#hamuta.walking.left img{animation-name:hopL}
+@keyframes hop{from{transform:translateY(0)}to{transform:translateY(-10%)}}
+@keyframes hopL{from{transform:scaleX(-1) translateY(0)}to{transform:scaleX(-1) translateY(-10%)}}
+.note{font-size:13px;color:var(--sub);text-align:center;margin:6px 0 0}
+.progress{text-align:center;font-weight:700;margin:8px 0 0}
+
+/* ---- こがハムくんのふきだし ---- */
+.talk{display:flex;gap:12px;align-items:flex-start;margin:16px auto 0;max-width:560px}
+.talk img{flex:none;width:64px;height:auto}
+.bubble{position:relative;background:#fff;border:3px solid #f5ab30;border-radius:18px;padding:10px 14px;font-weight:700;flex:1}
+.bubble::before{content:"";position:absolute;left:-12px;top:18px;border:9px solid transparent;border-right-color:#f5ab30}
+.bubble .name{display:block;font-size:13px;color:#b8790f}
+
+/* ---- 政策カード(kodomo.html と同じ見た目) ---- */
+#result{margin:18px auto 40px;max-width:760px;scroll-margin-top:70px}
+.panel h3.ph{font-size:23px;margin:0 0 10px;font-weight:900}
+.cards{display:grid;gap:14px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:16px 20px}
+.card h4{margin:0 0 6px;font-size:21px;line-height:1.6;font-weight:900}
+.card p{margin:6px 0 0}
+.before{margin-top:10px;background:#eaf3fb;border-radius:12px;padding:8px 14px;font-size:17px}
+.before b{color:var(--blue)}
+.chip rt{color:#fff}
+.chip{display:inline-block;font-size:15px;font-weight:700;color:#fff;border-radius:8px;padding:0 10px;line-height:1.9;white-space:nowrap}
+.c-work{background:var(--blue)}.c-expand{background:var(--green)}.c-consider{background:var(--orange)}.c-continue{background:var(--purple)}
+.src{display:block;margin-top:8px;font-size:14px;color:#5f5f5f;line-height:1.6;border-top:1px dashed var(--line);padding-top:6px}
+body.hide-src .src{display:none}
+.legend{background:#fff;border:2px solid var(--line);border-radius:16px;padding:8px 14px;font-size:16px;margin:0 0 14px}
+.skip{display:block;margin:0 auto 14px;font:inherit;font-size:15px;font-weight:700;background:none;border:none;color:var(--blue);text-decoration:underline;cursor:pointer;min-height:44px}
+.back{display:block;margin:16px auto 0;font:inherit;font-weight:900;font-size:17px;background:#f5ab30;color:#3a2a00;border:none;border-radius:999px;padding:8px 22px;cursor:pointer;min-height:44px}
+footer{margin-top:40px;padding:20px 0 40px;border-top:2px solid var(--line);font-size:14px;line-height:1.8;color:var(--sub)}
+footer a{color:var(--blue)}
+@media (min-width:640px){.cards{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){#hamuta{transition:none}#hamuta.walking img{animation:none}.spot:not(.visited) .pulse{animation:none}}
+</style>
+</head>
+<body class="hide-src">
+<div class="draftbar">試作（草案）。キャラクターの使用・発行者表示・選管確認は未決です。</div>
+<div class="tools"><div class="wrap">
+  <a href="kodomo.html">← ぜんぶ読む</a>
+  <span><button type="button" id="rubyBtn" aria-pressed="true">ふりがな</button> <button type="button" id="srcBtn" aria-pressed="false">もとの文</button></span>
+</div></div>
+
+<main class="wrap" id="main">
+<p class="maker">このページは <b>【発行者名：要確認】</b> がつくりました。市役所のページではありません。</p>
+<h1>こがハムくんと 小金井さんぽ</h1>
+<p class="lead">場所をタッチすると、こがハムくんが歩いていくよ。着いたら クイズに 答えてね。</p>
+
+<div class="mapbox" id="map">
+  <svg viewBox="0 0 600 720" aria-hidden="true">
+    <!-- 小金井公園(北) -->
+    <rect x="0" y="0" width="600" height="150" fill="#b9dfa3"/>
+    <g fill="#7cbf6a"><circle cx="60" cy="50" r="26"/><circle cx="110" cy="80" r="22"/><circle cx="520" cy="40" r="24"/><circle cx="560" cy="95" r="20"/><circle cx="430" cy="70" r="18"/></g>
+    <text x="440" y="135" font-size="16" text-anchor="middle" fill="#3f6b33" font-weight="700">（おおきな こうえん）</text>
+    <!-- 道路 -->
+    <g stroke="#fff" stroke-width="14" fill="none" stroke-linecap="round" opacity=".9">
+      <path d="M300,150 L300,690"/><path d="M40,240 L560,240"/><path d="M40,470 L560,470"/><path d="M130,150 L130,600"/><path d="M470,150 L470,600"/>
+    </g>
+    <!-- CoCoバスの道(点線) -->
+    <path d="M130,240 L300,240 L300,470 L470,470 L470,240" stroke="#f5ab30" stroke-width="5" stroke-dasharray="10 8" fill="none"/>
+    <!-- 線路(東西) -->
+    <rect x="0" y="352" width="600" height="16" fill="#8a8a8a"/>
+    <path d="M0,360 L600,360" stroke="#fff" stroke-width="3" stroke-dasharray="14 10"/>
+    <text x="590" y="392" font-size="15" text-anchor="end" fill="#555" font-weight="700">JR ちゅうおうせん</text>
+    <!-- 家並み -->
+    <g fill="#f3d9b1" stroke="#d9b98a" stroke-width="2">
+      <rect x="60" y="400" width="34" height="28" rx="4"/><rect x="200" y="510" width="34" height="28" rx="4"/><rect x="380" y="290" width="34" height="28" rx="4"/><rect x="520" y="510" width="34" height="28" rx="4"/><rect x="200" y="285" width="34" height="28" rx="4"/>
+    </g>
+    <!-- はけ(崖の緑)と野川(南) -->
+    <path d="M0,600 C120,585 200,615 320,598 C430,582 510,610 600,596 L600,640 L0,640 Z" fill="#8fc77d"/>
+    <path d="M0,668 C100,650 180,690 300,668 C420,646 500,688 600,664 L600,720 L0,720 Z" fill="#9fd3f0"/>
+    <text x="560" y="705" font-size="15" text-anchor="end" fill="#2a6f99" font-weight="700">のがわ</text>
+    <text x="40" y="628" font-size="14" fill="#2f5e25" font-weight="700">はけ</text>
+  </svg>
+
+  <!-- 場所(位置は % = SVG座標/600, /720) -->
+  <button class="spot" data-x="21.7" data-y="44" data-panel="p-school" data-face="research" data-say="学校に ついたよ！ トイレや 部活動、学びの 応援の ことが 書いてあるよ。" aria-pressed="false"><span class="pulse"></span><span class="ic" aria-hidden="true">🏫</span><span class="lb">学校</span></button>
+  <button class="spot" data-x="50" data-y="14" data-panel="p-park" data-face="joy" data-say="公園だ！ だれでも いっしょに 遊べる 公園の ことを 見てみよう。" aria-pressed="false"><span class="pulse"></span><span class="ic" aria-hidden="true">🛝</span><span class="lb">公園</span></button>
+  <button class="spot" data-x="78.3" data-y="40" data-panel="p-after" data-face="research" data-say="放課後や 休みの日に、勉強したり ほっと できる 場所の 話だよ。" aria-pressed="false"><span class="pulse"></span><span class="ic" aria-hidden="true">📚</span><span class="lb">放課後</span></button>
+  <button class="spot" data-x="50" data-y="54.5" data-panel="p-town" data-face="excited" data-say="駅に ついたよ！ 駅や 道、CoCoバスの ことが 書いてあるよ。" aria-pressed="false"><span class="pulse"></span><span class="ic" aria-hidden="true">🚉</span><span class="lb">駅・道</span></button>
+  <button class="spot" data-x="21.7" data-y="74" data-panel="p-home" data-face="wink" data-say="家の 近くだね。ごみの 分け方や、朝の 居場所の ことを 見てみよう。" aria-pressed="false"><span class="pulse"></span><span class="ic" aria-hidden="true">🏠</span><span class="lb">家</span></button>
+  <button class="spot" data-x="78.3" data-y="74" data-panel="p-voice" data-face="joy" data-say="ここは 市役所。若い人の 声を きく しくみの ことが 書いてあるよ。" aria-pressed="false"><span class="pulse"></span><span class="ic" aria-hidden="true">🏛️</span><span class="lb">声をきく</span></button>
+
+  <div id="hamuta" style="left:36%;top:66%"><img src="assets/hamuta/hamuta_normal.svg" alt="" width="240" height="290"></div>
+</div>
+<p class="note">絵の地図です。本物の場所・きょりとはちがいます。</p>
+<p class="progress" id="progress" aria-live="polite">6つの場所のうち、0か所を見たよ</p>
+
+<div class="talk">
+  <img id="talkFace" src="assets/hamuta/hamuta_normal.svg" alt="" width="64">
+  <p class="bubble" id="bubble" aria-live="polite"><span class="name">こがハムくん</span><span id="say">ぼく、こがハムくん。小金井の まちを いっしょに 歩こう！ 行きたい 場所を タッチしてね。</span></p>
+</div>
+
+<section id="result" aria-live="polite" tabindex="-1"></section>
+</main>
+
+<footer><div class="wrap">
+  <b>おうちの方へ</b><br>白井とおるの「政策2026」から、子どもに身近な項目を場所ごとに選び、子ども向けのことばに言いかえた試作です。案内役のこがハムくんは場所を案内するだけで、政策の中身はカードの文（「もとの文」で原文を表示）が担います。くわしくは <a href="https://shiraisupporters.tokyo/seisaku2026/">政策2026（ウェブ版）</a>。<br>【発行者表示：要確認】
+</div></footer>
+
+<!-- 政策カード: kodomo.html の場所別パネルを make_map.py が差し込む(手で直さない) -->
+<template id="tpl-p-school"><div class="panel">
+    <h3 class="ph">🏫 学校</h3>
+    <div class="cards">
+      <article class="card"><h4>トイレを、もっと使いやすく</h4><span class="chip c-work">やります</span>
+        <p>学校のトイレを、よくしていきます。</p>
+        <div class="before"><b>これまで：</b>小学校・中学校のトイレを洋式にする目標（80％）を、予定より早く達成しました。</div>
+        <span class="src">P1-5T「学校のトイレの改善を進めます」／これまで欄「小中学校トイレの洋便器化 80％を前倒し達成」</span></article>
+      <article class="card"><h4>部活動を、地域にも広げる</h4><span class="chip c-work">やります</span>
+        <p>大学や専門学校とも力を合わせます。</p>
+        <span class="src">P1-5「部活動を地域に広げます。大学・専門学校などとの連携を強めます」</span></article>
+      <article class="card"><h4>学校を、まちのみんなの場所にも</h4><span class="chip c-work">やります</span>
+        <p>学ぶ場所としてよくしながら、地域の交流や防災、子育てにも使える場所にします。</p>
+        <span class="src">P1-6</span></article>
+      <article class="card"><h4>学校に行きづらい子の学びを応援</h4><span class="chip c-work">やります</span>
+        <p>学校に行きづらい子や、字を読んだり書いたりするのがむずかしい子の学びを手伝います。</p>
+        <span class="src">P1-7「不登校の子どもとその家庭、文字の読み書きに困難がある子どもなどに、学びの支援をします」（取り組みます）</span></article>
+      <article class="card"><h4>自分に合った学び方で通える学校</h4><span class="chip c-consider">考えます</span>
+        <p>学校に行きづらい子が、自分に合った学び方で通える学校（学びの多様化学校）をつくるかどうかを<b>考えます</b>。</p>
+        <span class="src">P1-8「…学校に行きづらい子どもが、自分に合った学び方で通える学校（学びの多様化学校）の設置を検討します」（検討します）</span></article>
+    </div>
+</div></template>
+<template id="tpl-p-park"><div class="panel">
+    <h3 class="ph">🛝 公園</h3>
+    <div class="cards">
+      <article class="card"><h4>だれでも遊べる公園「play here」</h4><span class="chip c-work">やります</span>
+        <p>障害のある子も、いっしょに遊べる公園づくりを進めます。</p>
+        <div class="before"><b>これまで：</b>栗山公園・梶野公園・三楽公園の工事が終わりました。</div>
+        <span class="src">P5-2／これまで欄「栗山公園、梶野公園、三楽公園の整備工事が完了」</span></article>
+      <article class="card"><h4>公園を、人が集まる場所に</h4><span class="chip c-work">やります</span>
+        <p>公園や市の建物を、いろいろな人が出会う場所として使います。</p>
+        <span class="src">P2-2「公園や公共施設を、交流の場として活用します」</span></article>
+    </div>
+</div></template>
+<template id="tpl-p-after"><div class="panel">
+    <h3 class="ph">📚 放課後・休みの日</h3>
+    <div class="cards">
+      <article class="card"><h4>勉強したり、ほっとできる場所</h4><span class="chip c-expand">ふやします</span>
+        <p>若い人の居場所や、自習スペースをふやします。</p>
+        <span class="src">P1-9「若者の居場所や自習スペースを増やします」</span></article>
+    </div>
+</div></template>
+<template id="tpl-p-town"><div class="panel">
+    <h3 class="ph">🚉 駅・道</h3>
+    <div class="cards">
+      <article class="card"><h4>たばこの煙を吸わずにすむように</h4><span class="chip c-work">やります</span>
+        <p>東小金井駅にも、たばこを吸う場所をつくって分けます。</p>
+        <span class="src">P2-5</span></article>
+      <article class="card"><h4>歩いて楽しいまちに</h4><span class="chip c-expand">ふやします</span>
+        <p>まちのあちこちに、ベンチをふやします。</p>
+        <span class="src">P2-3</span></article>
+      <article class="card"><h4>CoCoバスを守る</h4><span class="chip c-work">やります</span>
+        <p>CoCoバスの路線を守り、乗る人がふえるようにします。</p>
+        <span class="src">P2-4「コミュニティバス（CoCoバス）の路線を維持し、利用を促します」</span></article>
+      <article class="card"><h4>自転車の事故を減らす</h4><span class="chip c-work">やります</span>
+        <p>自転車の使い方の計画をつくり、事故を減らすよびかけを強めます。</p>
+        <span class="src">P3-5「…啓発活動を強めます」</span></article>
+    </div>
+</div></template>
+<template id="tpl-p-home"><div class="panel">
+    <h3 class="ph">🏠 家</h3>
+    <div class="cards">
+      <article class="card"><h4>ごみの分け方を、わかりやすく</h4><span class="chip c-work">やります</span>
+        <p>ごみの分け方をわかりやすくします。生ごみを、もう一度使える資源にすることや、リサイクル・リユースを進めます。</p>
+        <span class="src">P6-4「ごみの分別をわかりやすくします。生ごみの資源化、リサイクル・リユースを進めます」</span></article>
+      <article class="card"><h4>朝、小学生がいられる場所</h4><span class="chip c-consider">考えます</span>
+        <p>学校が始まる前の朝の時間に、小学生がいられる場所をつくるかどうかを<b>考えます</b>。</p>
+        <span class="src">P1-4の後半のみ</span></article>
+    </div>
+</div></template>
+<template id="tpl-p-voice"><div class="panel">
+    <h3 class="ph">🗣️ 若い人の声をきくしくみ</h3>
+    <div class="cards">
+      <article class="card"><h4>10代の声を、市のしごとに</h4><span class="chip c-work">やります</span>
+        <p>「ティーンズ会議」を開くなどして、若い人の意見を生かします。</p>
+        <div class="before"><b>これまで：</b>中学生サミット「小金井（しょうがねい）を変えちゃう人の会」を開いてきました。</div>
+        <span class="src">P1-10／基本姿勢「これまでも、みんなでつくってきました」</span></article>
+      <article class="card"><h4>気候変動のことを、若い人が話し合う</h4><span class="chip c-continue">つづけます</span>
+        <p>気候変動（地球の気温や天気のようすが、長い時間をかけて変わっていくこと）について、若い人が話し合う「わかもの気候市民会議」をつづけます。</p>
+        <span class="src">P6-5「気候変動の問題について若者が話し合う「わかもの気候市民会議」を続けます」。（ ）内の説明は当方で追加・要確認</span></article>
+    </div>
+</div></template>
+<template id="legendTpl"><div class="legend"><span class="chip c-work">やります</span> <span class="chip c-expand">ふやします</span> <span class="chip c-continue">つづけます</span><br><span class="chip c-consider">考えます</span> は「やるかどうかを、これからしらべて決める」という意味です。</div></template>
+
+<script src="kodomo_ruby.js?v=20261022b"></script>
+<script src="quiz_data.js?v=20261022"></script>
+<script>
+const map=document.getElementById('map'), ham=document.getElementById('hamuta'), hamImg=ham.querySelector('img');
+const say=document.getElementById('say'), face=document.getElementById('talkFace'), result=document.getElementById('result');
+const spots=[...document.querySelectorAll('.spot')], visited=new Set();
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const src=f=>'assets/hamuta/hamuta_'+f+'.svg';
+function setSay(t,f){say.textContent=t;face.src=src(f);hamImg.src=src(f);addRuby(document.getElementById('bubble'));}
+addRuby(document.getElementById('main'));
+// 最初のことば(ふりがなを付けたあとで差し替えないようにここで一度だけ)
+let busy=false;
+function go(btn){
+  if(busy)return; busy=true;
+  spots.forEach(s=>s.setAttribute('aria-pressed',s===btn));
+  const cur=parseFloat(ham.style.left), bx=parseFloat(btn.dataset.x), x=bx>65?bx-13:bx+13, y=parseFloat(btn.dataset.y)+7; // ボタンの横に立つ(重ならない)
+  ham.classList.toggle('left',x<cur); ham.classList.add('walking');
+  hamImg.src=src('normal'); say.textContent='てくてく……';
+  ham.style.left=x+'%'; ham.style.top=y+'%';
+  setTimeout(()=>{
+    ham.classList.remove('walking');
+    setSay(btn.dataset.say,btn.dataset.face);
+    show(btn); busy=false;
+  }, reduce?50:1150);
+}
+function show(btn){
+  const tpl=document.getElementById('tpl-'+btn.dataset.panel);
+  result.innerHTML='';
+  const t=document.createElement('div');t.className='talk';
+  t.innerHTML='<img src="'+src(btn.dataset.face)+'" alt="" width="64"><p class="bubble"><span class="name">こがハムくん</span><span></span></p>';
+  t.querySelector('.bubble span:last-child').textContent='ここで クイズだよ！ 答えると、くわしい カードが 出てくるよ。'; result.append(t);
+  // クイズ → 答える(または とばす)とカード。答えは保存しない
+  const qbox=document.createElement('div'); result.append(qbox);
+  const skip=document.createElement('button');skip.type='button';skip.className='skip';skip.textContent='クイズを とばして カードを 見る';
+  const rest=document.createElement('div');
+  let opened=false;
+  const openCards=()=>{ if(opened)return; opened=true; skip.remove();
+    rest.append(document.getElementById('legendTpl').content.cloneNode(true));
+    rest.append(tpl.content.cloneNode(true));
+    const back=document.createElement('button');back.className='back';back.type='button';back.textContent='▲ 地図にもどる';
+    back.onclick=()=>{map.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});btn.focus({preventScroll:true});};
+    rest.append(back); addRuby(rest); };
+  renderQuiz(qbox, QUIZ[btn.dataset.panel], ()=>openCards());
+  skip.onclick=openCards;
+  result.append(skip, rest);
+  addRuby(result);
+  visited.add(btn.dataset.panel); btn.classList.add('visited');
+  const n=visited.size;
+  document.getElementById('progress').textContent=n<6?`6つの場所のうち、${n}か所を見たよ`:'6つの場所を ぜんぶ 見たよ！';
+  addRuby(document.getElementById('progress'));
+  if(n===6) setTimeout(()=>setSay('ぜんぶの 場所を 回ったね！ もう一度 見たい 場所は、また タッチしてね。','excited'),reduce?0:1500);
+  setTimeout(()=>result.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}),reduce?0:350);
+}
+spots.forEach(b=>b.addEventListener('click',()=>go(b)));
+spots.forEach(b=>{b.style.left=b.dataset.x+'%';b.style.top=b.dataset.y+'%';});
+setupToggles();
+</script>
+</body>
+</html>

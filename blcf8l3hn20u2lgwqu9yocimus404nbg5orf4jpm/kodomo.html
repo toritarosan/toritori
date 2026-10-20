@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>小学生のための 白井とおる ページ（見本）</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fffaf0;--ink:#2b2b2b;--sub:#5a5a5a;--card:#fff;--line:#eadfcb;--blue:#1f6fb2;--green:#2f7d4f;--orange:#b85300;--purple:#7a4fb5;--sky:#dff0fb;--yellow:#fff3c4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic","BIZ UDPGothic",sans-serif;font-size:19px;line-height:1.9;font-weight:500}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.draftbar{background:#333;color:#fff;font-size:14px;line-height:1.6;padding:8px 16px;text-align:center}
+.tools{position:sticky;top:0;z-index:5;background:rgba(255,250,240,.95);border-bottom:2px solid var(--line)}
+.tools .wrap{display:flex;justify-content:flex-end;gap:8px;padding:8px 16px}
+.tools button{font:inherit;font-size:16px;font-weight:700;border:2px solid var(--blue);background:#fff;color:var(--blue);border-radius:999px;padding:4px 16px;cursor:pointer;min-height:44px}
+.tools button[aria-pressed="true"]{background:var(--blue);color:#fff}
+body.no-ruby rt{display:none}
+rt{font-size:.5em;font-weight:500;color:var(--sub)}
+.maker{margin:14px 0 0;background:#fff;border:2px solid var(--line);border-radius:12px;padding:6px 12px;font-size:15px;line-height:1.7;text-align:center}
+.hero{text-align:center;padding:20px 0 8px}
+.hero .photo{width:180px;height:180px;border-radius:50%;object-fit:cover;border:6px solid #fff;box-shadow:0 4px 0 rgba(0,0,0,.08);display:block;margin:0 auto 12px;background:#eee}
+.hero .hello{display:inline-block;background:var(--yellow);border-radius:999px;padding:2px 18px;font-weight:700}
+.hero h1{font-size:clamp(28px,7vw,42px);line-height:1.5;margin:10px 0 6px;font-weight:900}
+.hero p{margin:0;color:var(--sub)}
+section{margin:40px 0;scroll-margin-top:72px}
+h2{font-size:clamp(23px,5.5vw,29px);line-height:1.5;margin:0 0 14px;font-weight:900}
+h2 .num{display:inline-flex;width:42px;height:42px;margin-right:10px;vertical-align:middle;border-radius:50%;background:var(--blue);color:#fff;align-items:center;justify-content:center;font-size:21px}
+.talk{display:flex;gap:12px;align-items:flex-start;margin:0 0 14px}
+.talk img{flex:none;width:64px;height:auto}
+.bubble{position:relative;background:#fff;border:3px solid #f5ab30;border-radius:18px;padding:8px 14px;font-weight:700;flex:1;margin:0}
+.bubble::before{content:"";position:absolute;left:-12px;top:16px;border:9px solid transparent;border-right-color:#f5ab30}
+.bubble .name{display:block;font-size:13px;color:#b8790f}
+.box{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:18px 20px}
+.box p{margin:0 0 10px}.box p:last-child{margin:0}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.facts li{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:10px 16px;display:flex;gap:12px;align-items:flex-start}
+.facts .ic{flex:none;font-size:28px;line-height:1.4}
+/* まちの絵(本物の地図ではない) */
+.town{position:relative;background:var(--sky);border-radius:28px;padding:14px 10px 18px;overflow:hidden}
+.town::after{content:"";position:absolute;left:0;right:0;bottom:0;height:38%;background:#cfe8c4;border-top:6px solid #b7d9a8;z-index:0}
+.places{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.place.all{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:8px}
+.place.all .pic{display:inline;font-size:30px}
+.place{font:inherit;font-weight:900;font-size:17px;line-height:1.5;color:var(--ink);background:#fff;border:3px solid #fff;border-radius:22px;padding:8px 4px;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.08);min-height:44px}
+.place .pic{display:block;font-size:42px;line-height:1.2}
+.place[aria-selected="true"]{border-color:var(--green);background:#f3fbf3;transform:translateY(-3px)}
+.place{position:relative}
+.place[aria-selected="true"]::after{content:"✓";position:absolute;top:-8px;right:-6px;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-size:16px;line-height:28px;text-align:center}
+.place:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.hint{text-align:center;color:var(--sub);font-size:16px;margin:6px 0 0}
+.legend{background:#fff;border:2px solid var(--line);border-radius:16px;padding:8px 14px;font-size:16px;margin:12px 0 0}
+.panel{margin:18px 0 0}
+.panel h3.ph{font-size:23px;margin:0 0 10px;font-weight:900}
+.cards{display:grid;gap:14px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:16px 20px}
+.card h4{margin:0 0 6px;font-size:21px;line-height:1.6;font-weight:900}
+.card p{margin:6px 0 0}
+.before{margin-top:10px;background:#eaf3fb;border-radius:12px;padding:8px 14px;font-size:17px}
+.before b{color:var(--blue)}
+.chip rt{color:#fff}
+.chip{display:inline-block;font-size:15px;font-weight:700;color:#fff;border-radius:8px;padding:0 10px;line-height:1.9;white-space:nowrap}
+.c-work{background:var(--blue)}.c-expand{background:var(--green)}.c-consider{background:var(--orange)}.c-continue{background:var(--purple)}
+.src{display:block;margin-top:8px;font-size:14px;color:#5f5f5f;line-height:1.6;border-top:1px dashed var(--line);padding-top:6px}
+body.hide-src .src{display:none}
+.play{display:grid;gap:10px}
+.play a{display:block;background:#fff8e1;border:2px solid #f5ab30;border-radius:16px;padding:12px 16px;font-weight:900;color:var(--ink);text-decoration:none;min-height:44px}
+.message{text-align:center;font-size:clamp(21px,5vw,27px);font-weight:900;line-height:1.7;background:var(--yellow);border-radius:24px;padding:26px 16px}
+.message small{display:block;font-size:16px;font-weight:500;margin-top:8px;color:var(--sub)}
+footer{margin-top:48px;padding:24px 0 40px;border-top:2px solid var(--line);font-size:15px;line-height:1.8;color:var(--sub)}
+footer a{color:var(--blue)}
+@media (min-width:640px){.cards{grid-template-columns:1fr 1fr}.facts{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body class="hide-src">
+<div class="draftbar">小学生向けの見本（草案）。文の言いかえは確定していません。公開前に本人確認・選管確認が必要です。</div>
+<div class="tools"><div class="wrap">
+  <button type="button" id="rubyBtn" aria-pressed="true">ふりがな</button>
+  <button type="button" id="srcBtn" aria-pressed="false">もとの文</button>
+</div></div>
+
+<main class="wrap" id="main">
+<p class="maker">このページは <b>【発行者名：要確認】</b> がつくりました。市役所のページではありません。</p>
+<header class="hero">
+  <picture><source srcset="assets/shirai_face.webp" type="image/webp"><img class="photo" src="assets/shirai_face.jpg" alt="白井とおるの顔写真" width="180" height="180"></picture>
+  <span class="hello">こんにちは！</span>
+  <h1>小金井市長の<br>白井とおるです</h1>
+  <p>小金井のまちのこと、いっしょに見てみよう。</p>
+</header>
+
+<section aria-labelledby="s1">
+  <h2 id="s1"><span class="num">1</span>市長って、どんな仕事？</h2>
+  <div class="talk"><img src="assets/hamuta/hamuta_research.svg" alt="" width="64"><p class="bubble"><span class="name">こがハムくん</span>ぼく、こがハムくん。このページの 案内役だよ。まずは 市長の しごとから 見てみよう！</p></div>
+  <div class="box">
+    <p>市長は、市役所のリーダーです。ごみ集め、学校、公園、図書館、バス……。まちのいろいろな仕事を、市役所の人たちといっしょに進めます。</p>
+    <p>市のお金をどう使うかの案をつくるのも、市長の仕事です。でも、市長ひとりでは決められません。市民がえらんだ<b>市議会</b>で話し合って、決めます。</p>
+    <p>市長は選挙でえらばれます。任期は4年です。</p>
+    <span class="src">地方自治法（市長の職務・予算の調製と議会の議決・任期4年）にもとづく一般的な説明。特定の候補に限らない内容。</span>
+  </div>
+</section>
+
+<section aria-labelledby="s2">
+  <h2 id="s2"><span class="num">2</span>白井とおるって、どんな人？</h2>
+  <ul class="facts">
+    <li><span class="ic" aria-hidden="true">🎂</span><span>1975年生まれ。大阪府枚方市で生まれました。</span></li>
+    <li><span class="ic" aria-hidden="true">🍳</span><span>家族は、妻と、中学生・高校生の子ども ふたり。毎日の朝ごはんをつくる係です。</span></li>
+    <li><span class="ic" aria-hidden="true">💼</span><span>会社で約15年はたらいたあと、小金井市議会議員になりました。</span></li>
+    <li><span class="ic" aria-hidden="true">🏛️</span><span>2022年11月から、小金井市長をしています。</span></li>
+  </ul>
+  <span class="src">shiraisupporters.tokyo プロフィール欄（2026-10-12取得）。「中学生・高校生」は原文「中高生」の言いかえ。「ふたり」は原文「2人」をひらがなにしたもの（ルビを漢字だけに付けるため）。</span>
+</section>
+
+<section aria-labelledby="s3">
+  <h2 id="s3"><span class="num">3</span>これから、やりたいこと</h2>
+  <div class="talk"><img src="assets/hamuta/hamuta_joy.svg" alt="" width="64"><p class="bubble"><span class="name">こがハムくん</span>場所の ボタンを おすと、その場所の ことだけ 出てくるよ。「考えます」の 色にも 注目してね。</p></div>
+  <p style="margin:0 0 12px">これからの4年でやりたいことです。場所やテーマのボタンをおすと、そこに関係することだけが出ます。「ぜんぶ」をおすと、全部をじゅんばんに読めます。</p>
+  <div class="town">
+    <div class="places" role="tablist" aria-label="場所をえらぶ">
+      <button class="place all" role="tab" id="t-all" aria-controls="p-all" aria-selected="false"><span class="pic" aria-hidden="true">📖</span>ぜんぶ</button>
+      <button class="place" role="tab" id="t-school" aria-controls="p-school" aria-selected="true"><span class="pic" aria-hidden="true">🏫</span>学校</button>
+      <button class="place" role="tab" id="t-park" aria-controls="p-park" aria-selected="false"><span class="pic" aria-hidden="true">🛝</span>公園</button>
+      <button class="place" role="tab" id="t-after" aria-controls="p-after" aria-selected="false"><span class="pic" aria-hidden="true">📚</span>放課後</button>
+      <button class="place" role="tab" id="t-town" aria-controls="p-town" aria-selected="false"><span class="pic" aria-hidden="true">🚉</span>駅・道</button>
+      <button class="place" role="tab" id="t-home" aria-controls="p-home" aria-selected="false"><span class="pic" aria-hidden="true">🏠</span>家</button>
+      <button class="place" role="tab" id="t-voice" aria-controls="p-voice" aria-selected="false"><span class="pic" aria-hidden="true">🗣️</span>声をきく</button>
+    </div>
+  </div>
+  <div class="legend"><span class="chip c-work">やります</span> <span class="chip c-expand">ふやします</span> <span class="chip c-continue">つづけます</span><br><span class="chip c-consider">考えます</span> は「やるかどうかを、これからしらべて決める」という意味です。</div>
+
+  <div id="p-all">
+  <div class="panel" role="tabpanel" id="p-school" aria-labelledby="t-school">
+    <h3 class="ph">🏫 学校</h3>
+    <div class="cards">
+      <article class="card"><h4>トイレを、もっと使いやすく</h4><span class="chip c-work">やります</span>
+        <p>学校のトイレを、よくしていきます。</p>
+        <div class="before"><b>これまで：</b>小学校・中学校のトイレを洋式にする目標（80％）を、予定より早く達成しました。</div>
+        <span class="src">P1-5T「学校のトイレの改善を進めます」／これまで欄「小中学校トイレの洋便器化 80％を前倒し達成」</span></article>
+      <article class="card"><h4>部活動を、地域にも広げる</h4><span class="chip c-work">やります</span>
+        <p>大学や専門学校とも力を合わせます。</p>
+        <span class="src">P1-5「部活動を地域に広げます。大学・専門学校などとの連携を強めます」</span></article>
+      <article class="card"><h4>学校を、まちのみんなの場所にも</h4><span class="chip c-work">やります</span>
+        <p>学ぶ場所としてよくしながら、地域の交流や防災、子育てにも使える場所にします。</p>
+        <span class="src">P1-6</span></article>
+      <article class="card"><h4>学校に行きづらい子の学びを応援</h4><span class="chip c-work">やります</span>
+        <p>学校に行きづらい子や、字を読んだり書いたりするのがむずかしい子の学びを手伝います。</p>
+        <span class="src">P1-7「不登校の子どもとその家庭、文字の読み書きに困難がある子どもなどに、学びの支援をします」（取り組みます）</span></article>
+      <article class="card"><h4>自分に合った学び方で通える学校</h4><span class="chip c-consider">考えます</span>
+        <p>学校に行きづらい子が、自分に合った学び方で通える学校（学びの多様化学校）をつくるかどうかを<b>考えます</b>。</p>
+        <span class="src">P1-8「…学校に行きづらい子どもが、自分に合った学び方で通える学校（学びの多様化学校）の設置を検討します」（検討します）</span></article>
+    </div>
+  </div>
+
+  <div class="panel" role="tabpanel" id="p-park" aria-labelledby="t-park">
+    <h3 class="ph">🛝 公園</h3>
+    <div class="cards">
+      <article class="card"><h4>だれでも遊べる公園「play here」</h4><span class="chip c-work">やります</span>
+        <p>障害のある子も、いっしょに遊べる公園づくりを進めます。</p>
+        <div class="before"><b>これまで：</b>栗山公園・梶野公園・三楽公園の工事が終わりました。</div>
+        <span class="src">P5-2／これまで欄「栗山公園、梶野公園、三楽公園の整備工事が完了」</span></article>
+      <article class="card"><h4>公園を、人が集まる場所に</h4><span class="chip c-work">やります</span>
+        <p>公園や市の建物を、いろいろな人が出会う場所として使います。</p>
+        <span class="src">P2-2「公園や公共施設を、交流の場として活用します」</span></article>
+    </div>
+  </div>
+
+  <div class="panel" role="tabpanel" id="p-after" aria-labelledby="t-after">
+    <h3 class="ph">📚 放課後・休みの日</h3>
+    <div class="cards">
+      <article class="card"><h4>勉強したり、ほっとできる場所</h4><span class="chip c-expand">ふやします</span>
+        <p>若い人の居場所や、自習スペースをふやします。</p>
+        <span class="src">P1-9「若者の居場所や自習スペースを増やします」</span></article>
+    </div>
+  </div>
+
+  <div class="panel" role="tabpanel" id="p-town" aria-labelledby="t-town">
+    <h3 class="ph">🚉 駅・道</h3>
+    <div class="cards">
+      <article class="card"><h4>たばこの煙を吸わずにすむように</h4><span class="chip c-work">やります</span>
+        <p>東小金井駅にも、たばこを吸う場所をつくって分けます。</p>
+        <span class="src">P2-5</span></article>
+      <article class="card"><h4>歩いて楽しいまちに</h4><span class="chip c-expand">ふやします</span>
+        <p>まちのあちこちに、ベンチをふやします。</p>
+        <span class="src">P2-3</span></article>
+      <article class="card"><h4>CoCoバスを守る</h4><span class="chip c-work">やります</span>
+        <p>CoCoバスの路線を守り、乗る人がふえるようにします。</p>
+        <span class="src">P2-4「コミュニティバス（CoCoバス）の路線を維持し、利用を促します」</span></article>
+      <article class="card"><h4>自転車の事故を減らす</h4><span class="chip c-work">やります</span>
+        <p>自転車の使い方の計画をつくり、事故を減らすよびかけを強めます。</p>
+        <span class="src">P3-5「…啓発活動を強めます」</span></article>
+    </div>
+  </div>
+
+  <div class="panel" role="tabpanel" id="p-home" aria-labelledby="t-home">
+    <h3 class="ph">🏠 家</h3>
+    <div class="cards">
+      <article class="card"><h4>ごみの分け方を、わかりやすく</h4><span class="chip c-work">やります</span>
+        <p>ごみの分け方をわかりやすくします。生ごみを、もう一度使える資源にすることや、リサイクル・リユースを進めます。</p>
+        <span class="src">P6-4「ごみの分別をわかりやすくします。生ごみの資源化、リサイクル・リユースを進めます」</span></article>
+      <article class="card"><h4>朝、小学生がいられる場所</h4><span class="chip c-consider">考えます</span>
+        <p>学校が始まる前の朝の時間に、小学生がいられる場所をつくるかどうかを<b>考えます</b>。</p>
+        <span class="src">P1-4の後半のみ</span></article>
+    </div>
+  </div>
+
+  <div class="panel" role="tabpanel" id="p-voice" aria-labelledby="t-voice">
+    <h3 class="ph">🗣️ 若い人の声をきくしくみ</h3>
+    <div class="cards">
+      <article class="card"><h4>10代の声を、市のしごとに</h4><span class="chip c-work">やります</span>
+        <p>「ティーンズ会議」を開くなどして、若い人の意見を生かします。</p>
+        <div class="before"><b>これまで：</b>中学生サミット「小金井（しょうがねい）を変えちゃう人の会」を開いてきました。</div>
+        <span class="src">P1-10／基本姿勢「これまでも、みんなでつくってきました」</span></article>
+      <article class="card"><h4>気候変動のことを、若い人が話し合う</h4><span class="chip c-continue">つづけます</span>
+        <p>気候変動（地球の気温や天気のようすが、長い時間をかけて変わっていくこと）について、若い人が話し合う「わかもの気候市民会議」をつづけます。</p>
+        <span class="src">P6-5「気候変動の問題について若者が話し合う「わかもの気候市民会議」を続けます」。（ ）内の説明は当方で追加・要確認</span></article>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section aria-labelledby="s4">
+  <h2 id="s4"><span class="num">4</span>だいじにしていること</h2>
+  <div class="message">子どもと若者をつなぐ。<br>市民と市役所をつなぐ。<br>つながれば、まちはもっとおもしろくなる。<small>（政策2026「みんなでつくる」より）</small></div>
+  <span class="src">基本姿勢 message の lines2 から2行・close から1行をそのまま抜き出し</span>
+</section>
+<section aria-labelledby="s5">
+  <h2 id="s5"><span class="num">5</span>あそんで 知ろう</h2>
+  <div class="play"><a href="map.html">🐹 こがハムくんと 小金井さんぽ</a><a href="quiz.html">❓ こがハムくんの クイズ</a><a href="puzzle.html">🚌 バスの パズル</a></div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <b>おうちの方へ</b><br>白井とおるの「政策2026」から、子どもに身近な項目を選び、子ども向けのことばに言いかえた見本です。くわしくは <a href="https://shiraisupporters.tokyo/seisaku2026/">政策2026（ウェブ版）</a>。<br>【発行者表示：要確認】
+</div></footer>
+
+<script src="kodomo_ruby.js?v=20261022b"></script>
+<script>
+addRuby(document.getElementById('main')); setupToggles();
+const tabs=[...document.querySelectorAll('.place')];
+const panels=[...document.querySelectorAll('.panel')];
+function show(t){const all=t.id==='t-all';tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;});
+  panels.forEach(p=>{p.hidden=!(all||p.getAttribute('aria-labelledby')===t.id);});}
+tabs.forEach((t,i)=>{t.onclick=()=>show(t);t.onkeydown=e=>{const d={ArrowRight:1,ArrowLeft:-1}[e.key];if(d){const n=tabs[(i+d+tabs.length)%tabs.length];n.focus();show(n);}};});
+show(tabs[0]);
+</script>
+</body>
+</html>

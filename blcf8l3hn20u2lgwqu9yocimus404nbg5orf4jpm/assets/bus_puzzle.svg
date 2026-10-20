@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <!-- パズル用の自作イラスト(2026-10-21 色づかいをCoCoバスに寄せた版)。
+       寄せたのは「くすんだピンクの車体・暗い窓の帯・下の白いもくもく・短く丸い小型バス」という雰囲気だけ。
+       実在のロゴ(多色のCoCoバス文字)・車体の顔のキャラクター・模様の形そのものは使っていない -->
+  <rect width="600" height="600" fill="#d6edf9"/>
+  <circle cx="512" cy="92" r="46" fill="#ffd25e"/>
+  <g fill="#fff"><ellipse cx="118" cy="88" rx="60" ry="25"/><ellipse cx="166" cy="76" rx="42" ry="23"/><ellipse cx="330" cy="128" rx="52" ry="19"/></g>
+  <g fill="#7cbf6a"><circle cx="38" cy="332" r="50"/><circle cx="96" cy="352" r="38"/><circle cx="566" cy="332" r="48"/></g>
+  <rect y="384" width="600" height="216" fill="#b9dfa3"/>
+  <rect y="432" width="600" height="110" fill="#8f8f8f"/>
+  <path d="M0,487 H600" stroke="#fff" stroke-width="6" stroke-dasharray="40 26"/>
+
+  <!-- 車体(短く丸い小型バス。右が前) -->
+  <path d="M96,250 Q96,196 150,196 L470,196 Q522,196 532,250 L540,330 Q544,372 540,410 Q538,438 510,438 L124,438 Q96,438 96,410 Z" fill="#d9899f"/>
+  <!-- 屋根の上の箱 -->
+  <rect x="210" y="178" width="200" height="24" rx="10" fill="#c97a90"/>
+  <!-- 窓の帯(暗い) -->
+  <path d="M110,226 L500,226 Q520,226 524,252 L530,318 L110,318 Z" fill="#33313a"/>
+  <!-- 窓ガラス -->
+  <g fill="#bfe3f5">
+    <rect x="128" y="236" width="80" height="70" rx="10"/><rect x="224" y="236" width="80" height="70" rx="10"/><rect x="320" y="236" width="80" height="70" rx="10"/>
+    <path d="M430,236 L494,236 Q510,236 513,254 L518,306 L430,306 Z"/>
+  </g>
+  <!-- 窓の中の乗客(ハム太のなかま) -->
+  <g fill="#F5BCB2"><circle cx="168" cy="290" r="19"/><circle cx="264" cy="292" r="17"/><circle cx="360" cy="290" r="19"/></g>
+  <g fill="#f0b3b3"><circle cx="155" cy="274" r="7"/><circle cx="181" cy="274" r="7"/><circle cx="347" cy="274" r="7"/><circle cx="373" cy="274" r="7"/></g>
+  <!-- 下の白いもくもく(このページのために描いた形) -->
+  <path d="M96,372 C120,350 150,360 166,378 C186,352 222,356 236,380 C256,360 286,364 296,386 L296,438 L124,438 Q96,438 96,410 Z" fill="#fbfbfa"/>
+  <path d="M430,384 C446,362 476,360 492,378 C506,358 532,360 541,376 L540,410 Q538,438 510,438 L430,438 Z" fill="#fbfbfa"/>
+  <!-- 前のドア -->
+  <rect x="400" y="326" width="22" height="104" rx="6" fill="#c97a90" opacity=".7"/>
+  <!-- 行き先(文字は「こがねい」だけ) -->
+  <rect x="452" y="202" width="62" height="20" rx="6" fill="#222"/>
+  <text x="483" y="217" font-size="14" fill="#ffd25e" font-family="sans-serif" font-weight="700" text-anchor="middle">こがねい</text>
+  <!-- ライト -->
+  <circle cx="530" cy="396" r="10" fill="#fff3b0" stroke="#7a6a6a" stroke-width="3"/>
+  <!-- タイヤ -->
+  <g fill="#3a3a3a"><circle cx="182" cy="446" r="38"/><circle cx="450" cy="446" r="38"/></g>
+  <g fill="#d6d6d6"><circle cx="182" cy="446" r="15"/><circle cx="450" cy="446" r="15"/></g>
+</svg>

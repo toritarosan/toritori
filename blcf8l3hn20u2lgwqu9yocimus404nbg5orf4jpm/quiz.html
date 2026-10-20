@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>こがハムくんのクイズ（試作）</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fffaf0;--ink:#2b2b2b;--sub:#5a5a5a;--line:#eadfcb;--blue:#1f6fb2}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic","BIZ UDPGothic",sans-serif;font-size:18px;line-height:1.85;font-weight:500}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px}
+.draftbar{background:#333;color:#fff;font-size:14px;line-height:1.6;padding:8px 16px;text-align:center}
+.tools{position:sticky;top:0;z-index:20;background:rgba(255,250,240,.95);border-bottom:2px solid var(--line)}
+.tools .wrap{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 16px}
+.tools a{color:var(--blue);font-weight:700;font-size:15px}
+.tools button{font:inherit;font-size:15px;font-weight:700;border:2px solid var(--blue);background:#fff;color:var(--blue);border-radius:999px;padding:2px 14px;cursor:pointer;min-height:44px}
+.tools button[aria-pressed="true"]{background:var(--blue);color:#fff}
+body.no-ruby rt{display:none}
+rt{font-size:.5em;font-weight:500;color:var(--sub)}
+.maker{margin:12px 0 0;background:#fff;border:2px solid var(--line);border-radius:12px;padding:6px 12px;font-size:14px;line-height:1.7;text-align:center}
+h1{font-size:clamp(26px,6.5vw,36px);line-height:1.4;margin:16px 0 4px;text-align:center;font-weight:900}
+.talk{display:flex;gap:12px;align-items:flex-start;margin:12px 0 16px}
+.talk img{flex:none;width:72px;height:auto}
+.bubble{position:relative;background:#fff;border:3px solid #f5ab30;border-radius:18px;padding:10px 14px;font-weight:700;flex:1;margin:0}
+.bubble::before{content:"";position:absolute;left:-12px;top:18px;border:9px solid transparent;border-right-color:#f5ab30}
+.bubble .name{display:block;font-size:13px;color:#b8790f}
+.meter{display:flex;gap:6px;justify-content:center;margin:0 0 12px;flex-wrap:wrap}
+.meter span{width:22px;height:22px;border-radius:50%;background:#eadfcb;display:inline-block}
+.meter span.now{outline:3px solid #f5ab30;outline-offset:1px}
+.meter span.ok{background:#2f7d4f}.meter span.ng{background:#b85300}
+.count{text-align:center;font-weight:700;color:var(--sub);margin:0 0 6px}
+.next{display:block;margin:4px auto 0;font:inherit;font-weight:900;font-size:18px;background:#f5ab30;color:#3a2a00;border:none;border-radius:999px;padding:8px 26px;cursor:pointer;min-height:48px}
+.done{background:#fff;border:3px solid #2f7d4f;border-radius:20px;padding:16px;text-align:center}
+.done .big{font-size:28px;font-weight:900;margin:0}
+.links{display:grid;gap:10px;margin:14px 0 0}
+.links a{display:block;background:#fff8e1;border-radius:14px;padding:10px 14px;color:var(--ink);font-weight:700;text-decoration:none;border:2px solid #f5ab30}
+.note{font-size:13px;color:var(--sub);margin:10px 0 0;text-align:center}
+footer{margin-top:40px;padding:20px 0 40px;border-top:2px solid var(--line);font-size:14px;line-height:1.8;color:var(--sub)}
+footer a{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="draftbar">試作（草案）。キャラクターの使用・発行者表示・選管確認は未決です。</div>
+<div class="tools"><div class="wrap">
+  <a href="iriguchi.html">← はじめのページ</a>
+  <button type="button" id="rubyBtn" aria-pressed="true">ふりがな</button>
+</div></div>
+<main class="wrap" id="main">
+  <p class="maker">このページは <b>【発行者名：要確認】</b> がつくりました。市役所のページではありません。</p>
+  <h1>こがハムくんの クイズ</h1>
+  <div class="talk"><img id="face" src="assets/hamuta/hamuta_joy.svg" alt="" width="72"><p class="bubble"><span class="name">こがハムくん</span><span id="say">市長の しごとや、小金井の これからの ことの クイズだよ。ぜんぶで 9もん！</span></p></div>
+  <div class="meter" id="meter" aria-hidden="true"></div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div id="qarea"></div>
+  <p class="note">答えは、どこにも送りません。このページを閉じると消えます。</p>
+</main>
+<footer><div class="wrap">
+  <b>おうちの方へ</b><br>白井とおるの「政策2026」の項目と、市長・市議会のしくみ（地方自治法）・小金井市子どもの権利に関する条例から作ったクイズの試作です。答えや点数は送信・保存しません。各問の答えのあとに「もとの文」を出しています。くわしくは <a href="https://shiraisupporters.tokyo/seisaku2026/">政策2026（ウェブ版）</a>。<br>【発行者表示：要確認】
+</div></footer>
+<script src="kodomo_ruby.js?v=20261022b"></script>
+<script src="quiz_data.js?v=20261022"></script>
+<script>
+const ORDER=['c-giketsu','c-ninki','p-home','p-school','p-park','p-after','p-town','p-voice','c-kenri'];
+const meter=document.getElementById('meter'), area=document.getElementById('qarea'), count=document.getElementById('count');
+ORDER.forEach(()=>meter.append(document.createElement('span')));
+let k=0, right=0;
+function step(){
+  const dots=meter.children;
+  [...dots].forEach((d,i)=>d.classList.toggle('now',i===k));
+  count.textContent=`${ORDER.length}もん中 ${k+1}もんめ`; addRuby(count);
+  renderQuiz(area, QUIZ[ORDER[k]], ok=>{
+    if(ok) right++;
+    dots[k].classList.add(ok?'ok':'ng');
+    const nx=document.createElement('button'); nx.type='button'; nx.className='next';
+    nx.textContent = k<ORDER.length-1 ? 'つぎの もんだい ▶' : 'けっかを 見る ▶';
+    nx.onclick=()=>{ k++; k<ORDER.length?step():finish(); area.scrollIntoView({block:'start'}); };
+    area.append(nx); addRuby(nx); nx.focus({preventScroll:true});
+  });
+}
+function finish(){
+  [...meter.children].forEach(d=>d.classList.remove('now'));
+  count.textContent='';
+  document.getElementById('face').src='assets/hamuta/hamuta_excited.svg';
+  document.getElementById('say').textContent='さいごまで 答えたね！ くわしく 知りたいことは、ページで 見てみてね。';
+  area.innerHTML=`<div class="done"><p class="big">${ORDER.length}もん中 ${right}もん せいかい</p>
+    <div class="links"><a href="map.html">🐹 こがハムくんと 小金井さんぽ へ</a><a href="kodomo.html">📖 ぜんぶ 読む ページ へ</a>
+    <button type="button" class="next" id="again">もういちど ちょうせん</button></div></div>`;
+  document.getElementById('again').onclick=()=>{k=0;right=0;[...meter.children].forEach(d=>d.className='');step();};
+  addRuby(document.getElementById('main'));
+}
+addRuby(document.getElementById('main'));
+step();
+document.getElementById('rubyBtn').onclick=e=>{const b=e.currentTarget,on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);document.body.classList.toggle('no-ruby',!on);};
+</script>
+</body>
+</html>
