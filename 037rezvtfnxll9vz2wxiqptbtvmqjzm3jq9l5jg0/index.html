@@ -1,0 +1,60 @@
+<!doctype html><html lang='ja'><head>
+<meta name="robots" content="noindex,nofollow"><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>記者会見動画 音声補正の聞き比べ</title><style>
+body{font-family:'BIZ UDPGothic','Yu Gothic UI',Meiryo,sans-serif;max-width:1000px;margin:24px auto;padding:0 16px;line-height:1.7;color:#222}
+h1{font-size:1.5em;border-bottom:2px solid #345;padding-bottom:4px} h2{font-size:1.2em;margin-top:2em;border-left:6px solid #345;padding-left:8px}
+.box{background:#f4f6f8;border:1px solid #cdd;padding:10px 14px;border-radius:6px;margin:10px 0}
+.ab{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.ab button{font-size:1em;padding:8px 14px;border-radius:6px;border:1px solid #778;background:#fff;cursor:pointer}
+.ab button.sel{background:#345;color:#fff;border-color:#345}
+.ab button.play{background:#e8f0ff}
+input[type=range]{width:100%}
+table{border-collapse:collapse;width:100%;font-size:.95em} th,td{border:1px solid #ccc;padding:6px 8px;vertical-align:top} th{background:#eef}
+td img{max-width:360px;display:block} audio{width:280px}
+.note{font-size:.9em;color:#555}
+.warn{background:#fff4e5;border-color:#f0c080}
+</style><script>
+function setup(seg, files){
+  const auds = files.map(f=>{const a=new Audio('audio/'+f); a.preload='auto'; a.muted=true; return a;});
+  const wrap=document.getElementById('ab-'+seg); const btns=[...wrap.querySelectorAll('button[data-i]')];
+  const play=wrap.querySelector('.play'); const rng=wrap.querySelector('input[type=range]'); const tm=wrap.querySelector('.tm');
+  let cur=0; auds[0].muted=false; btns[0].classList.add('sel');
+  btns.forEach(b=>b.onclick=()=>{cur=+b.dataset.i; auds.forEach((a,i)=>a.muted=(i!==cur)); btns.forEach(x=>x.classList.toggle('sel',+x.dataset.i===cur));});
+  play.onclick=()=>{ if(auds[0].paused){ const t=auds[0].currentTime; auds.forEach(a=>{a.currentTime=t; a.play();}); play.textContent='⏸ 停止'; } else { auds.forEach(a=>a.pause()); play.textContent='▶ 同時再生'; } };
+  auds[0].ontimeupdate=()=>{ if(auds[0].duration){ rng.value=auds[0].currentTime/auds[0].duration*1000; tm.textContent=auds[0].currentTime.toFixed(1)+' / '+auds[0].duration.toFixed(1)+' 秒'; } };
+  auds[0].onended=()=>{ auds.forEach(a=>{a.pause(); a.currentTime=0;}); play.textContent='▶ 同時再生'; };
+  rng.oninput=()=>{ const t=rng.value/1000*(auds[0].duration||0); auds.forEach(a=>a.currentTime=t); };
+}
+</script></head><body>
+<h1>記者会見動画 音声補正の聞き比べ(2026-10-22)</h1>
+<div class='box'>対象: YouTube「記者会見ノーカット 1」(限定公開、2026-10-18取得、1080×1920・30fps・24分09秒・AAC 128kbps)。<br><b>聞き方</b>: 「同時再生」を押すと4本が同じ位置で同時に走ります。ボタンで聞こえる1本を切り替えると、位置はそのままで処理の違いだけが聞けます。音量はA1・B・Cで同じ値(-16 LUFS)に揃えてあるので、「大きい方がよく聞こえる」錯覚は除いてあります。A0だけ元の音量です。<br><b>見るポイント</b>: Bで声が聞き取りやすくなっているか／Cで声がこもる・水中っぽい・サ行が変などの不自然さが出ていないか。<br><span class='note'>音声は可逆圧縮(FLAC)で、wavと同じ音です。</span></div>
+<h2>区間1: 5分00秒〜(25秒)</h2>
+<div class='ab' id='ab-seg1'><button class='play'>▶ 同時再生</button>
+<button data-i='0'>A1 元+音量合わせ</button>
+<button data-i='1'>B 控えめ補正</button>
+<button data-i='2'>C 強め補正</button>
+<button data-i='3'>A0 元のまま</button>
+<span class='tm note'>0.0 秒</span><input type='range' min='0' max='1000' value='0'></div>
+<script>setup('seg1', ['seg1_A1.flac', 'seg1_B.flac', 'seg1_C.flac', 'seg1_A0.flac']);</script>
+<table><tr><th>版</th><th>処理内容</th><th>音量<br>(LUFS)</th><th>真のピーク<br>(dBTP)</th><th>個別再生</th><th>スペクトログラム(縦=周波数・明るい=大きい)</th></tr>
+<tr><td><b>A1 元+音量合わせ</b></td><td>処理なし。音量だけ他と同じ値に揃えたもの(=比較の基準)</td><td>-16.0</td><td>-4.4</td><td><audio controls preload='none' src='audio/seg1_A1.flac'></audio></td><td><img src='img/seg1_A1.png' alt=''></td></tr>
+<tr><td><b>B 控えめ補正</b></td><td>90Hz以下カット(空調・机の振動)/軽いノイズ低減(afftdn nr=10)/250Hz付近-2dB(こもり)/3kHz付近+2dB(子音の明瞭さ)/軽いディエッサー</td><td>-16.0</td><td>-2.7</td><td><audio controls preload='none' src='audio/seg1_B.flac'></audio></td><td><img src='img/seg1_B.png' alt=''></td></tr>
+<tr><td><b>C 強め補正</b></td><td>100Hz以下カット/ノイズ低減を強め(afftdn nr=20+非局所平均)/250Hz-3dB/3kHz+3dB/ディエッサー強め。不自然さ(水中っぽさ・こもり)が出やすい設定</td><td>-16.0</td><td>-2.0</td><td><audio controls preload='none' src='audio/seg1_C.flac'></audio></td><td><img src='img/seg1_C.png' alt=''></td></tr>
+<tr><td><b>A0 元のまま</b></td><td>YouTubeから取った音声そのまま。音量が他より小さいので、比較の基準にはA1を使う</td><td>-16.8</td><td>-5.2</td><td><audio controls preload='none' src='audio/seg1_A0.flac'></audio></td><td><img src='img/seg1_A0.png' alt=''></td></tr>
+</table>
+<h2>区間2: 20分00秒〜(25秒)</h2>
+<div class='ab' id='ab-seg2'><button class='play'>▶ 同時再生</button>
+<button data-i='0'>A1 元+音量合わせ</button>
+<button data-i='1'>B 控えめ補正</button>
+<button data-i='2'>C 強め補正</button>
+<button data-i='3'>A0 元のまま</button>
+<span class='tm note'>0.0 秒</span><input type='range' min='0' max='1000' value='0'></div>
+<script>setup('seg2', ['seg2_A1.flac', 'seg2_B.flac', 'seg2_C.flac', 'seg2_A0.flac']);</script>
+<table><tr><th>版</th><th>処理内容</th><th>音量<br>(LUFS)</th><th>真のピーク<br>(dBTP)</th><th>個別再生</th><th>スペクトログラム(縦=周波数・明るい=大きい)</th></tr>
+<tr><td><b>A1 元+音量合わせ</b></td><td>処理なし。音量だけ他と同じ値に揃えたもの(=比較の基準)</td><td>-16.0</td><td>-3.1</td><td><audio controls preload='none' src='audio/seg2_A1.flac'></audio></td><td><img src='img/seg2_A1.png' alt=''></td></tr>
+<tr><td><b>B 控えめ補正</b></td><td>90Hz以下カット(空調・机の振動)/軽いノイズ低減(afftdn nr=10)/250Hz付近-2dB(こもり)/3kHz付近+2dB(子音の明瞭さ)/軽いディエッサー</td><td>-16.0</td><td>-2.0</td><td><audio controls preload='none' src='audio/seg2_B.flac'></audio></td><td><img src='img/seg2_B.png' alt=''></td></tr>
+<tr><td><b>C 強め補正</b></td><td>100Hz以下カット/ノイズ低減を強め(afftdn nr=20+非局所平均)/250Hz-3dB/3kHz+3dB/ディエッサー強め。不自然さ(水中っぽさ・こもり)が出やすい設定</td><td>-16.0</td><td>-1.2</td><td><audio controls preload='none' src='audio/seg2_C.flac'></audio></td><td><img src='img/seg2_C.png' alt=''></td></tr>
+<tr><td><b>A0 元のまま</b></td><td>YouTubeから取った音声そのまま。音量が他より小さいので、比較の基準にはA1を使う</td><td>-17.2</td><td>-4.3</td><td><audio controls preload='none' src='audio/seg2_A0.flac'></audio></td><td><img src='img/seg2_A0.png' alt=''></td></tr>
+</table>
+<h2>測定で分かっていること(音声)</h2><div class='box'><ul><li>全編の音量は-16.7 LUFS、音量のばらつき(LRA)は2.6 LUと極めて小さい=すでに自動で均されている(スマホのAGCか編集ソフトの自動音量)。</li><li>10秒ごとの音量を全編で見ても-17 LUFS前後で一定。質疑のような小さい声の区間は見つからなかった(この「1」は市長の発言部分のみとみられる)。</li><li>ピークは-3 dBFSで歪み(クリップ)なし。暗騒音は比較的小さく、ノイズ除去の効き目は限定的。改善余地は「こもり・明瞭度」に絞られる。</li><li>残響(部屋の響き)はffmpegでは取れない。取るならAI系(Adobe Podcast Enhance Speech など)だが、声質が変わる副作用があるので、同じ25秒のA0を上げて聞き比べてから判断するのが安全。</li></ul></div>
+<h2>参考: 映像の方</h2><div class='box'><p>器は1080×1920ですが、顔のあたりの中身は<b>半分の解像度に落としても元とほぼ同じ(PSNR 41dB)</b>で、実効的には540p相当の柔らかい映像です(テロップ部分で同じ検査をすると大きく崩れるので、検査方法は妥当)。足りないのは画素数でなく撮影時の細部なので、後処理で自然に取り戻す方法はありません。</p><p>下は顔部分(等倍)に非AIのシャープ処理をかけた比較。左から 元 / CAS 0.6 / アンシャープ 0.8 / ノイズ低減+CAS。輪郭が少し立つ程度で、劇的には変わりません。</p><img src='img/video_face_compare.png' style='max-width:100%'><p class='note'>AI超解像(Topaz Video AI・Real-ESRGAN等)は顔の細部を「描き足す」ため、本人と違う顔になる・絵のように見える不自然さが出やすく、選挙期の市長の映像では改変と受け取られる懸念もあるので勧めません。自然な改善策は①元の撮影データ(横長・4K等)があればそこから作り直す、②軽いシャープ+1440p/4Kにして再アップし、YouTubeの高ビットレート枠で圧縮のにじみを減らす、の2つです。</p></div>
+</body></html>
