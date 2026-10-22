@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>中学生のための 白井とおる 政策ガイド（見本）</title>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f8fa;--ink:#1f2933;--sub:#52606d;--line:#d9e2ec;--accent:#0b6bcb;--work:#0b6bcb;--expand:#1e7a46;--consider:#b04a00;--continue:#6b46b0;--start:#0f766e;--ask:#5a5a5a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"BIZ UDPGothic",sans-serif;font-size:17px;line-height:1.85}
+.wrap{max-width:820px;margin:0 auto;padding:0 16px}
+.draftbar{background:#333;color:#fff;font-size:14px;line-height:1.6;padding:8px 16px;text-align:center}
+.tools{position:sticky;top:0;z-index:5;background:rgba(247,248,250,.95);border-bottom:1px solid var(--line)}
+.tools .wrap{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 16px}
+.tools nav{display:flex;gap:4px 12px;flex-wrap:wrap;font-size:14px}
+.tools nav a{color:var(--accent);text-decoration:none;font-weight:700;padding:6px 0}
+.tools button{font:inherit;font-size:14px;font-weight:700;border:2px solid var(--accent);background:#fff;color:var(--accent);border-radius:999px;padding:4px 12px;cursor:pointer;min-height:40px;white-space:nowrap}
+.tools button[aria-pressed="true"]{background:var(--accent);color:#fff}
+body.hide-src .src{display:none}
+rt{font-size:.55em;color:var(--sub);line-height:1}
+body.no-ruby rt{display:none}
+header.hero{padding:40px 0 24px}
+.hero .kicker{font-weight:700;color:var(--accent);margin:0}
+.hero h1{font-size:clamp(28px,6.5vw,40px);line-height:1.45;margin:6px 0 12px}
+.hero p{margin:0 0 8px;color:var(--sub)}
+section{margin:36px 0;scroll-margin-top:64px}
+h2{font-size:clamp(22px,5vw,27px);line-height:1.5;margin:0 0 14px;padding-left:12px;border-left:6px solid var(--accent)}
+.box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.box p{margin:0 0 10px}.box p:last-child{margin:0}
+.flow{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;text-align:center;margin:12px 0}
+.flow div{background:#eef4fb;border-radius:12px;padding:10px 6px;font-weight:700;line-height:1.5}
+.flow span{font-size:13px;color:var(--sub)}
+.msg{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px;font-size:19px;line-height:2;font-weight:700;text-align:center}
+.msg .bridge{display:block;margin:12px 0;color:var(--accent);font-size:21px}
+.msg .close{display:block;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.issues{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.issues li{background:#fff;border:1px solid var(--line);border-left:6px solid #e0a100;border-radius:12px;padding:14px 18px}
+.issues h3{margin:0 0 4px;font-size:19px;line-height:1.6}
+.issues p{margin:0}
+.legend{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:15px;margin:0 0 16px}
+.legend .row{display:flex;flex-wrap:wrap;gap:6px 10px;margin-top:6px}
+.chip{display:inline-block;font-size:13px;font-weight:700;color:#fff;border-radius:6px;padding:0 8px;line-height:1.9;white-space:nowrap}
+.c-work{background:var(--work)}.c-expand{background:var(--expand)}.c-consider{background:var(--consider)}.c-continue{background:var(--continue)}.c-start{background:var(--start)}.c-ask{background:var(--ask)}
+.pol{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 0 14px}
+.ph{display:flex;gap:12px;align-items:flex-start}
+.no{flex:none;font-size:26px;font-weight:700;color:var(--accent);line-height:1.2}
+.tag{font-size:13px;color:var(--sub)}
+.pol h3{margin:0;font-size:19px;line-height:1.55}
+.count{margin:8px 0 4px;font-size:14px;color:var(--sub)}
+.items{list-style:none;margin:0;padding:0}
+.item{border-top:1px solid var(--line);padding:10px 0}
+.item .t{margin:4px 0 0}
+.before{margin-top:6px;background:#f1f6fb;border-radius:8px;padding:6px 10px;font-size:15px}
+.before b{color:var(--accent)}
+.detail{display:block;font-size:14px;color:var(--sub)}
+.none{margin:6px 0;color:var(--sub);font-size:15px}
+.more{display:inline-block;margin-top:6px;font-size:14px;color:var(--accent);font-weight:700}
+.src{display:block;font-size:12px;color:#8592a0;margin-top:2px}
+.track{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.track li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.prof{list-style:none;margin:0;padding:0}
+.prof li{padding:6px 0;border-bottom:1px solid var(--line)}
+footer{margin-top:40px;padding:20px 0 40px;border-top:1px solid var(--line);font-size:14px;color:var(--sub);line-height:1.8}
+footer a{color:var(--accent)}
+.talk{display:flex;gap:10px;align-items:flex-start;margin:0 0 14px}
+.talk img{flex:none;width:56px;height:auto}
+.bubble{position:relative;background:#fff;border:2px solid #f5ab30;border-radius:14px;padding:8px 14px;font-size:16px;flex:1;margin:0}
+.bubble::before{content:"";position:absolute;left:-11px;top:16px;border:8px solid transparent;border-right-color:#f5ab30}
+.bubble .name{display:block;font-size:12px;font-weight:700;color:#b8790f}
+.play{display:grid;gap:10px}
+.play a{display:block;background:#fff;border:2px solid #f5ab30;border-radius:12px;padding:10px 14px;font-weight:700;color:var(--ink);text-decoration:none}
+</style>
+</head>
+<body class="hide-src no-ruby">
+<div class="draftbar">中学生版の見本（草案）。公開前に本人確認・選管確認が必要です。</div>
+<div class="tools"><div class="wrap">
+  <nav aria-label="ページ内"><a href="#job">市長と議会</a><a href="#msg">考え方</a><a href="#issues">重要課題</a><a href="#policies">7つの政策</a></nav>
+  <span><button type="button" id="rubyBtn" aria-pressed="false">ふりがな</button> <button type="button" id="srcBtn" aria-pressed="false">出典</button></span>
+</div></div>
+
+<main class="wrap" id="main">
+<header class="hero">
+  <p class="kicker">中学生のみなさんへ</p>
+  <h1>小金井市長 白井とおるの<br>「政策2026」ガイド</h1>
+  <p>これからの4年で何をしたいのかを、10代に関係するところを中心にまとめました。政策の文は、大人向けのウェブ版と同じ文章です。</p>
+</header>
+
+<div class="talk"><img src="assets/hamuta/kogaham_joy.png" alt="" width="56"><p class="bubble"><span class="name">こがハムくん</span>中学生のみなさん、こんにちは。こがハムくんです。このページの読み方を、ところどころで案内します。</p></div>
+<section id="job" aria-labelledby="h-job">
+  <h2 id="h-job">市長と市議会のしくみ</h2>
+<div class="talk"><img src="assets/hamuta/kogaham_research.png" alt="" width="56"><p class="bubble"><span class="name">こがハムくん</span>ポイントは「市長が案をつくり、市議会が決める」。だから政策は「何をするか」と「どこまで決まっているか」を分けて読むのがコツです。</p></div>
+  <div class="box">
+    <p>市には、市民が選挙で選ぶものが2つあります。市役所のリーダーである<b>市長</b>と、市のことを話し合って決める<b>市議会議員</b>です。</p>
+    <div class="flow" aria-label="予算が決まる流れ">
+      <div>市長<br><span>予算や条例の案をつくる</span></div>→<div>市議会<br><span>話し合って、決める（議決）</span></div>
+    </div>
+    <p>市のお金の使いみち（予算）は、市長が案をつくり、市議会の議決で決まります。市長が「やりたい」と言っても、市議会で認められなければ進みません。だから政策を読むときは、「なにをするか」だけでなく「どこまで決まっているか」も見ておくと役に立ちます。</p>
+    <p>市長の任期は4年です。</p>
+    <span class="src">地方自治法（予算の調製・議会の議決・任期）にもとづく一般的な説明。特定の候補に限らない内容。</span>
+  </div>
+</section>
+
+<section id="msg" aria-labelledby="h-msg">
+  <h2 id="h-msg">白井とおるの考え方</h2>
+  <div class="msg">小金井には、人がいる<br>知恵がある<br>豊かな環境がある<br>挑戦する人がいる<span class="bridge">だから、それらをつなぐ。</span>子どもと若者をつなぐ<br>若者と経験をつなぐ<br>市民と市役所をつなぐ<br>地域と大学をつなぐ<br>挑戦と仕事をつなぐ<span class="close">つながれば、まちはもっとおもしろくなる。<br>そのために、市役所自身も変わる<br>人がつながる。挑戦が生まれる。まちの未来を創る。</span></div>
+  <span class="src">政策2026 基本姿勢「みんなでつくる」のメッセージ全文（正本のまま）</span>
+</section>
+
+<section id="issues" aria-labelledby="h-issues">
+  <h2 id="h-issues">これからの4年：2つの重要課題</h2>
+  <ul class="issues"><li><h3>市役所新庁舎等事業の見直しを進め、早期実現をめざす！</h3><p>新庁舎及び（仮称）新福祉会館は、規模・機能・手法等の見直しに向け検討をはじめており、防災・まちづくりの重要拠点を早期に実現できるよう取り組みます</p><span class="src">K1</span></li><li><h3>物価高騰から暮らしと仕事を守る！</h3><p>国や都とも連携し、家計への負担軽減とともに、地域事業者の事業継続支援を実施します。</p><span class="src">K2</span></li></ul>
+</section>
+
+<section id="policies" aria-labelledby="h-pol">
+  <h2 id="h-pol">7つの基本政策（10代に関係するところ）</h2>
+<div class="talk"><img src="assets/hamuta/kogaham_wink.png" alt="" width="56"><p class="bubble"><span class="name">こがハムくん</span>文の終わりに注目。「検討します」は、やるかどうかをこれから調べて決める段階、という意味です。</p></div>
+  <div class="legend">
+    全45項目のうち、10代に関係する18項目をのせています。文の終わりの言葉で、どこまで進める約束なのかが分かります。
+    <div class="row">
+      <span><span class="chip c-start">始めます</span> 新しく始める</span>
+      <span><span class="chip c-work">取り組みます</span> 進める</span>
+      <span><span class="chip c-expand">広げます</span> 今より広げる</span>
+      <span><span class="chip c-continue">続けます</span> 今のものを続ける</span>
+      <span><span class="chip c-consider">検討します</span> やるかどうかを、調べて決める段階</span>
+    </div>
+  </div>
+  <article class="pol" id="p01"><div class="ph"><span class="no">01</span><div><span class="tag">教育・子育て・若者</span><h3>子どもと若者の未来をひらくまち、小金井</h3></div></div><p class="count">全11項目のうち、10代に関係する項目：<b>6</b></p><ul class="items"><li class="item"><span class="chip c-work">取り組みます</span><p class="t">部活動を地域に広げます。大学・専門学校などとの連携を強めます</p><span class="src">P1-5</span></li><li class="item"><span class="chip c-work">取り組みます</span><p class="t">学校のトイレの改善を進めます</p><div class="before"><b>これまでの4年：</b>小中学校トイレの洋便器化 80％を前倒し達成</div><span class="src">P1-5T</span></li><li class="item"><span class="chip c-work">取り組みます</span><p class="t">不登校の子どもとその家庭、文字の読み書きに困難がある子どもなどに、学びの支援をします</p><span class="src">P1-7</span></li><li class="item"><span class="chip c-consider">検討します</span><p class="t">教育相談や就学相談を充実させます。学校に行きづらい子どもが、自分に合った学び方で通える学校（学びの多様化学校）の設置を検討します</p><span class="src">P1-8</span></li><li class="item"><span class="chip c-expand">広げます</span><p class="t">若者の居場所や自習スペースを増やします</p><span class="src">P1-9</span></li><li class="item"><span class="chip c-work">取り組みます</span><p class="t">ティーンズ会議を開くなど、若者の声を市政に活かし、地域の交流が進むようにします</p><span class="src">P1-10</span></li></ul><a class="more" href="https://shiraisupporters.tokyo/seisaku2026/#p01">この分野の全11項目を見る →</a></article>
+<article class="pol" id="p02"><div class="ph"><span class="no">02</span><div><span class="tag">健康・福祉・地域交流</span><h3>健康でつながって暮らせるまち、小金井</h3></div></div><p class="count">全7項目のうち、10代に関係する項目：<b>6</b></p><ul class="items"><li class="item"><span class="chip c-work">取り組みます</span><p class="t">公園や公共施設を、交流の場として活用します</p><span class="src">P2-2</span></li><li class="item"><span class="chip c-expand">広げます</span><p class="t">市内各所にベンチを増やし、歩いて楽しめるまちにします</p><span class="src">P2-3</span></li><li class="item"><span class="chip c-work">取り組みます</span><p class="t">コミュニティバス（CoCoバス）の路線を維持し、利用を促します</p><span class="src">P2-4</span></li><li class="item"><span class="chip c-work">取り組みます</span><p class="t">東小金井駅にも公衆喫煙所を設け、たばこを吸う場所を分けて、吸わない人が煙を吸わずに済むようにします（受動喫煙の防止）</p><span class="src">P2-5</span></li><li class="item"><span class="chip c-work">取り組みます</span><p class="t">大人も子どもも、世代をこえていっしょに学び、交流できる、年齢を問わず学び続けられる教育（生涯教育）の機会を充実させます</p><span class="src">P2-6</span></li><li class="item"><span class="chip c-work">取り組みます</span><p class="t">スポーツと芸術文化を盛んにし、心の豊かさと人のつながりをつくります</p><span class="src">P2-7</span></li></ul><a class="more" href="https://shiraisupporters.tokyo/seisaku2026/#p02">この分野の全7項目を見る →</a></article>
+<article class="pol" id="p03"><div class="ph"><span class="no">03</span><div><span class="tag">防災・防犯・事故防止</span><h3>安心して暮らせるまち、小金井</h3></div></div><p class="count">全5項目のうち、10代に関係する項目：<b>3</b></p><ul class="items"><li class="item"><span class="chip c-work">取り組みます</span><p class="t">地域の防犯力を高めるため、地域ぐるみの見守りの連携を強めます</p><div class="before"><b>これまでの4年：</b>防犯機器購入補助事業を開始<span class="detail">家庭などで防犯機器を設置する際の補助事業を、2025年度に続き2026年度も実施。</span></div><span class="src">P3-1</span></li><li class="item"><span class="chip c-work">取り組みます</span><p class="t">実践的な災害訓練の実施、トイレ対策を充実させます</p><div class="before"><b>これまでの4年：</b>防災用トイレトラック導入<span class="detail">大規模災害時の避難所などの衛生環境を守るため、災害用トイレトラックの導入を決定。全国で相互にトイレトラックを派遣し合う「災害派遣トイレネットワークプロジェクト」に参加します。</span></div><span class="src">P3-3</span></li><li class="item"><span class="chip c-work">取り組みます</span><p class="t">自転車の活用計画をつくります。自転車がかかわる事故を減らすため、啓発活動を強めます</p><span class="src">P3-5</span></li></ul><a class="more" href="https://shiraisupporters.tokyo/seisaku2026/#p03">この分野の全5項目を見る →</a></article>
+<article class="pol" id="p04"><div class="ph"><span class="no">04</span><div><span class="tag">商工振興・文化交流・起業・市民協働</span><h3>人と人がつながり、新しいことが生まれるまち、小金井</h3></div></div><p class="count">全5項目のうち、10代に関係する項目：<b>0</b></p><p class="none">この分野は、10代向けの印がついた項目はありません。</p><a class="more" href="https://shiraisupporters.tokyo/seisaku2026/#p04">この分野の全5項目を見る →</a></article>
+<article class="pol" id="p05"><div class="ph"><span class="no">05</span><div><span class="tag">多様性・人権・平和</span><h3>ちがいを力に換えるインクルーシブなまち、小金井</h3></div></div><p class="count">全5項目のうち、10代に関係する項目：<b>1</b></p><ul class="items"><li class="item"><span class="chip c-work">取り組みます</span><p class="t">障害のある子も一緒に遊べる公園づくり（みんなの公園づくりプロジェクト「play here」）を進めます</p><div class="before"><b>これまでの4年：</b>インクルーシブ公園整備事業「play here」<span class="detail">3年間かけて、当事者や地域の関係者など多くの方から話を聞いて進めました。栗山公園、梶野公園、三楽公園の整備工事が完了。</span></div><span class="src">P5-2</span></li></ul><a class="more" href="https://shiraisupporters.tokyo/seisaku2026/#p05">この分野の全5項目を見る →</a></article>
+<article class="pol" id="p06"><div class="ph"><span class="no">06</span><div><span class="tag">環境・気候変動</span><h3>豊かな自然を、未来へつなぐまち、小金井</h3></div></div><p class="count">全5項目のうち、10代に関係する項目：<b>2</b></p><ul class="items"><li class="item"><span class="chip c-work">取り組みます</span><p class="t">ごみの分別をわかりやすくします。生ごみの資源化、リサイクル・リユースを進めます</p><div class="before"><b>これまでの4年：</b>生ごみ資源化モデル事業を実施<span class="detail">家庭の生ごみ（野菜や果物のへた・芯・皮など）を回収して堆肥にするモデル事業を、2025年から実施。2026年度は拠点を拡充。</span></div><span class="src">P6-4</span></li><li class="item"><span class="chip c-continue">続けます</span><p class="t">気候変動の問題について若者が話し合う「わかもの気候市民会議」を続けます</p><div class="before"><b>これまでの4年：</b>小金井市気候市民会議を開催<span class="detail">若者を中心に、無作為抽出で約30名の市民が参加。3回の会議で話し合い、市長へ提言書を提出しました（2025年度）。</span></div><span class="src">P6-5</span></li></ul><a class="more" href="https://shiraisupporters.tokyo/seisaku2026/#p06">この分野の全5項目を見る →</a></article>
+<article class="pol" id="p07"><div class="ph"><span class="no">07</span><div><span class="tag">変革を続ける市役所</span><h3>人材育成の強化、外部人材・DX＆AI徹底活用、稼ぐ自治体へ</h3></div></div><p class="count">全7項目のうち、10代に関係する項目：<b>0</b></p><p class="none">この分野は、10代向けの印がついた項目はありません。</p><a class="more" href="https://shiraisupporters.tokyo/seisaku2026/#p07">この分野の全7項目を見る →</a></article>
+</section>
+
+<section id="track" aria-labelledby="h-track">
+  <h2 id="h-track">これまでも、みんなでつくってきました</h2>
+  <ul class="track"><li><b>小金井市気候市民会議を開催</b><span class="detail">若者を中心に、無作為抽出で約30名の市民が参加。3回の会議で話し合い、市長へ提言書を提出しました（2025年度）。2026年度は、若者に特化した「わかもの気候市民会議」を開催予定です。</span></li><li><b>中学生サミット・若者MIRAIトークの開催</b><span class="detail">子ども・若者が意見を表明する機会をつくり、その声を反映する仕組みを検討するために実施。中学生サミットは「小金井（しょうがねい）を変えちゃう人の会」として、2026年度まで続けています。</span></li><li><b>インクルーシブ公園整備事業「play here」</b><span class="detail">3年間かけて、当事者や地域の関係者など多くの方から話を聞いて進めました。栗山公園、梶野公園、三楽公園の整備工事が完了。誰でも「ここで遊ぼう」を実現する取り組みを続けています。</span></li><li><b>はけの森美術館で市民結婚式「シヴィルマリッジ」を実施</b><span class="detail">総合学院テクノスカレッジと協働。学生が中心になって企画・運営しました（2026年2月）。</span></li><li><b>「こがねいデジタル平和資料館」WEBを公開</b><span class="detail">協働事業提案制度で、市民団体と協働して作成。2025年3月に公開しました。</span></li></ul>
+  <span class="src">政策2026 基本姿勢「これまでも、みんなでつくってきました」（正本のまま）</span>
+</section>
+
+<section id="play" aria-labelledby="h-play">
+  <h2 id="h-play">あそんで確かめる</h2>
+  <div class="play"><a href="map.html">🐹 こがハムくんと小金井さんぽ（地図＋クイズ）</a><a href="quiz.html">❓ こがハムくんのクイズ（9問）</a></div>
+</section>
+
+<section id="prof" aria-labelledby="h-prof">
+  <h2 id="h-prof">白井とおるのプロフィール</h2>
+  <ul class="prof">
+    <li>1975年生まれ。大阪府枚方市出身。関西大学社会学部卒業</li>
+    <li>民間企業で約15年（企画営業、コミュニケーションデザイン）</li>
+    <li>2013年 小金井市議会議員に初当選／2022年11月 小金井市長に就任</li>
+    <li>家族は妻と中高生の子ども2人。毎日の朝食づくり担当</li>
+  </ul>
+  <span class="src">shiraisupporters.tokyo プロフィール欄（2026-10-12取得）</span>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <b>おうちの方・先生方へ</b><br>白井とおるの「政策2026」（vol.09）のウェブ版から、10代に関係する項目を選んで並べた見本です。政策の文は言いかえていません。全項目は <a href="https://shiraisupporters.tokyo/seisaku2026/">政策2026（ウェブ版）</a>。<br>【発行者表示：要確認】
+</div></footer>
+
+<script>
+// ふりがな(初期は非表示): 中学生には読みにくい語・地名だけ
+const DICT={"梶野":"かじの","三楽":"さんらく","栗山":"くりやま","枚方市":"ひらかたし","無作為抽出":"むさくいちゅうしゅつ","提言書":"ていげんしょ","啓発":"けいはつ","受動喫煙":"じゅどうきつえん","喫煙所":"きつえんじょ","洋便器":"ようべんき","前倒":"まえだお","議決":"ぎけつ","条例":"じょうれい","調製":"ちょうせい","市街地":"しがいち","福祉会館":"ふくしかいかん","庁舎":"ちょうしゃ","物価高騰":"ぶっかこうとう","衛生":"えいせい","相互":"そうご","啓発活動":"けいはつかつどう"};
+const KEYS=Object.keys(DICT).sort((a,b)=>b.length-a.length),RE=new RegExp(KEYS.join('|'),'g');
+const w=document.createTreeWalker(document.getElementById('main'),NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement.closest('rt,ruby,.src,.chip,script')?2:1});
+const ns=[];while(w.nextNode())ns.push(w.currentNode);
+for(const n of ns){const t=n.nodeValue;RE.lastIndex=0;if(!RE.test(t))continue;RE.lastIndex=0;const f=document.createDocumentFragment();let i=0;
+ t.replace(RE,(m,o)=>{if(o>i)f.append(t.slice(i,o));const r=document.createElement('ruby');r.append(m);const rt=document.createElement('rt');rt.textContent=DICT[m];r.append(rt);f.append(r);i=o+m.length;return m;});
+ if(i<t.length)f.append(t.slice(i));n.replaceWith(f);}
+for(const [id,cls] of [['rubyBtn','no-ruby'],['srcBtn','hide-src']]){const b=document.getElementById(id);b.onclick=()=>{const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);document.body.classList.toggle(cls,!on);};}
+</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>バスのパズル（試作）</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fffaf0;--ink:#2b2b2b;--sub:#5a5a5a;--line:#eadfcb;--blue:#1f6fb2;--green:#2f7d4f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Zen Maru Gothic","BIZ UDPGothic",sans-serif;font-size:18px;line-height:1.85;font-weight:500}
+.wrap{max-width:600px;margin:0 auto;padding:0 16px}
+.draftbar{background:#333;color:#fff;font-size:14px;line-height:1.6;padding:8px 16px;text-align:center}
+.tools{position:sticky;top:0;z-index:20;background:rgba(255,250,240,.95);border-bottom:2px solid var(--line)}
+.tools .wrap{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:6px 16px}
+.tools a{color:var(--blue);font-weight:700;font-size:15px}
+.tools button{font:inherit;font-size:15px;font-weight:700;border:2px solid var(--blue);background:#fff;color:var(--blue);border-radius:999px;padding:2px 14px;cursor:pointer;min-height:44px}
+.tools button[aria-pressed="true"]{background:var(--blue);color:#fff}
+body.no-ruby rt{display:none}
+rt{font-size:.5em;font-weight:500;color:var(--sub)}
+.maker{margin:12px 0 0;background:#fff;border:2px solid var(--line);border-radius:12px;padding:6px 12px;font-size:14px;line-height:1.7;text-align:center}
+h1{font-size:clamp(26px,6.5vw,36px);line-height:1.4;margin:16px 0 4px;text-align:center;font-weight:900}
+.talk{display:flex;gap:12px;align-items:flex-start;margin:12px 0 14px}
+.talk img{flex:none;width:72px;height:auto}
+.bubble{position:relative;background:#fff;border:3px solid #f5ab30;border-radius:18px;padding:10px 14px;font-weight:700;flex:1;margin:0}
+.bubble::before{content:"";position:absolute;left:-12px;top:18px;border:9px solid transparent;border-right-color:#f5ab30}
+.bubble .name{display:block;font-size:13px;color:#b8790f}
+.levels{display:flex;justify-content:center;gap:10px;margin:0 0 12px;flex-wrap:wrap}
+.levels button{font:inherit;font-weight:900;font-size:17px;border:3px solid #eadfcb;background:#fff;color:#2b2b2b;border-radius:16px;padding:6px 16px;cursor:pointer;min-height:48px}
+.levels button[aria-pressed="true"]{border-color:#2f7d4f;background:#eef8f0}
+.levels button small{display:block;font-size:13px;font-weight:700;color:#5a5a5a}
+.board{display:grid;grid-template-columns:repeat(var(--n,3),1fr);gap:4px;width:100%;max-width:480px;margin:0 auto;aspect-ratio:1;background:#5b5b5b;padding:4px;border-radius:16px}
+.tile{border:none;padding:0;cursor:pointer;border-radius:8px;background-image:url(assets/bus_puzzle.svg?v=4);background-size:calc(var(--n,3)*100%) calc(var(--n,3)*100%);position:relative;min-height:44px}
+.tile:focus-visible{outline:4px solid var(--blue);outline-offset:-4px}
+.tile.sel{outline:5px solid #f5ab30;outline-offset:-5px;transform:scale(.96)}
+.tile.empty{background:#4a4a4a;cursor:default;box-shadow:inset 0 0 0 3px #3a3a3a}
+.tile.nudge{animation:nudge .25s}
+@keyframes nudge{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.tile .n{position:absolute;left:6px;top:4px;font-size:13px;font-weight:900;color:#fff;background:rgba(0,0,0,.45);border-radius:6px;padding:0 6px;line-height:1.6}
+body.no-num .tile .n{display:none}
+.board.solved{gap:0;background:none}
+.board.solved .tile{border-radius:0;cursor:default}
+.board.solved .tile .n{display:none}
+.row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:12px 0}
+.row button{font:inherit;font-weight:700;font-size:16px;border:2px solid #f5ab30;background:#fff;color:#3a2a00;border-radius:999px;padding:4px 16px;cursor:pointer;min-height:44px}
+.moves{text-align:center;color:var(--sub);margin:0}
+.clear{display:none;margin:16px 0 0}
+.clear.show{display:block}
+.card{background:#fff;border:2px solid var(--line);border-radius:20px;padding:16px 20px}
+.card h4{margin:0 0 6px;font-size:21px;line-height:1.6;font-weight:900}
+.card p{margin:6px 0 0}
+.chip{display:inline-block;font-size:15px;font-weight:700;color:#fff;border-radius:8px;padding:0 10px;line-height:1.9;white-space:nowrap;background:var(--blue)}
+.chip rt{color:#fff}
+.src{display:block;margin-top:8px;font-size:14px;color:#5f5f5f;border-top:1px dashed var(--line);padding-top:6px}
+.links{display:grid;gap:10px;margin:14px 0 0}
+.links a{display:block;background:#fff8e1;border-radius:14px;padding:10px 14px;color:var(--ink);font-weight:700;text-decoration:none;border:2px solid #f5ab30}
+.note{font-size:13px;color:var(--sub);text-align:center;margin:8px 0 0}
+footer{margin-top:40px;padding:20px 0 40px;border-top:2px solid var(--line);font-size:14px;line-height:1.8;color:var(--sub)}
+footer a{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="draftbar">試作（草案）。キャラクターの使用・発行者表示・選管確認は未決です。</div>
+<div class="tools"><div class="wrap">
+  <a href="iriguchi.html">← はじめのページ</a>
+  <button type="button" id="rubyBtn" aria-pressed="true">ふりがな</button>
+</div></div>
+<main class="wrap" id="main">
+  <p class="maker">このページは <b>【発行者名：要確認】</b> がつくりました。市役所のページではありません。</p>
+  <h1>バスの パズル</h1>
+  <div class="talk"><img id="face" src="assets/hamuta/kogaham_joy.png" alt="" width="72"><p class="bubble"><span class="name">こがハムくん</span><span id="say">バラバラに なった バスの 絵を もとに もどしてね。2まいを じゅんばんに タッチすると、入れかわるよ。「むずかしい」も あるよ。</span></p></div>
+  <div class="levels" role="group" aria-label="むずかしさ">
+    <button type="button" data-mode="swap" aria-pressed="true">かんたん<small>入れかえパズル</small></button>
+    <button type="button" data-mode="slide" aria-pressed="false">むずかしい<small>スライドパズル</small></button>
+  </div>
+  <div class="board" id="board" role="group" aria-label="パズルの絵"></div>
+  <p class="moves" id="moves" aria-live="polite">入れかえた回数：0</p>
+  <div class="row">
+    <button type="button" id="shuffle">まぜなおす</button>
+    <button type="button" id="numBtn" aria-pressed="true">ばんごうを かくす</button>
+  </div>
+  <p class="note">CoCoバスの 色を まねして、このページのために かいた 絵です。</p>
+  <section class="clear" id="clear" aria-live="polite">
+    <article class="card"><h4>CoCoバスを守る</h4><span class="chip">やります</span>
+      <p>CoCoバスの路線を守り、乗る人がふえるようにします。</p>
+      <span class="src">もとの文：政策2026 P2-4「コミュニティバス（CoCoバス）の路線を維持し、利用を促します」（「守る」は言いかえ・要確認）</span></article>
+    <div class="links"><a href="map.html">🐹 こがハムくんと 小金井さんぽ へ</a><a href="quiz.html">❓ こがハムくんの クイズ へ</a></div>
+  </section>
+</main>
+<footer><div class="wrap">
+  <b>おうちの方へ</b><br>パズルの絵は自作のイラストです。色づかい（くすんだピンクの車体・暗い窓の帯・下の白い模様）は小金井市公式サイトのCoCoバスのイラストを参考にしましたが、ロゴ・車体のキャラクター・模様の形そのものは使っていません。パズルが終わると、白井とおるの「政策2026」のうちバスに関わる1項目（P2-4）が出ます。遊んだ記録は送信・保存しません。<br>【発行者表示：要確認】
+</div></footer>
+<script src="kodomo_ruby.js?v=20261022b"></script>
+<script>
+// 2しゅるいのパズル(遊んだ記録は保存しない)
+//  かんたん = 入れかえパズル: 9まいを2まいずつタッチして入れかえる。番号つき
+//  むずかしい = スライドパズル: 1か所あいた所へ、となりの絵をすべらせて動かす。番号は最初かくす
+const board=document.getElementById('board'), movesEl=document.getElementById('moves');
+const N=3, EMPTY=N*N-1;              // スライドでは右下の1まい(8)をあき場所にする
+let mode='swap', order=[], sel=null, moves=0;
+function setSay(t,f){document.getElementById('say').textContent=t;document.getElementById('face').src='assets/hamuta/kogaham_'+f+'.png';addRuby(document.querySelector('.bubble'));}
+function setMoves(){movesEl.textContent=(mode==='swap'?'入れかえた回数：':'動かした回数：')+moves;addRuby(movesEl);}
+const solvedNow=()=>order.every((p,i)=>p===i);
+const near=(a,b)=>Math.abs(a%N-b%N)+Math.abs(Math.floor(a/N)-Math.floor(b/N))===1;
+function draw(focusPos){
+  board.innerHTML='';
+  order.forEach((piece,pos)=>{
+    if(mode==='slide' && piece===EMPTY && !board.classList.contains('solved')){
+      const e=document.createElement('div'); e.className='tile empty'; e.setAttribute('aria-label','あいている場所'); board.append(e); return;
+    }
+    const b=document.createElement('button'); b.type='button'; b.className='tile';
+    const x=piece%N, y=Math.floor(piece/N), step=100/(N-1);
+    b.style.backgroundPosition=`${x*step}% ${y*step}%`;
+    b.setAttribute('aria-label',`${pos+1}ばんめの場所。絵のばんごう ${piece+1}`+(mode==='slide'&&near(pos,order.indexOf(EMPTY))?'。うごかせる':''));
+    const n=document.createElement('span'); n.className='n'; n.textContent=piece+1; b.append(n);
+    b.onclick=()=>mode==='swap'?tapSwap(pos):tapSlide(pos);
+    board.append(b);
+  });
+  if(focusPos!=null && board.children[focusPos] && board.children[focusPos].tagName==='BUTTON') board.children[focusPos].focus();
+}
+function tapSwap(pos){
+  if(board.classList.contains('solved'))return;
+  if(sel===null){ sel=pos; board.children[pos].classList.add('sel'); return; }
+  if(sel!==pos){ [order[sel],order[pos]]=[order[pos],order[sel]]; moves++; setMoves(); }
+  const keep=sel===pos?null:pos; sel=null; draw(keep);
+  if(solvedNow()) win();
+}
+function tapSlide(pos){
+  if(board.classList.contains('solved'))return;
+  const e=order.indexOf(EMPTY);
+  if(!near(pos,e)){ const t=board.children[pos]; t.classList.remove('nudge'); void t.offsetWidth; t.classList.add('nudge'); return; } // となりでなければ ぷるっとするだけ
+  [order[pos],order[e]]=[order[e],order[pos]]; moves++; setMoves();
+  if(solvedNow()) win(); else draw(e);
+}
+function win(){
+  board.classList.add('solved'); draw();
+  setSay(`${mode==='slide'?'スライドパズル、':''}できた！ ${moves}回で もとに もどせたね。小金井の まちを 走る CoCoバスの ことも 見てみよう。`,'excited');
+  const c=document.getElementById('clear'); c.classList.add('show'); addRuby(c);
+  setTimeout(()=>c.scrollIntoView({behavior:'smooth',block:'start'}),400);
+}
+function shuffle(){
+  board.style.setProperty('--n',N); board.classList.remove('solved'); document.getElementById('clear').classList.remove('show');
+  board.setAttribute('aria-label', mode==='swap'?'入れかえパズルの9まいの絵':'スライドパズルの絵(8まいと、あいている場所1つ)');
+  if(mode==='swap'){
+    do{ order=[...Array(N*N).keys()].sort(()=>Math.random()-.5); } while(order.filter((p,i)=>p===i).length>N);
+  }else{
+    // 完成の形から、本当に動かせる手だけでランダムにまぜる(=かならず解ける)。すぐ戻す手は使わない
+    do{
+      order=[...Array(N*N).keys()]; let e=EMPTY, prev=-1;
+      for(let k=0;k<120;k++){
+        const c=[...Array(N*N).keys()].filter(q=>near(q,e)&&q!==prev);
+        const q=c[Math.floor(Math.random()*c.length)]; [order[q],order[e]]=[order[e],order[q]]; prev=e; e=q;
+      }
+    } while(order.filter((p,i)=>p===i).length>3); // まざり方が少ないときは やりなおす
+  }
+  sel=null; moves=0; setMoves(); draw();
+}
+document.getElementById('shuffle').onclick=()=>{shuffle();setSay('まぜなおしたよ。もういちど ちょうせんしてね。','joy');};
+const nb=document.getElementById('numBtn');
+function setNum(on){nb.setAttribute('aria-pressed',on);document.body.classList.toggle('no-num',!on);nb.textContent=on?'ばんごうを かくす':'ばんごうを 出す';addRuby(nb);}
+nb.onclick=()=>setNum(nb.getAttribute('aria-pressed')!=='true');
+document.querySelectorAll('.levels button').forEach(b=>b.onclick=()=>{
+  mode=b.dataset.mode; document.querySelectorAll('.levels button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  setNum(mode==='swap'); shuffle();
+  setSay(mode==='swap'?'入れかえパズルだよ。2まいを じゅんばんに タッチして 入れかえてね。'
+    :'スライドパズルだよ。あいている 場所の となりの 絵を タッチすると、すべって 動くよ。ばんごうなしで ちょうせん！', mode==='swap'?'joy':'research');
+});
+document.getElementById('rubyBtn').onclick=e=>{const b=e.currentTarget,on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);document.body.classList.toggle('no-ruby',!on);};
+shuffle(); addRuby(document.getElementById('main'));
+</script>
+</body>
+</html>
