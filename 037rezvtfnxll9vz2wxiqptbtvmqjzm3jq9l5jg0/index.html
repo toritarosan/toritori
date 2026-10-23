@@ -25,44 +25,48 @@ function setup(seg, files){
   rng.oninput=()=>{ const t=rng.value/1000*(auds[0].duration||0); auds.forEach(a=>a.currentTime=t); };
 }
 </script></head><body>
-<h1>記者会見動画 音声補正の聞き比べ(2026-10-23 元データ版・D1/D2追加)</h1>
-<div class='box'>対象: 2026-10-09 記者会見の元の撮影データ(縦4K・79分35秒・AAC 189kbps 48kHz)の音声。YouTube「記者会見ノーカット 1」(限定公開)はこの元データから、市長の周りを4倍に拡大し、編集ソフトの自動音量と高域の持ち上げをかけて作られたもの。<br><b>聞き方</b>: 「同時再生」を押すと全部が同じ位置で同時に走ります。ボタンで聞こえる1本を切り替えると、位置はそのままで処理の違いだけが聞けます。音量はA0以外すべて同じ値(-16 LUFS)に揃えてあるので、「大きい方がよく聞こえる」錯覚は除いてあります。A0だけ元の音量(小さい)です。<br><b>見るポイント</b>: <b>D1・D2で「泳ぐ」感じが消えているか</b>／高音のクリアさがY(いまのYouTube版)に近づいているか／静かな部分のヒスがD1→D2で減って聞こえるか／D2に不自然さ(こもり・水中っぽさ)が出ていないか。<br><span class='note'>音声は可逆圧縮(FLAC)で、wavと同じ音です。</span></div>
+<h1>記者会見動画 音声補正の聞き比べ(2026-10-23 D1の強さ3段階)</h1>
+<div class='box'>対象: 2026-10-09 記者会見の元の撮影データ(縦4K・79分35秒・AAC 189kbps 48kHz)の音声。YouTube「記者会見ノーカット 1」(限定公開)はこの元データから、市長の周りを4倍に拡大し、編集ソフトの自動音量と高域の持ち上げをかけて作られたもの。<br><b>聞き方</b>: 「同時再生」を押すと全部が同じ位置で同時に走ります。ボタンで聞こえる1本を切り替えると、位置はそのままで処理の違いだけが聞けます。音量はA0以外すべて同じ値(-16 LUFS)に揃えてあるので、「大きい方がよく聞こえる」錯覚は除いてあります。A0だけ元の音量(小さい)です。<br><b>今回の変更</b>: 前回「良い」とされたD1(静的EQ)の効き具合を <b>弱(前回と同じ)・中・強</b> の3段階にしました。どれも時間で変化する処理を含まないので泳ぎません。強はYouTube版の高域の持ち上げ量にほぼ並びます。高域を上げるほど静かな部分のヒスも同じだけ上がるので、「強」の明るさのままヒスだけ減らした <b>D3</b> も付けました。<br><b>見るポイント</b>: 弱→中→強で明るさの好みはどこか／強でヒスが気になるならD3で許容できるか／D3に不自然さ(こもり・水中っぽさ)が出ていないか。<br><span class='note'>音声は可逆圧縮(FLAC)で、wavと同じ音です。</span></div>
 <h2>区間1: 元ファイル13分18秒〜(=YouTube版5分00秒〜、25秒)</h2>
 <div class='ab' id='ab-seg1'><button class='play'>▶ 同時再生</button>
 <button data-i='0'>A1 元+音量合わせ</button>
-<button data-i='1'>D1 静的EQのみ</button>
-<button data-i='2'>D2 固定ノイズ低減+静的EQ</button>
-<button data-i='3'>B 控えめ補正</button>
-<button data-i='4'>Y 現行YouTube版</button>
-<button data-i='5'>A0 元のまま</button>
+<button data-i='1'>D1 静的EQ弱</button>
+<button data-i='2'>D1b 静的EQ中</button>
+<button data-i='3'>D1c 静的EQ強</button>
+<button data-i='4'>D3 固定ノイズ低減+静的EQ強</button>
+<button data-i='5'>Y 現行YouTube版</button>
+<button data-i='6'>A0 元のまま</button>
 <span class='tm note'>0.0 秒</span><input type='range' min='0' max='1000' value='0'></div>
-<script>setup('seg1', ['seg1_A1.flac', 'seg1_D1.flac', 'seg1_D2.flac', 'seg1_B.flac', 'seg1_Y.flac', 'seg1_A0.flac']);</script>
+<script>setup('seg1', ['seg1_A1.flac', 'seg1_D1.flac', 'seg1_D1b.flac', 'seg1_D1c.flac', 'seg1_D3.flac', 'seg1_Y.flac', 'seg1_A0.flac']);</script>
 <table><tr><th>版</th><th>処理内容</th><th>音量<br>(LUFS)</th><th>真のピーク<br>(dBTP)</th><th>個別再生</th><th>スペクトログラム(縦=周波数・明るい=大きい)</th></tr>
 <tr><td><b>A1 元+音量合わせ</b></td><td>元の音声に処理なし。音量だけ他と同じ値に揃えたもの(=比較の基準)</td><td>-16.0</td><td>-1.0</td><td><audio controls preload='none' src='audio/seg1_A1.flac'></audio></td><td><img src='img/seg1_A1.png' alt=''></td></tr>
-<tr><td><b>D1 静的EQのみ</b></td><td>時間で変化する処理を一切使わない静的EQだけ: 80Hz以下カット/200Hz以下-1.5dB/700Hz+2dB/3.5kHz+3dB/7.5kHz付近+6dB(YouTube版の高域持ち上げの半分程度)/12kHz以上-4dB(ヒス帯)。原理的に「泳ぐ」ことはない</td><td>-16.1</td><td>-1.5</td><td><audio controls preload='none' src='audio/seg1_D1.flac'></audio></td><td><img src='img/seg1_D1.png' alt=''></td></tr>
-<tr><td><b>D2 固定ノイズ低減+静的EQ</b></td><td>区間内の静かな0.5秒から固定のノイズプロファイルを取り、追従なしで6dBだけ低減(地のノイズをわざと少し残す)。そのうえでD1より高域を強めに持ち上げて(7.5kHz+8.5dB)釣り合わせ、12kHz以上は-4dB。静かな部分のヒスがD1より数dB少ない</td><td>-16.0</td><td>-1.5</td><td><audio controls preload='none' src='audio/seg1_D2.flac'></audio></td><td><img src='img/seg1_D2.png' alt=''></td></tr>
-<tr><td><b>B 控えめ補正</b></td><td>(参考・旧案)追従型ノイズ低減(afftdn tn=1)+EQ+ディエッサー。測定では6〜16kHzが元より約9dB落ちていて、本人評価「音が泳ぐ」</td><td>-16.0</td><td>-1.2</td><td><audio controls preload='none' src='audio/seg1_B.flac'></audio></td><td><img src='img/seg1_B.png' alt=''></td></tr>
+<tr><td><b>D1 静的EQ弱</b></td><td>前回のD1と同じ。静的EQのみ: 80Hz以下カット/200Hz以下-1.5dB/700Hz+2dB/3.5kHz+3dB/7.5kHz付近+6dB/12kHz以上-4dB。高域(4〜10kHz)は元より+3.4〜4.4dB(YouTube版の約半分)。静かな部分のヒスは元より+5dB</td><td>-16.1</td><td>-1.5</td><td><audio controls preload='none' src='audio/seg1_D1.flac'></audio></td><td><img src='img/seg1_D1.png' alt=''></td></tr>
+<tr><td><b>D1b 静的EQ中</b></td><td>弱と同じ構成で量を増やしたもの: 200Hz以下-2dB/700Hz+2.5dB/3.5kHz+4dB/7.5kHz付近+8dB/12kHz以上-4dB。高域は元より+5〜6dB。ヒスは+7dB</td><td>-16.0</td><td>-1.5</td><td><audio controls preload='none' src='audio/seg1_D1b.flac'></audio></td><td><img src='img/seg1_D1b.png' alt=''></td></tr>
+<tr><td><b>D1c 静的EQ強</b></td><td>さらに増量: 200Hz以下-2.5dB/700Hz+3dB/3.5kHz+5dB/7.5kHz付近+10dB/12kHz以上-4dB。高域は元より+6.5〜8dB(YouTube版の持ち上げ量にほぼ並ぶ。ただし8〜10kHzはYouTube版の方がまだ+3dB明るい)。ヒスは+9dB</td><td>-16.0</td><td>-1.5</td><td><audio controls preload='none' src='audio/seg1_D1c.flac'></audio></td><td><img src='img/seg1_D1c.png' alt=''></td></tr>
+<tr><td><b>D3 固定ノイズ低減+静的EQ強</b></td><td>「強」と同じ明るさのまま、静かな部分のヒスだけ減らした版。区間内の静かな0.5秒から固定のノイズプロファイルを1回だけ採り、追従なしで6dBだけ低減(地のノイズをわざと少し残す)→強より高域を+2dB多く持ち上げて釣り合わせ。高域は元より+6.5〜8dB、ヒスは+4.4〜5.5dB(=弱と同じくらい)。時間で揺れる処理ではないが、ノイズ低減は入っているので不自然さが出ないかだけ確認</td><td>-16.0</td><td>-1.5</td><td><audio controls preload='none' src='audio/seg1_D3.flac'></audio></td><td><img src='img/seg1_D3.png' alt=''></td></tr>
 <tr><td><b>Y 現行YouTube版</b></td><td>いまYouTubeに上がっている音声(編集ソフトの自動音量で約+10dB圧縮済み・4〜10kHzを+7〜12dB持ち上げ済み・YouTube再圧縮済み)を同じ音量に揃えたもの。現状との比較用</td><td>-16.0</td><td>-4.4</td><td><audio controls preload='none' src='audio/seg1_Y.flac'></audio></td><td><img src='img/seg1_Y.png' alt=''></td></tr>
 <tr><td><b>A0 元のまま</b></td><td>元の撮影データの音声そのまま(約-27 LUFSで小さい)。比較の基準にはA1を使う</td><td>-27.0</td><td>-12.0</td><td><audio controls preload='none' src='audio/seg1_A0.flac'></audio></td><td><img src='img/seg1_A0.png' alt=''></td></tr>
 </table>
 <h2>区間2: 元ファイル28分18秒〜(=YouTube版20分00秒〜、25秒)</h2>
 <div class='ab' id='ab-seg2'><button class='play'>▶ 同時再生</button>
 <button data-i='0'>A1 元+音量合わせ</button>
-<button data-i='1'>D1 静的EQのみ</button>
-<button data-i='2'>D2 固定ノイズ低減+静的EQ</button>
-<button data-i='3'>B 控えめ補正</button>
-<button data-i='4'>Y 現行YouTube版</button>
-<button data-i='5'>A0 元のまま</button>
+<button data-i='1'>D1 静的EQ弱</button>
+<button data-i='2'>D1b 静的EQ中</button>
+<button data-i='3'>D1c 静的EQ強</button>
+<button data-i='4'>D3 固定ノイズ低減+静的EQ強</button>
+<button data-i='5'>Y 現行YouTube版</button>
+<button data-i='6'>A0 元のまま</button>
 <span class='tm note'>0.0 秒</span><input type='range' min='0' max='1000' value='0'></div>
-<script>setup('seg2', ['seg2_A1.flac', 'seg2_D1.flac', 'seg2_D2.flac', 'seg2_B.flac', 'seg2_Y.flac', 'seg2_A0.flac']);</script>
+<script>setup('seg2', ['seg2_A1.flac', 'seg2_D1.flac', 'seg2_D1b.flac', 'seg2_D1c.flac', 'seg2_D3.flac', 'seg2_Y.flac', 'seg2_A0.flac']);</script>
 <table><tr><th>版</th><th>処理内容</th><th>音量<br>(LUFS)</th><th>真のピーク<br>(dBTP)</th><th>個別再生</th><th>スペクトログラム(縦=周波数・明るい=大きい)</th></tr>
 <tr><td><b>A1 元+音量合わせ</b></td><td>元の音声に処理なし。音量だけ他と同じ値に揃えたもの(=比較の基準)</td><td>-16.1</td><td>-1.0</td><td><audio controls preload='none' src='audio/seg2_A1.flac'></audio></td><td><img src='img/seg2_A1.png' alt=''></td></tr>
-<tr><td><b>D1 静的EQのみ</b></td><td>時間で変化する処理を一切使わない静的EQだけ: 80Hz以下カット/200Hz以下-1.5dB/700Hz+2dB/3.5kHz+3dB/7.5kHz付近+6dB(YouTube版の高域持ち上げの半分程度)/12kHz以上-4dB(ヒス帯)。原理的に「泳ぐ」ことはない</td><td>-16.0</td><td>-1.0</td><td><audio controls preload='none' src='audio/seg2_D1.flac'></audio></td><td><img src='img/seg2_D1.png' alt=''></td></tr>
-<tr><td><b>D2 固定ノイズ低減+静的EQ</b></td><td>区間内の静かな0.5秒から固定のノイズプロファイルを取り、追従なしで6dBだけ低減(地のノイズをわざと少し残す)。そのうえでD1より高域を強めに持ち上げて(7.5kHz+8.5dB)釣り合わせ、12kHz以上は-4dB。静かな部分のヒスがD1より数dB少ない</td><td>-16.0</td><td>-1.0</td><td><audio controls preload='none' src='audio/seg2_D2.flac'></audio></td><td><img src='img/seg2_D2.png' alt=''></td></tr>
-<tr><td><b>B 控えめ補正</b></td><td>(参考・旧案)追従型ノイズ低減(afftdn tn=1)+EQ+ディエッサー。測定では6〜16kHzが元より約9dB落ちていて、本人評価「音が泳ぐ」</td><td>-16.0</td><td>-1.0</td><td><audio controls preload='none' src='audio/seg2_B.flac'></audio></td><td><img src='img/seg2_B.png' alt=''></td></tr>
+<tr><td><b>D1 静的EQ弱</b></td><td>前回のD1と同じ。静的EQのみ: 80Hz以下カット/200Hz以下-1.5dB/700Hz+2dB/3.5kHz+3dB/7.5kHz付近+6dB/12kHz以上-4dB。高域(4〜10kHz)は元より+3.4〜4.4dB(YouTube版の約半分)。静かな部分のヒスは元より+5dB</td><td>-16.0</td><td>-1.0</td><td><audio controls preload='none' src='audio/seg2_D1.flac'></audio></td><td><img src='img/seg2_D1.png' alt=''></td></tr>
+<tr><td><b>D1b 静的EQ中</b></td><td>弱と同じ構成で量を増やしたもの: 200Hz以下-2dB/700Hz+2.5dB/3.5kHz+4dB/7.5kHz付近+8dB/12kHz以上-4dB。高域は元より+5〜6dB。ヒスは+7dB</td><td>-16.1</td><td>-1.0</td><td><audio controls preload='none' src='audio/seg2_D1b.flac'></audio></td><td><img src='img/seg2_D1b.png' alt=''></td></tr>
+<tr><td><b>D1c 静的EQ強</b></td><td>さらに増量: 200Hz以下-2.5dB/700Hz+3dB/3.5kHz+5dB/7.5kHz付近+10dB/12kHz以上-4dB。高域は元より+6.5〜8dB(YouTube版の持ち上げ量にほぼ並ぶ。ただし8〜10kHzはYouTube版の方がまだ+3dB明るい)。ヒスは+9dB</td><td>-16.1</td><td>-1.0</td><td><audio controls preload='none' src='audio/seg2_D1c.flac'></audio></td><td><img src='img/seg2_D1c.png' alt=''></td></tr>
+<tr><td><b>D3 固定ノイズ低減+静的EQ強</b></td><td>「強」と同じ明るさのまま、静かな部分のヒスだけ減らした版。区間内の静かな0.5秒から固定のノイズプロファイルを1回だけ採り、追従なしで6dBだけ低減(地のノイズをわざと少し残す)→強より高域を+2dB多く持ち上げて釣り合わせ。高域は元より+6.5〜8dB、ヒスは+4.4〜5.5dB(=弱と同じくらい)。時間で揺れる処理ではないが、ノイズ低減は入っているので不自然さが出ないかだけ確認</td><td>-16.1</td><td>-0.9</td><td><audio controls preload='none' src='audio/seg2_D3.flac'></audio></td><td><img src='img/seg2_D3.png' alt=''></td></tr>
 <tr><td><b>Y 現行YouTube版</b></td><td>いまYouTubeに上がっている音声(編集ソフトの自動音量で約+10dB圧縮済み・4〜10kHzを+7〜12dB持ち上げ済み・YouTube再圧縮済み)を同じ音量に揃えたもの。現状との比較用</td><td>-16.0</td><td>-3.1</td><td><audio controls preload='none' src='audio/seg2_Y.flac'></audio></td><td><img src='img/seg2_Y.png' alt=''></td></tr>
 <tr><td><b>A0 元のまま</b></td><td>元の撮影データの音声そのまま(約-27 LUFSで小さい)。比較の基準にはA1を使う</td><td>-27.9</td><td>-11.8</td><td><audio controls preload='none' src='audio/seg2_A0.flac'></audio></td><td><img src='img/seg2_A0.png' alt=''></td></tr>
 </table>
-<h2>測定で分かっていること(音声)</h2><div class='box'><ul><li><b>「泳ぐ」原因の切り分け(2026-10-23)</b>: リミッターは音量合わせでほとんど働いていない(効いた時間0.6%以下・最大1.1dB)ので原因ではない。旧案B/Cの追従型ノイズ低減は周波数ごとにゲートが揺れるうえ、測定ではBで6〜16kHzが元より約9dB落ちていた(子音まで削っていた)。D1/D2は時間で変化する処理(追従ノイズ低減・ディエッサー・コンプレッサー)を使わない。</li><li>いまのYouTube版(Y)は元音声に対して、400〜1000Hzを+2〜3dB、2.5〜4kHzを+3dB、4〜10kHzを<b>+7〜12dB</b>持ち上げている(編集ソフトの処理)。高音が「クリア」に聞こえるのはこのため。ただし静かな部分のヒスも同じだけ増えている。D1はこの持ち上げの半分程度、D2はノイズ低減で下がった分を補って同程度の明るさにしている。</li><li>元の撮影データの音声は全編で-27.6 LUFS、音量のばらつき(LRA)9.3 LUの未加工。市長の発言部分は区間内の音量差が2 LU前後で、声そのものは一定。YouTube版(-16.7 LUFS、LRA 2.6)は編集ソフトの自動音量で約+10dB持ち上げて圧縮した結果。</li><li>歪み(クリップ)なし。帯域は元も約16kHzまで(カメラ内蔵のAAC)。声と静かな部分の差は12〜13dBで、ヒスは完全には消せない(消すと声が削れる)。</li><li>残響(部屋の響き)はffmpegでは取れない。取るならAI系(Adobe Podcast Enhance Speech など)だが、声質が変わる副作用があるので、同じ25秒のA0を上げて聞き比べてから判断するのが安全。</li></ul></div>
+<h2>測定で分かっていること(音声)</h2><div class='box'><ul><li><b>3段階の実測</b>(元音声A1との差、1〜1.6kHzを基準): 4〜10kHzの持ち上げは 弱+3.4〜4.4dB / 中+5〜6.2dB / 強+6.5〜7.9dB / D3+6.5〜8.8dB、YouTube版は+7〜11dB。静かな部分(4〜10kHz)のヒスは 弱+5dB / 中+7dB / 強+9dB / D3+4.4〜5.5dB。</li><li><b>「泳ぐ」原因の切り分け</b>: リミッターは音量合わせでほとんど働いていない(効いた時間0.6%以下・最大1.1dB)ので原因ではない。旧案B/Cの追従型ノイズ低減は周波数ごとにゲートが揺れるうえ、Bでは6〜16kHzが元より約9dB落ちていた(子音まで削っていた)。D1系は時間で変化する処理(追従ノイズ低減・ディエッサー・コンプレッサー)を使わない。D3のノイズ低減は固定プロファイル(追従なし)。</li><li>いまのYouTube版(Y)は元音声に対して、400〜1000Hzを+2〜3dB、2.5〜4kHzを+3dB、4〜10kHzを+7〜12dB持ち上げている(編集ソフトの処理)。高音が「クリア」に聞こえるのはこのため。</li><li>元の撮影データの音声は全編で-27.6 LUFS、音量のばらつき(LRA)9.3 LUの未加工。市長の発言部分は区間内の音量差が2 LU前後で、声そのものは一定。YouTube版(-16.7 LUFS、LRA 2.6)は編集ソフトの自動音量で約+10dB持ち上げて圧縮した結果。</li><li>歪み(クリップ)なし。帯域は元も約16kHzまで(カメラ内蔵のAAC)。声と静かな部分の差は12〜13dBで、ヒスは完全には消せない(消すと声が削れる)。</li><li>残響(部屋の響き)はffmpegでは取れない。取るならAI系(Adobe Podcast Enhance Speech など)だが、声質が変わる副作用があるので、同じ25秒のA0を上げて聞き比べてから判断するのが安全。</li></ul></div>
 <h2>参考: 映像の方</h2><div class='box'><p>元の撮影データは会場後方からの広角で、縦4K(2160×3840)の画面の中で市長は<b>幅270px</b>しかありません。YouTube版の1080×1920は、元4Kの270×480pxの範囲を<b>ちょうど4.00倍</b>に拡大したものです(画像照合で一致度0.987)。つまり元データにも、YouTube版以上の顔の細部は入っていません。足りないのは画素数でなく撮影時の細部なので、後処理で自然に取り戻す方法はありません。</p><p>下は同じ瞬間の比較。左=元4Kの該当範囲をLanczosで4倍に拡大、右=いまのYouTube版。元から作り直すと、YouTube再圧縮1世代分のにじみが減る程度の差です。</p><img src='img/video_raw_vs_yt_face.png' style='max-width:100%'><p>下は顔部分(等倍)に非AIのシャープ処理をかけた比較。左から 元 / CAS 0.6 / アンシャープ 0.8 / ノイズ低減+CAS。輪郭が少し立つ程度で、劇的には変わりません。</p><img src='img/video_face_compare.png' style='max-width:100%'><p class='note'>AI超解像(Topaz Video AI・Real-ESRGAN等)は顔の細部を「描き足す」ため、本人と違う顔になる・絵のように見える不自然さが出やすく、選挙期の市長の映像では改変と受け取られる懸念もあるので勧めません。自然な改善策は①元データから再書き出ししてYouTube再圧縮1世代分を減らす、②軽いシャープ+1440p/4Kにして再アップし、YouTubeの高ビットレート枠で圧縮のにじみを減らす、の2つです。</p></div>
 </body></html>
