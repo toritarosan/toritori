@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>合成音声の聞き比べ</title>
+<style>
+:root{--bg:#fafaf7;--fg:#1d1d1b;--sub:#5c5c57;--card:#fff;--line:#e3e2dc;--accent:#2f5d8a}
+@media (prefers-color-scheme:dark){:root{--bg:#1b1c1e;--fg:#ecebe6;--sub:#a5a49e;--card:#25262a;--line:#3a3b40;--accent:#8db7e0}}
+body{background:var(--bg);color:var(--fg);font-family:"BIZ UDPGothic","Yu Gothic UI",sans-serif;margin:0;padding:24px 16px;line-height:1.7}
+main{max-width:720px;margin:0 auto}
+h1{font-size:1.4rem;margin:0 0 4px}
+.lead{color:var(--sub);margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px}
+.card h2{font-size:1.05rem;margin:0 0 2px}
+.card p{margin:0 0 8px;color:var(--sub);font-size:.92rem}
+.ref{border-left:4px solid var(--accent)}
+audio{width:100%}
+table{border-collapse:collapse;width:100%;font-size:.9rem;margin-top:8px}
+th,td{border-bottom:1px solid var(--line);padding:6px 4px;text-align:left}
+.note{color:var(--sub);font-size:.85rem;margin-top:20px}
+</style></head><body><main>
+<h1>合成音声の聞き比べ</h1>
+<p class="lead">読ませた文:「こんにちは。これは、音声合成のテストです。今日は、よいお天気ですね。」<br>2026-10-17 作成。すべて手元PCで生成(外部API不使用)。</p>
+
+<div class="card ref"><h2>0. 手本の声(元の録音から切り出し・8秒)</h2>
+<p>東町4丁目 3.m4a の 9.6〜18.0秒</p>
+<audio controls preload="metadata" src="0_手本の声_8秒.wav"></audio></div>
+
+<div class="card"><h2>1. Qwen3-TTS(手本8秒)</h2>
+<p>以前のHF Spaceと同じモデル。手本の文字起こしも渡している</p>
+<audio controls preload="metadata" src="1_Qwen3-TTS_手本8秒.wav"></audio></div>
+
+<div class="card"><h2>2. Irodori-TTS(手本8秒)</h2>
+<p>v4.1-Small。1と同じ手本だけを渡した、いちばん公平な比較</p>
+<audio controls preload="metadata" src="2_Irodori-TTS_手本8秒.wav"></audio></div>
+
+<div class="card"><h2>3. Irodori-TTS(手本40秒)</h2>
+<p>同じ録音から4文(約40秒)を渡した版。作者は30秒以上を推奨</p>
+<audio controls preload="metadata" src="3_Irodori-TTS_手本40秒.wav"></audio></div>
+
+<table>
+<tr><th></th><th>読み</th><th>音割れ</th><th>生成時間(CPU)</th></tr>
+<tr><td>1. Qwen3-TTS</td><td>正しい</td><td>ごくわずか(6点)</td><td>約1分</td></tr>
+<tr><td>2. Irodori 8秒</td><td>正しい</td><td>なし</td><td>約1分半</td></tr>
+<tr><td>3. Irodori 40秒</td><td>正しい</td><td>なし</td><td>約2分</td></tr>
+</table>
+<p class="note">「読み」は文字起こしソフトで聞き直して確認した結果。声の似かたは機械では測っていないので、耳で判断してください。Irodori-TTSの出力には、合成音声であることを示す聞こえない透かしが入っています。</p>
+</main></body></html>
