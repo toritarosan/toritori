@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>合成音声の聞き比べ2</title>
+<style>
+:root{--bg:#fafaf7;--fg:#1d1d1b;--sub:#5c5c57;--card:#fff;--line:#e3e2dc;--accent:#2f5d8a;--accent2:#8a5a2f}
+@media (prefers-color-scheme:dark){:root{--bg:#1b1c1e;--fg:#ecebe6;--sub:#a5a49e;--card:#25262a;--line:#3a3b40;--accent:#8db7e0;--accent2:#e0b48d}}
+body{background:var(--bg);color:var(--fg);font-family:"BIZ UDPGothic","Yu Gothic UI",sans-serif;margin:0;padding:24px 16px;line-height:1.7}
+main{max-width:720px;margin:0 auto}
+h1{font-size:1.4rem;margin:0 0 4px}
+.lead{color:var(--sub);margin:0 0 20px}
+.quote{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:0 0 20px;font-size:1.05rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:0 0 12px}
+.card h2{font-size:1.05rem;margin:0 0 2px}
+.card p{margin:0 0 8px;color:var(--sub);font-size:.92rem}
+.ref{border-left:4px solid var(--accent)}
+.calm{border-left:4px solid var(--accent2)}
+audio{width:100%}
+.note{color:var(--sub);font-size:.85rem;margin-top:20px}
+</style></head><body><main>
+<h1>合成音声の聞き比べ2</h1>
+<p class="lead">2026-10-23 作成。宣伝カー原稿の検討用ドキュメントから1文を選んで、手元PCで生成(外部API不使用)。</p>
+<div class="quote">白井とおるは、市役所新庁舎等事業の見直しを進め、早期実現をめざします。</div>
+
+<div class="card ref"><h2>0. 手本の声(元の録音から切り出し・8秒)</h2>
+<p>前回と同じ。東町4丁目 3.m4a の 9.6〜18.0秒</p>
+<audio controls preload="metadata" src="0_手本の声_8秒.wav"></audio></div>
+
+<div class="card"><h2>1. Qwen3-TTS(手本8秒)</h2>
+<p>話し方の指示はできない型</p>
+<audio controls preload="metadata" src="1_Qwen3-TTS_手本8秒.wav"></audio></div>
+
+<div class="card"><h2>2. Irodori-TTS(手本8秒)</h2>
+<p>1と同じ手本。指示なし</p>
+<audio controls preload="metadata" src="2_Irodori-TTS_手本8秒.wav"></audio></div>
+
+<div class="card"><h2>3. Irodori-TTS(手本40秒)</h2>
+<p>同じ録音から4文。指示なし</p>
+<audio controls preload="metadata" src="3_Irodori-TTS_手本40秒.wav"></audio></div>
+
+<div class="card calm"><h2>4. Irodori-TTS(手本40秒+「落ち着いた、近い距離感の話し方」)</h2>
+<p>3と同じ手本に、話し方の指示文を付けた版。3と比べると指示の効き目がわかる</p>
+<audio controls preload="metadata" src="4_Irodori-TTS_手本40秒_落ち着いた近い距離感.wav"></audio></div>
+
+<p class="note">4本とも、文字起こしソフトで聞き直して、文が正しく読まれていることを確認した。長さ・音量は4本ともほぼ同じで、指示の効き目は機械では測れていない。耳で判断してください。</p>
+</main></body></html>
