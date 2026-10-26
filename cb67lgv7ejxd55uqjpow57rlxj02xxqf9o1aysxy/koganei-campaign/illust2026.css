@@ -1,0 +1,39 @@
+/* イラスト配置の見本（2026-10-26）。body.il-1〜il-5 で案を切り替える。本番には選んだ案の分だけ入れる */
+.il{display:block;pointer-events:none;user-select:none;height:auto}
+/* 案1 見出しの相棒 */
+.il-1 .sec-head.has-il{padding-right:150px}
+.il-1 .il-mascot{position:absolute;right:0;top:-14px;width:132px}
+.il-1 .il-mascot.is-ch{width:auto;height:168px;top:-34px;right:12px}
+/* 案4 の見出し（プロフィール）も同じ置き方 */
+.il-4 .sec-head.has-il{padding-right:150px}
+.il-4 .il-mascot.is-ch{position:absolute;right:12px;top:-34px;width:auto;height:168px}
+/* 案2 まちの絵をフッターに */
+.il-2 .il-town{max-width:880px;margin:-6px auto 44px}
+.il-2 .il-town img{width:100%;height:auto;display:block}
+/* 案3 波の上のパレード */
+.il-3 .wave{position:relative}
+.il-3 .il-parade{position:absolute;bottom:26px;height:112px;width:auto;left:var(--x)}
+.il-3 .il-parade.is-right{left:auto;right:var(--x)}
+/* 案4 似顔絵の白井さん */
+.il-4 .il-sign{height:168px;margin-top:20px}
+.il-4 .support-card{position:relative}
+.il-4 .il-cheer{position:absolute;right:56px;bottom:0;height:236px}
+/* 案5 ようこそと、ありがとう */
+.il-5 .intro-inner{display:flex;align-items:center;justify-content:space-between;gap:28px}
+.il-5 .il-welcome{height:200px;flex:none}
+.il-5 .support-card{position:relative}
+.il-5 .il-heart{position:absolute;right:44px;top:50%;transform:translateY(-50%);width:250px}
+@media (max-width:1000px){
+  .il-4 .il-cheer{position:static;height:130px;margin:18px 0 0 auto}
+  .il-5 .il-heart{position:static;transform:none;width:160px;margin:18px 0 0 auto}
+}
+@media (max-width:760px){
+  .il-1 .sec-head.has-il,.il-4 .sec-head.has-il{padding-right:96px}
+  .il-1 .il-mascot{width:86px;top:-4px}
+  .il-1 .il-mascot.is-ch,.il-4 .il-mascot.is-ch{height:112px;top:-12px;right:4px}
+  .il-2 .il-town{margin:0 auto 30px}
+  .il-3 .il-parade{height:74px;bottom:22px}
+  .il-4 .il-sign{height:120px}
+  .il-5 .intro-inner{flex-direction:column;align-items:flex-start;gap:14px}
+  .il-5 .il-welcome{height:140px;align-self:flex-end}
+}
