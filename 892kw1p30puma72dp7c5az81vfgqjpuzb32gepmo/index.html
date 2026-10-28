@@ -16,14 +16,15 @@
   <!-- HERO2026-CSS-END -->
 <!-- IL-START css --><style>
 /* イラスト配置（2026-10-28 見本） */
-.il{display:block;pointer-events:none;user-select:none;height:auto}
-.il-sign{height:112px;margin-top:16px}
+/* 高さで決める絵は width:auto を必ず付ける（<img width="…"> の属性のまま幅が固定され、縦につぶれるため） */
+.il{display:block;pointer-events:none;user-select:none;width:auto;height:auto}
+.il-sign{height:112px;width:auto;margin-top:16px}
 .support-card{position:relative}
-.il-cheer{position:absolute;right:56px;bottom:0;height:236px}
+.il-cheer{position:absolute;right:56px;bottom:0;height:236px;width:auto}
 .il-town{max-width:880px;margin:-6px auto 44px}
 .il-town img{width:100%;height:auto;display:block}
-@media (max-width:1000px){.il-cheer{position:static;height:130px;margin:18px 0 0 auto}}
-@media (max-width:760px){.il-sign{height:88px}.il-town{margin:0 auto 30px}}
+@media (max-width:1000px){.il-cheer{position:static;height:130px;width:auto;margin:18px 0 0 auto}}
+@media (max-width:760px){.il-sign{height:88px;width:auto}.il-town{margin:0 auto 30px}}
 </style><!-- IL-END -->
 </head>
 <body>
