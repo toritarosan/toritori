@@ -23,8 +23,19 @@
 .il-cheer{position:absolute;right:56px;bottom:0;height:236px;width:auto}
 .il-town{max-width:880px;margin:-6px auto 44px}
 .il-town img{width:100%;height:auto;display:block}
-@media (max-width:1000px){.il-cheer{position:static;height:130px;width:auto;margin:18px 0 0 auto}}
-@media (max-width:760px){.il-sign{height:88px;width:auto}.il-town{margin:0 auto 30px}}
+/* 2026-10-29: 「新しい小金井市へ。」の右にまち全体 */
+.intro-inner.has-il{display:flex;align-items:center;justify-content:space-between;gap:28px}
+.il-intro{height:230px;width:auto;flex:none}
+/* 2026-10-29: 各欄の見出しの右に、ポーズ＋持ち物の白井さん（見出しの欄の右端・上下の真ん中。文字には重ねない） */
+/* 右に絵の幅ぶんの余白を取っておく（見出しの文字の箱が絵の下に入らないように。PCでは文字は最長でも660px程度なので折り返しは変わらない） */
+.sec-head.has-il{position:relative;padding-right:190px}
+.sec-head .il-head{position:absolute;right:2%;top:50%;transform:translateY(-50%);height:150px;width:auto}
+@media (max-width:1000px){.il-cheer{position:static;height:130px;width:auto;margin:18px 0 0 auto}
+  .sec-head.has-il{padding-right:120px}.sec-head .il-head{right:0;height:130px}}
+@media (max-width:760px){.il-sign{height:88px;width:auto}.il-town{margin:0 auto 30px}
+  .intro-inner.has-il{flex-direction:column;align-items:flex-start;gap:18px}.il-intro{height:auto;width:100%;max-width:360px;align-self:flex-end}
+  /* スマホは見出しの文字の行を変えないよう、絵を見出しの右上（欄の上の余白）に置く */
+  .sec-head.has-il{padding-right:0}.sec-head .il-head{top:auto;bottom:100%;transform:none;right:0;height:86px;margin-bottom:6px}}
 </style><!-- IL-END -->
 </head>
 <body>
@@ -227,8 +238,8 @@
 <!-- OPINION-END -->
 <!-- ============ INTRO BAND ============ -->
   <div class="intro-band">
-    <div class="wrap intro-inner reveal">
-      <p class="intro-lead">新しい<br>小金井市へ。</p><!-- 元は「次の」 -->
+    <div class="wrap intro-inner reveal has-il">
+      <p class="intro-lead">新しい<br>小金井市へ。</p><!-- IL-START intro --><picture><source srcset="uploads/illust/town.webp" type="image/webp"><img class="il il-intro" src="uploads/illust/town.png" alt="" aria-hidden="true" width="1200" height="795" decoding="async"></picture><!-- IL-END --><!-- 元は「次の」 -->
     </div>
   </div>
 
@@ -253,11 +264,11 @@
   <!-- ============ ACHIEVEMENTS ============ -->
   <section class="sec" id="achievements" data-screen-label="4年間の成果">
     <div class="wrap">
-      <div class="sec-head reveal">
+      <div class="sec-head reveal has-il">
         <span class="sec-no">(01)</span>
         <h2 class="sec-en">Achievements</h2>
         <p class="sec-ja">4年間の成果</p>
-        </div>
+        <!-- IL-START head-achievements --><img class="il il-head" src="uploads/illust/pose_achievements.png" alt="" aria-hidden="true" width="281" height="380" loading="lazy" decoding="async"><!-- IL-END --></div>
 
       <!-- 「12分野」カードは校正指示で削除。復活用: <div class="stat"><div class="num">12<span class="unit">分野</span></div><div class="lbl">あらゆる分野で前進</div><div class="desc">子育て・教育・福祉・防災・環境ほか</div></div> -->
       <!-- 「9件 企業・団体との連携協定」は締結先一覧を後日追加予定（テキスト待ち） -->
@@ -366,7 +377,7 @@
 }
 </style>
 <div class="wrap">
-<div class="sec-head reveal"><div class="sec-en">Messages</div><h2 class="sec-ja sec-ja-final">各地の市長・区長からも応援いただいています！</h2></div>
+<div class="sec-head reveal has-il"><div class="sec-en">Messages</div><h2 class="sec-ja sec-ja-final">各地の市長・区長からも応援いただいています！</h2><!-- IL-START head-mayors --><img class="il il-head" src="uploads/illust/pose_mayors.png" alt="" aria-hidden="true" width="278" height="380" loading="lazy" decoding="async"><!-- IL-END --></div>
 <div class="ed-list">
 <article class="ed-item">
 <figure class="ed-photo"><img src="uploads/mayors/kodaira.jpg" alt="小林 洋子さんの写真" loading="lazy">
@@ -468,11 +479,11 @@
   <!-- ============ PROFILE ============ -->
   <section class="sec" id="profile" data-screen-label="プロフィール">
     <div class="wrap">
-      <div class="sec-head reveal">
+      <div class="sec-head reveal has-il">
         <span class="sec-no">(03)</span>
         <h2 class="sec-en">Profile</h2>
         <p class="sec-ja">白井とおる、という人</p>
-      </div>
+      <!-- IL-START head-profile --><img class="il il-head" src="uploads/illust/pose_profile.png" alt="" aria-hidden="true" width="279" height="380" loading="lazy" decoding="async"><!-- IL-END --></div>
       <div class="profile-inner">
         <div class="profile-photo-col reveal">
           <div class="profile-photo">
@@ -515,11 +526,11 @@
   <!-- ============ EVENTS ============ -->
   <section class="sec events" id="events" data-screen-label="演説会・日程">
     <div class="wrap">
-      <div class="sec-head reveal">
+      <div class="sec-head reveal has-il">
         <span class="sec-no">(04)</span>
         <h2 class="sec-en">News</h2>
         <p class="sec-ja">サポーターズからのお知らせ</p>
-        </div>
+        <!-- IL-START head-events --><img class="il il-head" src="uploads/illust/pose_events.png" alt="" aria-hidden="true" width="298" height="380" loading="lazy" decoding="async"><!-- IL-END --></div>
 
       <div class="event-list reveal d1" id="event-list"></div>
       <!-- NEWSFOLD-HTML-START お知らせは新しい5件だけ見せ、残りはボタンで開く（zip外の手動追加。戻し方は お知らせ折りたたみ_2026-10-26/README.md） -->
@@ -568,12 +579,12 @@
 </style>
   <section class="sec snshub" id="sns" data-screen-label="SNS">
     <div class="wrap">
-      <div class="sec-head reveal">
+      <div class="sec-head reveal has-il">
         <span class="sec-no">(04b)</span>
         <h2 class="sec-en">Follow</h2>
         <p class="sec-ja">SNSで最新情報を</p>
         <p class="sec-lead">白井とおる本人のSNS・ブログと、白井とおるサポーターズのSNSです</p>
-      </div>
+      <!-- IL-START head-sns --><img class="il il-head" src="uploads/illust/pose_sns.png" alt="" aria-hidden="true" width="287" height="380" loading="lazy" decoding="async"><!-- IL-END --></div>
 <!-- SNSP-START zip外の手動追加。戻し方は SNS本人発信_2026-10-28/README.md -->
 <style>
 /* SNS欄を「本人」と「サポーターズ」の2段に（SNS本人発信_2026-10-28） */
@@ -667,12 +678,12 @@
   <!-- ============ MAGAZINE（サポーターズマガジン・PDF掲載、2026.7.18追加。元に戻す: このセクションを削除し campaign.css の MAGAZINE ブロックも削除、?v=13 に戻す。掲載前バックアップ: backup/） ============ -->
   <section class="sec magazine" id="magazine" data-screen-label="サポーターズマガジン">
     <div class="wrap">
-      <div class="sec-head reveal">
+      <div class="sec-head reveal has-il">
         <span class="sec-no">(05)</span>
         <h2 class="sec-en">Magazine</h2>
         <p class="sec-ja">サポーターズマガジン</p>
         <p class="sec-lead">白井とおるサポーターズが発行している会報誌です。誌面のクリックでPDFをご覧いただけます</p>
-      </div>
+      <!-- IL-START head-magazine --><img class="il il-head" src="uploads/illust/pose_magazine.png" alt="" aria-hidden="true" width="277" height="380" loading="lazy" decoding="async"><!-- IL-END --></div>
       <div class="mag-grid">
         <!-- MAG-VOL4-START Vol.4（zip外の手動追加。再適用= shirai-web/tools/apply_magazine_vol4.py） -->
         <div class="mag-issue reveal">
@@ -745,12 +756,12 @@
   <!-- ============ COLUMN（季刊デモテック連載・2026.9.6追加。元に戻す: このセクション＋#rd リーダー＋column スクリプトを削除し campaign.css の COLUMN ブロックも削除、?v=15 に戻す） ============ -->
   <section class="sec column" id="column" data-screen-label="連載コラム">
   <div class="wrap">
-    <div class="sec-head reveal">
+    <div class="sec-head reveal has-il">
       <span class="sec-no">(07)</span>
       <h2 class="sec-en">Column</h2>
       <p class="sec-ja">季刊デモテック 連載寄稿</p>
       <p class="sec-lead">全国の地方自治体・議会に届く季刊誌「デモテック」（発行：東京インタープレイ株式会社）に、2024年から4回にわたって寄稿した連載です。カードをクリックすると誌面をそのまま読めます</p>
-    </div>
+    <!-- IL-START head-column --><img class="il il-head" src="uploads/illust/pose_column.png" alt="" aria-hidden="true" width="298" height="380" loading="lazy" decoding="async"><!-- IL-END --></div>
 
     <div class="col-grid" id="col-grid"></div>
 
